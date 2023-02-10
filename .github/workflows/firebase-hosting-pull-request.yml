@@ -13,7 +13,7 @@ jobs:
         with:
           flutter-version: '3.7.3'
           channel: 'stable'
-      - run: flutter latest install
+      - run: flutter install latest
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release
