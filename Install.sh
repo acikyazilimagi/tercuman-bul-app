@@ -71,4 +71,4 @@ menu() {
 
 menu
 
-echo "Installer command is done!"
+echo "Installer is finished!"
