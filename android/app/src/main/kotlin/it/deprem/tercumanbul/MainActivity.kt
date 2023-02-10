@@ -1,4 +1,4 @@
-package com.nylo.nylo_app
+package it.deprem.tercumanbul
 
 import io.flutter.embedding.android.FlutterActivity
 
