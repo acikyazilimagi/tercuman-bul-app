@@ -1,4 +1,7 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_app/app/services/auth_service.dart';
+import 'package:flutter_app/resources/pages/auth_page.dart';
+import 'package:nylo_framework/nylo_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'controller.dart';
 
@@ -8,15 +11,11 @@ class HomeController extends Controller {
     super.construct(context);
   }
 
-  onTapDocumentation() async {
-    await launchUrl(Uri.parse("https://nylo.dev/docs"));
-  }
-
-  onTapGithub() async {
-    await launchUrl(Uri.parse("https://github.com/nylo-core/nylo"));
-  }
-
-  onTapChangeLog() async {
-    await launchUrl(Uri.parse("https://github.com/nylo-core/framework/blob/4.x/CHANGELOG.md"));
+  logout() {
+    routeTo(
+      AuthPage.path,
+      removeUntilPredicate: (route) => false,
+    );
+    AuthService.instance.logout();
   }
 }
