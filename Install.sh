@@ -59,7 +59,7 @@ menu() {
                 macOS
                 break;;
             "Quit")
-                echo "Progress is closed and anything is not worked!"
+                echo "Quitting, no changes made."
                 break;;
             *)
                 clear
