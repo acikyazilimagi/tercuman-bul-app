@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "904450609059",
+    "project_id": "tercuman-bulmaca",
+    "storage_bucket": "tercuman-bulmaca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904450609059:android:d2ed320f877a3ebdc35416",
+        "android_client_info": {
+          "package_name": "com.nylo.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904450609059-snbia0s7536il55g02vfk1qod3plet67.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASz_H2BcYBcll5NO7zDnMIKDqLrsX5mrk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904450609059-nefvp2j3opsuluv61r7g00rp0jbgha97.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

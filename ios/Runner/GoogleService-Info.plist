@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>904450609059-0buh9si43rpre2vdt27kp4re7sdaiq5h.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.904450609059-0buh9si43rpre2vdt27kp4re7sdaiq5h</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAUJDfGEvbCxk8Aac_QpcFjHsywJlOXjSU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>904450609059</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.nylo.dev</string>
+	<key>PROJECT_ID</key>
+	<string>tercuman-bulmaca</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tercuman-bulmaca.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:904450609059:ios:8014c5c17a57f7c8c35416</string>
+</dict>
+</plist>

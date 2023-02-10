@@ -1,3 +1,4 @@
+import '/resources/pages/auth_page.dart';
 import '/resources/pages/register_page.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
