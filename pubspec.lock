@@ -337,30 +337,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  firebase_database:
-    dependency: transitive
-    description:
-      name: firebase_database
-      sha256: "5fa2c5128d0057b9af2fdc9124282ce8073f73adb8b0456d78120d1e578f5cda"
-      url: "https://pub.dev"
-    source: hosted
-    version: "10.0.10"
-  firebase_database_platform_interface:
-    dependency: transitive
-    description:
-      name: firebase_database_platform_interface
-      sha256: d7e03c4422a82b18624f13dc3c022d2dd98f8e28e71dd265d1ac341269d8a92a
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.2+18"
-  firebase_database_web:
-    dependency: transitive
-    description:
-      name: firebase_database_web
-      sha256: "383bf00aa419d283818b343845daef1b3e897fab48575ff8d93d89556ceda1cf"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.1+20"
   firebase_dynamic_links:
     dependency: transitive
     description:
@@ -377,6 +353,38 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.3+27"
+  firebase_ui_auth:
+    dependency: "direct main"
+    description:
+      name: firebase_ui_auth
+      sha256: "9391e7246f7a93d4f5d6217c2204db32a09570cef4d48659aa0c7c450212f949"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.10"
+  firebase_ui_localizations:
+    dependency: transitive
+    description:
+      name: firebase_ui_localizations
+      sha256: faa2aa37ccbb3529f1dc297f513cd731c74739a781a49e5321f0127c94fa58cf
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
+  firebase_ui_oauth:
+    dependency: transitive
+    description:
+      name: firebase_ui_oauth
+      sha256: "2dfd36f4dc7767d9cf4d23a95f0ab70faea30df8af63a03fbc1915126f1e251e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.10"
+  firebase_ui_oauth_google:
+    dependency: "direct main"
+    description:
+      name: firebase_ui_oauth_google
+      sha256: "52c8711df079f460406a5857a98af484f040d53b5314564fb92ff63e5db66495"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.17"
   fixnum:
     dependency: transitive
     description:
@@ -406,30 +414,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.2"
-  flutter_facebook_auth:
-    dependency: transitive
-    description:
-      name: flutter_facebook_auth
-      sha256: "50dc3eef562acbe1e4cfad478053c9c16f9eaac49ad14ec48f00ed9dae1ba0cd"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.4.1+1"
-  flutter_facebook_auth_platform_interface:
-    dependency: transitive
-    description:
-      name: flutter_facebook_auth_platform_interface
-      sha256: "7950f5f8a6f2270c5d29af2a514733987db1191f70838fa777b282e47365f8c8"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.2.0"
-  flutter_facebook_auth_web:
-    dependency: transitive
-    description:
-      name: flutter_facebook_auth_web
-      sha256: "0f732e968c929a3c11a215ded802557576230ff0a0794c88941a8e92ff07b2eb"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.2.0"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -517,14 +501,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutterfire_ui:
-    dependency: "direct main"
-    description:
-      name: flutterfire_ui
-      sha256: "631ac0a39b3e24564aba7d2604a756aa884959f47ddf4f952b592f4b1c981c05"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.4.3+20"
   freezed:
     dependency: "direct main"
     description:
@@ -1021,30 +997,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.3"
-  sign_in_with_apple:
-    dependency: transitive
-    description:
-      name: sign_in_with_apple
-      sha256: "54791280a9b4c233c3a85027c936690f77e2406fd0ffd6e1e0ac92338448d6b5"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.3.0"
-  sign_in_with_apple_platform_interface:
-    dependency: transitive
-    description:
-      name: sign_in_with_apple_platform_interface
-      sha256: a5883edee09ed6be19de19e7d9f618a617fe41a6fa03f76d082dfb787e9ea18d
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
-  sign_in_with_apple_web:
-    dependency: transitive
-    description:
-      name: sign_in_with_apple_web
-      sha256: "44b66528f576e77847c14999d5e881e17e7223b7b0625a185417829e5306f47a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -1138,14 +1090,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.1"
-  twitter_login:
-    dependency: transitive
-    description:
-      name: twitter_login
-      sha256: e4a2c65e43041fc5e13632f627571e29ed752c0c6ad39b7756302f678cedfa67
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.3.1"
   typed_data:
     dependency: transitive
     description:

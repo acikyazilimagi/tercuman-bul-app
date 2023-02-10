@@ -5,7 +5,7 @@ import 'package:nylo_framework/nylo_framework.dart';
 import '/app/controllers/controller.dart';
 
 class RegisterPage extends NyStatefulWidget {
-  static final String path = "/";
+  static final String path = "/register";
   final Controller controller = Controller();
   RegisterPage({Key? key}) : super(key: key);
 
