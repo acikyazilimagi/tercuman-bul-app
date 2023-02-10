@@ -1,0 +1,10 @@
+{
+  "appTitle": "Translate Finder",
+  "fullName": "Full Name",
+  "fullNameHelper": "Please enter name and surname",
+  "phoneNumber": "Phone Number",
+  "phoneNumberHelper": "Please enter your phone number",
+  "yourLanguage": "I Speak Fluently",
+  "yourLanguageHelper": "Please write down the languages you speak fluently",
+  "register": "Register"
+}
