@@ -58,7 +58,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyASz_H2BcYBcll5NO7zDnMIKDqLrsX5mrk',
-    appId: '1:904450609059:android:d2ed320f877a3ebdc35416',
+    appId: '1:904450609059:android:20c0218fe55758b2c35416',
     messagingSenderId: '904450609059',
     projectId: 'tercuman-bulmaca',
     storageBucket: 'tercuman-bulmaca.appspot.com',
@@ -66,11 +66,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAUJDfGEvbCxk8Aac_QpcFjHsywJlOXjSU',
-    appId: '1:904450609059:ios:8014c5c17a57f7c8c35416',
+    appId: '1:904450609059:ios:01b4d433b67554b2c35416',
     messagingSenderId: '904450609059',
     projectId: 'tercuman-bulmaca',
     storageBucket: 'tercuman-bulmaca.appspot.com',
-    iosClientId: '904450609059-0buh9si43rpre2vdt27kp4re7sdaiq5h.apps.googleusercontent.com',
+    iosClientId: '904450609059-ct78luq2tjm3s5a992pru59b2k2pe9n1.apps.googleusercontent.com',
     iosBundleId: 'it.deprem.tercumanbul',
   );
 }
