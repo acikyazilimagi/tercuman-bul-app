@@ -23,10 +23,15 @@ mixin _$Translator {
   String? get email => throw _privateConstructorUsedError;
   String? get instagram => throw _privateConstructorUsedError;
   String? get twitter => throw _privateConstructorUsedError;
+  String? get linkedin => throw _privateConstructorUsedError;
+  String? get facebook => throw _privateConstructorUsedError;
+  String? get messenger => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   bool get isInterpreter => throw _privateConstructorUsedError;
-  String get location => throw _privateConstructorUsedError;
+  @GeoPointConverter()
+  GeoPoint get location => throw _privateConstructorUsedError;
   List<String> get languages => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,10 +49,14 @@ abstract class $TranslatorCopyWith<$Res> {
       {String? email,
       String? instagram,
       String? twitter,
+      String? linkedin,
+      String? facebook,
+      String? messenger,
       String? phone,
       bool isInterpreter,
-      String location,
-      List<String> languages});
+      @GeoPointConverter() GeoPoint location,
+      List<String> languages,
+      String name});
 }
 
 /// @nodoc
@@ -66,10 +75,14 @@ class _$TranslatorCopyWithImpl<$Res, $Val extends Translator>
     Object? email = freezed,
     Object? instagram = freezed,
     Object? twitter = freezed,
+    Object? linkedin = freezed,
+    Object? facebook = freezed,
+    Object? messenger = freezed,
     Object? phone = freezed,
     Object? isInterpreter = null,
     Object? location = null,
     Object? languages = null,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
       email: freezed == email
@@ -84,6 +97,18 @@ class _$TranslatorCopyWithImpl<$Res, $Val extends Translator>
           ? _value.twitter
           : twitter // ignore: cast_nullable_to_non_nullable
               as String?,
+      linkedin: freezed == linkedin
+          ? _value.linkedin
+          : linkedin // ignore: cast_nullable_to_non_nullable
+              as String?,
+      facebook: freezed == facebook
+          ? _value.facebook
+          : facebook // ignore: cast_nullable_to_non_nullable
+              as String?,
+      messenger: freezed == messenger
+          ? _value.messenger
+          : messenger // ignore: cast_nullable_to_non_nullable
+              as String?,
       phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
@@ -95,11 +120,15 @@ class _$TranslatorCopyWithImpl<$Res, $Val extends Translator>
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String,
+              as GeoPoint,
       languages: null == languages
           ? _value.languages
           : languages // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -116,10 +145,14 @@ abstract class _$$_TranslatorCopyWith<$Res>
       {String? email,
       String? instagram,
       String? twitter,
+      String? linkedin,
+      String? facebook,
+      String? messenger,
       String? phone,
       bool isInterpreter,
-      String location,
-      List<String> languages});
+      @GeoPointConverter() GeoPoint location,
+      List<String> languages,
+      String name});
 }
 
 /// @nodoc
@@ -136,10 +169,14 @@ class __$$_TranslatorCopyWithImpl<$Res>
     Object? email = freezed,
     Object? instagram = freezed,
     Object? twitter = freezed,
+    Object? linkedin = freezed,
+    Object? facebook = freezed,
+    Object? messenger = freezed,
     Object? phone = freezed,
     Object? isInterpreter = null,
     Object? location = null,
     Object? languages = null,
+    Object? name = null,
   }) {
     return _then(_$_Translator(
       email: freezed == email
@@ -154,6 +191,18 @@ class __$$_TranslatorCopyWithImpl<$Res>
           ? _value.twitter
           : twitter // ignore: cast_nullable_to_non_nullable
               as String?,
+      linkedin: freezed == linkedin
+          ? _value.linkedin
+          : linkedin // ignore: cast_nullable_to_non_nullable
+              as String?,
+      facebook: freezed == facebook
+          ? _value.facebook
+          : facebook // ignore: cast_nullable_to_non_nullable
+              as String?,
+      messenger: freezed == messenger
+          ? _value.messenger
+          : messenger // ignore: cast_nullable_to_non_nullable
+              as String?,
       phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
@@ -165,11 +214,15 @@ class __$$_TranslatorCopyWithImpl<$Res>
       location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String,
+              as GeoPoint,
       languages: null == languages
           ? _value._languages
           : languages // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -181,10 +234,14 @@ class _$_Translator with DiagnosticableTreeMixin implements _Translator {
       {this.email,
       this.instagram,
       this.twitter,
+      this.linkedin,
+      this.facebook,
+      this.messenger,
       this.phone,
       required this.isInterpreter,
-      required this.location,
-      required final List<String> languages})
+      @GeoPointConverter() required this.location,
+      required final List<String> languages,
+      required this.name})
       : _languages = languages;
 
   factory _$_Translator.fromJson(Map<String, dynamic> json) =>
@@ -197,11 +254,18 @@ class _$_Translator with DiagnosticableTreeMixin implements _Translator {
   @override
   final String? twitter;
   @override
+  final String? linkedin;
+  @override
+  final String? facebook;
+  @override
+  final String? messenger;
+  @override
   final String? phone;
   @override
   final bool isInterpreter;
   @override
-  final String location;
+  @GeoPointConverter()
+  final GeoPoint location;
   final List<String> _languages;
   @override
   List<String> get languages {
@@ -211,8 +275,11 @@ class _$_Translator with DiagnosticableTreeMixin implements _Translator {
   }
 
   @override
+  final String name;
+
+  @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Translator(email: $email, instagram: $instagram, twitter: $twitter, phone: $phone, isInterpreter: $isInterpreter, location: $location, languages: $languages)';
+    return 'Translator(email: $email, instagram: $instagram, twitter: $twitter, linkedin: $linkedin, facebook: $facebook, messenger: $messenger, phone: $phone, isInterpreter: $isInterpreter, location: $location, languages: $languages, name: $name)';
   }
 
   @override
@@ -223,10 +290,14 @@ class _$_Translator with DiagnosticableTreeMixin implements _Translator {
       ..add(DiagnosticsProperty('email', email))
       ..add(DiagnosticsProperty('instagram', instagram))
       ..add(DiagnosticsProperty('twitter', twitter))
+      ..add(DiagnosticsProperty('linkedin', linkedin))
+      ..add(DiagnosticsProperty('facebook', facebook))
+      ..add(DiagnosticsProperty('messenger', messenger))
       ..add(DiagnosticsProperty('phone', phone))
       ..add(DiagnosticsProperty('isInterpreter', isInterpreter))
       ..add(DiagnosticsProperty('location', location))
-      ..add(DiagnosticsProperty('languages', languages));
+      ..add(DiagnosticsProperty('languages', languages))
+      ..add(DiagnosticsProperty('name', name));
   }
 
   @override
@@ -238,19 +309,37 @@ class _$_Translator with DiagnosticableTreeMixin implements _Translator {
             (identical(other.instagram, instagram) ||
                 other.instagram == instagram) &&
             (identical(other.twitter, twitter) || other.twitter == twitter) &&
+            (identical(other.linkedin, linkedin) ||
+                other.linkedin == linkedin) &&
+            (identical(other.facebook, facebook) ||
+                other.facebook == facebook) &&
+            (identical(other.messenger, messenger) ||
+                other.messenger == messenger) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.isInterpreter, isInterpreter) ||
                 other.isInterpreter == isInterpreter) &&
             (identical(other.location, location) ||
                 other.location == location) &&
             const DeepCollectionEquality()
-                .equals(other._languages, _languages));
+                .equals(other._languages, _languages) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, email, instagram, twitter, phone,
-      isInterpreter, location, const DeepCollectionEquality().hash(_languages));
+  int get hashCode => Object.hash(
+      runtimeType,
+      email,
+      instagram,
+      twitter,
+      linkedin,
+      facebook,
+      messenger,
+      phone,
+      isInterpreter,
+      location,
+      const DeepCollectionEquality().hash(_languages),
+      name);
 
   @JsonKey(ignore: true)
   @override
@@ -271,10 +360,14 @@ abstract class _Translator implements Translator {
       {final String? email,
       final String? instagram,
       final String? twitter,
+      final String? linkedin,
+      final String? facebook,
+      final String? messenger,
       final String? phone,
       required final bool isInterpreter,
-      required final String location,
-      required final List<String> languages}) = _$_Translator;
+      @GeoPointConverter() required final GeoPoint location,
+      required final List<String> languages,
+      required final String name}) = _$_Translator;
 
   factory _Translator.fromJson(Map<String, dynamic> json) =
       _$_Translator.fromJson;
@@ -286,13 +379,22 @@ abstract class _Translator implements Translator {
   @override
   String? get twitter;
   @override
+  String? get linkedin;
+  @override
+  String? get facebook;
+  @override
+  String? get messenger;
+  @override
   String? get phone;
   @override
   bool get isInterpreter;
   @override
-  String get location;
+  @GeoPointConverter()
+  GeoPoint get location;
   @override
   List<String> get languages;
+  @override
+  String get name;
   @override
   @JsonKey(ignore: true)
   _$$_TranslatorCopyWith<_$_Translator> get copyWith =>
