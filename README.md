@@ -1,2 +1,2 @@
-# tercumanbulmaca
+# tercuman-bulmaca
 Tercuman Bulmaca
