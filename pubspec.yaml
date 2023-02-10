@@ -45,6 +45,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   json_serializable: ^6.6.1
+  lint: ^2.0.1
 
 # APP ICON - public/assets/app_icon/icon.png
 # Build icons: "flutter pub run flutter_launcher_icons:main"
