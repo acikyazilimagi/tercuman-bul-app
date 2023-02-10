@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app/networking/translator_api_service.dart';
 import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import '/app/controllers/controller.dart';
@@ -33,16 +34,16 @@ class _RegisterPageState extends NyState<RegisterPage> {
     bool tcppChecked = false;
 
     void _onTcppCbChanged(bool? newValue) => setState(() {
-      tcppChecked = newValue != null ? newValue : false;
-      //TODO: Box is not getting checked
-      if (tcppChecked) {
-        debugPrint('checked');
-        // TODO: Enable registration button
-      } else {
-        debugPrint('not checked');
-        // TODO: Disable registration button
-      }
-    });
+          tcppChecked = newValue != null ? newValue : false;
+          //TODO: Box is not getting checked
+          if (tcppChecked) {
+            debugPrint('checked');
+            // TODO: Enable registration button
+          } else {
+            debugPrint('not checked');
+            // TODO: Disable registration button
+          }
+        });
 
     return Scaffold(
       appBar: AppBar(
@@ -67,7 +68,8 @@ class _RegisterPageState extends NyState<RegisterPage> {
                 title: Text("iAgree".tr()),
                 value: tcppChecked,
                 onChanged: _onTcppCbChanged,
-                controlAffinity: ListTileControlAffinity.leading,  //  <-- leading Checkbox
+                controlAffinity:
+                    ListTileControlAffinity.leading, //  <-- leading Checkbox
               ),
               SizedBox(height: 22),
               SizedBox(
@@ -78,8 +80,10 @@ class _RegisterPageState extends NyState<RegisterPage> {
                   onPressed: () async {
                     // TODO : for testing only
 
-                    await NyLocalization.instance
-                        .setLanguage(context, language: NyLocalization.instance.languageCode == 'en' ? 'tr' : 'en');
+                    await NyLocalization.instance.setLanguage(context,
+                        language: NyLocalization.instance.languageCode == 'en'
+                            ? 'tr'
+                            : 'en');
                     debugPrint(NyLocalization.instance.languageCode);
                   },
                   child: Text('register'.tr()),
