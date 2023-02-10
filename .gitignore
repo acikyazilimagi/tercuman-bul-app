@@ -1,3 +1,5 @@
+# Miscellaneous
+*.class
 #--Flutter
 
 # Miscellaneous
@@ -18,6 +20,11 @@
 *.iws
 .idea/
 
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
 # Visual Studio Code related
 .classpath
 .project
@@ -51,6 +58,22 @@ analysis_benchmark.json
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# Web related
+lib/generated_plugin_registrant.dart
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Exceptions to above rules.
+!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 **/generated_plugin_registrant.dart
 .packages
 .pub-cache/
