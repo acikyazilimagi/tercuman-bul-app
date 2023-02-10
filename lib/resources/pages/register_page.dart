@@ -27,8 +27,22 @@ class _RegisterPageState extends NyState<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style =
+    final ButtonStyle buttonStyle =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+
+    bool tcppChecked = false;
+
+    void _onTcppCbChanged(bool? newValue) => setState(() {
+      tcppChecked = newValue != null ? newValue : false;
+      //TODO: Box is not getting checked
+      if (tcppChecked) {
+        debugPrint('checked');
+        // TODO: Enable registration button
+      } else {
+        debugPrint('not checked');
+        // TODO: Disable registration button
+      }
+    });
 
     return Scaffold(
       appBar: AppBar(
@@ -47,15 +61,26 @@ class _RegisterPageState extends NyState<RegisterPage> {
               SizedBox(height: 22),
               CustomChipTags(list: selectedLanguages),
               SizedBox(height: 28),
+              Text("tcpp".tr()),
+              SizedBox(height: 22),
+              CheckboxListTile(
+                title: Text("iAgree".tr()),
+                value: tcppChecked,
+                onChanged: _onTcppCbChanged,
+                controlAffinity: ListTileControlAffinity.leading,  //  <-- leading Checkbox
+              ),
+              SizedBox(height: 22),
               SizedBox(
                 width: double.infinity,
                 height: 50.0,
                 child: ElevatedButton(
-                  style: style,
+                  style: buttonStyle,
                   onPressed: () async {
                     // TODO : for testing only
+
                     await NyLocalization.instance
-                        .setLanguage(context, language: "tr");
+                        .setLanguage(context, language: NyLocalization.instance.languageCode == 'en' ? 'tr' : 'en');
+                    debugPrint(NyLocalization.instance.languageCode);
                   },
                   child: Text('register'.tr()),
                 ),
