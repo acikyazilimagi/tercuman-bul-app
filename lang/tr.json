@@ -6,6 +6,8 @@
     "phoneNumberHelper": "Lütfen telefon numaranızı bu şekilde yazın +90XXXXXXXXX",
     "yourLanguage": "Akıcı Şekilde Konuşuyorum",
     "yourLanguageHelper": "Lütfen akıcı bir şekilde konuştuğunuz dilleri yazınız",
-    "register": "Kayıt Ol"
+    "register": "Kayıt Ol",
+    "iAgree": "Kabul Ediyorum",
+    "tcpp": "Verilerin Korunması Hakkında Bilgilendirme:\n\nBu uygulama, 6 Şubat 2023 tarihinde Türkiye’de meydana gelen büyük deprem felaketinde, arama kurtarma çalışmaları ile yardım ve destek taleplerini ortak bir veri tabanında toplayarak yetkili kurum ve kuruluşlara aktarmak amacıyla bilişim teknolojileri alanında çalışan gönüllüler tarafından oluşturulmuştur.\n\nYardım ya da desteğe ihtiyacı olduğunu belirttiğiniz kişilerin kişisel verileri ‘’Fiili imkânsızlık nedeniyle rızasını açıklayamayacak durumda bulunan veya rızasına hukuki geçerlilik tanınmayan kişinin kendisinin ya da bir başkasının hayatı veya beden bütünlüğünün korunması için zorunlu olması’’ hukuki sebebine dayanarak, otomatik yollarla işlenecektir.\n\nTarafınıza ait kişisel veriler, ‘’Bir hakkın tesisi, kullanılması ve korunması için veri işlemenin zorunlu olması’’ hukuki sebebine dayanarak işlenecektir.\n\nPaylaşacağınız yardım, destek taleplerinde yer alan isim, soyisim, telefon ve adres gibi kişisel veriler, tarafımızca oluşturulan ve sunucuları yurtiçi ve yurtdışında bulunan veri tabanında toplanarak, Afad, Akut, Kızılay gibi yetkili arama kurtarma kuruluşlarının yanı sıra destek ve yardım taleplerini karşılayabilecek sivil toplum kuruluşları ve Tercümanlar ile kişisel veri işleme amacı ile sınırlı olarak paylaşılacaktır."
   }
   

@@ -6,5 +6,7 @@
   "phoneNumberHelper": "Please enter your phone number",
   "yourLanguage": "I Speak Fluently",
   "yourLanguageHelper": "Please write down the languages you speak fluently",
-  "register": "Register"
+  "register": "Register",
+  "iAgree": "I agree",
+  "tcpp": "Information about Data Protection:\n\n\nThis application was created by volunteers in the field of information technology to collect search and rescue operations and support requests in a common database and pass them on to authorized institutions and organizations in response to the large earthquake disaster that occurred in Turkey on February 6, 2023.\n\nPersonal information of individuals who indicate that they need help or support will be processed automatically based on the legal reason of \"Absence of consent due to actual impossibility or lack of legal recognition of consent for the protection of life or physical integrity of oneself or others\".\n\nYour personal information will be processed based on the legal reason of \"Necessity of processing data for the establishment, use or protection of a right\".\n\nThe personal information such as name, surname, telephone and address included in the support and help requests you share, will be collected in a database created and hosted by us, both domestically and abroad, and will be shared with authorized search and rescue organizations such as AFAD, Akut and Red Crescent, as well as civil society organizations capable of meeting support and assistance requests, for the purpose of processing personal data."
 }
