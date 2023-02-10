@@ -71,6 +71,6 @@ class DefaultFirebaseOptions {
     projectId: 'tercuman-bulmaca',
     storageBucket: 'tercuman-bulmaca.appspot.com',
     iosClientId: '904450609059-0buh9si43rpre2vdt27kp4re7sdaiq5h.apps.googleusercontent.com',
-    iosBundleId: 'com.nylo.dev',
+    iosBundleId: 'it.deprem.tercumanbul',
   );
 }
