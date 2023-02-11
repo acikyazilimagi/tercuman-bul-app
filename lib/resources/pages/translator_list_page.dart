@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/app/models/translator.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
-import 'package:flutter_chip_tags/flutter_chip_tags.dart';
+import 'package:flutter_app/resources/themes/styles/light_theme_colors.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:nylo_framework/nylo_framework.dart';
 
 class TranslatorListPage extends StatefulWidget {
   const TranslatorListPage({super.key});
@@ -36,7 +38,25 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leadingWidth: 0,
+        centerTitle: false,
+        backgroundColor: LightThemeColors().white,
+        title: Row(
+          children: [
+            Expanded(
+              flex: 2,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Image.asset(
+                  getImageAsset("logo_horiz.png"),
+                ),
+              ),
+            ),
+            Spacer()
+          ],
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
@@ -56,12 +76,19 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                 children: [
                   TextSpan(
                       text:
-                          "Tercüman listesine aşağıdaki tablodan erişebilirsiniz. Yeni tercüman başvurusunu "),
+                          "Tercüman listesine aşağıdaki tablodan erişebilirsiniz. Yeni tercüman başvurusunu ",
+                      style: TextStyle(fontSize: 14)),
                   TextSpan(
                       text: "buradan",
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.black)),
-                  TextSpan(text: " yapabilirsiniz."),
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 14)),
+                  TextSpan(
+                      text: " yapabilirsiniz.",
+                      style: TextStyle(
+                        fontSize: 14,
+                      )),
                 ],
               ),
               textAlign: TextAlign.center,
@@ -70,17 +97,28 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                   .headlineSmall
                   ?.copyWith(fontWeight: FontWeight.w300),
             ),
-            getSpacer,
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FilterChip(
                   label: Text("İsim & Soyisim"),
                   onSelected: (_) {},
                   backgroundColor: Colors.transparent,
                 ),
+                FilterChip(
+                  label: DropdownButton(
+                    items: [
+                      DropdownMenuItem(
+                        child: Text("Bir dil seçin"),
+                      )
+                    ],
+                    onChanged: (value) {},
+                  ),
+                  onSelected: (_) {},
+                  backgroundColor: Colors.transparent,
+                ),
               ],
             ),
-            getSpacer,
             ExpansionPanelList(
               expansionCallback: (int index, bool isExpanded) {
                 setState(() {
@@ -136,6 +174,7 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                                   shape: BeveledRectangleBorder(),
                                   backgroundColor: Colors.transparent),
                             );
+
                             // return Container(
                             //   alignment: Alignment.center,
                             //   decoration: BoxDecoration(
@@ -152,6 +191,44 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                             //     ],
                             //   ),
                             // );
+                          },
+                        ),
+                        getSpacer,
+                        Text("İletişim Bilgileri"),
+                        getSpacer,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.phone,
+                              size: 17,
+                            ),
+                            Text("  +90532*******"),
+                          ],
+                        ),
+                        getSpacer,
+                        getSpacer,
+                        GridView.builder(
+                          itemCount: 4,
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  mainAxisSpacing: 15,
+                                  crossAxisCount: 2,
+                                  mainAxisExtent: context.lowHeight,
+                                  crossAxisSpacing: context.lowWidth),
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            return ElevatedButton.icon(
+                              onPressed: () {},
+                              label: Text("Instagram"),
+                              icon: Icon(MdiIcons.instagram),
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor:
+                                      Color.fromRGBO(34, 58, 82, 1),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(40),
+                                  )),
+                            );
                           },
                         ),
                       ],
