@@ -45,6 +45,6 @@ flutter run
 Not: Bağımlılıkları yüklerken Windows için Geliştirici modunu açmanız gerekebilir: `start ms-settings:developers` komutunu kullanabilirsiniz.
 
 ### Lisans:
-Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için //LICENSE.md dosyasına bakın.
+Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [lisans](LICENSE) dosyasına bakın.
 
 
