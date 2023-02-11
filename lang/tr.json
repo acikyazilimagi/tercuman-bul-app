@@ -8,7 +8,7 @@
     "yourLanguageHelper": "Lütfen akıcı bir şekilde konuştuğunuz dilleri yazınız",
     "register": "Kayıt Ol",
     "iAgree": "Kabul Ediyorum",
-    "tcpp": "Verilerin Korunması Hakkında Bilgilendirme:\n\nBu uygulama, 6 Şubat 2023 tarihinde Türkiye’de meydana gelen büyük deprem felaketinde, arama kurtarma çalışmaları ile yardım ve destek taleplerini ortak bir veri tabanında toplayarak yetkili kurum ve kuruluşlara aktarmak amacıyla bilişim teknolojileri alanında çalışan gönüllüler tarafından oluşturulmuştur.\n\nYardım ya da desteğe ihtiyacı olduğunu belirttiğiniz kişilerin kişisel verileri ‘’Fiili imkânsızlık nedeniyle rızasını açıklayamayacak durumda bulunan veya rızasına hukuki geçerlilik tanınmayan kişinin kendisinin ya da bir başkasının hayatı veya beden bütünlüğünün korunması için zorunlu olması’’ hukuki sebebine dayanarak, otomatik yollarla işlenecektir.\n\nTarafınıza ait kişisel veriler, ‘’Bir hakkın tesisi, kullanılması ve korunması için veri işlemenin zorunlu olması’’ hukuki sebebine dayanarak işlenecektir.\n\nPaylaşacağınız yardım, destek taleplerinde yer alan isim, soyisim, telefon ve adres gibi kişisel veriler, tarafımızca oluşturulan ve sunucuları yurtiçi ve yurtdışında bulunan veri tabanında toplanarak, Afad, Akut, Kızılay gibi yetkili arama kurtarma kuruluşlarının yanı sıra destek ve yardım taleplerini karşılayabilecek sivil toplum kuruluşları ve Tercümanlar ile kişisel veri işleme amacı ile sınırlı olarak paylaşılacaktır.",
+    "tcpp": "Verilerin Korunması Hakkında Bilgilendirme:\n\nBu uygulama, 6 Şubat 2023 tarihinde Türkiye’de meydana gelen büyük deprem felaketinde, arama kurtarma çalışmaları ile yardım ve destek taleplerini ortak bir veri tabanında toplayarak yetkili kurum ve kuruluşlara aktarmak amacıyla bilişim teknolojileri alanında çalışan gönüllüler tarafından oluşturulmuştur.\n\nYardım ya da desteğe ihtiyacı olduğunu belirttiğiniz kişilerin kişisel verileri, Fiili imkânsızlık nedeniyle rızasını açıklayamayacak durumda bulunan veya rızasına hukuki geçerlilik tanınmayan kişinin kendisinin ya da bir başkasının hayatı veya beden bütünlüğünün korunması için zorunlu olması, hukuki sebebine dayanarak, otomatik yollarla işlenecektir.\n\nTarafınıza ait kişisel veriler, Bir hakkın tesisi, kullanılması ve korunması için veri işlemenin zorunlu olması, hukuki sebebine dayanarak işlenecektir.\n\nPaylaşacağınız yardım, destek taleplerinde yer alan isim, soyisim, telefon ve adres gibi kişisel veriler, tarafımızca oluşturulan ve sunucuları yurtiçi ve yurtdışında bulunan veri tabanında toplanarak, Afad, Akut, Kızılay gibi yetkili arama kurtarma kuruluşlarının yanı sıra destek ve yardım taleplerini karşılayabilecek sivil toplum kuruluşları ve Tercümanlar ile kişisel veri işleme amacı ile sınırlı olarak paylaşılacaktır.",
     "welcomeText": "Gönüllü Tercümanlık",
     "welcomeHeader": "Hızla tercüman bul!",
     "welomeBody": "Herhangi bir dilde hızla ve kolayca tercüman bulun ve onlarla doğrudan platformumuz üzerinden iletişim kurun!",
@@ -22,7 +22,22 @@
     "communicateOtherTranslator": "Tercüme yaparken diğer tercümanlarla nasıl iletişim kurabilirim?",
     "cantFind": "Aradığınız cevabı bulamadınız mı?",
     "reachSupport": "Lütfen destek ekibimize ulaşın.",
-    "contactUsButton": "İletişime Geç"
-
+    "contactUsButton": "İletişime Geç",
+    "interpreterFormAccess": "Tercüman olmak için aşağıdaki formu doldurabilirsiniz. Tercüman listesine buradan erişebilirsiniz.",
+    "firstName": "İsim",
+    "firstNameInputHelper": "İsim giriniz..",
+    "lastName": "Soyisim",
+    "lastNameInputHelper": "Soyisim giriniz..",
+    "supportChannels": "Destek Kanallari",
+    "onsiteSupport": "Sahada Destek",
+    "onlineSupport": "Dijital/Online Destek",
+    "availableSupport": "Destek Verebileceğim Diller",
+    "addContactAddress": "İletişim Adresi Ekle",
+    "addFacebook": "Facebook adresinizi giriniz..",
+    "addInstagram": "Instagram adresinizi giriniz..",
+    "addTwitter": "Twitter adresinizi giriniz..",
+    "addLinkedin": "Linkedin adresinizi giriniz..",
+    "consentForm": "Aydınlatma Metni'ni okudum ve kabul ediyorum.",
+    "infoVerification": "Enkaz, yıkım, yardım ve destek ihtiyaçları konusunda verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, bilgi kirliliği ve yanlış uygulamalara yol açmamak için gerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum bilgilerde meydana gelen değişiklik ve güncellemeleri bildireceğimi kabul ve beyan ederim."
   }
   
