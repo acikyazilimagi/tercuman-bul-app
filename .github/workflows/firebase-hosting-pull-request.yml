@@ -5,14 +5,13 @@ name: Deploy to Firebase Hosting on PR
 "on": pull_request
 jobs:
   build_and_preview:
-    if: "${{ github.event.pull_request.head.repo.full_name == github.repository }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.7.3'
-          channel: 'stable'
+          flutter-version: "3.7.3"
+          channel: "stable"
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release
