@@ -19,10 +19,10 @@ macOS() {
     brew tap leoafarias/fvm
     brew install fvm
     echo "Flutter 3.7.3 is install your device"
-    fvm install 3.3.4
+    fvm install 3.7.3
     echo "FVM configuration is started"
-    fvm global 3.3.4
-    echo "Flutter 3.3.4 configured as global"
+    fvm global 3.7.3
+    echo "Flutter 3.7.3 configured as global"
     echo "Flutter export configuration is working"
     export PATH="$PATH":"$HOME/.pub-cache/bin"
     echo "FVM latest configuration is started"

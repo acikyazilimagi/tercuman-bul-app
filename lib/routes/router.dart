@@ -1,5 +1,7 @@
+import 'package:flutter_app/resources/pages/components_demo_page.dart';
 import 'package:flutter_app/resources/pages/home_page.dart';
 
+import '../resources/pages/become_translator_page.dart';
 import '/resources/pages/auth_page.dart';
 import '/resources/pages/register_page.dart';
 import 'package:nylo_framework/nylo_framework.dart';
@@ -19,4 +21,7 @@ appRouter() => nyRoutes((router) {
       router.route(HomePage.path, (context) => HomePage());
       router.route(RegisterPage.path, (context) => RegisterPage());
       router.route(AuthPage.path, (context) => AuthPage());
+      router.route(ComponentsDemoPage.path, (context) => ComponentsDemoPage());
+      router.route(
+          BecomeTranslatorPage.path, (context) => BecomeTranslatorPage());
     });

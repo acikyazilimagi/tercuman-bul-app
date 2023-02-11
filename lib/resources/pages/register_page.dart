@@ -56,7 +56,7 @@ class _RegisterPageState extends NyState<RegisterPage> {
             children: [
               CustomTextField(
                 title: "fullName".tr(),
-                helper: "fullNameHelper".tr(),
+                hint: "fullNameHelper".tr(),
                 keyboardType: TextInputType.name,
               ),
               SizedBox(height: 22),

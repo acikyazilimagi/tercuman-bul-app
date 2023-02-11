@@ -1,0 +1,27 @@
+{
+    "appTitle": "Wergêr Finder",
+    "fullName": "Navê Te Tev",
+    "fullNameHelper": "Ji kerema xwe nav û paşnavê xwe binivîse",
+    "phoneNumber": "Hejmara telefona te",
+    "phoneNumberHelper": "Ji kerema xwe jimara têlefona xwe bi vî rengî +90XXXXXXXXX binivîsin",
+    "yourLanguage": "Ez Bi Xwe Dipeyivim",
+    "yourLanguageHelper": "Ji kerema xwe zimanên ku hûn bi rihetî dipeyivin binivîsin",
+    "register": "Qeydkirin O",
+    "iAgree": "Ez razî me",
+    "tcpp": "Agahiyên li ser Parastina Daneyan:\n\nEv serîlêdan ji hêla dilxwazên ku di warê teknolojiyên agahdariyê de dixebitin ji bo komkirina xebatên lêgerîn û xilaskirinê û daxwazên alîkarî û piştgirîyê di databasek hevpar de di karesata erdheja mezin a ku di meha Sibatê de li Tirkiyeyê qewimî de hate çêkirin. 6, 2023 û wan veguhezînin sazî û rêxistinên rayedar.\n\nDaneyên kesane yên kesên ku hûn pêdiviya wan bi arîkarî an piştgiriyê diyar dikin dê bixweber werin xebitandin, li ser bingeha sedemek qanûnî, heke ji bo parastina mafên mirovan pêwîst be. jiyan an yekparebûna laşî ya kes an kesek din, ku ji ber ne gengaziya rastîn nikaribe razîbûna xwe diyar bike an razîbûna wî bi qanûnî ne derbasdar e. \n\nDaneyên kesane yên aîdê we dê li ser bingeha sedemek qanûnî ku hilberandina daneyan e ji bo damezrandin, bikaranîn û parastina mafekî mecbûrî ye. û serverên wê dê di databasek ku li hundur û derveyî welêt de ye were berhev kirin, û dê bi rêxistinên rayedar ên lêgerîn û rizgarkirinê yên wekî Afad, Akut, Kızılay, û her weha rêxistinên nehikûmî û Wergêrên ku dikarin daxwazên piştgirî û alîkariyê bicîh bînin re were parve kirin. ji bo armancên pêvajoya daneyên kesane.",
+    "welcomeText": "Wergera Dilxwaz",
+    "welcomeHeader": "Zû wergerek peyda bike!",
+    "welomeBody": "Wergerên bi her zimanî zû û bi hêsanî bibînin û rasterast li ser platforma me bi wan re têkilî daynin!",
+    "beInterpreter": "Bibe Wergêr",
+    "searchInterpreter": "Wergêrekî bibîne",
+    "fAskedQuestions": "Pirsên Pir Pir Pirs",
+    "thingsToKnow": "Tiştê ku divê hûn di derbarê platforma Find Translator de zanibin.",
+    "becomeVolunteerHeader": "Ez çawa dikarim bibim wergêrekî dilxwaz?",
+    "becomeVolunteerBody": "Ji bo ku hûn bibin wergêrek dilxwaz, divê hûn forma qeydkirinê ya platforma têkildar a Find a Wergêr dagirin û agahdarî û ezmûna wergerê ya pêwîst destnîşan bikin..",
+    "interpreterResponsibilities": "Di dema wergerê de çi erkên min hene?",
+    "communicateOtherTranslator": "Di dema wergerê de ez çawa dikarim bi wergêrên din re têkiliyê deynim?",
+    "cantFind": "Bersiva ku hûn lê digeriyan nedît?",
+    "reachSupport": "Ji kerema xwe bi tîma piştevaniyê re têkilî daynin.",
+    "contactUsButton": "Paqij bûn"
+}
+  
