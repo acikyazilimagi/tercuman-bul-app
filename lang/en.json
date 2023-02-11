@@ -22,6 +22,9 @@
   "communicateOtherTranslator": "How can I communicate with other translators while translating?",
   "cantFind": "Did you not find the answer you were looking for??",
   "reachSupport": "Please reach out to our support team.",
-  "contactUsButton": "Get in Touch."
-
+  "contactUsButton": "Get in Touch.",
+  "firstNameInputTitle": "First Name",
+  "firstNameInputHint": "Please enter first name..",
+  "lastNameInputTitle": "Last Name",
+  "lastNameInputHint": "Please enter last name.."
 }

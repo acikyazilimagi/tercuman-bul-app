@@ -102,7 +102,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
     return Column(
       children: [
         CustomTextField(
-            title: "firstName".tr(), hint: "firstNameInputHelper".tr())
+            title: "firstNameInputTitle".tr(), hint: "firstNameInputHint".tr())
       ],
     );
   }
