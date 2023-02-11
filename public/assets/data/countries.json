@@ -14,7 +14,7 @@
       "name": "Pashto"
     },
     "flag": "https://restcountries.eu/data/afg.svg",
-    "dialling_code": "+93",
+    "dialing_code": "+93",
     "isoCode": "004"
   },
   {
@@ -32,7 +32,7 @@
       "name": "Albanian"
     },
     "flag": "https://restcountries.eu/data/alb.svg",
-    "dialling_code": "+355",
+    "dialing_code": "+355",
     "isoCode": "008"
   },
   {
@@ -50,7 +50,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/dza.svg",
-    "dialling_code": "+213",
+    "dialing_code": "+213",
     "isoCode": "012"
   },
   {
@@ -68,7 +68,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/asm.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "016"
   },
   {
@@ -86,7 +86,7 @@
       "name": "Catalan"
     },
     "flag": "https://restcountries.eu/data/and.svg",
-    "dialling_code": "+376",
+    "dialing_code": "+376",
     "isoCode": "020"
   },
   {
@@ -104,7 +104,7 @@
       "name": "Portuguese"
     },
     "flag": "https://restcountries.eu/data/ago.svg",
-    "dialling_code": "+244",
+    "dialing_code": "+244",
     "isoCode": "024"
   },
   {
@@ -122,7 +122,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/aia.svg",
-    "dialling_code": "+43",
+    "dialing_code": "+43",
     "isoCode": "660"
   },
   {
@@ -140,7 +140,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/atg.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "028"
   },
   {
@@ -158,7 +158,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/arg.svg",
-    "dialling_code": "+54",
+    "dialing_code": "+54",
     "isoCode": "032"
   },
   {
@@ -176,7 +176,7 @@
       "name": "Armenian"
     },
     "flag": "https://restcountries.eu/data/arm.svg",
-    "dialling_code": "+374",
+    "dialing_code": "+374",
     "isoCode": "051"
   },
   {
@@ -194,7 +194,7 @@
       "name": "Dutch"
     },
     "flag": "https://restcountries.eu/data/abw.svg",
-    "dialling_code": "+297",
+    "dialing_code": "+297",
     "isoCode": "533"
   },
   {
@@ -212,7 +212,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/aus.svg",
-    "dialling_code": "+61",
+    "dialing_code": "+61",
     "isoCode": "036"
   },
   {
@@ -230,7 +230,7 @@
       "name": "Azerbaijani"
     },
     "flag": "https://restcountries.eu/data/aze.svg",
-    "dialling_code": "+994",
+    "dialing_code": "+994",
     "isoCode": "031"
   },
   {
@@ -248,7 +248,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/bhs.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "044"
   },
   {
@@ -266,7 +266,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/bhr.svg",
-    "dialling_code": "+973",
+    "dialing_code": "+973",
     "isoCode": "048"
   },
   {
@@ -284,7 +284,7 @@
       "name": "Bengali"
     },
     "flag": "https://restcountries.eu/data/bgd.svg",
-    "dialling_code": "+880",
+    "dialing_code": "+880",
     "isoCode": "050"
   },
   {
@@ -302,7 +302,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/brb.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "052"
   },
   {
@@ -320,7 +320,7 @@
       "name": "Belarusian"
     },
     "flag": "https://restcountries.eu/data/blr.svg",
-    "dialling_code": "+375",
+    "dialing_code": "+375",
     "isoCode": "112"
   },
   {
@@ -338,7 +338,7 @@
       "name": "Dutch"
     },
     "flag": "https://restcountries.eu/data/bel.svg",
-    "dialling_code": "+32",
+    "dialing_code": "+32",
     "isoCode": "056"
   },
   {
@@ -356,7 +356,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/blz.svg",
-    "dialling_code": "+501",
+    "dialing_code": "+501",
     "isoCode": "084"
   },
   {
@@ -374,7 +374,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/ben.svg",
-    "dialling_code": "+229",
+    "dialing_code": "+229",
     "isoCode": "204"
   },
   {
@@ -392,7 +392,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/bmu.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "060"
   },
   {
@@ -410,7 +410,7 @@
       "name": "Dzongkha"
     },
     "flag": "https://restcountries.eu/data/btn.svg",
-    "dialling_code": "+975",
+    "dialing_code": "+975",
     "isoCode": "064"
   },
   {
@@ -428,7 +428,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/bol.svg",
-    "dialling_code": "+591",
+    "dialing_code": "+591",
     "isoCode": "068"
   },
   {
@@ -446,7 +446,7 @@
       "name": "Bosnian"
     },
     "flag": "https://restcountries.eu/data/bih.svg",
-    "dialling_code": "+387",
+    "dialing_code": "+387",
     "isoCode": "070"
   },
   {
@@ -464,7 +464,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/bwa.svg",
-    "dialling_code": "+267",
+    "dialing_code": "+267",
     "isoCode": "072"
   },
   {
@@ -482,7 +482,7 @@
       "name": "Portuguese"
     },
     "flag": "https://restcountries.eu/data/bra.svg",
-    "dialling_code": "+55",
+    "dialing_code": "+55",
     "isoCode": "076"
   },
   {
@@ -500,7 +500,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/iot.svg",
-    "dialling_code": "+246",
+    "dialing_code": "+246",
     "isoCode": "086"
   },
   {
@@ -518,7 +518,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/vgb.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "092"
   },
   {
@@ -536,7 +536,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/vir.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "850"
   },
   {
@@ -554,7 +554,7 @@
       "name": "Malay"
     },
     "flag": "https://restcountries.eu/data/brn.svg",
-    "dialling_code": "+673",
+    "dialing_code": "+673",
     "isoCode": "096"
   },
   {
@@ -572,7 +572,7 @@
       "name": "Bulgarian"
     },
     "flag": "https://restcountries.eu/data/bgr.svg",
-    "dialling_code": "+359",
+    "dialing_code": "+359",
     "isoCode": "100"
   },
   {
@@ -590,7 +590,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/bfa.svg",
-    "dialling_code": "+226",
+    "dialing_code": "+226",
     "isoCode": "854"
   },
   {
@@ -608,7 +608,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/bdi.svg",
-    "dialling_code": "+257",
+    "dialing_code": "+257",
     "isoCode": "108"
   },
   {
@@ -626,7 +626,7 @@
       "name": "Khmer"
     },
     "flag": "https://restcountries.eu/data/khm.svg",
-    "dialling_code": "+855",
+    "dialing_code": "+855",
     "isoCode": "116"
   },
   {
@@ -644,7 +644,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/cmr.svg",
-    "dialling_code": "+237",
+    "dialing_code": "+237",
     "isoCode": "120"
   },
   {
@@ -662,7 +662,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/can.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "124"
   },
   {
@@ -682,7 +682,7 @@
       "nativeName": "Português"
     },
     "flag": "https://restcountries.eu/data/cpv.svg",
-    "dialling_code": "+238",
+    "dialing_code": "+238",
     "isoCode": "132"
   },
   {
@@ -701,7 +701,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/cym.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "136"
   },
   {
@@ -719,7 +719,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/caf.svg",
-    "dialling_code": "+236",
+    "dialing_code": "+236",
     "isoCode": "140"
   },
   {
@@ -737,7 +737,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/caf.svg",
-    "dialling_code": "+236",
+    "dialing_code": "+236",
     "isoCode": "140"
   },
   {
@@ -757,7 +757,7 @@
       "nativeName": "Español"
     },
     "flag": "https://restcountries.eu/data/chl.svg",
-    "dialling_code": "+56",
+    "dialing_code": "+56",
     "isoCode": "152"
   },
   {
@@ -775,7 +775,7 @@
       "name": "Chinese"
     },
     "flag": "https://restcountries.eu/data/chn.svg",
-    "dialling_code": "+86",
+    "dialing_code": "+86",
     "isoCode": "156"
   },
   {
@@ -793,7 +793,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/col.svg",
-    "dialling_code": "+57",
+    "dialing_code": "+57",
     "isoCode": "170"
   },
   {
@@ -811,7 +811,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/com.svg",
-    "dialling_code": "+269",
+    "dialing_code": "+269",
     "isoCode": "174"
   },
   {
@@ -829,7 +829,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/cog.svg",
-    "dialling_code": "+242",
+    "dialing_code": "+242",
     "isoCode": "178"
   },
   {
@@ -847,7 +847,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/cod.svg",
-    "dialling_code": "+243",
+    "dialing_code": "+243",
     "isoCode": "180"
   },
   {
@@ -865,7 +865,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/cok.svg",
-    "dialling_code": "+682",
+    "dialing_code": "+682",
     "isoCode": "184"
   },
   {
@@ -883,7 +883,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/cri.svg",
-    "dialling_code": "+506",
+    "dialing_code": "+506",
     "isoCode": "188"
   },
   {
@@ -901,7 +901,7 @@
       "name": "Croatian"
     },
     "flag": "https://restcountries.eu/data/hrv.svg",
-    "dialling_code": "+385",
+    "dialing_code": "+385",
     "isoCode": "191"
   },
   {
@@ -919,7 +919,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/cub.svg",
-    "dialling_code": "+53",
+    "dialing_code": "+53",
     "isoCode": "192"
   },
   {
@@ -937,7 +937,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/cub.svg",
-    "dialling_code": "+53",
+    "dialing_code": "+53",
     "isoCode": "192"
   },
   {
@@ -955,7 +955,7 @@
       "name": "Turkish"
     },
     "flag": "https://restcountries.eu/data/cyp.svg",
-    "dialling_code": "+357",
+    "dialing_code": "+357",
     "isoCode": "196"
   },
   {
@@ -973,7 +973,7 @@
       "name": "Czech"
     },
     "flag": "https://restcountries.eu/data/cze.svg",
-    "dialling_code": "+420",
+    "dialing_code": "+420",
     "isoCode": "203"
   },
   {
@@ -991,7 +991,7 @@
       "name": "Danish"
     },
     "flag": "https://restcountries.eu/data/dnk.svg",
-    "dialling_code": "+45",
+    "dialing_code": "+45",
     "isoCode": "208"
   },
   {
@@ -1009,7 +1009,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/dji.svg",
-    "dialling_code": "+253",
+    "dialing_code": "+253",
     "isoCode": "262"
   },
   {
@@ -1027,7 +1027,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/dma.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "212"
   },
   {
@@ -1045,7 +1045,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/dom.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "214"
   },
   {
@@ -1063,7 +1063,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/ecu.svg",
-    "dialling_code": "+593",
+    "dialing_code": "+593",
     "isoCode": "218"
   },
   {
@@ -1081,7 +1081,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/egy.svg",
-    "dialling_code": "+20",
+    "dialing_code": "+20",
     "isoCode": "818"
   },
   {
@@ -1099,7 +1099,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/slv.svg",
-    "dialling_code": "+503",
+    "dialing_code": "+503",
     "isoCode": "222"
   },
   {
@@ -1119,7 +1119,7 @@
       "nativeName": "Español"
     },
     "flag": "https://restcountries.eu/data/gnq.svg",
-    "dialling_code": "+240",
+    "dialing_code": "+240",
     "isoCode": "226"
   },
   {
@@ -1137,7 +1137,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/eri.svg",
-    "dialling_code": "+291",
+    "dialing_code": "+291",
     "isoCode": "232"
   },
   {
@@ -1155,7 +1155,7 @@
       "name": "Estonian"
     },
     "flag": "https://restcountries.eu/data/est.svg",
-    "dialling_code": "+372",
+    "dialing_code": "+372",
     "isoCode": "233"
   },
   {
@@ -1173,7 +1173,7 @@
       "name": "Amharic"
     },
     "flag": "https://restcountries.eu/data/eth.svg",
-    "dialling_code": "+251",
+    "dialing_code": "+251",
     "isoCode": "231"
   },
   {
@@ -1191,7 +1191,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/flk.svg",
-    "dialling_code": "+500",
+    "dialing_code": "+500",
     "isoCode": "238"
   },
   {
@@ -1209,7 +1209,7 @@
       "name": "Faroese"
     },
     "flag": "https://restcountries.eu/data/fro.svg",
-    "dialling_code": "+298",
+    "dialing_code": "+298",
     "isoCode": "234"
   },
   {
@@ -1227,7 +1227,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/fji.svg",
-    "dialling_code": "+679",
+    "dialing_code": "+679",
     "isoCode": "242"
   },
   {
@@ -1247,7 +1247,7 @@
       "nativeName": "suomi"
     },
     "flag": "https://restcountries.eu/data/fin.svg",
-    "dialling_code": "+358",
+    "dialing_code": "+358",
     "isoCode": "246"
   },
   {
@@ -1266,7 +1266,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/fra.svg",
-    "dialling_code": "+33",
+    "dialing_code": "+33",
     "isoCode": "250"
   },
   {
@@ -1284,7 +1284,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/guf.svg",
-    "dialling_code": "+594",
+    "dialing_code": "+594",
     "isoCode": "254"
   },
   {
@@ -1302,7 +1302,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/pyf.svg",
-    "dialling_code": "+689",
+    "dialing_code": "+689",
     "isoCode": "258"
   },
   {
@@ -1320,7 +1320,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/gab.svg",
-    "dialling_code": "+241",
+    "dialing_code": "+241",
     "isoCode": "266"
   },
   {
@@ -1338,7 +1338,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/gmb.svg",
-    "dialling_code": "+220",
+    "dialing_code": "+220",
     "isoCode": "270"
   },
   {
@@ -1356,7 +1356,7 @@
       "name": "Georgian"
     },
     "flag": "https://restcountries.eu/data/geo.svg",
-    "dialling_code": "+995",
+    "dialing_code": "+995",
     "isoCode": "268"
   },
   {
@@ -1374,7 +1374,7 @@
       "name": "German"
     },
     "flag": "https://restcountries.eu/data/deu.svg",
-    "dialling_code": "+49",
+    "dialing_code": "+49",
     "isoCode": "276"
   },
   {
@@ -1392,7 +1392,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/gha.svg",
-    "dialling_code": "+233",
+    "dialing_code": "+233",
     "isoCode": "288"
   },
   {
@@ -1410,7 +1410,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/gib.svg",
-    "dialling_code": "+350",
+    "dialing_code": "+350",
     "isoCode": "292"
   },
   {
@@ -1428,7 +1428,7 @@
       "name": "Greek (modern)"
     },
     "flag": "https://restcountries.eu/data/grc.svg",
-    "dialling_code": "+30",
+    "dialing_code": "+30",
     "isoCode": "300"
   },
   {
@@ -1446,7 +1446,7 @@
       "name": "Kalaallisut"
     },
     "flag": "https://restcountries.eu/data/grl.svg",
-    "dialling_code": "+299",
+    "dialing_code": "+299",
     "isoCode": "304"
   },
   {
@@ -1464,7 +1464,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/grd.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "308"
   },
   {
@@ -1482,7 +1482,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/glp.svg",
-    "dialling_code": "+590",
+    "dialing_code": "+590",
     "isoCode": "312"
   },
   {
@@ -1500,7 +1500,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/gum.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "316"
   },
   {
@@ -1518,7 +1518,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/gtm.svg",
-    "dialling_code": "+502",
+    "dialing_code": "+502",
     "isoCode": "320"
   },
   {
@@ -1536,7 +1536,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/gin.svg",
-    "dialling_code": "+224",
+    "dialing_code": "+224",
     "isoCode": "324"
   },
   {
@@ -1554,7 +1554,7 @@
       "name": "Portuguese"
     },
     "flag": "https://restcountries.eu/data/gnb.svg",
-    "dialling_code": "+245",
+    "dialing_code": "+245",
     "isoCode": "624"
   },
   {
@@ -1572,7 +1572,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/guy.svg",
-    "dialling_code": "+592",
+    "dialing_code": "+592",
     "isoCode": "328"
   },
   {
@@ -1590,7 +1590,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/hti.svg",
-    "dialling_code": "+509",
+    "dialing_code": "+509",
     "isoCode": "332"
   },
   {
@@ -1608,7 +1608,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/vat.svg",
-    "dialling_code": "+39",
+    "dialing_code": "+39",
     "isoCode": "336"
   },
   {
@@ -1626,7 +1626,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/hnd.svg",
-    "dialling_code": "+504",
+    "dialing_code": "+504",
     "isoCode": "340"
   },
   {
@@ -1644,7 +1644,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/hkg.svg",
-    "dialling_code": "+852",
+    "dialing_code": "+852",
     "isoCode": "344"
   },
   {
@@ -1662,7 +1662,7 @@
       "name": "Hungarian"
     },
     "flag": "https://restcountries.eu/data/hun.svg",
-    "dialling_code": "+36",
+    "dialing_code": "+36",
     "isoCode": "348"
   },
   {
@@ -1680,7 +1680,7 @@
       "name": "Icelandic"
     },
     "flag": "https://restcountries.eu/data/isl.svg",
-    "dialling_code": "+354",
+    "dialing_code": "+354",
     "isoCode": "352"
   },
   {
@@ -1698,7 +1698,7 @@
       "name": "Hindi"
     },
     "flag": "https://restcountries.eu/data/ind.svg",
-    "dialling_code": "+91",
+    "dialing_code": "+91",
     "isoCode": "356"
   },
   {
@@ -1716,7 +1716,7 @@
       "name": "Indonesian"
     },
     "flag": "https://restcountries.eu/data/idn.svg",
-    "dialling_code": "+62",
+    "dialing_code": "+62",
     "isoCode": "360"
   },
   {
@@ -1734,7 +1734,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/civ.svg",
-    "dialling_code": "+225",
+    "dialing_code": "+225",
     "isoCode": "384"
   },
   {
@@ -1752,7 +1752,7 @@
       "name": "Persian (Farsi)"
     },
     "flag": "https://restcountries.eu/data/irn.svg",
-    "dialling_code": "+98",
+    "dialing_code": "+98",
     "isoCode": "364"
   },
   {
@@ -1770,7 +1770,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/irq.svg",
-    "dialling_code": "+964",
+    "dialing_code": "+964",
     "isoCode": "368"
   },
   {
@@ -1788,7 +1788,7 @@
       "name": "Irish"
     },
     "flag": "https://restcountries.eu/data/irl.svg",
-    "dialling_code": "+353",
+    "dialing_code": "+353",
     "isoCode": "372"
   },
   {
@@ -1806,7 +1806,7 @@
       "name": "Hebrew (modern)"
     },
     "flag": "https://restcountries.eu/data/isr.svg",
-    "dialling_code": "+972",
+    "dialing_code": "+972",
     "isoCode": "376"
   },
   {
@@ -1824,7 +1824,7 @@
       "name": "Italian"
     },
     "flag": "https://restcountries.eu/data/ita.svg",
-    "dialling_code": "+39",
+    "dialing_code": "+39",
     "isoCode": "380"
   },
   {
@@ -1842,7 +1842,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/jam.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "388"
   },
   {
@@ -1860,7 +1860,7 @@
       "name": "Japanese"
     },
     "flag": "https://restcountries.eu/data/jpn.svg",
-    "dialling_code": "+81",
+    "dialing_code": "+81",
     "isoCode": "392"
   },
   {
@@ -1878,7 +1878,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/jor.svg",
-    "dialling_code": "+962",
+    "dialing_code": "+962",
     "isoCode": "400"
   },
   {
@@ -1896,7 +1896,7 @@
       "name": "Kazakh"
     },
     "flag": "https://restcountries.eu/data/kaz.svg",
-    "dialling_code": "+7",
+    "dialing_code": "+7",
     "isoCode": "398"
   },
   {
@@ -1914,7 +1914,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/ken.svg",
-    "dialling_code": "+254",
+    "dialing_code": "+254",
     "isoCode": "404"
   },
   {
@@ -1932,7 +1932,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/kir.svg",
-    "dialling_code": "+686",
+    "dialing_code": "+686",
     "isoCode": "296"
   },
   {
@@ -1950,7 +1950,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/kwt.svg",
-    "dialling_code": "+965",
+    "dialing_code": "+965",
     "isoCode": "414"
   },
   {
@@ -1968,7 +1968,7 @@
       "name": "Kyrgyz"
     },
     "flag": "https://restcountries.eu/data/kgz.svg",
-    "dialling_code": "+996",
+    "dialing_code": "+996",
     "isoCode": "417"
   },
   {
@@ -1986,7 +1986,7 @@
       "name": "Lao"
     },
     "flag": "https://restcountries.eu/data/lao.svg",
-    "dialling_code": "+856",
+    "dialing_code": "+856",
     "isoCode": "418"
   },
   {
@@ -2004,7 +2004,7 @@
       "name": "Latvian"
     },
     "flag": "https://restcountries.eu/data/lva.svg",
-    "dialling_code": "+371",
+    "dialing_code": "+371",
     "isoCode": "428"
   },
   {
@@ -2022,7 +2022,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/lbn.svg",
-    "dialling_code": "+961",
+    "dialing_code": "+961",
     "isoCode": "422"
   },
   {
@@ -2040,7 +2040,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/lso.svg",
-    "dialling_code": "+266",
+    "dialing_code": "+266",
     "isoCode": "426"
   },
   {
@@ -2058,7 +2058,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/lbr.svg",
-    "dialling_code": "+231",
+    "dialing_code": "+231",
     "isoCode": "430"
   },
   {
@@ -2076,7 +2076,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/lby.svg",
-    "dialling_code": "+218",
+    "dialing_code": "+218",
     "isoCode": "434"
   },
   {
@@ -2094,7 +2094,7 @@
       "name": "German"
     },
     "flag": "https://restcountries.eu/data/lie.svg",
-    "dialling_code": "+423",
+    "dialing_code": "+423",
     "isoCode": "438"
   },
   {
@@ -2112,7 +2112,7 @@
       "name": "Lithuanian"
     },
     "flag": "https://restcountries.eu/data/ltu.svg",
-    "dialling_code": "+370",
+    "dialing_code": "+370",
     "isoCode": "440"
   },
   {
@@ -2130,7 +2130,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/lux.svg",
-    "dialling_code": "+352",
+    "dialing_code": "+352",
     "isoCode": "442"
   },
   {
@@ -2148,7 +2148,7 @@
       "name": "Chinese"
     },
     "flag": "https://restcountries.eu/data/mac.svg",
-    "dialling_code": "+853",
+    "dialing_code": "+853",
     "isoCode": "446"
   },
   {
@@ -2166,7 +2166,7 @@
       "name": "Macedonian"
     },
     "flag": "https://restcountries.eu/data/mkd.svg",
-    "dialling_code": "+389",
+    "dialing_code": "+389",
     "isoCode": "807"
   },
   {
@@ -2184,7 +2184,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/mdg.svg",
-    "dialling_code": "+261",
+    "dialing_code": "+261",
     "isoCode": "450"
   },
   {
@@ -2202,7 +2202,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/mwi.svg",
-    "dialling_code": "+265",
+    "dialing_code": "+265",
     "isoCode": "454"
   },
   {
@@ -2220,7 +2220,7 @@
       "name": "Malaysian"
     },
     "flag": "https://restcountries.eu/data/mys.svg",
-    "dialling_code": "+60",
+    "dialing_code": "+60",
     "isoCode": "458"
   },
   {
@@ -2238,7 +2238,7 @@
       "name": "Divehi"
     },
     "flag": "https://restcountries.eu/data/mdv.svg",
-    "dialling_code": "+960",
+    "dialing_code": "+960",
     "isoCode": "462"
   },
   {
@@ -2256,7 +2256,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/mli.svg",
-    "dialling_code": "+223",
+    "dialing_code": "+223",
     "isoCode": "466"
   },
   {
@@ -2274,7 +2274,7 @@
       "name": "Maltese"
     },
     "flag": "https://restcountries.eu/data/mlt.svg",
-    "dialling_code": "+356",
+    "dialing_code": "+356",
     "isoCode": "470"
   },
   {
@@ -2292,7 +2292,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/mhl.svg",
-    "dialling_code": "+692",
+    "dialing_code": "+692",
     "isoCode": "584"
   },
   {
@@ -2310,7 +2310,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/mtq.svg",
-    "dialling_code": "+596",
+    "dialing_code": "+596",
     "isoCode": "474"
   },
   {
@@ -2328,7 +2328,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/mrt.svg",
-    "dialling_code": "+222",
+    "dialing_code": "+222",
     "isoCode": "478"
   },
   {
@@ -2346,7 +2346,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/mus.svg",
-    "dialling_code": "+230",
+    "dialing_code": "+230",
     "isoCode": "480"
   },
   {
@@ -2364,7 +2364,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/myt.svg",
-    "dialling_code": "+262",
+    "dialing_code": "+262",
     "isoCode": "175"
   },
   {
@@ -2382,7 +2382,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/mex.svg",
-    "dialling_code": "+52",
+    "dialing_code": "+52",
     "isoCode": "484"
   },
   {
@@ -2400,7 +2400,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/fsm.svg",
-    "dialling_code": "+691",
+    "dialing_code": "+691",
     "isoCode": "583"
   },
   {
@@ -2418,7 +2418,7 @@
       "name": "Romanian"
     },
     "flag": "https://restcountries.eu/data/mda.svg",
-    "dialling_code": "+373",
+    "dialing_code": "+373",
     "isoCode": "498"
   },
   {
@@ -2436,7 +2436,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/mco.svg",
-    "dialling_code": "+377",
+    "dialing_code": "+377",
     "isoCode": "492"
   },
   {
@@ -2454,7 +2454,7 @@
       "name": "Mongolian"
     },
     "flag": "https://restcountries.eu/data/mng.svg",
-    "dialling_code": "+976",
+    "dialing_code": "+976",
     "isoCode": "496"
   },
   {
@@ -2472,7 +2472,7 @@
       "name": "Serbian"
     },
     "flag": "https://restcountries.eu/data/mne.svg",
-    "dialling_code": "+382",
+    "dialing_code": "+382",
     "isoCode": "499"
   },
   {
@@ -2490,7 +2490,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/msr.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "500"
   },
   {
@@ -2508,7 +2508,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/mar.svg",
-    "dialling_code": "+212",
+    "dialing_code": "+212",
     "isoCode": "504"
   },
   {
@@ -2526,7 +2526,7 @@
       "name": "Portuguese"
     },
     "flag": "https://restcountries.eu/data/moz.svg",
-    "dialling_code": "+258",
+    "dialing_code": "+258",
     "isoCode": "508"
   },
   {
@@ -2544,7 +2544,7 @@
       "name": "Burmese"
     },
     "flag": "https://restcountries.eu/data/mmr.svg",
-    "dialling_code": "+95",
+    "dialing_code": "+95",
     "isoCode": "104"
   },
   {
@@ -2562,7 +2562,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/nam.svg",
-    "dialling_code": "+264",
+    "dialing_code": "+264",
     "isoCode": "516"
   },
   {
@@ -2580,7 +2580,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/nru.svg",
-    "dialling_code": "+674",
+    "dialing_code": "+674",
     "isoCode": "520"
   },
   {
@@ -2598,7 +2598,7 @@
       "name": "Nepali"
     },
     "flag": "https://restcountries.eu/data/npl.svg",
-    "dialling_code": "+977",
+    "dialing_code": "+977",
     "isoCode": "524"
   },
   {
@@ -2616,7 +2616,7 @@
       "name": "Dutch"
     },
     "flag": "https://restcountries.eu/data/nld.svg",
-    "dialling_code": "+31",
+    "dialing_code": "+31",
     "isoCode": "528"
   },
   {
@@ -2634,7 +2634,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/ncl.svg",
-    "dialling_code": "+687",
+    "dialing_code": "+687",
     "isoCode": "540"
   },
   {
@@ -2652,7 +2652,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/nzl.svg",
-    "dialling_code": "+64",
+    "dialing_code": "+64",
     "isoCode": "554"
   },
   {
@@ -2670,7 +2670,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/nic.svg",
-    "dialling_code": "+505",
+    "dialing_code": "+505",
     "isoCode": "558"
   },
   {
@@ -2688,7 +2688,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/ner.svg",
-    "dialling_code": "+227",
+    "dialing_code": "+227",
     "isoCode": "562"
   },
   {
@@ -2706,7 +2706,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/nga.svg",
-    "dialling_code": "+234",
+    "dialing_code": "+234",
     "isoCode": "566"
   },
   {
@@ -2724,7 +2724,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/niu.svg",
-    "dialling_code": "+683",
+    "dialing_code": "+683",
     "isoCode": "570"
   },
   {
@@ -2742,7 +2742,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/nfk.svg",
-    "dialling_code": "+672",
+    "dialing_code": "+672",
     "isoCode": "574"
   },
   {
@@ -2760,7 +2760,7 @@
       "name": "Korean"
     },
     "flag": "https://restcountries.eu/data/prk.svg",
-    "dialling_code": "+850",
+    "dialing_code": "+850",
     "isoCode": "408"
   },
   {
@@ -2778,7 +2778,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/mnp.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "580"
   },
   {
@@ -2796,7 +2796,7 @@
       "name": "Norwegian"
     },
     "flag": "https://restcountries.eu/data/nor.svg",
-    "dialling_code": "+47",
+    "dialing_code": "+47",
     "isoCode": "578"
   },
   {
@@ -2814,7 +2814,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/omn.svg",
-    "dialling_code": "+968",
+    "dialing_code": "+968",
     "isoCode": "512"
   },
   {
@@ -2832,7 +2832,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/pak.svg",
-    "dialling_code": "+92",
+    "dialing_code": "+92",
     "isoCode": "586"
   },
   {
@@ -2850,7 +2850,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/plw.svg",
-    "dialling_code": "+680",
+    "dialing_code": "+680",
     "isoCode": "585"
   },
   {
@@ -2868,7 +2868,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/pse.svg",
-    "dialling_code": "+970",
+    "dialing_code": "+970",
     "isoCode": "275"
   },
   {
@@ -2886,7 +2886,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/pan.svg",
-    "dialling_code": "+507",
+    "dialing_code": "+507",
     "isoCode": "591"
   },
   {
@@ -2904,7 +2904,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/png.svg",
-    "dialling_code": "+675",
+    "dialing_code": "+675",
     "isoCode": "598"
   },
   {
@@ -2922,7 +2922,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/pry.svg",
-    "dialling_code": "+595",
+    "dialing_code": "+595",
     "isoCode": "600"
   },
   {
@@ -2940,7 +2940,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/per.svg",
-    "dialling_code": "+51",
+    "dialing_code": "+51",
     "isoCode": "604"
   },
   {
@@ -2958,7 +2958,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/phl.svg",
-    "dialling_code": "+63",
+    "dialing_code": "+63",
     "isoCode": "608"
   },
   {
@@ -2976,7 +2976,7 @@
       "name": "Polish"
     },
     "flag": "https://restcountries.eu/data/pol.svg",
-    "dialling_code": "+48",
+    "dialing_code": "+48",
     "isoCode": "616"
   },
   {
@@ -2994,7 +2994,7 @@
       "name": "Portuguese"
     },
     "flag": "https://restcountries.eu/data/prt.svg",
-    "dialling_code": "+351",
+    "dialing_code": "+351",
     "isoCode": "620"
   },
   {
@@ -3012,7 +3012,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/pri.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "630"
   },
   {
@@ -3030,7 +3030,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/qat.svg",
-    "dialling_code": "+974",
+    "dialing_code": "+974",
     "isoCode": "634"
   },
   {
@@ -3048,7 +3048,7 @@
       "name": "Albanian"
     },
     "flag": "https://restcountries.eu/data/kos.svg",
-    "dialling_code": "+381",
+    "dialing_code": "+381",
     "isoCode": "383"
   },
   {
@@ -3066,7 +3066,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/reu.svg",
-    "dialling_code": "+262",
+    "dialing_code": "+262",
     "isoCode": "638"
   },
   {
@@ -3084,7 +3084,7 @@
       "name": "Romanian"
     },
     "flag": "https://restcountries.eu/data/rou.svg",
-    "dialling_code": "+40",
+    "dialing_code": "+40",
     "isoCode": "642"
   },
   {
@@ -3102,7 +3102,7 @@
       "name": "Russian"
     },
     "flag": "https://restcountries.eu/data/rus.svg",
-    "dialling_code": "+7",
+    "dialing_code": "+7",
     "isoCode": "643"
   },
   {
@@ -3120,7 +3120,7 @@
       "name": "Kinyarwanda"
     },
     "flag": "https://restcountries.eu/data/rwa.svg",
-    "dialling_code": "+250",
+    "dialing_code": "+250",
     "isoCode": "646"
   },
   {
@@ -3138,7 +3138,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/blm.svg",
-    "dialling_code": "+590",
+    "dialing_code": "+590",
     "isoCode": "652"
   },
   {
@@ -3156,7 +3156,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/shn.svg",
-    "dialling_code": "+290",
+    "dialing_code": "+290",
     "isoCode": "654"
   },
   {
@@ -3174,7 +3174,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/kna.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "659"
   },
   {
@@ -3192,7 +3192,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/lca.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "662"
   },
   {
@@ -3210,7 +3210,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/maf.svg",
-    "dialling_code": "+590",
+    "dialing_code": "+590",
     "isoCode": "663"
   },
   {
@@ -3228,7 +3228,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/spm.svg",
-    "dialling_code": "+508",
+    "dialing_code": "+508",
     "isoCode": "666"
   },
   {
@@ -3246,7 +3246,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/vct.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "670"
   },
   {
@@ -3264,7 +3264,7 @@
       "name": "Samoan"
     },
     "flag": "https://restcountries.eu/data/wsm.svg",
-    "dialling_code": "+685",
+    "dialing_code": "+685",
     "isoCode": "882"
   },
   {
@@ -3282,7 +3282,7 @@
       "name": "Italian"
     },
     "flag": "https://restcountries.eu/data/smr.svg",
-    "dialling_code": "+378",
+    "dialing_code": "+378",
     "isoCode": "674"
   },
   {
@@ -3300,7 +3300,7 @@
       "name": "Portuguese"
     },
     "flag": "https://restcountries.eu/data/stp.svg",
-    "dialling_code": "+239",
+    "dialing_code": "+239",
     "isoCode": "678"
   },
   {
@@ -3318,7 +3318,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/sau.svg",
-    "dialling_code": "+966",
+    "dialing_code": "+966",
     "isoCode": "682"
   },
   {
@@ -3336,7 +3336,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/sen.svg",
-    "dialling_code": "+221",
+    "dialing_code": "+221",
     "isoCode": "686"
   },
   {
@@ -3354,7 +3354,7 @@
       "name": "Serbian"
     },
     "flag": "https://restcountries.eu/data/srb.svg",
-    "dialling_code": "+381",
+    "dialing_code": "+381",
     "isoCode": "688"
   },
   {
@@ -3372,7 +3372,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/syc.svg",
-    "dialling_code": "+248",
+    "dialing_code": "+248",
     "isoCode": "690"
   },
   {
@@ -3390,7 +3390,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/sle.svg",
-    "dialling_code": "+232",
+    "dialing_code": "+232",
     "isoCode": "694"
   },
   {
@@ -3408,7 +3408,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/sgp.svg",
-    "dialling_code": "+65",
+    "dialing_code": "+65",
     "isoCode": "702"
   },
   {
@@ -3426,7 +3426,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/sgp.svg",
-    "dialling_code": "+65",
+    "dialing_code": "+65",
     "isoCode": "702"
   },
   {
@@ -3444,7 +3444,7 @@
       "name": "Slovak"
     },
     "flag": "https://restcountries.eu/data/svk.svg",
-    "dialling_code": "+421",
+    "dialing_code": "+421",
     "isoCode": "703"
   },
   {
@@ -3462,7 +3462,7 @@
       "name": "Slovene"
     },
     "flag": "https://restcountries.eu/data/svn.svg",
-    "dialling_code": "+386",
+    "dialing_code": "+386",
     "isoCode": "705"
   },
   {
@@ -3480,7 +3480,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/slb.svg",
-    "dialling_code": "+677",
+    "dialing_code": "+677",
     "isoCode": "090"
   },
   {
@@ -3498,7 +3498,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/som.svg",
-    "dialling_code": "+252",
+    "dialing_code": "+252",
     "isoCode": "706"
   },
   {
@@ -3518,7 +3518,7 @@
       "nativeName": "English"
     },
     "flag": "https://restcountries.eu/data/zaf.svg",
-    "dialling_code": "+27",
+    "dialing_code": "+27",
     "isoCode": "710"
   },
   {
@@ -3536,7 +3536,7 @@
       "name": "Korean"
     },
     "flag": "https://restcountries.eu/data/kor.svg",
-    "dialling_code": "+82",
+    "dialing_code": "+82",
     "isoCode": "410"
   },
   {
@@ -3554,7 +3554,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/esp.svg",
-    "dialling_code": "+34",
+    "dialing_code": "+34",
     "isoCode": "724"
   },
   {
@@ -3574,7 +3574,7 @@
       "nativeName": "සිංහල"
     },
     "flag": "https://restcountries.eu/data/lka.svg",
-    "dialling_code": "+94",
+    "dialing_code": "+94",
     "isoCode": "144"
   },
   {
@@ -3592,7 +3592,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/sdn.svg",
-    "dialling_code": "+249",
+    "dialing_code": "+249",
     "isoCode": "729"
   },
   {
@@ -3610,7 +3610,7 @@
       "name": "Dutch"
     },
     "flag": "https://restcountries.eu/data/sur.svg",
-    "dialling_code": "+597",
+    "dialing_code": "+597",
     "isoCode": "740"
   },
   {
@@ -3628,7 +3628,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/swz.svg",
-    "dialling_code": "+268",
+    "dialing_code": "+268",
     "isoCode": "748"
   },
   {
@@ -3646,7 +3646,7 @@
       "name": "Swedish"
     },
     "flag": "https://restcountries.eu/data/swe.svg",
-    "dialling_code": "+46",
+    "dialing_code": "+46",
     "isoCode": "752"
   },
   {
@@ -3664,7 +3664,7 @@
       "name": "German"
     },
     "flag": "https://restcountries.eu/data/che.svg",
-    "dialling_code": "+41",
+    "dialing_code": "+41",
     "isoCode": "756"
   },
   {
@@ -3682,7 +3682,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/syr.svg",
-    "dialling_code": "+963",
+    "dialing_code": "+963",
     "isoCode": "760"
   },
   {
@@ -3700,7 +3700,7 @@
       "name": "Chinese"
     },
     "flag": "https://restcountries.eu/data/twn.svg",
-    "dialling_code": "+886",
+    "dialing_code": "+886",
     "isoCode": "158"
   },
   {
@@ -3718,7 +3718,7 @@
       "name": "Tajik"
     },
     "flag": "https://restcountries.eu/data/tjk.svg",
-    "dialling_code": "+992",
+    "dialing_code": "+992",
     "isoCode": "762"
   },
   {
@@ -3736,7 +3736,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/tza.svg",
-    "dialling_code": "+255",
+    "dialing_code": "+255",
     "isoCode": "834"
   },
   {
@@ -3754,7 +3754,7 @@
       "name": "Thai"
     },
     "flag": "https://restcountries.eu/data/tha.svg",
-    "dialling_code": "+66",
+    "dialing_code": "+66",
     "isoCode": "764"
   },
   {
@@ -3772,7 +3772,7 @@
       "name": "Portuguese"
     },
     "flag": "https://restcountries.eu/data/tls.svg",
-    "dialling_code": "+670",
+    "dialing_code": "+670",
     "isoCode": "626"
   },
   {
@@ -3790,7 +3790,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/tgo.svg",
-    "dialling_code": "+228",
+    "dialing_code": "+228",
     "isoCode": "768"
   },
   {
@@ -3808,7 +3808,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/tkl.svg",
-    "dialling_code": "+690",
+    "dialing_code": "+690",
     "isoCode": "772"
   },
   {
@@ -3826,7 +3826,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/ton.svg",
-    "dialling_code": "+676",
+    "dialing_code": "+676",
     "isoCode": "776"
   },
   {
@@ -3844,7 +3844,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/tto.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "780"
   },
   {
@@ -3862,7 +3862,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/tun.svg",
-    "dialling_code": "+216",
+    "dialing_code": "+216",
     "isoCode": "788"
   },
   {
@@ -3880,7 +3880,7 @@
       "name": "Turkish"
     },
     "flag": "https://restcountries.eu/data/tur.svg",
-    "dialling_code": "+90",
+    "dialing_code": "+90",
     "isoCode": "792"
   },
   {
@@ -3898,7 +3898,7 @@
       "name": "Turkmen"
     },
     "flag": "https://restcountries.eu/data/tkm.svg",
-    "dialling_code": "+993",
+    "dialing_code": "+993",
     "isoCode": "795"
   },
   {
@@ -3916,7 +3916,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/tca.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "796"
   },
   {
@@ -3934,7 +3934,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/tuv.svg",
-    "dialling_code": "+688",
+    "dialing_code": "+688",
     "isoCode": "798"
   },
   {
@@ -3952,7 +3952,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/uga.svg",
-    "dialling_code": "+256",
+    "dialing_code": "+256",
     "isoCode": "800"
   },
   {
@@ -3970,7 +3970,7 @@
       "name": "Ukrainian"
     },
     "flag": "https://restcountries.eu/data/ukr.svg",
-    "dialling_code": "+380",
+    "dialing_code": "+380",
     "isoCode": "804"
   },
   {
@@ -3988,7 +3988,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/are.svg",
-    "dialling_code": "+971",
+    "dialing_code": "+971",
     "isoCode": "784"
   },
   {
@@ -4006,7 +4006,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/gbr.svg",
-    "dialling_code": "+44",
+    "dialing_code": "+44",
     "isoCode": "826"
   },
   {
@@ -4026,7 +4026,7 @@
       "nativeName": "English"
     },
     "flag": "https://restcountries.eu/data/usa.svg",
-    "dialling_code": "+1",
+    "dialing_code": "+1",
     "isoCode": "840"
   },
   {
@@ -4044,7 +4044,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/ury.svg",
-    "dialling_code": "+598",
+    "dialing_code": "+598",
     "isoCode": "858"
   },
   {
@@ -4062,7 +4062,7 @@
       "name": "Uzbek"
     },
     "flag": "https://restcountries.eu/data/uzb.svg",
-    "dialling_code": "+998",
+    "dialing_code": "+998",
     "isoCode": "860"
   },
   {
@@ -4080,7 +4080,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/vut.svg",
-    "dialling_code": "+678",
+    "dialing_code": "+678",
     "isoCode": "548"
   },
   {
@@ -4098,7 +4098,7 @@
       "name": "Spanish"
     },
     "flag": "https://restcountries.eu/data/ven.svg",
-    "dialling_code": "+58",
+    "dialing_code": "+58",
     "isoCode": "862"
   },
   {
@@ -4116,7 +4116,7 @@
       "name": "Vietnamese"
     },
     "flag": "https://restcountries.eu/data/vnm.svg",
-    "dialling_code": "+84",
+    "dialing_code": "+84",
     "isoCode": "704"
   },
   {
@@ -4134,7 +4134,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/wlf.svg",
-    "dialling_code": "+681",
+    "dialing_code": "+681",
     "isoCode": "876"
   },
   {
@@ -4152,7 +4152,7 @@
       "name": "French"
     },
     "flag": "https://restcountries.eu/data/wlf.svg",
-    "dialling_code": "+681",
+    "dialing_code": "+681",
     "isoCode": "876"
   },
   {
@@ -4170,7 +4170,7 @@
       "name": "Arabic"
     },
     "flag": "https://restcountries.eu/data/yem.svg",
-    "dialling_code": "+967",
+    "dialing_code": "+967",
     "isoCode": "887"
   },
   {
@@ -4188,7 +4188,7 @@
       "name": "English"
     },
     "flag": "https://restcountries.eu/data/zmb.svg",
-    "dialling_code": "+260",
+    "dialing_code": "+260",
     "isoCode": "894"
   },
   {
@@ -4208,7 +4208,7 @@
       "nativeName": "English"
     },
     "flag": "https://restcountries.eu/data/zwe.svg",
-    "dialling_code": "+263",
+    "dialing_code": "+263",
     "isoCode": "716"
   }
 ]
