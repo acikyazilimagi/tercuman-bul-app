@@ -1,25 +1,38 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/controllers/controller.dart';
 import 'package:flutter_app/resources/themes/styles/light_theme_colors.dart';
 import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
+import 'package:flutter_app/resources/widgets/atoms/country_flag.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_button.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_expandable_card.dart';
 import 'package:flutter_app/resources/widgets/molecules/contact_us_card.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
+import '../widgets/atoms/country_flag_name.dart';
+import '../widgets/molecules/country_dialing_code_picker.dart';
+
+
 class ComponentsDemoPage extends NyStatefulWidget {
-  final Controller controller = Controller();
   static final String path = "/demo";
+  final Controller controller = Controller();
 
   @override
   _ComponentsDemoPageState createState() => _ComponentsDemoPageState();
 }
 
 class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
+
+  List<dynamic>? countryData;
+
   @override
   init() async {
     super.init();
+    String json = await DefaultAssetBundle.of(this.context).loadString("public/assets/data/countries.json");
+    countryData = jsonDecode(json);
+    debugPrint(countryData.toString());
   }
 
   @override
@@ -36,11 +49,14 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
       body: SafeAreaWidget(
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               iconButtons(),
               SizedBox(height: 20),
               textField(),
               SizedBox(height: 20),
+              flags(),
+              SizedBox(height: 16),
               expandableCards(),
               SizedBox(height: 16),
               Column(
@@ -208,6 +224,26 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
         ),
+      ],
+    );
+  }
+
+  Column flags() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Flag",
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        SizedBox(height: 8),
+        CountryFlag(code: 'tr', height: 100),
+        SizedBox(height: 8),
+        CountryFlag(code: 'az', height: 100),
+        SizedBox(height: 8),
+        CountryFlagName(code: 'tr', name: 'Turkey'),
+        SizedBox(height: 8),
+        CountryDialingCodePicker(countryData: countryData),
       ],
     );
   }
