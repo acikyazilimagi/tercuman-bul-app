@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app/resources/themes/styles/light_theme_colors.dart';
 
 class CustomTextField extends StatefulWidget {
   final String title;
+  final String hint;
   final String helper;
   final TextInputType? keyboardType;
 
   const CustomTextField({
     super.key,
     required this.title,
-    required this.helper,
+    this.helper = "",
+    required this.hint,
     this.keyboardType,
   });
 
@@ -30,17 +33,23 @@ class _CustomTextFieldState extends State<CustomTextField> {
     }
 
     return Container(
-      margin: EdgeInsets.only(bottom: 22),
-      child: TextFormField(
-        keyboardType: widget.keyboardType,
-        inputFormatters: inputFormatters,
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          label: Text(widget.title),
-          helperText: widget.helper,
-          helperMaxLines: 3,
-        ),
-      ),
-    );
+        margin: EdgeInsets.only(bottom: 22),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            widget.title,
+          ),
+          SizedBox(height: 10),
+          TextFormField(
+            keyboardType: widget.keyboardType,
+            inputFormatters: inputFormatters,
+            decoration: InputDecoration(
+                fillColor: LightThemeColors().grey.shade300,
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                label: Text(widget.hint),
+                floatingLabelBehavior: FloatingLabelBehavior.never,
+                helperText: widget.helper),
+          ),
+        ]));
   }
 }

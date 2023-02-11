@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/controllers/controller.dart';
 import 'package:flutter_app/resources/themes/styles/light_theme_colors.dart';
+import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_button.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_expandable_card.dart';
 import 'package:flutter_app/resources/widgets/molecules/contact_us_card.dart';
@@ -9,6 +10,7 @@ import 'package:nylo_framework/nylo_framework.dart';
 
 class ComponentsDemoPage extends NyStatefulWidget {
   final Controller controller = Controller();
+  static final String path = "/demo";
 
   @override
   _ComponentsDemoPageState createState() => _ComponentsDemoPageState();
@@ -36,7 +38,9 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
           child: Column(
             children: [
               iconButtons(),
-              SizedBox(height: 16),
+              SizedBox(height: 20),
+              textField(),
+              SizedBox(height: 20),
               expandableCards(),
               SizedBox(height: 16),
               Column(
@@ -90,6 +94,15 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
             style: Theme.of(context).textTheme.bodyLarge!,
           ),
         ),
+      ],
+    );
+  }
+
+  Widget textField() {
+    return Column(
+      children: [
+        CustomTextField(
+            title: "firstName".tr(), hint: "firstNameInputHelper".tr())
       ],
     );
   }

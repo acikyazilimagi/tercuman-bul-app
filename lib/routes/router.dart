@@ -1,3 +1,4 @@
+import 'package:flutter_app/resources/pages/components_demo_page.dart';
 import 'package:flutter_app/resources/pages/home_page.dart';
 
 import '/resources/pages/auth_page.dart';
@@ -19,4 +20,5 @@ appRouter() => nyRoutes((router) {
       router.route(HomePage.path, (context) => HomePage());
       router.route(RegisterPage.path, (context) => RegisterPage());
       router.route(AuthPage.path, (context) => AuthPage());
+      router.route(ComponentsDemoPage.path, (context) => ComponentsDemoPage());
     });
