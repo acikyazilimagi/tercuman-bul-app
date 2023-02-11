@@ -16,7 +16,7 @@ class CountryDialingCodePicker extends StatefulWidget {
 }
 
 class _State extends State<CountryDialingCodePicker> {
-  String _value = 'TR';
+  String _value = '+90';
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +46,8 @@ class _State extends State<CountryDialingCodePicker> {
       items: widget.countryData
           ?.map(
             (e) => DropdownMenuItem(
-              value: e["code"].toString(),
-              // child: Text(e["dialling_code"] + " " + e["name"]),
-              child: CountryFlagName(code: e["code"], name: e["name"]),
+              value: e["dialing_code"].toString(),
+              child: CountryFlagName(code: e["code"], name: e["dialing_code"] + " " + e["name"]),
             ),
           )
           .toList(),
