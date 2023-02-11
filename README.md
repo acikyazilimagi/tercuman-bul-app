@@ -46,5 +46,3 @@ Not: Bağımlılıkları yüklerken Windows için Geliştirici modunu açmanız 
 
 ### Lisans:
 Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [lisans](LICENSE) dosyasına bakın.
-
-
