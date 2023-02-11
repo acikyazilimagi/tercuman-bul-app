@@ -5,9 +5,11 @@ import '/bootstrap/app.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'bootstrap/boot.dart';
 import 'firebase_options.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
 
   // Firebase configuration
   await Firebase.initializeApp(
