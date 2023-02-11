@@ -3,7 +3,6 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
-import 'package:nylo_framework/nylo_framework.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -47,31 +46,31 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static FirebaseOptions web = FirebaseOptions(
-    apiKey: getEnv("WEB_API_KEY"),
-    appId: getEnv("WEB_APP_ID"),
-    messagingSenderId: getEnv("WEB_MESSAGING_SENDER_ID"),
-    projectId: getEnv("WEB_PROJECT_ID"),
-    storageBucket: getEnv("WEB_AUTH_DOAMIN"),
-    authDomain: getEnv("WEB_STORAGE_BUCKET"),
-    measurementId: getEnv("WEB_MEASUREMENT_ID"),
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAcW89NhOcQtJYxukPnHkf2WrvscROttq0',
+    appId: '1:904450609059:web:b4dba8b2d75c266ec35416',
+    messagingSenderId: '904450609059',
+    projectId: 'tercuman-bulmaca',
+    authDomain: 'tercuman-bulmaca.firebaseapp.com',
+    storageBucket: 'tercuman-bulmaca.appspot.com',
+    measurementId: 'G-LTR59VSD6J',
   );
 
-  static FirebaseOptions android = FirebaseOptions(
-    apiKey: getEnv("ANDROID_API_KEY"),
-    appId: getEnv("ANDROID_APP_ID"),
-    messagingSenderId: getEnv("ANDROID_MESSAGING_SENDER_ID"),
-    projectId: getEnv("ANDROID_PROJECT_ID"),
-    storageBucket: getEnv("ANDROID_STORAGE_BUCKET"),
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyASz_H2BcYBcll5NO7zDnMIKDqLrsX5mrk',
+    appId: '1:904450609059:android:20c0218fe55758b2c35416',
+    messagingSenderId: '904450609059',
+    projectId: 'tercuman-bulmaca',
+    storageBucket: 'tercuman-bulmaca.appspot.com',
   );
 
-  static FirebaseOptions ios = FirebaseOptions(
-    apiKey: getEnv("IOS_API_KEY"),
-    appId: getEnv("IOS_APP_ID"),
-    messagingSenderId: getEnv("IOS_MESSAGING_SENDER_ID"),
-    projectId: getEnv("IOS_PROJECT_ID"),
-    storageBucket: getEnv("IOS_STORAGE_BUCKET"),
-    iosClientId: getEnv("IOS_CLIENT_ID"),
-    iosBundleId: getEnv("IOS_BUNDLE_ID"),
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyAUJDfGEvbCxk8Aac_QpcFjHsywJlOXjSU',
+    appId: '1:904450609059:ios:01b4d433b67554b2c35416',
+    messagingSenderId: '904450609059',
+    projectId: 'tercuman-bulmaca',
+    storageBucket: 'tercuman-bulmaca.appspot.com',
+    iosClientId: '904450609059-ct78luq2tjm3s5a992pru59b2k2pe9n1.apps.googleusercontent.com',
+    iosBundleId: 'it.deprem.tercumanbul',
   );
 }
