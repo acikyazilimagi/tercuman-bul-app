@@ -14,15 +14,25 @@ class TranslatorApiService extends BaseApiService {
   @override
   String get baseUrl => getEnv('API_BASE_URL');
 
-  Future<List<Translator>> allTranslators() async {
+  DocumentSnapshot? docPagination;
+
+  Future<List<Translator>> all() async {
     List<Translator> list = [];
 
     try {
       var collection = await FirebaseFirestore.instance
           .collection(getEnv('TRANSLATOR_DB'))
-          .get();
+          .limit(10);
 
-      collection.docs
+      if (null != docPagination) {
+        collection.startAfterDocument(docPagination!);
+      }
+
+      var getDocs = await collection.get();
+
+      var results = getDocs.docs;
+      docPagination = results.last;
+      results
           .forEach((element) => list.add(Translator.fromJson(element.data())));
     } catch (e) {}
 
