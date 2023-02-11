@@ -39,6 +39,7 @@ dependencies:
   firebase_ui_oauth_google: ^1.0.17
   json_annotation: ^4.8.0
   cloud_firestore: ^4.3.2
+  syncfusion_flutter_datagrid: ^20.4.49
 
 dev_dependencies:
   build_runner: ^2.3.3
