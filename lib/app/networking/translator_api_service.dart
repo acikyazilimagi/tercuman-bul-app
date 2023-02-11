@@ -12,28 +12,18 @@ class TranslatorApiService extends BaseApiService {
   @override
   String get baseUrl => getEnv('API_BASE_URL');
 
-  Future<List<Translator>> all() async {
+  Future<List<Translator>> allTranslators() async {
     List<Translator> list = [];
 
     try {
       var collection = await FirebaseFirestore.instance
           .collection(getEnv('TRANSLATOR_DB'))
           .get();
-
+          
       collection.docs
           .forEach((element) => list.add(Translator.fromJson(element.data())));
     } catch (e) {}
 
     return list;
   }
-
-  insert() {}
-
-  update() {}
-
-  delete() {}
-
-  findOne() {}
-
-  find() {}
 }
