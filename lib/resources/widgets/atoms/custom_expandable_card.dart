@@ -66,6 +66,7 @@ class CustomExpandableCard extends StatelessWidget {
               Expanded(
                 flex: 6,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(

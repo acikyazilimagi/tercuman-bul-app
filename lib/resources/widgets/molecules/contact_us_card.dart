@@ -32,16 +32,21 @@ class ContactUsCard extends StatelessWidget {
             ),
             Text(
               title,
+              textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
             ),
             SizedBox(height: 8),
-            Text(
-              description,
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    fontWeight: FontWeight.normal,
-                  ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                description,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      fontWeight: FontWeight.normal,
+                    ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(32.0),
