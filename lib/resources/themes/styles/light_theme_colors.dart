@@ -20,7 +20,7 @@ class LightThemeColors implements ColorStyles {
         100: Color(0xFFFBFBFB),
         200: Color(0xFFF7F7F7),
         300: Color(0xFFF4F4F4),
-        400: Color(0xFFF0F0F0),
+        400: Color(0xFF98A2B3),
         500: Color(0xFFECECEC),
         600: Color(0xFFE9E9E9),
         700: Color(0xFFE5E5E5),

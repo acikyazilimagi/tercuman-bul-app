@@ -59,8 +59,20 @@ class _State extends State<CustomButton> {
     }
   }
 
+  TextStyle getBaseTextStyle() {
+    switch (widget.size) {
+      case CustomButtonSize.block:
+        return Theme.of(context).textTheme.titleLarge!;
+
+      case CustomButtonSize.normal:
+        return Theme.of(context).textTheme.titleMedium!.copyWith(
+              fontWeight: FontWeight.w600,
+            );
+    }
+  }
+
   TextStyle getTextStyle() {
-    TextStyle baseTextStyle = Theme.of(context).textTheme.titleLarge!;
+    TextStyle baseTextStyle = getBaseTextStyle();
 
     switch (widget.style) {
       case CustomButtonStyles.lightFilled:
@@ -80,6 +92,7 @@ class _State extends State<CustomButton> {
   }
 
   Widget getIcon() {
+    if (null == widget.icon) return SizedBox.shrink();
     switch (widget.style) {
       case CustomButtonStyles.lightFilled:
         Color color = LightThemeColors().context;
