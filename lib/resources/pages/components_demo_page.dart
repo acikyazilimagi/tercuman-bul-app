@@ -7,13 +7,16 @@ import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
 import 'package:flutter_app/resources/widgets/atoms/country_flag.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_button.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_expandable_card.dart';
+import 'package:flutter_app/resources/widgets/atoms/custom_selectable_tile.dart';
 import 'package:flutter_app/resources/widgets/molecules/contact_us_card.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
 import '../widgets/atoms/country_flag_name.dart';
+import '../widgets/molecules/contact_link_field.dart';
 import '../widgets/molecules/country_dialing_code_picker.dart';
-
+import '../widgets/molecules/main_app_bar.dart';
 
 class ComponentsDemoPage extends NyStatefulWidget {
   static final String path = "/demo";
@@ -24,13 +27,13 @@ class ComponentsDemoPage extends NyStatefulWidget {
 }
 
 class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
-
   List<dynamic>? countryData;
 
   @override
   init() async {
     super.init();
-    String json = await DefaultAssetBundle.of(this.context).loadString("public/assets/data/countries.json");
+    String json = await DefaultAssetBundle.of(this.context)
+        .loadString("public/assets/data/countries.json");
     countryData = jsonDecode(json);
     debugPrint(countryData.toString());
   }
@@ -51,14 +54,38 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // AppBar customized
+              MainAppBar(),
+              SizedBox(height: 20),
               iconButtons(),
               SizedBox(height: 20),
               textField(),
               SizedBox(height: 20),
               flags(),
               SizedBox(height: 16),
-              expandableCards(),
+              ContactLinkField(
+                  hint: "Facebook adresinizi giriniz",
+                  companyLogo: MdiIcons.facebook),
+              ContactLinkField(
+                hint: "İnstagram adresinizi giriniz",
+                companyLogo: MdiIcons.instagram,
+              ),
+              ContactLinkField(
+                hint: "Twitter adresinizi giriniz",
+                companyLogo: MdiIcons.twitter,
+              ),
+              ContactLinkField(
+                hint: "Linkedin adresinizi giriniz",
+                companyLogo: MdiIcons.linkedin,
+              ),
+              CustomSelectableTile(
+                titleText: "Test",
+                isSelected: true,
+                onSelectStateChanged: (isSele) {},
+              ),
               SizedBox(height: 16),
+              expandableCards(),
+              SizedBox(height: 20),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

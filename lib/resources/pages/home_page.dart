@@ -61,7 +61,8 @@ class _HomePageState extends NyState<HomePage> {
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
                   decoration: BoxDecoration(
-                    border: Border.all(color: LightThemeColors().grey.shade300, width: 5),
+                    border: Border.all(
+                        color: LightThemeColors().grey.shade300, width: 5),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Text("welcomeText".tr()),
