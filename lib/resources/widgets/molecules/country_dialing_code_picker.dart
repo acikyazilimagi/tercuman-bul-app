@@ -47,7 +47,7 @@ class _State extends State<CountryDialingCodePicker> {
           ?.map(
             (e) => DropdownMenuItem(
               value: e["dialing_code"].toString(),
-              child: CountryFlagName(code: e["code"], name: e["dialing_code"] + " " + e["name"]),
+              child: CountryFlagName(code: e["code"], name: "${e["dialing_code"]} ${e["name"]}"),
             ),
           )
           .toList(),
