@@ -12,6 +12,7 @@ class CustomTextField extends StatefulWidget {
   final TextInputType? keyboardType;
   final Widget? icon;
   final Widget? secondIcon;
+  final Color? fillColor;
 
   const CustomTextField({
     Key? key,
@@ -22,6 +23,7 @@ class CustomTextField extends StatefulWidget {
     this.keyboardType,
     this.icon,
     this.secondIcon,
+    this.fillColor,
   }) : super(key: key);
 
   @override
@@ -41,8 +43,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
     }
 
     return Container(
-        margin: EdgeInsets.only(bottom: context.calculateDynamicHeight(0.2)),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      margin: EdgeInsets.only(bottom: context.calculateDynamicHeight(0.2)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
           if (widget.title.isNotEmpty) ...{
             Text(
               widget.title,
@@ -54,7 +58,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
             inputFormatters: inputFormatters,
             decoration: InputDecoration(
                 isDense: widget.isDense,
-                fillColor: LightThemeColors().grey.shade300,
+                filled: true,
+                fillColor: widget.fillColor != null
+                    ? widget.fillColor
+                    : LightThemeColors().grey.shade300,
                 border:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
                 // label: Text(widget.hint,
@@ -72,6 +79,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 prefixIcon: widget.icon,
                 suffixIcon: widget.secondIcon),
           ),
-        ]));
+        ],
+      ),
+    );
   }
 }

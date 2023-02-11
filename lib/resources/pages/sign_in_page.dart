@@ -1,35 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app/networking/translator_api_service.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
-import 'package:flutter_app/resources/pages/enter_verification_code_page.dart';
+import 'package:flutter_app/resources/pages/refresh_password_page.dart';
+import 'package:flutter_app/resources/pages/register_page.dart';
 import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
+import 'package:flutter_app/resources/widgets/atoms/custom_button.dart';
+import 'package:flutter_app/resources/widgets/molecules/main_app_bar.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import '../themes/styles/light_theme_colors.dart';
-import '../widgets/atoms/custom_button.dart';
-import '../widgets/molecules/main_app_bar.dart';
-import '/app/controllers/controller.dart';
 
-class RegisterPage extends NyStatefulWidget {
-  static final String path = "/register";
-  RegisterPage({Key? key}) : super(key: key);
+import '../themes/styles/light_theme_colors.dart';
+
+class SignInPage extends NyStatefulWidget {
+  static final String path = "/sign-in";
+  SignInPage({super.key});
 
   @override
-  _RegisterPageState createState() => _RegisterPageState();
+  State<SignInPage> createState() => _SignInPageState();
 }
 
-class _RegisterPageState extends NyState<RegisterPage> {
-  @override
-  init() async {
-    super.init();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
+class _SignInPageState extends NyState<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,42 +28,70 @@ class _RegisterPageState extends NyState<RegisterPage> {
         padding: context.lowSymPadding,
         children: [
           Text(
-            "register".tr(),
+            "Giriş Yap",
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.displaySmall!.copyWith(
                   color: LightThemeColors().title,
                 ),
           ),
           getSpacer,
-          CustomTextField(
-            title: "fullName".tr(),
-            hint: "fullNameHelper".tr(),
-            isDense: true,
-            fillColor: Colors.white,
+          Text(
+            "Hoş geldin, bilgilerini gir.",
+            textAlign: TextAlign.center,
+            style: Theme.of(context)
+                .textTheme
+                .bodySmall
+                ?.copyWith(fontWeight: FontWeight.w600),
           ),
+          getSpacer,
           CustomTextField(
             title: "E-Posta",
-            hint: "E-Postanızı giriniz",
+            hint: "E-Postanız",
             isDense: true,
             keyboardType: TextInputType.emailAddress,
             fillColor: Colors.white,
           ),
           CustomTextField(
             title: "Şifre",
-            hint: "Şifrenizi giriniz",
+            hint: "Şifre",
             isDense: true,
             fillColor: Colors.white,
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Wrap(
+                alignment: WrapAlignment.center,
+                runAlignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  Checkbox(
+                    value: false,
+                    onChanged: (value) {},
+                  ),
+                  Text("Beni 30 gün hatırla"),
+                ],
+              ),
+              ActionChip(
+                onPressed: () => routeTo(RefreshPasswordPage.path),
+                label: Text("Şifremi Unuttum"),
+                labelStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: LightThemeColors().context,
+                    fontWeight: FontWeight.bold),
+                backgroundColor: Colors.transparent,
+              ),
+            ],
+          ),
+          getSpacer,
           CustomButton(
-            text: "register".tr(),
+            text: "Giriş yap",
             style: CustomButtonStyles.darkFilled,
-            onPressed: () => Navigator.pushReplacementNamed(
-                context, EnterVerificationCodePage.path),
+            onPressed: () {},
             size: CustomButtonSize.normal,
           ),
           getSpacer,
           CustomButton(
-            text: "Google ile kayıt ol",
+            text: "Google ile giriş yap",
             icon: MdiIcons.google,
             style: CustomButtonStyles.lightFilled,
             onPressed: () {},
@@ -83,12 +101,13 @@ class _RegisterPageState extends NyState<RegisterPage> {
           Text.rich(
             TextSpan(
               children: [
-                TextSpan(text: "Hesabın var mı? "),
+                TextSpan(text: "Hesabın yok mu? "),
                 WidgetSpan(
                   child: GestureDetector(
-                    onTap: () => Navigator.pop(context),
+                    onTap: () =>
+                        Navigator.pushNamed(context, RegisterPage.path),
                     child: Text(
-                      "Giriş Yap",
+                      "Kayıt Ol",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
