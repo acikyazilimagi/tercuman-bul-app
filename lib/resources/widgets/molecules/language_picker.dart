@@ -1,3 +1,4 @@
+import 'package:diacritic/diacritic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 
@@ -10,9 +11,10 @@ class LanguagePicker extends StatefulWidget {
   LanguagePicker({
     Key? key,
     required context,
-  }) : languageData = LocaleNames.of(context)!.sortedByName.where((e) {
-    return e.key.length == 2;
-  }).toList(),
+  }) : languageData = (LocaleNames.of(context)!.sortedByName
+      .where((e) => e.key.length == 2)
+      .toList()
+    ..sort((a, b) => removeDiacritics(a.value).compareTo(removeDiacritics(b.value)))),
         super(key: key);
 
   @override
@@ -51,7 +53,6 @@ class _State extends State<LanguagePicker> {
       items: widget.languageData
           .map(
             (e) {
-              debugPrint(e.key);
               return DropdownMenuItem(
                 value: e.key,
                 child: CountryFlagName(
