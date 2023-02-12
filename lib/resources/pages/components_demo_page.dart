@@ -64,23 +64,23 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
               flags(),
               SizedBox(height: 16),
               ContactLinkField(
-                  hint: addFacebook.tr(),
+                  hint: "addFacebook".tr(),
                   companyLogo: MdiIcons.facebook,
               ),
               ContactLinkField(
-                hint: addInstagram.tr(),
+                hint: "addInstagram".tr(),
                 companyLogo: MdiIcons.instagram,
               ),
               ContactLinkField(
-                hint: addTwitter.tr(),
+                hint: "addTwitter".tr(),
                 companyLogo: MdiIcons.twitter,
               ),
               ContactLinkField(
-                hint: addLinkedin.tr(),
+                hint: "addLinkedin".tr(),
                 companyLogo: MdiIcons.linkedin,
               ),
               CustomSelectableTile(
-                titleText: onsiteSupport.tr(),
+                titleText: "onsiteSupport".tr(),
                 isSelected: true,
                 onSelectStateChanged: (isSele) {},
               ),
@@ -97,9 +97,9 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
                   ),
                   SizedBox(height: 16),
                   ContactUsCard(
-                    title: cantFind.tr(),
-                    description: reachSupport.tr(),
-                    buttonText: contactUsButton.tr(),
+                    title: "cantFind".tr(),
+                    description: "reachSupport".tr(),
+                    buttonText: "contactUsButton".tr(),
                     onPressed: () {},
                   ),
                 ],
@@ -130,9 +130,9 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
           initialExpanded: true,
           centerIcon: false,
           backgrounColor: LightThemeColors().background,
-          topic: becomeVolunteerHeader.tr(),
+          topic: "becomeVolunteerHeader".tr(),
           content: Text(
-            becomeVolunteerBody.tr(),
+            "becomeVolunteerBody".tr(),
             style: Theme.of(context).textTheme.bodyLarge!,
           ),
         ),
@@ -144,7 +144,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
     return Column(
       children: [
         CustomTextField(
-            title: firstNameInputTitle.tr(), hint: firstNameInputHint.tr())
+            title: "firstNameInputTitle".tr(), hint: "firstNameInputHint".tr())
       ],
     );
   }
@@ -165,7 +165,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         ),
         SizedBox(height: 8),
         CustomButton(
-          text: ,
+          text: "searchInterpreter".tr(),
           icon: Icons.search_sharp,
           style: CustomButtonStyles.darkFilled,
           onPressed: () {},
@@ -178,7 +178,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         SizedBox(height: 8),
         CustomButton(
           disabled: true,
-          text: searchInterpreter.tr(),
+          text: "searchInterpreter".tr(),
           icon: Icons.search_sharp,
           style: CustomButtonStyles.darkFilled,
           onPressed: () {},
@@ -190,7 +190,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         ),
         SizedBox(height: 8),
         CustomButton(
-          text: searchInterpreter.tr(),
+          text: "searchInterpreter".tr(),
           icon: Icons.add_circle_outline_outlined,
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
@@ -203,7 +203,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         SizedBox(height: 8),
         CustomButton(
           disabled: true,
-          text: searchInterpreter.tr(),
+          text: "searchInterpreter".tr(),
           icon: Icons.add_circle_outline_outlined,
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
@@ -220,7 +220,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         ),
         SizedBox(height: 8),
         CustomButton(
-          text: searchInterpreter.tr(),
+          text: "searchInterpreter".tr(),
           size: CustomButtonSize.normal,
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
@@ -232,7 +232,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         ),
         SizedBox(height: 8),
         CustomButton(
-          text: searchInterpreter.tr(),
+          text: "searchInterpreter".tr(),
           size: CustomButtonSize.normal,
           style: CustomButtonStyles.darkFilled,
           onPressed: () {},
@@ -245,7 +245,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         SizedBox(height: 8),
         CustomButton(
           disabled: true,
-          text: searchInterpreter.tr(),
+          text: "searchInterpreter".tr(),
           size: CustomButtonSize.normal,
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
