@@ -68,7 +68,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
                   companyLogo: MdiIcons.facebook,
               ),
               ContactLinkField(
-                hint: addInstagram..tr(),
+                hint: addInstagram.tr(),
                 companyLogo: MdiIcons.instagram,
               ),
               ContactLinkField(
