@@ -89,14 +89,18 @@ class _HomePageState extends NyState<HomePage> {
                   text: "beInterpreter".tr(),
                   icon: Icons.add_circle_outline_outlined,
                   style: CustomButtonStyles.lightFilled,
-                  onPressed: () {},
+                  onPressed: () {
+                    routeTo("/become-translator");
+                  },
                 ),
                 SizedBox(height: 12),
                 CustomButton(
                   text: "searchInterpreter".tr(),
                   icon: Icons.search_sharp,
                   style: CustomButtonStyles.darkFilled,
-                  onPressed: () {},
+                  onPressed: () {
+                    routeTo("/translator-list");
+                  },
                 ),
                 SizedBox(height: 32),
                 Text(
