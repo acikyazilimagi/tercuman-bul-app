@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
 import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
+import 'package:flutter_app/resources/widgets/molecules/language_picker.dart';
 import 'package:flutter_app/resources/widgets/molecules/main_app_bar.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -98,7 +99,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
               style: TextStyle(fontWeight: FontWeight.w800),
             ),
             getSpacer,
-            CountryDialingCodePicker(countryData: countryData),
+            LanguagePicker(context: context),
             getSpacer,
             Text(
               "addContactAddress".tr(),
