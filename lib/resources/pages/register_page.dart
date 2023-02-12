@@ -19,18 +19,9 @@ class RegisterPage extends NyStatefulWidget {
 }
 
 class _RegisterPageState extends NyState<RegisterPage> {
-  final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-
   @override
   init() async {
     super.init();
-  }
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    super.dispose();
   }
 
   @override
@@ -39,79 +30,49 @@ class _RegisterPageState extends NyState<RegisterPage> {
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         appBar: MainAppBar(),
-        body: Form(
-          key: _formKey,
-          child: ListView(
-            padding: context.lowSymPadding,
-            children: [
-              Text(
-                "register".tr(),
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                      color: LightThemeColors().title,
-                    ),
-              ),
-              getSpacer,
-              CustomTextField(
-                title: "fullName".tr(),
-                hint: "fullNameHelper".tr(),
-                isDense: true,
-                fillColor: Colors.white,
-              ),
-              CustomTextField(
-                controller: _emailController,
-                validator: validateEmail,
-                title: "E-Posta",
-                hint: "E-Postanızı giriniz",
-                isDense: true,
-                keyboardType: TextInputType.emailAddress,
-                fillColor: Colors.white,
-              ),
-              CustomTextField(
-                title: "Şifre",
-                hint: "Şifrenizi giriniz",
-                isDense: true,
-                fillColor: Colors.white,
-              ),
-              CustomButton(
-                text: "register".tr(),
-                style: CustomButtonStyles.darkFilled,
-                onPressed: () => Navigator.pushReplacementNamed(context, EnterVerificationCodePage.path),
-                size: CustomButtonSize.normal,
-              ),
-              getSpacer,
-              CustomButton(
-                text: "Google ile kayıt ol",
-                icon: MdiIcons.google,
-                style: CustomButtonStyles.lightFilled,
-                onPressed: () {},
-                size: CustomButtonSize.normal,
-              ),
-              getSpacer,
-              Text.rich(
-                TextSpan(
-                  children: [
-                    TextSpan(text: "Hesabın var mı? "),
-                    WidgetSpan(
-                      child: GestureDetector(
-                        onTap: () => Navigator.pop(context),
-                        child: Text(
-                          "Giriş Yap",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
+        body: ListView(
+          padding: context.lowSymPadding,
+          children: [
+            Text(
+              "register".tr(),
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    color: LightThemeColors().title,
+                  ),
+            ),
+            getSpacerMedium,
+            CustomButton(
+              text: "Google ile kayıt ol",
+              icon: MdiIcons.google,
+              style: CustomButtonStyles.lightFilled,
+              onPressed: () {},
+              size: CustomButtonSize.normal,
+            ),
+            getSpacer,
+            Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(text: "Hesabın var mı? "),
+                  WidgetSpan(
+                    child: GestureDetector(
+                      onTap: () => Navigator.pop(context),
+                      child: Text(
+                        "Giriş Yap",
+                        style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
-                  ],
-                ),
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(color: LightThemeColors().context),
-                textAlign: TextAlign.center,
+                  ),
+                ],
               ),
-            ],
-          ),
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(color: LightThemeColors().context),
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
       ),
     );
   }
 
   Widget get getSpacer => SizedBox(height: context.veryLowHeight);
+  Widget get getSpacerMedium => SizedBox(height: context.mediumHeight);
 }

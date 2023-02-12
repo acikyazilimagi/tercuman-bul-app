@@ -8,20 +8,60 @@ part 'translator.g.dart';
 
 @freezed
 class Translator with _$Translator {
+  @JsonSerializable(explicitToJson: true)
   const factory Translator({
-    String? email,
-    String? instagram,
-    String? twitter,
-    String? linkedin,
-    String? facebook,
-    String? messenger,
-    String? phone,
+    String? uuid,
+    Capabilities? capabilities,
+    Contact? contact,
     required bool isInterpreter,
     @GeoPointConverter() required GeoPoint location,
     required List<String> languages,
     required String name,
   }) = _Translator;
 
-  factory Translator.fromJson(Map<String, Object?> json) =>
-      _$TranslatorFromJson(json);
+  factory Translator.fromJson(Map<String, Object?> json) => _$TranslatorFromJson(json);
+
+  factory Translator.empty({String? uuid, Capabilities? capabilities, Contact? contact, bool? isInterpreter, GeoPoint? location, List<String>? languages, String? name}) =>
+      Translator(
+          uuid: uuid,
+          capabilities: capabilities ?? Capabilities(),
+          contact: contact ?? Contact(),
+          isInterpreter: isInterpreter ?? false,
+          location: location ?? GeoPoint(0, 0),
+          languages: languages ?? const [],
+          name: name ?? "-");
+}
+
+@freezed
+class Capabilities with _$Capabilities {
+  const factory Capabilities({
+    bool? translatorInPerson,
+    bool? translatorVirtual,
+  }) = _Capabilities;
+
+  factory Capabilities.fromJson(Map<String, Object?> json) => _$CapabilitiesFromJson(json);
+
+  @override
+  String toString() {
+    return "translatorInPerson: $translatorInPerson" + " translatorVirtual: $translatorVirtual";
+  }
+}
+
+@freezed
+class Contact with _$Contact {
+  const factory Contact({
+    String? email,
+    String? facebook,
+    String? instagram,
+    String? linkedin,
+    String? phone,
+    String? twitter,
+  }) = _Contact;
+
+  factory Contact.fromJson(Map<String, Object?> json) => _$ContactFromJson(json);
+
+  @override
+  String toString() {
+    return "email: $email" + " facebook: $facebook" + " instagram: $instagram" + " linkedin: $linkedin" + " phone: $phone" + " twitter: $twitter ";
+  }
 }
