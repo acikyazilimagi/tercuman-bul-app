@@ -21,9 +21,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Image.asset(
-                getImageAsset("logo_lq.png"),
-              ),
+              child: Image.asset("images/logo_lq.png"),
             ),
           ),
           Spacer()
