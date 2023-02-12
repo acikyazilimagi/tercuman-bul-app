@@ -14,8 +14,11 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: LightThemeColors().white,
       title: Row(
         children: [
-          Expanded(
-            flex: 2,
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: 225,
+              maxHeight: 28.54,
+            ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Image.asset(

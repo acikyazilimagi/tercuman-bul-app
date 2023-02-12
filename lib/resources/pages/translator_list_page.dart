@@ -8,7 +8,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:nylo_framework/nylo_framework.dart';
 
 class TranslatorListPage extends StatefulWidget {
-  static final String path = "/translator-list-page";
+  static final String path = "/translator-list";
   const TranslatorListPage({super.key});
 
   @override
