@@ -17,9 +17,9 @@ class ContactLinkField extends StatelessWidget {
       title: "",
       hint: hint,
       keyboardType: TextInputType.url,
-      icon: Icon(companyLogo, size: context.lowWidth),
+      icon: Icon(companyLogo, size: 24),
       isDense: true,
-      secondIcon: Icon(Icons.help_outline, size: context.lowWidth),
+      secondIcon: Icon(Icons.help_outline, size: 16),
     );
   }
 }
