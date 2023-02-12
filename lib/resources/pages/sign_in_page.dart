@@ -51,7 +51,7 @@ class _SignInPageState extends NyState<SignInPage> {
               style: Theme.of(context).textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
             ),
             getSpacerMedium,
-            isLocked("auth") || isLocked("write_user")
+            isLocked("auth")
                 ? Loader()
                 : CustomButton(
                     text: "Google ile giriş yap",
@@ -60,7 +60,6 @@ class _SignInPageState extends NyState<SignInPage> {
                     onPressed: () async {
                       await lockRelease("auth", perform: () async => await AuthService.instance.signInWithGoogle());
                       event<LoginEvent>(data: {"auth_translator": AuthService.instance.currentTranslator});
-                      await lockRelease("write_user", perform: () async => await FirestoreService().writeUser());
                       await routeTo(HomePage.path);
                     },
                     size: CustomButtonSize.normal,
