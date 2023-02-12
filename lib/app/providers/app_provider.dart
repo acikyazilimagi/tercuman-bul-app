@@ -18,7 +18,7 @@ class AppProvider implements NyProvider {
         assetsDirectory: assetsDirectory,
         valuesAsMap: valuesAsMap);
 
-    nylo.initialRoute = AuthService().hasSession ? HomePage.path : AuthPage.path;
+    nylo.initialRoute = AuthService().hasSession ? HomePage.path : SignInPage.path;
     nylo.appLoader = loader;
     nylo.appLogo = logo;
     nylo.appThemes = appThemes;
