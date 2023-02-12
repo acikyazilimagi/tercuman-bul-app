@@ -10,7 +10,7 @@ import 'package:nylo_framework/nylo_framework.dart';
 
 class AuthService implements ISocialAuth {
   static final AuthService instance = AuthService._internal();
-  Translator currentTranslator = Translator.empty(languages: ["tr"]);
+  Translator currentTranslator = Translator.empty();
 
   factory AuthService() => instance;
 
