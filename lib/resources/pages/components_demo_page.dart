@@ -64,23 +64,22 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
               flags(),
               SizedBox(height: 16),
               ContactLinkField(
-                  hint: addFacebook.tr(),
-                  companyLogo: MdiIcons.facebook,
-              ),
+                  hint: "Facebook adresinizi giriniz",
+                  companyLogo: MdiIcons.facebook),
               ContactLinkField(
-                hint: addInstagram.tr(),
+                hint: "İnstagram adresinizi giriniz",
                 companyLogo: MdiIcons.instagram,
               ),
               ContactLinkField(
-                hint: addTwitter.tr(),
+                hint: "Twitter adresinizi giriniz",
                 companyLogo: MdiIcons.twitter,
               ),
               ContactLinkField(
-                hint: addLinkedin.tr(),
+                hint: "Linkedin adresinizi giriniz",
                 companyLogo: MdiIcons.linkedin,
               ),
               CustomSelectableTile(
-                titleText: onsiteSupport.tr(),
+                titleText: "Test",
                 isSelected: true,
                 onSelectStateChanged: (isSele) {},
               ),
@@ -97,9 +96,9 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
                   ),
                   SizedBox(height: 16),
                   ContactUsCard(
-                    title: cantFind.tr(),
-                    description: reachSupport.tr(),
-                    buttonText: contactUsButton.tr(),
+                    title: 'Aradığınız cevabı bulamadınız mı?',
+                    description: ' Lütfen destek ekibimize ulaşın.',
+                    buttonText: 'İletişime Geç',
                     onPressed: () {},
                   ),
                 ],
@@ -130,9 +129,11 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
           initialExpanded: true,
           centerIcon: false,
           backgrounColor: LightThemeColors().background,
-          topic: becomeVolunteerHeader.tr(),
+          topic: "Nasıl gönüllü tercüman olabilirim?",
           content: Text(
-            becomeVolunteerBody.tr(),
+            "Gönüllü tercüman olmak için ilgili Tercümanbul platformunun kayıt"
+            " formunu doldurup gerekli bilgileri ve tercüme deneyimini"
+            " belirtmeniz gerekmektedir.",
             style: Theme.of(context).textTheme.bodyLarge!,
           ),
         ),
@@ -144,7 +145,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
     return Column(
       children: [
         CustomTextField(
-            title: firstNameInputTitle.tr(), hint: firstNameInputHint.tr())
+            title: "firstNameInputTitle".tr(), hint: "firstNameInputHint".tr())
       ],
     );
   }
@@ -165,7 +166,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         ),
         SizedBox(height: 8),
         CustomButton(
-          text: ,
+          text: "Tercüman Bul",
           icon: Icons.search_sharp,
           style: CustomButtonStyles.darkFilled,
           onPressed: () {},
@@ -178,7 +179,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         SizedBox(height: 8),
         CustomButton(
           disabled: true,
-          text: searchInterpreter.tr(),
+          text: "Tercüman Bul",
           icon: Icons.search_sharp,
           style: CustomButtonStyles.darkFilled,
           onPressed: () {},
@@ -190,7 +191,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         ),
         SizedBox(height: 8),
         CustomButton(
-          text: searchInterpreter.tr(),
+          text: "Tercüman Ol",
           icon: Icons.add_circle_outline_outlined,
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
@@ -203,7 +204,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         SizedBox(height: 8),
         CustomButton(
           disabled: true,
-          text: searchInterpreter.tr(),
+          text: "Tercüman Ol",
           icon: Icons.add_circle_outline_outlined,
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
@@ -220,7 +221,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         ),
         SizedBox(height: 8),
         CustomButton(
-          text: searchInterpreter.tr(),
+          text: "Tercüman Ol",
           size: CustomButtonSize.normal,
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
@@ -232,7 +233,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         ),
         SizedBox(height: 8),
         CustomButton(
-          text: searchInterpreter.tr(),
+          text: "Tercüman Ol",
           size: CustomButtonSize.normal,
           style: CustomButtonStyles.darkFilled,
           onPressed: () {},
@@ -245,7 +246,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         SizedBox(height: 8),
         CustomButton(
           disabled: true,
-          text: searchInterpreter.tr(),
+          text: "Tercüman Ol",
           size: CustomButtonSize.normal,
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
