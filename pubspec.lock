@@ -241,6 +241,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.4"
+  dash_flags:
+    dependency: "direct main"
+    description:
+      name: dash_flags
+      sha256: b287e98855eb0340fba4a13f6e9a68227136c1595119f7bf63fecc8cd7e68d64
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   desktop_webview_auth:
     dependency: transitive
     description:
@@ -265,14 +273,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.17"
-  enum_to_string:
-    dependency: transitive
-    description:
-      name: enum_to_string
-      sha256: bd9e83a33b754cb43a75b36a9af2a0b92a757bfd9847d2621ca0b1bed45f8e7a
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.1"
   expandable:
     dependency: "direct main"
     description:
@@ -409,14 +409,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
-  flag:
-    dependency: "direct main"
-    description:
-      name: flag
-      sha256: "13ded2a1ec2d8e67bf076d3329ce256a7a2f6f5b1080ddb41c23eb0742571aff"
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.0.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -451,6 +443,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_localized_locales:
+    dependency: "direct main"
+    description:
+      name: flutter_localized_locales
+      sha256: f219350dffcfd56692b4e41953710c2975888dd9c507d977ec6853d7ea140336
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.4"
   flutter_secure_storage:
     dependency: transitive
     description:

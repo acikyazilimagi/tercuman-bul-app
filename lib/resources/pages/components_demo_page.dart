@@ -1,14 +1,15 @@
 import 'dart:convert';
 
+import 'package:dash_flags/dash_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/controllers/controller.dart';
 import 'package:flutter_app/resources/themes/styles/light_theme_colors.dart';
 import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
-import 'package:flutter_app/resources/widgets/atoms/country_flag.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_button.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_expandable_card.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_selectable_tile.dart';
 import 'package:flutter_app/resources/widgets/molecules/contact_us_card.dart';
+import 'package:flutter_app/resources/widgets/molecules/language_picker.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
@@ -35,7 +36,6 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
     String json = await DefaultAssetBundle.of(this.context)
         .loadString("public/assets/data/countries.json");
     countryData = jsonDecode(json);
-    debugPrint(countryData.toString());
   }
 
   @override
@@ -264,13 +264,20 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
           style: Theme.of(context).textTheme.titleLarge,
         ),
         SizedBox(height: 8),
-        CountryFlag(code: 'tr', height: 100),
+        CountryFlag(
+          country: Country.tr, // You can also use Country.fromCode('eg')
+          height: 50,
+        ),
+        LanguageFlag(
+          language: Language.az, // You can also use Country.fromCode('eg')
+          height: 50,
+        ),
         SizedBox(height: 8),
-        CountryFlag(code: 'az', height: 100),
         SizedBox(height: 8),
         CountryFlagName(code: 'tr', name: 'Turkey'),
         SizedBox(height: 8),
         CountryDialingCodePicker(countryData: countryData),
+        LanguagePicker(context: context),
       ],
     );
   }
