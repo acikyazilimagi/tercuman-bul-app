@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
 // ignore: must_be_immutable
@@ -99,7 +100,11 @@ class AppBuild extends StatelessWidget {
                   (Locale? locale, Iterable<Locale> supportedLocales) {
                 return locale;
               },
-              localizationsDelegates: NyLocalization.instance.delegates,
+              localizationsDelegates: [
+                ...NyLocalization.instance.delegates,
+                LocaleNamesLocalizationsDelegate(),
+                ],
+
               locale: locale,
               supportedLocales:
                   supportedLocales ?? NyLocalization.instance.locals(),
