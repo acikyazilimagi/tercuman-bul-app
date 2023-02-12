@@ -2,6 +2,7 @@ import 'package:flutter_app/resources/pages/components_demo_page.dart';
 import 'package:flutter_app/resources/pages/enter_verification_code_page.dart';
 import 'package:flutter_app/resources/pages/home_page.dart';
 import 'package:flutter_app/resources/pages/sign_in_page.dart';
+import 'package:flutter_app/resources/pages/translator_list_page.dart';
 
 import '../resources/pages/become_translator_page.dart';
 import '../resources/pages/refresh_password_page.dart';
@@ -32,4 +33,6 @@ appRouter() => nyRoutes((router) {
           RefreshPasswordPage.path, (context) => RefreshPasswordPage());
       router.route(
           BecomeTranslatorPage.path, (context) => BecomeTranslatorPage());
+      router.route(
+          TranslatorListPage.path, (context) => TranslatorListPage());
     });
