@@ -11,7 +11,6 @@ import 'package:flutter_app/resources/widgets/atoms/custom_selectable_tile.dart'
 import 'package:flutter_app/resources/widgets/molecules/contact_us_card.dart';
 import 'package:flutter_app/resources/widgets/molecules/language_picker.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
-import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
@@ -279,7 +278,6 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         SizedBox(height: 8),
         CountryDialingCodePicker(countryData: countryData),
         LanguagePicker(context: context),
-        Text(LocaleNames.of(context)!.nameOf('fr')!),
       ],
     );
   }
