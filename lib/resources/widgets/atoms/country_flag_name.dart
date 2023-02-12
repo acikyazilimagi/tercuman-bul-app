@@ -1,15 +1,16 @@
+import 'package:dash_flags/dash_flags.dart';
 import 'package:flutter/material.dart';
-
-import 'country_flag.dart';
 
 class CountryFlagName extends StatelessWidget {
   final String code;
   final String name;
+  final String type;
 
   CountryFlagName({
     Key? key,
     required this.code,
     required this.name,
+    this.type = "country"
   }) : super(key: key);
 
   @override
@@ -17,7 +18,9 @@ class CountryFlagName extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        CountryFlag(code: code, height: 16),
+        this.type == 'country' ?
+        CountryFlag(country: Country.fromCode(code), height: 16) :
+        LanguageFlag(language: Language.fromCode(code == "is" || code == "as" ? "l_" + code : code), height: 16),
         SizedBox(width: 8),
         Text(name),
       ],
