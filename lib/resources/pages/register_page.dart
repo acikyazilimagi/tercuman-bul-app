@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app/networking/translator_api_service.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
 import 'package:flutter_app/resources/pages/enter_verification_code_page.dart';
@@ -9,7 +8,6 @@ import 'package:nylo_framework/nylo_framework.dart';
 import '../themes/styles/light_theme_colors.dart';
 import '../widgets/atoms/custom_button.dart';
 import '../widgets/molecules/main_app_bar.dart';
-import '/app/controllers/controller.dart';
 
 class RegisterPage extends NyStatefulWidget {
   static final String path = "/register";
