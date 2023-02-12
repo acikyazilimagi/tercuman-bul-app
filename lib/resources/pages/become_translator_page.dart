@@ -34,7 +34,6 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
     setState(() {
       countryData = jsonDecode(json);
     });
-    debugPrint(countryData.toString());
   }
 
   @override
