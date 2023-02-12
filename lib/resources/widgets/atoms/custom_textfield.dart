@@ -13,13 +13,17 @@ class CustomTextField extends StatefulWidget {
   final Widget? icon;
   final Widget? secondIcon;
   final Color? fillColor;
+  final String? Function(String?)? validator;
+  final TextEditingController? controller;
 
   const CustomTextField({
     Key? key,
     required this.title,
     required this.hint,
+    this.controller,
     this.isDense = false,
     this.helper = "",
+    this.validator,
     this.keyboardType,
     this.icon,
     this.secondIcon,
@@ -54,26 +58,22 @@ class _CustomTextFieldState extends State<CustomTextField> {
             SizedBox(height: 10)
           },
           TextFormField(
+            controller: widget.controller,
             keyboardType: widget.keyboardType,
             inputFormatters: inputFormatters,
+            validator: widget.validator,
             decoration: InputDecoration(
                 isDense: widget.isDense,
                 filled: true,
-                fillColor: widget.fillColor != null
-                    ? widget.fillColor
-                    : LightThemeColors().grey.shade300,
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                fillColor: widget.fillColor != null ? widget.fillColor : LightThemeColors().grey.shade300,
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
                 // label: Text(widget.hint,
                 //     style: Theme.of(context)
                 //         .textTheme
                 //         .titleLarge
                 //         ?.copyWith(fontWeight: FontWeight.w100)),
                 hintText: widget.hint,
-                hintStyle: Theme.of(context)
-                    .textTheme
-                    .bodyLarge
-                    ?.copyWith(fontWeight: FontWeight.w100),
+                hintStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w100),
                 floatingLabelBehavior: FloatingLabelBehavior.never,
                 helperText: widget.helper,
                 prefixIcon: widget.icon,
