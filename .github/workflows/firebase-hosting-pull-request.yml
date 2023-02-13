@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: ${{ github.ref }}
+          ref: "refs/pull/${{ github.event.number }}/merge"
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.7.3"
