@@ -15,7 +15,6 @@ import '../widgets/atoms/custom_button.dart';
 import '../widgets/atoms/custom_selectable_tile.dart';
 import '../widgets/molecules/contact_link_field.dart';
 import '../widgets/molecules/contact_us_card.dart';
-import '../widgets/molecules/country_dialing_code_picker.dart';
 
 class BecomeTranslatorPage extends NyStatefulWidget {
   static final String path = "/become-translator";
@@ -99,7 +98,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
               style: TextStyle(fontWeight: FontWeight.w800),
             ),
             getSpacer,
-            LanguagePicker(context: context),
+            LanguagePicker(),
             getSpacer,
             Text(
               "addContactAddress".tr(),
