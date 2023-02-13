@@ -39,7 +39,7 @@ class _RegisterPageState extends NyState<RegisterPage> {
             ),
             getSpacerMedium,
             CustomButton(
-              text: "Google ile kayıt ol",
+              text: "registerWithGoogle".tr(),
               icon: MdiIcons.google,
               style: CustomButtonStyles.lightFilled,
               onPressed: () {},
@@ -49,12 +49,12 @@ class _RegisterPageState extends NyState<RegisterPage> {
             Text.rich(
               TextSpan(
                 children: [
-                  TextSpan(text: "Hesabın var mı? "),
+                  TextSpan(text: "alreadyHaveAnAccount".tr()),
                   WidgetSpan(
                     child: GestureDetector(
                       onTap: () => Navigator.pop(context),
                       child: Text(
-                        "Giriş Yap",
+                        "login".tr(),
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),

@@ -33,7 +33,7 @@ class _SignInPageState extends NyState<SignInPage> {
           padding: context.lowSymPadding,
           children: [
             Text(
-              "Giriş Yap",
+              "login".tr(),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.displaySmall!.copyWith(
                     color: LightThemeColors().title,
@@ -41,7 +41,7 @@ class _SignInPageState extends NyState<SignInPage> {
             ),
             getSpacerLow,
             Text(
-              "Hoş geldin.",
+              "wellcome".tr(),
               textAlign: TextAlign.center,
               style: Theme.of(context)
                   .textTheme
@@ -52,7 +52,7 @@ class _SignInPageState extends NyState<SignInPage> {
             isLocked("auth")
                 ? Loader()
                 : CustomButton(
-                    text: "Google ile giriş yap",
+                    text: "loginWithGoogle".tr(),
                     icon: MdiIcons.google,
                     style: CustomButtonStyles.lightFilled,
                     onPressed: () async {
@@ -71,13 +71,13 @@ class _SignInPageState extends NyState<SignInPage> {
             Text.rich(
               TextSpan(
                 children: [
-                  TextSpan(text: "Hesabın yok mu? "),
+                  TextSpan(text: "alreadyHaveAnAccount".tr()),
                   WidgetSpan(
                     child: GestureDetector(
                       onTap: () =>
                           Navigator.pushNamed(context, RegisterPage.path),
                       child: Text(
-                        "Kayıt Ol",
+                        "register".tr(),
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
