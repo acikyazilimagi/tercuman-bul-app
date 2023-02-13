@@ -21,18 +21,34 @@ Uygulama ile tercümanlar ve kullanıcıların veritabanına kaydolması, verita
 
 ## Kullanılan Teknolojiler:
 - Flutter 
-- Firebase && Firestore
- 
+- Firebase
+  - Firestore (database)
+  - Hosting (Desktop+Mobile Web App)
+  - Authentication
 
-# Kurulum
+
+# Teknik
+
+## App Flow
+```mermaid
+graph TD
+    A[Tercuman Bul] -->|User Enters| C{Auth session?}
+    C -->|Yes| D[Home Page]
+    C -->|No| E[Registration Page]
+    E --> |Sign in with Google Button|D
+    D --> |Become Interpreter Button| F[Become Interpreter Page]
+    D --> |Find Interpreter Button| G[Find Interpreter Page]
+```
+
+## Kurulum
 
 Kuruluma başlarken Flutter SDK'in yüklü olduğu ve reponun klonlandığı varsayılmaktadır.
 
-## Mac
+### Mac
 
 Mac için doğrudan bir installer hazırlandı. [installer.sh](./installer.sh) kullanarak doğrudan çalıştırılabilir.
 
-## Diğer işletim sistemleri:
+### Diğer işletim sistemleri:
 
 Komut satırından repo kök dizinine gittikten sonra:
 
@@ -45,6 +61,4 @@ flutter run
 Not: Bağımlılıkları yüklerken Windows için Geliştirici modunu açmanız gerekebilir: `start ms-settings:developers` komutunu kullanabilirsiniz.
 
 ### Lisans:
-Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için //LICENSE.md dosyasına bakın.
-
-
+Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için [lisans](LICENSE) dosyasına bakın.

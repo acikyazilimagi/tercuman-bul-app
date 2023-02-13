@@ -3,9 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/app/models/translator.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
-import 'package:flutter_chip_tags/flutter_chip_tags.dart';
+import 'package:flutter_app/resources/widgets/molecules/language_picker.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:nylo_framework/nylo_framework.dart';
+
+import '../widgets/molecules/main_scaffold.dart';
+
+import '../widgets/molecules/main_scaffold.dart';
 
 class TranslatorListPage extends StatefulWidget {
+  static final String path = "/translator-list";
   const TranslatorListPage({super.key});
 
   @override
@@ -19,80 +26,54 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
   void initState() {
     // TODO: implement initState
     translators = [
-      Translator(
-          isInterpreter: false,
-          location: GeoPoint(53, 52),
-          languages: ["Türkçe", "İngilizce"],
-          name: "Çağla Büyükakçay"),
-      Translator(
-          isInterpreter: true,
-          location: GeoPoint(53, 52),
-          languages: ["İngilizce", "Fransızca"],
-          name: "Ahmet Serin"),
+      Translator(isInterpreter: false, location: GeoPoint(53, 52), languages: ["Türkçe", "İngilizce"], name: "Çağla Büyükakçay"),
+      Translator(isInterpreter: true, location: GeoPoint(53, 52), languages: ["İngilizce", "Fransızca"], name: "Ahmet Serin"),
     ];
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
+    return MainScaffold(
+      selectedTabIndex: 2,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           padding: context.veryLowSymPadding,
           children: [
             Text(
-              "Tercüman Listesi",
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineLarge
-                  ?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
+              "interpreterList".tr(),
+              style: Theme.of(context).textTheme.headlineLarge?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
               textAlign: TextAlign.center,
             ),
             getSpacer,
-            Text.rich(
-              TextSpan(
+            Text(
+              "interpreterListDescription".tr(),
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w300),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextSpan(
-                      text:
-                          "Tercüman listesine aşağıdaki tablodan erişebilirsiniz. Yeni tercüman başvurusunu "),
-                  TextSpan(
-                      text: "buradan",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.black)),
-                  TextSpan(text: " yapabilirsiniz."),
+                  Expanded(
+                    child: FilterChip(
+                      label: Text("nameSurname".tr()),
+                      onSelected: (_) {},
+                      backgroundColor: Colors.transparent,
+                    ),
+                  ),
+                  getSpacer,
+                  Expanded(child: LanguagePicker()),
                 ],
               ),
-              textAlign: TextAlign.center,
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineSmall
-                  ?.copyWith(fontWeight: FontWeight.w300),
             ),
-            getSpacer,
-            Row(
-              children: [
-                FilterChip(
-                  label: Text("İsim & Soyisim"),
-                  onSelected: (_) {},
-                  backgroundColor: Colors.transparent,
-                ),
-              ],
-            ),
-            getSpacer,
             ExpansionPanelList(
-              expansionCallback: (int index, bool isExpanded) {
-                setState(() {
-                  if (!isExpanded) {
-                    expandedTranslatorIndex = index;
-                  } else {
-                    expandedTranslatorIndex = null;
-                  }
-                });
+              expansionCallback: (int i, bool isExpanded) {
+                setState(() => expandedTranslatorIndex = isExpanded ? null : i);
               },
-              children:
-                  translators.map<ExpansionPanel>((Translator translator) {
+              children: translators.map((translator) {
                 return ExpansionPanel(
                   headerBuilder: (BuildContext context, bool isExpanded) {
                     print((translator.languages.length / 2));
@@ -108,15 +89,18 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Tercüme Dili", textAlign: TextAlign.left),
+                        Text(
+                          "translationLanguage".tr(),
+                          textAlign: TextAlign.left,
+                        ),
                         getSpacer,
                         GridView.builder(
                           itemCount: translator.languages.length,
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  mainAxisExtent: context.lowHeight,
-                                  crossAxisSpacing: context.veryLowWidth),
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            mainAxisExtent: context.lowHeight,
+                            crossAxisSpacing: context.veryLowWidth,
+                          ),
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             return FilledButton.icon(
@@ -127,14 +111,9 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                               ),
                               label: Text(
                                 translator.languages[index],
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineSmall
-                                    ?.copyWith(fontWeight: FontWeight.bold),
+                                style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
                               ),
-                              style: FilledButton.styleFrom(
-                                  shape: BeveledRectangleBorder(),
-                                  backgroundColor: Colors.transparent),
+                              style: FilledButton.styleFrom(shape: BeveledRectangleBorder(), backgroundColor: Colors.transparent),
                             );
                             // return Container(
                             //   alignment: Alignment.center,
@@ -154,11 +133,43 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                             // );
                           },
                         ),
+                        getSpacer,
+                        Text("contantInformation".tr()),
+                        getSpacer,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.phone,
+                              size: 17,
+                            ),
+                            Text("  +90532*******"),
+                          ],
+                        ),
+                        getSpacer,
+                        getSpacer,
+                        GridView.builder(
+                          itemCount: 4,
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              mainAxisSpacing: 15, crossAxisCount: 2, mainAxisExtent: context.lowHeight, crossAxisSpacing: context.lowWidth),
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            return ElevatedButton.icon(
+                              onPressed: () {},
+                              label: Text("instagram".tr()),
+                              icon: Icon(MdiIcons.instagram),
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color.fromRGBO(34, 58, 82, 1),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(40),
+                                  )),
+                            );
+                          },
+                        ),
                       ],
                     ),
                   ),
-                  isExpanded: expandedTranslatorIndex ==
-                      translators.indexOf(translator),
+                  isExpanded: expandedTranslatorIndex == translators.indexOf(translator),
                 );
               }).toList(),
               elevation: 1,

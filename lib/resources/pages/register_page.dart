@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app/networking/translator_api_service.dart';
-import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
+import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
+import 'package:flutter_app/resources/extensions/padding_extension.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import '/app/controllers/controller.dart';
+import '../themes/styles/light_theme_colors.dart';
+import '../widgets/atoms/custom_button.dart';
+import '../widgets/molecules/main_app_bar.dart';
 
 class RegisterPage extends NyStatefulWidget {
   static final String path = "/register";
-  final Controller controller = Controller();
   RegisterPage({Key? key}) : super(key: key);
 
   @override
@@ -14,85 +16,60 @@ class RegisterPage extends NyStatefulWidget {
 }
 
 class _RegisterPageState extends NyState<RegisterPage> {
-  List<String> selectedLanguages = [];
-
   @override
   init() async {
     super.init();
   }
 
   @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final ButtonStyle buttonStyle =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-
-    bool tcppChecked = false;
-
-    void _onTcppCbChanged(bool? newValue) => setState(() {
-          tcppChecked = newValue != null ? newValue : false;
-          //TODO: Box is not getting checked
-          if (tcppChecked) {
-            debugPrint('checked');
-            // TODO: Enable registration button
-          } else {
-            debugPrint('not checked');
-            // TODO: Disable registration button
-          }
-        });
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("appTitle".tr()),
-      ),
-      body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.only(left: 20, right: 20, top: 20),
-          child: Column(
-            children: [
-              CustomTextField(
-                title: "fullName".tr(),
-                hint: "fullNameHelper".tr(),
-                keyboardType: TextInputType.name,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        appBar: MainAppBar(),
+        body: ListView(
+          padding: context.lowSymPadding,
+          children: [
+            Text(
+              "register".tr(),
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    color: LightThemeColors().title,
+                  ),
+            ),
+            getSpacerMedium,
+            CustomButton(
+              text: "registerWithGoogle".tr(),
+              icon: MdiIcons.google,
+              style: CustomButtonStyles.lightFilled,
+              onPressed: () {},
+              size: CustomButtonSize.normal,
+            ),
+            getSpacer,
+            Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(text: "alreadyHaveAnAccount".tr()),
+                  WidgetSpan(
+                    child: GestureDetector(
+                      onTap: () => Navigator.pop(context),
+                      child: Text(
+                        "login".tr(),
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              SizedBox(height: 22),
-              CustomChipTags(list: selectedLanguages),
-              SizedBox(height: 28),
-              Text("tcpp".tr()),
-              SizedBox(height: 22),
-              CheckboxListTile(
-                title: Text("iAgree".tr()),
-                value: tcppChecked,
-                onChanged: _onTcppCbChanged,
-                controlAffinity:
-                    ListTileControlAffinity.leading, //  <-- leading Checkbox
-              ),
-              SizedBox(height: 22),
-              SizedBox(
-                width: double.infinity,
-                height: 50.0,
-                child: ElevatedButton(
-                  style: buttonStyle,
-                  onPressed: () async {
-                    // TODO : for testing only
-
-                    await NyLocalization.instance.setLanguage(context,
-                        language: NyLocalization.instance.languageCode == 'en'
-                            ? 'tr'
-                            : 'en');
-                    debugPrint(NyLocalization.instance.languageCode);
-                  },
-                  child: Text('register'.tr()),
-                ),
-              ),
-            ],
-          ),
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(color: LightThemeColors().context),
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
       ),
     );
   }
+
+  Widget get getSpacer => SizedBox(height: context.veryLowHeight);
+  Widget get getSpacerMedium => SizedBox(height: context.mediumHeight);
 }

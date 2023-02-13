@@ -12,16 +12,22 @@ class CustomTextField extends StatefulWidget {
   final TextInputType? keyboardType;
   final Widget? icon;
   final Widget? secondIcon;
+  final Color? fillColor;
+  final String? Function(String?)? validator;
+  final TextEditingController? controller;
 
   const CustomTextField({
     Key? key,
     required this.title,
     required this.hint,
+    this.controller,
     this.isDense = false,
     this.helper = "",
+    this.validator,
     this.keyboardType,
     this.icon,
     this.secondIcon,
+    this.fillColor,
   }) : super(key: key);
 
   @override
@@ -41,8 +47,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
     }
 
     return Container(
-        margin: EdgeInsets.only(bottom: context.calculateDynamicHeight(0.2)),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      margin: EdgeInsets.only(bottom: context.calculateDynamicHeight(0.2)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
           if (widget.title.isNotEmpty) ...{
             Text(
               widget.title,
@@ -50,28 +58,29 @@ class _CustomTextFieldState extends State<CustomTextField> {
             SizedBox(height: 10)
           },
           TextFormField(
+            controller: widget.controller,
             keyboardType: widget.keyboardType,
             inputFormatters: inputFormatters,
+            validator: widget.validator,
             decoration: InputDecoration(
                 isDense: widget.isDense,
-                fillColor: LightThemeColors().grey.shade300,
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                filled: true,
+                fillColor: widget.fillColor != null ? widget.fillColor : LightThemeColors().grey.shade300,
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
                 // label: Text(widget.hint,
                 //     style: Theme.of(context)
                 //         .textTheme
                 //         .titleLarge
                 //         ?.copyWith(fontWeight: FontWeight.w100)),
                 hintText: widget.hint,
-                hintStyle: Theme.of(context)
-                    .textTheme
-                    .bodyLarge
-                    ?.copyWith(fontWeight: FontWeight.w100),
+                hintStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w100),
                 floatingLabelBehavior: FloatingLabelBehavior.never,
                 helperText: widget.helper,
                 prefixIcon: widget.icon,
                 suffixIcon: widget.secondIcon),
           ),
-        ]));
+        ],
+      ),
+    );
   }
 }

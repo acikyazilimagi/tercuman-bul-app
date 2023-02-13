@@ -1,36 +1,36 @@
 import 'package:flutter/material.dart';
 
+import '../../../app/models/languages.dart';
 import '../../themes/styles/light_theme_colors.dart';
 import '../atoms/country_flag_name.dart';
 
-class CountryDialingCodePicker extends StatefulWidget {
-  final List<dynamic>? countryData;
+class LanguagePicker extends StatefulWidget {
+  final void Function(String?)? onLangSelected;
 
-  CountryDialingCodePicker({
+  LanguagePicker({
     Key? key,
-    required this.countryData,
+    this.onLangSelected,
   }) : super(key: key);
 
   @override
-  State<CountryDialingCodePicker> createState() => _State();
+  State<LanguagePicker> createState() => _State();
 }
 
-class _State extends State<CountryDialingCodePicker> {
-  String _value = '+90';
+class _State extends State<LanguagePicker> {
+  late String _value;
 
   @override
   Widget build(BuildContext context) {
+    _value = 'en';
     return DropdownButtonFormField(
       // isDense: true,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
-          borderSide:
-              BorderSide(color: LightThemeColors().grey.shade300, width: 2),
+          borderSide: BorderSide(color: LightThemeColors().grey.shade300, width: 2),
           borderRadius: BorderRadius.circular(8),
         ),
         border: OutlineInputBorder(
-          borderSide:
-              BorderSide(color: LightThemeColors().grey.shade300, width: 2),
+          borderSide: BorderSide(color: LightThemeColors().grey.shade300, width: 2),
           borderRadius: BorderRadius.circular(8),
         ),
         filled: true,
@@ -42,15 +42,14 @@ class _State extends State<CountryDialingCodePicker> {
         setState(() {
           _value = newValue!;
         });
+        widget.onLangSelected?.call(newValue);
       },
-      items: widget.countryData
-          ?.map(
-            (e) => DropdownMenuItem(
-              value: e["dialing_code"].toString(),
-              child: CountryFlagName(code: e["code"], name: "${e["dialing_code"]} ${e["name"]}"),
-            ),
-          )
-          .toList(),
+      items: Languages.usableLanguages.map((e) {
+        return DropdownMenuItem(
+          value: e.key,
+          child: CountryFlagName(code: e.key, name: e.value, type: 'lang'),
+        );
+      }).toList(),
       isExpanded: true,
     );
   }
