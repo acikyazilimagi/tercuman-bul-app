@@ -61,10 +61,7 @@ class _RegisterPageState extends NyState<RegisterPage> {
                   ),
                 ],
               ),
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium
-                  ?.copyWith(color: LightThemeColors().context),
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(color: LightThemeColors().context),
               textAlign: TextAlign.center,
             ),
           ],
