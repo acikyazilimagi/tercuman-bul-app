@@ -26,8 +26,16 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
   void initState() {
     // TODO: implement initState
     translators = [
-      Translator(isInterpreter: false, location: GeoPoint(53, 52), languages: ["Türkçe", "İngilizce"], name: "Çağla Büyükakçay"),
-      Translator(isInterpreter: true, location: GeoPoint(53, 52), languages: ["İngilizce", "Fransızca"], name: "Ahmet Serin"),
+      Translator(
+          isInterpreter: false,
+          location: GeoPoint(53, 52),
+          languages: ["Türkçe", "İngilizce"],
+          name: "Çağla Büyükakçay"),
+      Translator(
+          isInterpreter: true,
+          location: GeoPoint(53, 52),
+          languages: ["İngilizce", "Fransızca"],
+          name: "Ahmet Serin"),
     ];
     super.initState();
   }
@@ -43,14 +51,20 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
           children: [
             Text(
               "interpreterList".tr(),
-              style: Theme.of(context).textTheme.headlineLarge?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineLarge
+                  ?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
               textAlign: TextAlign.center,
             ),
             getSpacer,
             Text(
               "interpreterListDescription".tr(),
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w300),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge
+                  ?.copyWith(fontWeight: FontWeight.w300),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -96,7 +110,8 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                         getSpacer,
                         GridView.builder(
                           itemCount: translator.languages.length,
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             mainAxisExtent: context.lowHeight,
                             crossAxisSpacing: context.veryLowWidth,
@@ -111,9 +126,14 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                               ),
                               label: Text(
                                 translator.languages[index],
-                                style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall
+                                    ?.copyWith(fontWeight: FontWeight.bold),
                               ),
-                              style: FilledButton.styleFrom(shape: BeveledRectangleBorder(), backgroundColor: Colors.transparent),
+                              style: FilledButton.styleFrom(
+                                  shape: BeveledRectangleBorder(),
+                                  backgroundColor: Colors.transparent),
                             );
                             // return Container(
                             //   alignment: Alignment.center,
@@ -150,8 +170,12 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                         getSpacer,
                         GridView.builder(
                           itemCount: 4,
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              mainAxisSpacing: 15, crossAxisCount: 2, mainAxisExtent: context.lowHeight, crossAxisSpacing: context.lowWidth),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  mainAxisSpacing: 15,
+                                  crossAxisCount: 2,
+                                  mainAxisExtent: context.lowHeight,
+                                  crossAxisSpacing: context.lowWidth),
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             return ElevatedButton.icon(
@@ -159,7 +183,8 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                               label: Text("instagram".tr()),
                               icon: Icon(MdiIcons.instagram),
                               style: ElevatedButton.styleFrom(
-                                  backgroundColor: Color.fromRGBO(34, 58, 82, 1),
+                                  backgroundColor:
+                                      Color.fromRGBO(34, 58, 82, 1),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(40),
                                   )),
@@ -169,7 +194,8 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                       ],
                     ),
                   ),
-                  isExpanded: expandedTranslatorIndex == translators.indexOf(translator),
+                  isExpanded: expandedTranslatorIndex ==
+                      translators.indexOf(translator),
                 );
               }).toList(),
               elevation: 1,
