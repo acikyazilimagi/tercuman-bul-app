@@ -206,6 +206,9 @@ class _RegisterPageState extends NyState<RegisterPage> {
                 child: Text("tcpp".tr()),
               ),
               actions: <Widget>[
+                TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: Text("Close")),
                 Checkbox(
                     checkColor: Colors.white,
                     value: isChecked1,
@@ -215,7 +218,7 @@ class _RegisterPageState extends NyState<RegisterPage> {
                       });
                       Navigator.pop(context);
                     }),
-                Text("I Accept!")
+                Text("I Accept!"),
               ],
             )),
       );
