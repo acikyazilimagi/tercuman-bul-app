@@ -274,7 +274,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         CountryFlagName(code: 'tr', name: 'Turkey'),
         SizedBox(height: 8),
         CountryDialingCodePicker(countryData: countryData),
-        LanguagePicker(context: context),
+        LanguagePicker(),
       ],
     );
   }
