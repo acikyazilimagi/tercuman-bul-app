@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
+import 'package:flutter_app/resources/pages/home_page.dart';
 import 'package:flutter_app/resources/pages/register_page.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_button.dart';
 import 'package:flutter_app/resources/widgets/loader_widget.dart';
@@ -54,6 +55,9 @@ class _SignInPageState extends NyState<SignInPage> {
                     onPressed: () async {
                       await lockRelease("auth", perform: () async => await AuthService.instance.signInWithGoogle());
                       event<LoginEvent>(data: {"auth_translator": AuthService.instance.currentTranslator});
+                      if (AuthService().currentTranslator.uuid != null) {
+                        await routeTo(HomePage.path);
+                      }
                     },
                     size: CustomButtonSize.normal,
                   ),
