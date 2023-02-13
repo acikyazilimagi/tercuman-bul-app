@@ -47,6 +47,86 @@ class _RegisterPageState extends NyState<RegisterPage> {
                   ),
             ),
             getSpacerMedium,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Checkbox(
+                    fillColor: MaterialStateColor.resolveWith(
+                        (states) => Color.fromRGBO(
+                              34,
+                              58,
+                              82,
+                              1,
+                            )),
+                    checkColor: Colors.white,
+                    value: isChecked1,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        isChecked1 = value!;
+                      });
+                    }),
+                Text.rich(
+                  TextSpan(
+                    children: [
+                      WidgetSpan(
+                        child: GestureDetector(
+                          onTap: () => openDialog(),
+                          child: Text(
+                            "Aydınlatma Metni",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 12),
+                          ),
+                        ),
+                      ),
+                      TextSpan(
+                          text: "'ni okudum ve kabul ediyorum.",
+                          style: TextStyle(
+                            color: Color.fromRGBO(
+                              34,
+                              58,
+                              82,
+                              1,
+                            ),
+                          )),
+                    ],
+                  ),
+                  style: TextStyle(fontSize: 11),
+                  textAlign: TextAlign.start,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Checkbox(
+                    fillColor: MaterialStateColor.resolveWith(
+                        (states) => Color.fromRGBO(
+                              34,
+                              58,
+                              82,
+                              1,
+                            )),
+                    checkColor: Colors.white,
+                    value: isChecked2,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        isChecked2 = value!;
+                      });
+                    }),
+                Text(
+                    "Verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, \nbilgi kirliliği ve yanlış uygulamalara yol açmamak için \ngerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum \nbilgilerde meydana gelen değişiklik ve güncellemeleri \nbildireceğimi kabul ve beyan ederim.",
+                    style: TextStyle(
+                      fontSize: 11,
+                      color: Color.fromRGBO(
+                        34,
+                        58,
+                        82,
+                        1,
+                      ),
+                    )),
+              ],
+            ),
+            getSpacer,
             CustomButton(
               text: "registerWithGoogle".tr(),
               icon: MdiIcons.google,
@@ -84,4 +164,43 @@ class _RegisterPageState extends NyState<RegisterPage> {
 
   Widget get getSpacer => SizedBox(height: context.veryLowHeight);
   Widget get getSpacerMedium => SizedBox(height: context.mediumHeight);
+
+  Future openDialog() => showDialog(
+        context: context,
+        builder: ((context) => AlertDialog(
+              icon: IconButton(
+                alignment: Alignment.topRight,
+                icon: Icon(MdiIcons.close),
+                onPressed: () => Navigator.pop(context),
+              ),
+              title: Text("Information about Data Protection"),
+              content: SingleChildScrollView(
+                child: Text("tcpp".tr()),
+              ),
+              actions: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text("I Accept!"),
+                    Checkbox(
+                        fillColor: MaterialStateColor.resolveWith(
+                            (states) => Color.fromRGBO(
+                                  34,
+                                  58,
+                                  82,
+                                  1,
+                                )),
+                        checkColor: Colors.white,
+                        value: isChecked1,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            isChecked1 = value!;
+                          });
+                          Navigator.pop(context);
+                        }),
+                  ],
+                )
+              ],
+            )),
+      );
 }
