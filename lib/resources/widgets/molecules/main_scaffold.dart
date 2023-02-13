@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
-import '../molecules/main_app_bar.dart';
-import '../molecules/main_bottom_navigation_bar.dart';
+import 'main_app_bar.dart';
+import 'main_bottom_navigation_bar.dart';
 
 class MainScaffold extends StatelessWidget implements PreferredSizeWidget {
   final Widget body;

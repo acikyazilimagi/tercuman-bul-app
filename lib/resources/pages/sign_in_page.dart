@@ -12,7 +12,7 @@ import 'package:nylo_framework/nylo_framework.dart';
 import '../../app/events/login_event.dart';
 import '../../bootstrap/helpers.dart';
 import '../themes/styles/light_theme_colors.dart';
-import '../widgets/atoms/main_scaffold.dart';
+import '../widgets/molecules/main_scaffold.dart';
 
 class SignInPage extends NyStatefulWidget {
   static final String path = "/sign-in";

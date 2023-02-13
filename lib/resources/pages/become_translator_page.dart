@@ -12,7 +12,7 @@ import 'package:nylo_framework/nylo_framework.dart';
 import '../themes/styles/light_theme_colors.dart';
 import '../widgets/atoms/custom_button.dart';
 import '../widgets/atoms/custom_selectable_tile.dart';
-import '../widgets/atoms/main_scaffold.dart';
+import '../widgets/molecules/main_scaffold.dart';
 import '../widgets/molecules/contact_link_field.dart';
 import '../widgets/molecules/contact_us_card.dart';
 

@@ -15,7 +15,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:nylo_framework/nylo_framework.dart';
 
 import '../widgets/atoms/country_flag_name.dart';
-import '../widgets/atoms/main_scaffold.dart';
+import '../widgets/molecules/main_scaffold.dart';
 import '../widgets/molecules/contact_link_field.dart';
 import '../widgets/molecules/country_dialing_code_picker.dart';
 import '../widgets/molecules/main_app_bar.dart';

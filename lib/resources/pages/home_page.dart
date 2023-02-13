@@ -5,7 +5,7 @@ import 'package:flutter_app/resources/widgets/atoms/custom_expandable_card.dart'
 import 'package:flutter_app/resources/widgets/molecules/contact_us_card.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
-import '../widgets/atoms/main_scaffold.dart';
+import '../widgets/molecules/main_scaffold.dart';
 
 class HomePage extends NyStatefulWidget {
   static final String path = "/home-page";

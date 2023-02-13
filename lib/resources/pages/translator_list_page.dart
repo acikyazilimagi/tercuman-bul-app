@@ -5,7 +5,7 @@ import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../widgets/atoms/main_scaffold.dart';
+import '../widgets/molecules/main_scaffold.dart';
 
 class TranslatorListPage extends StatefulWidget {
   static final String path = "/translator-list";

@@ -6,7 +6,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import '../themes/styles/light_theme_colors.dart';
 import '../widgets/atoms/custom_button.dart';
 import '../widgets/atoms/custom_textfield.dart';
-import '../widgets/atoms/main_scaffold.dart';
+import '../widgets/molecules/main_scaffold.dart';
 import '../widgets/safearea_widget.dart';
 
 class EnterVerificationCodePage extends StatefulWidget {
