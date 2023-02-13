@@ -105,18 +105,6 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                   onSelected: (_) {},
                   backgroundColor: Colors.transparent,
                 ),
-                FilterChip(
-                  label: DropdownButton(
-                    items: [
-                      DropdownMenuItem(
-                        child: Text("Bir dil seçin"),
-                      )
-                    ],
-                    onChanged: (value) {},
-                  ),
-                  onSelected: (_) {},
-                  backgroundColor: Colors.transparent,
-                ),
               ],
             ),
             ExpansionPanelList(

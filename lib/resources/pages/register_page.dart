@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/networking/translator_api_service.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
@@ -30,13 +31,34 @@ class _RegisterPageState extends NyState<RegisterPage> {
     super.dispose();
   }
 
+  bool isChecked1 = false;
+  bool isChecked2 = false;
+
   @override
   Widget build(BuildContext context) {
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      if (states.any(interactiveStates.contains)) {
+        return Colors.transparent;
+      }
+      return Color.fromRGBO(
+        34,
+        58,
+        82,
+        1,
+      );
+    }
+
     return Scaffold(
       appBar: MainAppBar(),
       body: ListView(
-        padding: context.lowSymPadding,
+        padding: context.lowWidthPadding,
         children: [
+          getSpacer,
           Text(
             "register".tr(),
             textAlign: TextAlign.center,
@@ -64,6 +86,74 @@ class _RegisterPageState extends NyState<RegisterPage> {
             isDense: true,
             fillColor: Colors.white,
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Checkbox(
+                  fillColor: MaterialStateProperty.resolveWith(getColor),
+                  checkColor: Colors.white,
+                  value: isChecked1,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      isChecked1 = value!;
+                    });
+                  }),
+              Text.rich(
+                TextSpan(
+                  children: [
+                    WidgetSpan(
+                      child: GestureDetector(
+                        onTap: () => openDialog(),
+                        child: Text(
+                          "Aydınlatma Metni",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 12),
+                        ),
+                      ),
+                    ),
+                    TextSpan(
+                        text: "'ni okudum ve kabul ediyorum.",
+                        style: TextStyle(
+                          color: Color.fromRGBO(
+                            34,
+                            58,
+                            82,
+                            1,
+                          ),
+                        )),
+                  ],
+                ),
+                style: TextStyle(fontSize: 11),
+                textAlign: TextAlign.start,
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Checkbox(
+                  fillColor: MaterialStateProperty.resolveWith(getColor),
+                  checkColor: Colors.white,
+                  value: isChecked2,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      isChecked2 = value!;
+                    });
+                  }),
+              Text(
+                  "Verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, \nbilgi kirliliği ve yanlış uygulamalara yol açmamak için \ngerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum \nbilgilerde meydana gelen değişiklik ve güncellemeleri \nbildireceğimi kabul ve beyan ederim.",
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: Color.fromRGBO(
+                      34,
+                      58,
+                      82,
+                      1,
+                    ),
+                  )),
+            ],
+          ),
+          getSpacer,
           CustomButton(
             text: "register".tr(),
             style: CustomButtonStyles.darkFilled,
@@ -107,4 +197,26 @@ class _RegisterPageState extends NyState<RegisterPage> {
   }
 
   Widget get getSpacer => SizedBox(height: context.veryLowHeight);
+
+  Future openDialog() => showDialog(
+        context: context,
+        builder: ((context) => AlertDialog(
+              title: Text("Information about Data Protection"),
+              content: SingleChildScrollView(
+                child: Text("tcpp".tr()),
+              ),
+              actions: <Widget>[
+                Checkbox(
+                    checkColor: Colors.white,
+                    value: isChecked1,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        isChecked1 = value!;
+                      });
+                      Navigator.pop(context);
+                    }),
+                Text("I Accept!")
+              ],
+            )),
+      );
 }
