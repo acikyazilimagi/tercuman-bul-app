@@ -9,6 +9,8 @@ import 'package:nylo_framework/nylo_framework.dart';
 
 import '../widgets/molecules/main_scaffold.dart';
 
+import '../widgets/molecules/main_scaffold.dart';
+
 class TranslatorListPage extends StatefulWidget {
   static final String path = "/translator-list";
   const TranslatorListPage({super.key});
