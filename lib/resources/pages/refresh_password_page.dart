@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
 import 'package:flutter_app/resources/themes/styles/light_theme_colors.dart';
-import 'package:flutter_app/resources/widgets/molecules/main_app_bar.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
 import '../widgets/atoms/custom_button.dart';
 import '../widgets/atoms/custom_textfield.dart';
+import '../widgets/molecules/main_scaffold.dart';
 
 class RefreshPasswordPage extends NyStatefulWidget {
   static final String path = "/refresh-password";
@@ -21,8 +21,8 @@ class RefreshPasswordPage extends NyStatefulWidget {
 class _RefreshPasswordPageState extends NyState<RefreshPasswordPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MainAppBar(),
+    return MainScaffold(
+      showBottomNavigationBar: false,
       body: SafeAreaWidget(
         child: ListView(
           padding: context.veryLowSymPadding,

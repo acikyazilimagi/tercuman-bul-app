@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
-import 'package:flutter_app/resources/extensions/form_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
-import 'package:flutter_app/resources/pages/enter_verification_code_page.dart';
-import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import '../themes/styles/light_theme_colors.dart';
@@ -64,7 +61,10 @@ class _RegisterPageState extends NyState<RegisterPage> {
                   ),
                 ],
               ),
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(color: LightThemeColors().context),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium
+                  ?.copyWith(color: LightThemeColors().context),
               textAlign: TextAlign.center,
             ),
           ],

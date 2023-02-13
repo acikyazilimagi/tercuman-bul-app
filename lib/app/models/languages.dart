@@ -10,17 +10,18 @@ class Languages {
     _languageData = LocaleNames.of(context)!
         .sortedByName
         .where(_filterTwoLetterCodes)
-        .toList()
-      ..sort(_sortDiacritics);
+        .toList();
+    _languageData!.add(MapEntry("kr", "Kurdish"));
+    _languageData!.sort(_sortDiacritics);
     return _singleton;
   }
 
   Languages._();
 
-  static final Set<String> _appLanguages = { "en", "tr", "ar", "kr", "ru" };
+  static final Set<String> _appLanguages = {"en", "tr", "ar", "kr", "ru"};
 
-  static final _sortDiacritics = (a, b) =>
-      removeDiacritics(a.value).compareTo(removeDiacritics(b.value));
+  static final _sortDiacritics =
+      (a, b) => removeDiacritics(a.value).compareTo(removeDiacritics(b.value));
 
   static final _filterTwoLetterCodes = (e) => e.key.length == 2;
 
@@ -29,6 +30,12 @@ class Languages {
   static List<MapEntry<String, String>> get appLanguages {
     return _languageData!.where(_filterAppLanguages).toList();
   }
+
+  static String nativeLocaleName(String languageCode) => languageCode == "kr"
+      ? "Kurdî"
+      : LocaleNamesLocalizationsDelegate.nativeLocaleNames.entries
+          .firstWhere((e) => e.key == languageCode)
+          .value;
 
   static List<MapEntry<String, String>> get usableLanguages {
     return _languageData!;

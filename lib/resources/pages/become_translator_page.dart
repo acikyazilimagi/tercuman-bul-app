@@ -5,7 +5,6 @@ import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
 import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
 import 'package:flutter_app/resources/widgets/molecules/language_picker.dart';
-import 'package:flutter_app/resources/widgets/molecules/main_app_bar.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
@@ -13,6 +12,7 @@ import 'package:nylo_framework/nylo_framework.dart';
 import '../themes/styles/light_theme_colors.dart';
 import '../widgets/atoms/custom_button.dart';
 import '../widgets/atoms/custom_selectable_tile.dart';
+import '../widgets/molecules/main_scaffold.dart';
 import '../widgets/molecules/contact_link_field.dart';
 import '../widgets/molecules/contact_us_card.dart';
 
@@ -38,8 +38,8 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const MainAppBar(),
+    return MainScaffold(
+      selectedTabIndex: 1,
       body: SafeAreaWidget(
         child: ListView(
           physics: BouncingScrollPhysics(),
