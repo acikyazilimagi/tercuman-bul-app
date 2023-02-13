@@ -27,8 +27,8 @@ class _RegisterPageState extends NyState<RegisterPage> {
     super.dispose();
   }
 
-  bool isChecked1 = false;
-  bool isChecked2 = false;
+  bool tcCheckbox = false;
+  bool truthAckCheckbox = false;
 
   @override
   Widget build(BuildContext context) {
@@ -59,10 +59,10 @@ class _RegisterPageState extends NyState<RegisterPage> {
                               1,
                             )),
                     checkColor: Colors.white,
-                    value: isChecked1,
+                    value: tcCheckbox,
                     onChanged: (bool? value) {
                       setState(() {
-                        isChecked1 = value!;
+                        tcCheckbox = value!;
                       });
                     }),
                 Text.rich(
@@ -95,8 +95,7 @@ class _RegisterPageState extends NyState<RegisterPage> {
                 ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+            Wrap(
               children: [
                 Checkbox(
                     fillColor: MaterialStateColor.resolveWith(
@@ -107,23 +106,26 @@ class _RegisterPageState extends NyState<RegisterPage> {
                               1,
                             )),
                     checkColor: Colors.white,
-                    value: isChecked2,
+                    value: truthAckCheckbox,
                     onChanged: (bool? value) {
                       setState(() {
-                        isChecked2 = value!;
+                        truthAckCheckbox = value!;
                       });
                     }),
-                Text(
-                    "Verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, \nbilgi kirliliği ve yanlış uygulamalara yol açmamak için \ngerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum \nbilgilerde meydana gelen değişiklik ve güncellemeleri \nbildireceğimi kabul ve beyan ederim.",
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Color.fromRGBO(
-                        34,
-                        58,
-                        82,
-                        1,
-                      ),
-                    )),
+                SizedBox(
+                  width: 300 * MediaQuery.of(context).textScaleFactor,
+                  child: Text("truthAck".tr(),
+                      maxLines: 5,
+                      style: TextStyle(
+                        fontSize: 10,
+                        color: Color.fromRGBO(
+                          34,
+                          58,
+                          82,
+                          1,
+                        ),
+                      )),
+                ),
               ],
             ),
             getSpacer,
@@ -173,7 +175,6 @@ class _RegisterPageState extends NyState<RegisterPage> {
                 icon: Icon(MdiIcons.close),
                 onPressed: () => Navigator.pop(context),
               ),
-              title: Text("Information about Data Protection"),
               content: SingleChildScrollView(
                 child: Text("tcpp".tr()),
               ),
@@ -191,10 +192,10 @@ class _RegisterPageState extends NyState<RegisterPage> {
                                   1,
                                 )),
                         checkColor: Colors.white,
-                        value: isChecked1,
+                        value: tcCheckbox,
                         onChanged: (bool? value) {
                           setState(() {
-                            isChecked1 = value!;
+                            tcCheckbox = value!;
                           });
                           Navigator.pop(context);
                         }),
