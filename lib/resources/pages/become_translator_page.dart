@@ -61,6 +61,13 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                   .titleLarge
                   ?.copyWith(fontWeight: FontWeight.w300),
             ),
+            TextButton(
+              child: Text(
+                "translatorListLinkText".tr(),
+                style: TextStyle(decoration: TextDecoration.underline),
+              ),
+              onPressed: () => routeTo("/translator-list"),
+            ),
             getSpacer,
             CustomTextField(
                 title: "firstNameInputTitle".tr(),

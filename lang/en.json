@@ -68,5 +68,7 @@
   "translationLanguage": "Translation Language",
   "contantInformation": "Contact Information",
   "beInterpreterDescription": "Fill out the form below to be an interpreter.",
-  "instagram": "Instagram"
+  "instagram": "Instagram",
+  "newTranslatorLinkText": "You can apply for a new translator here.",
+  "translatorListLinkText": "You can reach the translator list from here."
 }

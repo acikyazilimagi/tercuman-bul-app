@@ -69,5 +69,7 @@
   "translationLanguage": "Язык перевода",
   "contantInformation": "Контактная информация",
   "beInterpreterDescription": "Заполните форму ниже, чтобы стать переводчиком.",
-  "instagram": "Инстаграм"
+  "instagram": "Инстаграм",
+  "newTranslatorLinkText": "Вы можете подать заявку на нового переводчика здесь.",
+  "translatorListLinkText": "Вы можете получить список переводчиков отсюда."
 }

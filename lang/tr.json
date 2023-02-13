@@ -69,5 +69,7 @@
   "translationLanguage": "Çeviri Dili",
   "contantInformation": "İletişim Bilgileri",
   "beInterpreterDescription": "Çevirmen olmak için aşağıdaki formu doldurun.",
-  "instagram": "Instagram"
+  "instagram": "Instagram",
+  "newTranslatorLinkText": "Yeni tercüman başvurusunu buradan yapabilirsiniz.",
+  "translatorListLinkText": "Tercüman listesine buradan ulaşabilirsiniz."
 }

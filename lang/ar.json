@@ -69,5 +69,7 @@
   "translationLanguage": "لغة الترجمة",
   "contantInformation": "معلومات الاتصال",
   "beInterpreterDescription": "املأ النموذج أدناه لتكون مترجمًا.",
-  "instagram": "إنستغرام"
+  "instagram": "إنستغرام",
+  "newTranslatorLinkText": "يمكنك تقديم طلب لمترجم جديد هنا.",
+  "translatorListLinkText": "يمكنك الوصول إلى قائمة المترجمين من هنا."
 }
