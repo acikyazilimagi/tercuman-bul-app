@@ -150,8 +150,9 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                     : null,
               ),
               onChanged: (values) {
-                setState(() =>
-                    _selectedLanguages = values.map((e) => e.key).toList());
+                setState(() {
+                  _selectedLanguages = values.map((e) => e.key).toList();
+                });
               },
             ),
             getSpacer,

@@ -1,3 +1,4 @@
+import 'package:diacritic/diacritic.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 
@@ -42,6 +43,8 @@ class CustomMultiselectDropdown<T> extends StatefulWidget {
 
 class _CustomMultiselectDropdownState<T>
     extends State<CustomMultiselectDropdown<T>> {
+  List<T> selectedItems = [];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -54,9 +57,16 @@ class _CustomMultiselectDropdownState<T>
         DropdownSearch<T>.multiSelection(
           items: widget.items,
           itemAsString: widget.itemAsString,
+          filterFn: (item, filter) =>
+              removeDiacritics(widget.itemAsString!(item))
+                  .contains(removeDiacritics(filter)),
           popupProps: PopupPropsMultiSelection.menu(
             showSearchBox: widget.showSearchBox,
             itemBuilder: widget.itemBuilder,
+            onItemAdded: (selectedItems, addedItem) =>
+                setState(() => this.selectedItems = selectedItems),
+            onItemRemoved: (selectedItems, removedItem) =>
+                setState(() => this.selectedItems = selectedItems),
           ),
           dropdownDecoratorProps: DropDownDecoratorProps(
             dropdownSearchDecoration: InputDecoration(
@@ -81,6 +91,7 @@ class _CustomMultiselectDropdownState<T>
           ),
           validator: widget.validator,
           onChanged: widget.onChanged,
+          selectedItems: selectedItems,
         ),
       ],
     );

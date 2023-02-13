@@ -1,3 +1,4 @@
+import 'package:diacritic/diacritic.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 
@@ -52,6 +53,9 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
         DropdownSearch<T>(
           items: widget.items,
           itemAsString: widget.itemAsString,
+          filterFn: (item, filter) =>
+              removeDiacritics(widget.itemAsString!(item))
+                  .contains(removeDiacritics(filter)),
           popupProps: PopupPropsMultiSelection.menu(
             showSearchBox: widget.showSearchBox,
             itemBuilder: widget.itemBuilder,
@@ -79,6 +83,9 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
           ),
           validator: widget.validator,
           onChanged: widget.onChanged,
+          clearButtonProps: ClearButtonProps(
+            isVisible: true,
+          ),
         ),
       ],
     );
