@@ -1,15 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/models/languages.dart';
 import 'package:flutter_app/app/models/translator.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
-import 'package:flutter_app/resources/widgets/atoms/custom_multiselect_dropdown.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
-import '../themes/styles/light_theme_colors.dart';
 import '../widgets/atoms/country_flag_name.dart';
 import '../widgets/atoms/custom_dropdown.dart';
 import '../widgets/atoms/custom_textfield.dart';
