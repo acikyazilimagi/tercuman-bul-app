@@ -5,9 +5,11 @@ import '../../themes/styles/light_theme_colors.dart';
 import '../atoms/country_flag_name.dart';
 
 class LanguagePicker extends StatefulWidget {
+  final void Function(String?)? onLangSelected;
 
   LanguagePicker({
     Key? key,
+    this.onLangSelected,
   }) : super(key: key);
 
   @override
@@ -24,13 +26,11 @@ class _State extends State<LanguagePicker> {
       // isDense: true,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
-          borderSide:
-              BorderSide(color: LightThemeColors().grey.shade300, width: 2),
+          borderSide: BorderSide(color: LightThemeColors().grey.shade300, width: 2),
           borderRadius: BorderRadius.circular(8),
         ),
         border: OutlineInputBorder(
-          borderSide:
-              BorderSide(color: LightThemeColors().grey.shade300, width: 2),
+          borderSide: BorderSide(color: LightThemeColors().grey.shade300, width: 2),
           borderRadius: BorderRadius.circular(8),
         ),
         filled: true,
@@ -42,18 +42,14 @@ class _State extends State<LanguagePicker> {
         setState(() {
           _value = newValue!;
         });
+        widget.onLangSelected?.call(newValue);
       },
-      items: Languages.usableLanguages
-          .map(
-            (e) {
-              return DropdownMenuItem(
-                value: e.key,
-                child: CountryFlagName(
-                    code: e.key, name: e.value, type: 'lang'),
-              );
-            }
-          )
-          .toList(),
+      items: Languages.usableLanguages.map((e) {
+        return DropdownMenuItem(
+          value: e.key,
+          child: CountryFlagName(code: e.key, name: e.value, type: 'lang'),
+        );
+      }).toList(),
       isExpanded: true,
     );
   }
