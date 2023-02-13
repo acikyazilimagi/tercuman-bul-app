@@ -7,6 +7,8 @@ import 'package:flutter_app/resources/widgets/molecules/contact_us_card.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
+import '../widgets/molecules/main_app_bar.dart';
+
 class HomePage extends NyStatefulWidget {
   static final String path = "/home-page";
   final HomeController controller = HomeController();
@@ -32,25 +34,7 @@ class _HomePageState extends NyState<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leadingWidth: 0,
-        centerTitle: false,
-        backgroundColor: LightThemeColors().white,
-        title: Row(
-          children: [
-            Expanded(
-              flex: 2,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Image.asset(
-                  getImageAsset("logo_horiz.png"),
-                ),
-              ),
-            ),
-            Spacer()
-          ],
-        ),
-      ),
+      appBar: MainAppBar(),
       body: SafeAreaWidget(
         child: Container(
           padding: EdgeInsets.only(left: 20, right: 20, top: 20),
