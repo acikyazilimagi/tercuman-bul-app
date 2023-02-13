@@ -54,8 +54,8 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
           items: widget.items,
           itemAsString: widget.itemAsString,
           filterFn: (item, filter) =>
-              removeDiacritics(widget.itemAsString!(item))
-                  .contains(removeDiacritics(filter)),
+              removeDiacritics(widget.itemAsString!(item).toLowerCase())
+                  .contains(removeDiacritics(filter.toLowerCase())),
           popupProps: PopupPropsMultiSelection.menu(
             showSearchBox: widget.showSearchBox,
             itemBuilder: widget.itemBuilder,
