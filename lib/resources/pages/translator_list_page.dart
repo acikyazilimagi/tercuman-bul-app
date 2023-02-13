@@ -1,15 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dash_flags/dash_flags.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/models/languages.dart';
 import 'package:flutter_app/app/models/translator.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
+import 'package:flutter_app/resources/widgets/atoms/custom_multiselect_dropdown.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
+import '../themes/styles/light_theme_colors.dart';
 import '../widgets/atoms/country_flag_name.dart';
+import '../widgets/atoms/custom_dropdown.dart';
+import '../widgets/atoms/custom_textfield.dart';
 import '../widgets/molecules/main_scaffold.dart';
 
 class TranslatorListPage extends StatefulWidget {
@@ -25,7 +28,7 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
   int? expandedTranslatorIndex;
 
   TextEditingController _nameSurnameController = TextEditingController();
-  List<MapEntry<String, String>> _selectedLanguages = [];
+  MapEntry<String, String>? _selectedLanguage;
 
   List<Translator> filteredTranslators = [];
 
@@ -57,8 +60,8 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                   .toLowerCase()
                   .contains(_nameSurnameController.text.toLowerCase()))
           .where((e) =>
-              _selectedLanguages.isEmpty ||
-              _selectedLanguages.any((a) => e.languages.contains(a.key)))
+              _selectedLanguage == null ||
+              e.languages.contains(_selectedLanguage!.key))
           .toList();
     });
   }
@@ -74,14 +77,20 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
           children: [
             Text(
               "interpreterList".tr(),
-              style: Theme.of(context).textTheme.headlineLarge?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineLarge
+                  ?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
               textAlign: TextAlign.center,
             ),
             getSpacer,
             Text(
               "interpreterListDescription".tr(),
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w300),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge
+                  ?.copyWith(fontWeight: FontWeight.w300),
             ),
             TextButton(
               child: Text(
@@ -96,43 +105,31 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
-                    child: TextField(
+                    child: CustomTextField(
+                      hint: "nameSurname".tr(),
                       controller: _nameSurnameController,
-                      decoration: InputDecoration(
-                        hintText: "nameSurname".tr(),
-                      ),
                       onChanged: (value) => filterData(),
                     ),
                   ),
                   Spacer(flex: 1),
                   Expanded(
-                    child:
-                        DropdownSearch<MapEntry<String, String>>.multiSelection(
+                    child: CustomDropdown<MapEntry<String, String>>(
                       items: Languages.usableLanguages,
+                      hint: "chooseLanguage".tr(),
+                      showSearchBox: true,
                       itemAsString: (item) => item.value,
-                      popupProps: PopupPropsMultiSelection.menu(
-                        showSearchBox: true,
-                        itemBuilder: (context, item, isSelected) => ListTile(
-                          title: CountryFlagName(
-                            code: item.key,
-                            name: item.value,
-                            type: 'lang',
-                          ),
-                          trailing: isSelected
-                              ? Icon(
-                                  MdiIcons.check,
-                                  color: Colors.green,
-                                )
-                              : null,
+                      itemBuilder: (context, item, isSelected) => ListTile(
+                        title: CountryFlagName(
+                          code: item.key,
+                          name: item.value,
+                          type: 'lang',
                         ),
-                      ),
-                      dropdownDecoratorProps: DropDownDecoratorProps(
-                        dropdownSearchDecoration: InputDecoration(
-                          hintText: "chooseLanguage".tr(),
-                        ),
+                        trailing: isSelected
+                            ? Icon(MdiIcons.check, color: Colors.green)
+                            : null,
                       ),
                       onChanged: (value) {
-                        _selectedLanguages = value;
+                        _selectedLanguage = value;
                         filterData();
                       },
                     ),
@@ -167,7 +164,8 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                         getSpacer,
                         GridView.builder(
                           itemCount: translator.languages.length,
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             mainAxisExtent: context.lowHeight,
                             crossAxisSpacing: context.veryLowWidth,
@@ -182,9 +180,14 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                               ),
                               label: Text(
                                 translator.languages[index],
-                                style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall
+                                    ?.copyWith(fontWeight: FontWeight.bold),
                               ),
-                              style: FilledButton.styleFrom(shape: BeveledRectangleBorder(), backgroundColor: Colors.transparent),
+                              style: FilledButton.styleFrom(
+                                  shape: BeveledRectangleBorder(),
+                                  backgroundColor: Colors.transparent),
                             );
                             // return Container(
                             //   alignment: Alignment.center,
@@ -221,8 +224,12 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                         getSpacer,
                         GridView.builder(
                           itemCount: 4,
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              mainAxisSpacing: 15, crossAxisCount: 2, mainAxisExtent: context.lowHeight, crossAxisSpacing: context.lowWidth),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  mainAxisSpacing: 15,
+                                  crossAxisCount: 2,
+                                  mainAxisExtent: context.lowHeight,
+                                  crossAxisSpacing: context.lowWidth),
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             return ElevatedButton.icon(
@@ -230,7 +237,8 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                               label: Text("instagram".tr()),
                               icon: Icon(MdiIcons.instagram),
                               style: ElevatedButton.styleFrom(
-                                  backgroundColor: Color.fromRGBO(34, 58, 82, 1),
+                                  backgroundColor:
+                                      Color.fromRGBO(34, 58, 82, 1),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(40),
                                   )),
