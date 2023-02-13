@@ -1,14 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app/models/languages.dart';
 import 'package:flutter_app/app/models/translator.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
-import 'package:flutter_app/resources/widgets/molecules/language_picker.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
-import '../widgets/molecules/main_scaffold.dart';
-
+import '../widgets/atoms/country_flag_name.dart';
+import '../widgets/atoms/custom_dropdown.dart';
+import '../widgets/atoms/custom_textfield.dart';
 import '../widgets/molecules/main_scaffold.dart';
 
 class TranslatorListPage extends StatefulWidget {
@@ -22,6 +23,12 @@ class TranslatorListPage extends StatefulWidget {
 class _TranslatorListPageState extends State<TranslatorListPage> {
   late List<Translator> translators;
   int? expandedTranslatorIndex;
+
+  TextEditingController _nameSurnameController = TextEditingController();
+  MapEntry<String, String>? _selectedLanguage;
+
+  List<Translator> filteredTranslators = [];
+
   @override
   void initState() {
     // TODO: implement initState
@@ -29,15 +36,31 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
       Translator(
           isInterpreter: false,
           location: GeoPoint(53, 52),
-          languages: ["Türkçe", "İngilizce"],
+          languages: ["tr", "en"],
           name: "Çağla Büyükakçay"),
       Translator(
           isInterpreter: true,
           location: GeoPoint(53, 52),
-          languages: ["İngilizce", "Fransızca"],
+          languages: ["en", "ar"],
           name: "Ahmet Serin"),
     ];
+    filterData();
     super.initState();
+  }
+
+  filterData() {
+    setState(() {
+      filteredTranslators = translators
+          .where((e) =>
+              _nameSurnameController.text.isEmpty ||
+              e.name
+                  .toLowerCase()
+                  .contains(_nameSurnameController.text.toLowerCase()))
+          .where((e) =>
+              _selectedLanguage == null ||
+              e.languages.contains(_selectedLanguage!.key))
+          .toList();
+    });
   }
 
   @override
@@ -66,20 +89,48 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                   .titleLarge
                   ?.copyWith(fontWeight: FontWeight.w300),
             ),
+            TextButton(
+              child: Text(
+                "newTranslatorLinkText".tr(),
+                style: TextStyle(decoration: TextDecoration.underline),
+              ),
+              onPressed: () => routeTo("/become-translator"),
+            ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
-                    child: FilterChip(
-                      label: Text("nameSurname".tr()),
-                      onSelected: (_) {},
-                      backgroundColor: Colors.transparent,
+                    child: CustomTextField(
+                      hint: "nameSurname".tr(),
+                      controller: _nameSurnameController,
+                      onChanged: (value) => filterData(),
                     ),
                   ),
-                  getSpacer,
-                  Expanded(child: LanguagePicker()),
+                  Spacer(flex: 1),
+                  Expanded(
+                    child: CustomDropdown<MapEntry<String, String>>(
+                      items: Languages.usableLanguages,
+                      hint: "chooseLanguage".tr(),
+                      showSearchBox: true,
+                      itemAsString: (item) => item.value,
+                      itemBuilder: (context, item, isSelected) => ListTile(
+                        title: CountryFlagName(
+                          code: item.key,
+                          name: item.value,
+                          type: 'lang',
+                        ),
+                        trailing: isSelected
+                            ? Icon(MdiIcons.check, color: Colors.green)
+                            : null,
+                      ),
+                      onChanged: (value) {
+                        _selectedLanguage = value;
+                        filterData();
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -87,7 +138,7 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
               expansionCallback: (int i, bool isExpanded) {
                 setState(() => expandedTranslatorIndex = isExpanded ? null : i);
               },
-              children: translators.map((translator) {
+              children: filteredTranslators.map((translator) {
                 return ExpansionPanel(
                   headerBuilder: (BuildContext context, bool isExpanded) {
                     print((translator.languages.length / 2));
@@ -195,7 +246,7 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                     ),
                   ),
                   isExpanded: expandedTranslatorIndex ==
-                      translators.indexOf(translator),
+                      filteredTranslators.indexOf(translator),
                 );
               }).toList(),
               elevation: 1,

@@ -5,6 +5,7 @@ import 'package:flutter_app/resources/widgets/atoms/custom_expandable_card.dart'
 import 'package:flutter_app/resources/widgets/molecules/contact_us_card.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
+import '../widgets/atoms/custom_button.dart';
 import '../widgets/molecules/main_scaffold.dart';
 
 class HomePage extends NyStatefulWidget {
@@ -65,6 +66,20 @@ class _HomePageState extends NyState<HomePage> {
                       color: LightThemeColors().contextAlternative,
                       fontWeight: FontWeight.w400,
                     ),
+              ),
+              SizedBox(height: 16),
+              CustomButton(
+                text: "beInterpreter".tr(),
+                icon: Icons.add_circle_outline_outlined,
+                style: CustomButtonStyles.lightFilled,
+                onPressed: () => routeTo("/become-translator"),
+              ),
+              SizedBox(height: 12),
+              CustomButton(
+                text: "searchInterpreter".tr(),
+                icon: Icons.search_sharp,
+                style: CustomButtonStyles.darkFilled,
+                onPressed: () => routeTo("/translator-list"),
               ),
               SizedBox(height: 32),
               Text(
