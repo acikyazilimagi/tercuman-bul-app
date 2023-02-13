@@ -37,7 +37,7 @@ class _RefreshPasswordPageState extends NyState<RefreshPasswordPage> {
             ),
             getSpacer,
             Text(
-              "Şifreni mi unuttun?",
+              "forgotPassword".tr(),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.displaySmall!.copyWith(
                     color: LightThemeColors().title,
@@ -45,27 +45,27 @@ class _RefreshPasswordPageState extends NyState<RefreshPasswordPage> {
             ),
             getSpacer,
             Text(
-              "Merak etme, şifreni sıfırlaman için gereken adımları yollayacağız.",
+              "forgotPasswordInfo".tr(),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(),
             ),
             getSpacer,
             CustomTextField(
-              title: "E-Posta",
-              hint: "E-Postanız",
+              title: "email".tr(),
+              hint: "emailHint".tr(),
               isDense: true,
               keyboardType: TextInputType.emailAddress,
               fillColor: Colors.white,
             ),
             CustomButton(
-              text: "Şifreyi sıfırla",
+              text: "resetPassword".tr(),
               style: CustomButtonStyles.darkFilled,
               onPressed: () {},
               size: CustomButtonSize.normal,
             ),
             getSpacer,
             CustomButton(
-              text: "Giriş yapa dön",
+              text: "returnLogin".tr(),
               icon: MdiIcons.arrowLeft,
               style: CustomButtonStyles.lightFilled,
               onPressed: () => Navigator.pop(context),

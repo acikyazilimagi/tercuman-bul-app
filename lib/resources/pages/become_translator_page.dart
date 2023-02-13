@@ -53,19 +53,8 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                   ),
             ),
             getSpacer,
-            Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                      text:
-                          "Tercüman olmak için aşağıdaki formu doldurabilirsiniz. Tercüman listesine "),
-                  TextSpan(
-                      text: "buradan",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.black)),
-                  TextSpan(text: " ulaşabilirsiniz."),
-                ],
-              ),
+            Text(
+              "beInterpreterDescription".tr(),
               textAlign: TextAlign.center,
               style: Theme.of(context)
                   .textTheme
