@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
-import 'package:flutter_app/resources/pages/home_page.dart';
 import 'package:flutter_app/resources/pages/register_page.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_button.dart';
 import 'package:flutter_app/resources/widgets/loader_widget.dart';
@@ -43,10 +42,7 @@ class _SignInPageState extends NyState<SignInPage> {
             Text(
               "wellcome".tr(),
               textAlign: TextAlign.center,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall
-                  ?.copyWith(fontWeight: FontWeight.w600),
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
             ),
             getSpacerMedium,
             isLocked("auth")
@@ -56,14 +52,8 @@ class _SignInPageState extends NyState<SignInPage> {
                     icon: MdiIcons.google,
                     style: CustomButtonStyles.lightFilled,
                     onPressed: () async {
-                      await lockRelease("auth",
-                          perform: () async =>
-                              await AuthService.instance.signInWithGoogle());
-                      event<LoginEvent>(data: {
-                        "auth_translator":
-                            AuthService.instance.currentTranslator
-                      });
-                      await routeTo(HomePage.path);
+                      await lockRelease("auth", perform: () async => await AuthService.instance.signInWithGoogle());
+                      event<LoginEvent>(data: {"auth_translator": AuthService.instance.currentTranslator});
                     },
                     size: CustomButtonSize.normal,
                   ),
@@ -74,8 +64,7 @@ class _SignInPageState extends NyState<SignInPage> {
                   TextSpan(text: "alreadyHaveAnAccount".tr()),
                   WidgetSpan(
                     child: GestureDetector(
-                      onTap: () =>
-                          Navigator.pushNamed(context, RegisterPage.path),
+                      onTap: () => Navigator.pushNamed(context, RegisterPage.path),
                       child: Text(
                         "register".tr(),
                         style: TextStyle(fontWeight: FontWeight.bold),
@@ -84,10 +73,7 @@ class _SignInPageState extends NyState<SignInPage> {
                   ),
                 ],
               ),
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium
-                  ?.copyWith(color: LightThemeColors().context),
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(color: LightThemeColors().context),
               textAlign: TextAlign.center,
             ),
           ],

@@ -9,6 +9,7 @@ part 'translator.g.dart';
 @freezed
 @JsonSerializable(explicitToJson: true)
 class Translator with _$Translator {
+  @JsonSerializable(explicitToJson: true)
   const factory Translator({
     String? uuid,
     Capabilities? capabilities,
@@ -19,17 +20,9 @@ class Translator with _$Translator {
     required String name,
   }) = _Translator;
 
-  factory Translator.fromJson(Map<String, Object?> json) =>
-      _$TranslatorFromJson(json);
+  factory Translator.fromJson(Map<String, Object?> json) => _$TranslatorFromJson(json);
 
-  factory Translator.empty(
-          {String? uuid,
-          Capabilities? capabilities,
-          Contact? contact,
-          bool? isInterpreter,
-          GeoPoint? location,
-          List<String>? languages,
-          String? name}) =>
+  factory Translator.empty({String? uuid, Capabilities? capabilities, Contact? contact, bool? isInterpreter, GeoPoint? location, List<String>? languages, String? name}) =>
       Translator(
           uuid: uuid,
           capabilities: capabilities ?? Capabilities(),
@@ -47,13 +40,11 @@ class Capabilities with _$Capabilities {
     bool? translatorVirtual,
   }) = _Capabilities;
 
-  factory Capabilities.fromJson(Map<String, Object?> json) =>
-      _$CapabilitiesFromJson(json);
+  factory Capabilities.fromJson(Map<String, Object?> json) => _$CapabilitiesFromJson(json);
 
   @override
   String toString() {
-    return "translatorInPerson: $translatorInPerson" +
-        " translatorVirtual: $translatorVirtual";
+    return "translatorInPerson: $translatorInPerson" + " translatorVirtual: $translatorVirtual";
   }
 }
 
@@ -68,16 +59,10 @@ class Contact with _$Contact {
     String? twitter,
   }) = _Contact;
 
-  factory Contact.fromJson(Map<String, Object?> json) =>
-      _$ContactFromJson(json);
+  factory Contact.fromJson(Map<String, Object?> json) => _$ContactFromJson(json);
 
   @override
   String toString() {
-    return "email: $email" +
-        " facebook: $facebook" +
-        " instagram: $instagram" +
-        " linkedin: $linkedin" +
-        " phone: $phone" +
-        " twitter: $twitter ";
+    return "email: $email" + " facebook: $facebook" + " instagram: $instagram" + " linkedin: $linkedin" + " phone: $phone" + " twitter: $twitter ";
   }
 }

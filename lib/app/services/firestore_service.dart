@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_app/app/models/translator.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
 
 class FirestoreService implements IDatabaseService {
@@ -17,8 +18,8 @@ class FirestoreService implements IDatabaseService {
     if (translator.uuid != null) {
       try {
         //** Check user if exist */
-        final snapshot = await firestore.collection(FirestoreCollectionPath.dev.name).doc(translator.uuid).get();
-        if (snapshot.exists) {
+        final isExist = await isUserExist(translator: translator);
+        if (isExist) {
           return;
         }
         await firestore.collection(FirestoreCollectionPath.dev.name).doc(translator.uuid).set(translator.toJson());
@@ -27,6 +28,11 @@ class FirestoreService implements IDatabaseService {
         log("Write user exception:", error: e);
       }
     }
+  }
+
+  Future<bool> isUserExist({required Translator translator}) async {
+    final snapshot = await firestore.collection(FirestoreCollectionPath.dev.name).doc(translator.uuid).get();
+    return snapshot.exists;
   }
 }
 

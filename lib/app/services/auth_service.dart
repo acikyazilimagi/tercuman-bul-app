@@ -25,6 +25,8 @@ class AuthService implements ISocialAuth {
       uiAuth.EmailAuthProvider(),
       oAuthGoogle.GoogleProvider(clientId: getEnv('GOOGLE_CLIENT_ID') ?? ''),
     ]);
+
+    currentTranslator = currentTranslator.copyWith(uuid: currentUser?.uid);
   }
 
   Future<void> logout() async {
