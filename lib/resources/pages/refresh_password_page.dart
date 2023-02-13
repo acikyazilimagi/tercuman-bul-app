@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
 import 'package:flutter_app/resources/themes/styles/light_theme_colors.dart';
-import 'package:flutter_app/resources/widgets/molecules/main_app_bar.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
 import '../widgets/atoms/custom_button.dart';
 import '../widgets/atoms/custom_textfield.dart';
+import '../widgets/molecules/main_scaffold.dart';
 
 class RefreshPasswordPage extends NyStatefulWidget {
   static final String path = "/refresh-password";
@@ -21,8 +21,8 @@ class RefreshPasswordPage extends NyStatefulWidget {
 class _RefreshPasswordPageState extends NyState<RefreshPasswordPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MainAppBar(),
+    return MainScaffold(
+      showBottomNavigationBar: false,
       body: SafeAreaWidget(
         child: ListView(
           padding: context.veryLowSymPadding,
@@ -37,7 +37,7 @@ class _RefreshPasswordPageState extends NyState<RefreshPasswordPage> {
             ),
             getSpacer,
             Text(
-              "Şifreni mi unuttun?",
+              "forgotPassword".tr(),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.displaySmall!.copyWith(
                     color: LightThemeColors().title,
@@ -45,27 +45,27 @@ class _RefreshPasswordPageState extends NyState<RefreshPasswordPage> {
             ),
             getSpacer,
             Text(
-              "Merak etme, şifreni sıfırlaman için gereken adımları yollayacağız.",
+              "forgotPasswordInfo".tr(),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(),
             ),
             getSpacer,
             CustomTextField(
-              title: "E-Posta",
-              hint: "E-Postanız",
+              title: "email".tr(),
+              hint: "emailHint".tr(),
               isDense: true,
               keyboardType: TextInputType.emailAddress,
               fillColor: Colors.white,
             ),
             CustomButton(
-              text: "Şifreyi sıfırla",
+              text: "resetPassword".tr(),
               style: CustomButtonStyles.darkFilled,
               onPressed: () {},
               size: CustomButtonSize.normal,
             ),
             getSpacer,
             CustomButton(
-              text: "Giriş yapa dön",
+              text: "returnLogin".tr(),
               icon: MdiIcons.arrowLeft,
               style: CustomButtonStyles.lightFilled,
               onPressed: () => Navigator.pop(context),

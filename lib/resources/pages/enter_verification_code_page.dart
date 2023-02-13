@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:nylo_framework/nylo_framework.dart';
 
 import '../themes/styles/light_theme_colors.dart';
 import '../widgets/atoms/custom_button.dart';
 import '../widgets/atoms/custom_textfield.dart';
-import '../widgets/molecules/main_app_bar.dart';
+import '../widgets/molecules/main_scaffold.dart';
 import '../widgets/safearea_widget.dart';
 
 class EnterVerificationCodePage extends StatefulWidget {
@@ -21,8 +22,8 @@ class EnterVerificationCodePage extends StatefulWidget {
 class _EnterVerificationCodePageState extends State<EnterVerificationCodePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MainAppBar(),
+    return MainScaffold(
+      showBottomNavigationBar: false,
       body: SafeAreaWidget(
         child: ListView(
           padding: context.veryLowSymPadding,
@@ -37,7 +38,7 @@ class _EnterVerificationCodePageState extends State<EnterVerificationCodePage> {
             ),
             getSpacer,
             Text(
-              "E-postanı kontrol et",
+              "checkYourEmail".tr(),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.displaySmall!.copyWith(
                     color: LightThemeColors().title,
@@ -45,27 +46,27 @@ class _EnterVerificationCodePageState extends State<EnterVerificationCodePage> {
             ),
             getSpacer,
             Text(
-              "Doğrulama kodunu e-posta adresine ilettik.",
+              "verificationMailDelivered".tr(),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(),
             ),
             getSpacer,
             getSpacer,
             CustomTextField(
-              title: "Doğrulama Kodu",
-              hint: "Doğrulama kodunu giriniz",
+              title: "verificationCode".tr(),
+              hint: "enterVerificationCode".tr(),
               isDense: true,
               fillColor: Colors.white,
             ),
             CustomButton(
-              text: "Kodu gir",
+              text: "enterTheCode".tr(),
               style: CustomButtonStyles.darkFilled,
               onPressed: () {},
               size: CustomButtonSize.normal,
             ),
             getSpacer,
             CustomButton(
-              text: "Giriş yapa dön",
+              text: "returnLogin".tr(),
               icon: MdiIcons.arrowLeft,
               style: CustomButtonStyles.lightFilled,
               onPressed: () => Navigator.pop(context),

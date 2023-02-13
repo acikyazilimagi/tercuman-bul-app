@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
-import 'package:flutter_app/app/services/firestore_service.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
-import 'package:flutter_app/resources/extensions/form_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
 import 'package:flutter_app/resources/pages/home_page.dart';
-import 'package:flutter_app/resources/pages/refresh_password_page.dart';
 import 'package:flutter_app/resources/pages/register_page.dart';
-import 'package:flutter_app/resources/pages/translator_list_page.dart';
-import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_button.dart';
 import 'package:flutter_app/resources/widgets/loader_widget.dart';
-import 'package:flutter_app/resources/widgets/molecules/main_app_bar.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
 import '../../app/events/login_event.dart';
 import '../../bootstrap/helpers.dart';
 import '../themes/styles/light_theme_colors.dart';
+import '../widgets/molecules/main_scaffold.dart';
 
 class SignInPage extends NyStatefulWidget {
   static final String path = "/sign-in";
@@ -32,13 +27,13 @@ class _SignInPageState extends NyState<SignInPage> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-      child: Scaffold(
-        appBar: MainAppBar(),
+      child: MainScaffold(
+        showBottomNavigationBar: false,
         body: ListView(
           padding: context.lowSymPadding,
           children: [
             Text(
-              "Giriş Yap",
+              "login".tr(),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.displaySmall!.copyWith(
                     color: LightThemeColors().title,
@@ -46,7 +41,7 @@ class _SignInPageState extends NyState<SignInPage> {
             ),
             getSpacerLow,
             Text(
-              "Hoş geldin.",
+              "wellcome".tr(),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600),
             ),
@@ -54,13 +49,15 @@ class _SignInPageState extends NyState<SignInPage> {
             isLocked("auth")
                 ? Loader()
                 : CustomButton(
-                    text: "Google ile giriş yap",
+                    text: "loginWithGoogle".tr(),
                     icon: MdiIcons.google,
                     style: CustomButtonStyles.lightFilled,
                     onPressed: () async {
                       await lockRelease("auth", perform: () async => await AuthService.instance.signInWithGoogle());
                       event<LoginEvent>(data: {"auth_translator": AuthService.instance.currentTranslator});
-                      await routeTo(HomePage.path);
+                      if (AuthService().currentTranslator.uuid != null) {
+                        await routeTo(HomePage.path);
+                      }
                     },
                     size: CustomButtonSize.normal,
                   ),
@@ -68,12 +65,12 @@ class _SignInPageState extends NyState<SignInPage> {
             Text.rich(
               TextSpan(
                 children: [
-                  TextSpan(text: "Hesabın yok mu? "),
+                  TextSpan(text: "alreadyHaveAnAccount".tr()),
                   WidgetSpan(
                     child: GestureDetector(
                       onTap: () => Navigator.pushNamed(context, RegisterPage.path),
                       child: Text(
-                        "Kayıt Ol",
+                        "register".tr(),
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),

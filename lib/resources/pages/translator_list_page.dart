@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/app/models/translator.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
-import 'package:flutter_app/resources/widgets/molecules/main_app_bar.dart';
+import 'package:flutter_app/resources/widgets/molecules/language_picker.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:nylo_framework/nylo_framework.dart';
+
+import '../widgets/molecules/main_scaffold.dart';
+
+import '../widgets/molecules/main_scaffold.dart';
 
 class TranslatorListPage extends StatefulWidget {
   static final String path = "/translator-list";
@@ -29,67 +34,46 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MainAppBar(),
+    return MainScaffold(
+      selectedTabIndex: 2,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           padding: context.veryLowSymPadding,
           children: [
             Text(
-              "Tercüman Listesi",
+              "interpreterList".tr(),
               style: Theme.of(context).textTheme.headlineLarge?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
               textAlign: TextAlign.center,
             ),
             getSpacer,
-            Text.rich(
-              TextSpan(
+            Text(
+              "interpreterListDescription".tr(),
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w300),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextSpan(text: "Tercüman listesine aşağıdaki tablodan erişebilirsiniz. Yeni tercüman başvurusunu ", style: TextStyle(fontSize: 14)),
-                  TextSpan(text: "buradan", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontSize: 14)),
-                  TextSpan(
-                      text: " yapabilirsiniz.",
-                      style: TextStyle(
-                        fontSize: 14,
-                      )),
+                  Expanded(
+                    child: FilterChip(
+                      label: Text("nameSurname".tr()),
+                      onSelected: (_) {},
+                      backgroundColor: Colors.transparent,
+                    ),
+                  ),
+                  getSpacer,
+                  Expanded(child: LanguagePicker()),
                 ],
               ),
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w300),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                FilterChip(
-                  label: Text("İsim & Soyisim"),
-                  onSelected: (_) {},
-                  backgroundColor: Colors.transparent,
-                ),
-                FilterChip(
-                  label: DropdownButton(
-                    items: [
-                      DropdownMenuItem(
-                        child: Text("Bir dil seçin"),
-                      )
-                    ],
-                    onChanged: (value) {},
-                  ),
-                  onSelected: (_) {},
-                  backgroundColor: Colors.transparent,
-                ),
-              ],
             ),
             ExpansionPanelList(
-              expansionCallback: (int index, bool isExpanded) {
-                setState(() {
-                  if (!isExpanded) {
-                    expandedTranslatorIndex = index;
-                  } else {
-                    expandedTranslatorIndex = null;
-                  }
-                });
+              expansionCallback: (int i, bool isExpanded) {
+                setState(() => expandedTranslatorIndex = isExpanded ? null : i);
               },
-              children: translators.map<ExpansionPanel>((Translator translator) {
+              children: translators.map((translator) {
                 return ExpansionPanel(
                   headerBuilder: (BuildContext context, bool isExpanded) {
                     print((translator.languages.length / 2));
@@ -105,11 +89,18 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Tercüme Dili", textAlign: TextAlign.left),
+                        Text(
+                          "translationLanguage".tr(),
+                          textAlign: TextAlign.left,
+                        ),
                         getSpacer,
                         GridView.builder(
                           itemCount: translator.languages.length,
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisExtent: context.lowHeight, crossAxisSpacing: context.veryLowWidth),
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            mainAxisExtent: context.lowHeight,
+                            crossAxisSpacing: context.veryLowWidth,
+                          ),
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             return FilledButton.icon(
@@ -124,7 +115,6 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                               ),
                               style: FilledButton.styleFrom(shape: BeveledRectangleBorder(), backgroundColor: Colors.transparent),
                             );
-
                             // return Container(
                             //   alignment: Alignment.center,
                             //   decoration: BoxDecoration(
@@ -144,7 +134,7 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                           },
                         ),
                         getSpacer,
-                        Text("İletişim Bilgileri"),
+                        Text("contantInformation".tr()),
                         getSpacer,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -166,7 +156,7 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                           itemBuilder: (context, index) {
                             return ElevatedButton.icon(
                               onPressed: () {},
-                              label: Text("Instagram"),
+                              label: Text("instagram".tr()),
                               icon: Icon(MdiIcons.instagram),
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: Color.fromRGBO(34, 58, 82, 1),
