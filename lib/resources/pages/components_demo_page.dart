@@ -1,22 +1,22 @@
 import 'dart:convert';
 
+import 'package:dash_flags/dash_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/controllers/controller.dart';
 import 'package:flutter_app/resources/themes/styles/light_theme_colors.dart';
 import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
-import 'package:flutter_app/resources/widgets/atoms/country_flag.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_button.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_expandable_card.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_selectable_tile.dart';
 import 'package:flutter_app/resources/widgets/molecules/contact_us_card.dart';
-import 'package:flutter_app/resources/widgets/safearea_widget.dart';
+import 'package:flutter_app/resources/widgets/molecules/language_picker.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
 import '../widgets/atoms/country_flag_name.dart';
+import '../widgets/molecules/main_scaffold.dart';
 import '../widgets/molecules/contact_link_field.dart';
 import '../widgets/molecules/country_dialing_code_picker.dart';
-import '../widgets/molecules/main_app_bar.dart';
 
 class ComponentsDemoPage extends NyStatefulWidget {
   static final String path = "/demo";
@@ -35,7 +35,6 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
     String json = await DefaultAssetBundle.of(this.context)
         .loadString("public/assets/data/countries.json");
     countryData = jsonDecode(json);
-    debugPrint(countryData.toString());
   }
 
   @override
@@ -45,66 +44,60 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Components Demo"),
-      ),
-      body: SafeAreaWidget(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // AppBar customized
-              MainAppBar(),
-              SizedBox(height: 20),
-              iconButtons(),
-              SizedBox(height: 20),
-              textField(),
-              SizedBox(height: 20),
-              flags(),
-              SizedBox(height: 16),
-              ContactLinkField(
-                  hint: "Facebook adresinizi giriniz",
-                  companyLogo: MdiIcons.facebook),
-              ContactLinkField(
-                hint: "İnstagram adresinizi giriniz",
-                companyLogo: MdiIcons.instagram,
-              ),
-              ContactLinkField(
-                hint: "Twitter adresinizi giriniz",
-                companyLogo: MdiIcons.twitter,
-              ),
-              ContactLinkField(
-                hint: "Linkedin adresinizi giriniz",
-                companyLogo: MdiIcons.linkedin,
-              ),
-              CustomSelectableTile(
-                titleText: "Test",
-                isSelected: true,
-                onSelectStateChanged: (isSele) {},
-              ),
-              SizedBox(height: 16),
-              expandableCards(),
-              SizedBox(height: 20),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 8),
-                  Text(
-                    "Contact Us Card",
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  SizedBox(height: 16),
-                  ContactUsCard(
-                    title: 'Aradığınız cevabı bulamadınız mı?',
-                    description: ' Lütfen destek ekibimize ulaşın.',
-                    buttonText: 'İletişime Geç',
-                    onPressed: () {},
-                  ),
-                ],
-              )
-            ],
-          ),
+    return MainScaffold(
+      showBottomNavigationBar: false,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            iconButtons(),
+            SizedBox(height: 20),
+            textField(),
+            SizedBox(height: 20),
+            flags(),
+            SizedBox(height: 16),
+            ContactLinkField(
+              hint: "addFacebook".tr(),
+              companyLogo: MdiIcons.facebook,
+            ),
+            ContactLinkField(
+              hint: "addInstagram".tr(),
+              companyLogo: MdiIcons.instagram,
+            ),
+            ContactLinkField(
+              hint: "addTwitter".tr(),
+              companyLogo: MdiIcons.twitter,
+            ),
+            ContactLinkField(
+              hint: "addLinkedin".tr(),
+              companyLogo: MdiIcons.linkedin,
+            ),
+            CustomSelectableTile(
+              titleText: "onsiteSupport".tr(),
+              isSelected: true,
+              onSelectStateChanged: (isSele) {},
+            ),
+            SizedBox(height: 16),
+            expandableCards(),
+            SizedBox(height: 20),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 8),
+                Text(
+                  "Contact Us Card",
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                SizedBox(height: 16),
+                ContactUsCard(
+                  title: "cantFind".tr(),
+                  description: "reachSupport".tr(),
+                  buttonText: "contactUsButton".tr(),
+                  onPressed: () {},
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
@@ -129,11 +122,9 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
           initialExpanded: true,
           centerIcon: false,
           backgrounColor: LightThemeColors().background,
-          topic: "Nasıl gönüllü tercüman olabilirim?",
+          topic: "becomeVolunteerHeader".tr(),
           content: Text(
-            "Gönüllü tercüman olmak için ilgili Tercümanbul platformunun kayıt"
-            " formunu doldurup gerekli bilgileri ve tercüme deneyimini"
-            " belirtmeniz gerekmektedir.",
+            "becomeVolunteerBody".tr(),
             style: Theme.of(context).textTheme.bodyLarge!,
           ),
         ),
@@ -166,7 +157,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         ),
         SizedBox(height: 8),
         CustomButton(
-          text: "Tercüman Bul",
+          text: "searchInterpreter".tr(),
           icon: Icons.search_sharp,
           style: CustomButtonStyles.darkFilled,
           onPressed: () {},
@@ -179,7 +170,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         SizedBox(height: 8),
         CustomButton(
           disabled: true,
-          text: "Tercüman Bul",
+          text: "searchInterpreter".tr(),
           icon: Icons.search_sharp,
           style: CustomButtonStyles.darkFilled,
           onPressed: () {},
@@ -191,7 +182,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         ),
         SizedBox(height: 8),
         CustomButton(
-          text: "Tercüman Ol",
+          text: "searchInterpreter".tr(),
           icon: Icons.add_circle_outline_outlined,
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
@@ -204,7 +195,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         SizedBox(height: 8),
         CustomButton(
           disabled: true,
-          text: "Tercüman Ol",
+          text: "searchInterpreter".tr(),
           icon: Icons.add_circle_outline_outlined,
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
@@ -221,7 +212,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         ),
         SizedBox(height: 8),
         CustomButton(
-          text: "Tercüman Ol",
+          text: "searchInterpreter".tr(),
           size: CustomButtonSize.normal,
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
@@ -233,7 +224,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         ),
         SizedBox(height: 8),
         CustomButton(
-          text: "Tercüman Ol",
+          text: "searchInterpreter".tr(),
           size: CustomButtonSize.normal,
           style: CustomButtonStyles.darkFilled,
           onPressed: () {},
@@ -246,7 +237,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         SizedBox(height: 8),
         CustomButton(
           disabled: true,
-          text: "Tercüman Ol",
+          text: "searchInterpreter".tr(),
           size: CustomButtonSize.normal,
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
@@ -260,17 +251,29 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Flag",
+          "Country Flag (tr)",
           style: Theme.of(context).textTheme.titleLarge,
         ),
         SizedBox(height: 8),
-        CountryFlag(code: 'tr', height: 100),
+        CountryFlag(
+          country: Country.tr, // You can also use Country.fromCode('eg')
+          height: 50,
+        ),
         SizedBox(height: 8),
-        CountryFlag(code: 'az', height: 100),
+        Text(
+          "Language Flag (az)",
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        SizedBox(height: 8),
+        LanguageFlag(
+          language: Language.az, // You can also use Country.fromCode('eg')
+          height: 50,
+        ),
         SizedBox(height: 8),
         CountryFlagName(code: 'tr', name: 'Turkey'),
         SizedBox(height: 8),
         CountryDialingCodePicker(countryData: countryData),
+        LanguagePicker(),
       ],
     );
   }
