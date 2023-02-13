@@ -69,7 +69,6 @@ flutter:
   assets:
     - public/assets/fonts/
     - public/assets/images/
-    - public/assets/images/flags/
     - public/assets/app_icon/
     - lang/
     - .env
