@@ -20,13 +20,9 @@ Translator _$TranslatorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Translator {
-  String? get email => throw _privateConstructorUsedError;
-  String? get instagram => throw _privateConstructorUsedError;
-  String? get twitter => throw _privateConstructorUsedError;
-  String? get linkedin => throw _privateConstructorUsedError;
-  String? get facebook => throw _privateConstructorUsedError;
-  String? get messenger => throw _privateConstructorUsedError;
-  String? get phone => throw _privateConstructorUsedError;
+  String? get uuid => throw _privateConstructorUsedError;
+  Capabilities? get capabilities => throw _privateConstructorUsedError;
+  Contact? get contact => throw _privateConstructorUsedError;
   bool get isInterpreter => throw _privateConstructorUsedError;
   @GeoPointConverter()
   GeoPoint get location => throw _privateConstructorUsedError;
@@ -46,17 +42,16 @@ abstract class $TranslatorCopyWith<$Res> {
       _$TranslatorCopyWithImpl<$Res, Translator>;
   @useResult
   $Res call(
-      {String? email,
-      String? instagram,
-      String? twitter,
-      String? linkedin,
-      String? facebook,
-      String? messenger,
-      String? phone,
+      {String? uuid,
+      Capabilities? capabilities,
+      Contact? contact,
       bool isInterpreter,
       @GeoPointConverter() GeoPoint location,
       List<String> languages,
       String name});
+
+  $CapabilitiesCopyWith<$Res>? get capabilities;
+  $ContactCopyWith<$Res>? get contact;
 }
 
 /// @nodoc
@@ -72,47 +67,27 @@ class _$TranslatorCopyWithImpl<$Res, $Val extends Translator>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? instagram = freezed,
-    Object? twitter = freezed,
-    Object? linkedin = freezed,
-    Object? facebook = freezed,
-    Object? messenger = freezed,
-    Object? phone = freezed,
+    Object? uuid = freezed,
+    Object? capabilities = freezed,
+    Object? contact = freezed,
     Object? isInterpreter = null,
     Object? location = null,
     Object? languages = null,
     Object? name = null,
   }) {
     return _then(_value.copyWith(
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      uuid: freezed == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
-      instagram: freezed == instagram
-          ? _value.instagram
-          : instagram // ignore: cast_nullable_to_non_nullable
-              as String?,
-      twitter: freezed == twitter
-          ? _value.twitter
-          : twitter // ignore: cast_nullable_to_non_nullable
-              as String?,
-      linkedin: freezed == linkedin
-          ? _value.linkedin
-          : linkedin // ignore: cast_nullable_to_non_nullable
-              as String?,
-      facebook: freezed == facebook
-          ? _value.facebook
-          : facebook // ignore: cast_nullable_to_non_nullable
-              as String?,
-      messenger: freezed == messenger
-          ? _value.messenger
-          : messenger // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: freezed == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
+      capabilities: freezed == capabilities
+          ? _value.capabilities
+          : capabilities // ignore: cast_nullable_to_non_nullable
+              as Capabilities?,
+      contact: freezed == contact
+          ? _value.contact
+          : contact // ignore: cast_nullable_to_non_nullable
+              as Contact?,
       isInterpreter: null == isInterpreter
           ? _value.isInterpreter
           : isInterpreter // ignore: cast_nullable_to_non_nullable
@@ -131,6 +106,30 @@ class _$TranslatorCopyWithImpl<$Res, $Val extends Translator>
               as String,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CapabilitiesCopyWith<$Res>? get capabilities {
+    if (_value.capabilities == null) {
+      return null;
+    }
+
+    return $CapabilitiesCopyWith<$Res>(_value.capabilities!, (value) {
+      return _then(_value.copyWith(capabilities: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ContactCopyWith<$Res>? get contact {
+    if (_value.contact == null) {
+      return null;
+    }
+
+    return $ContactCopyWith<$Res>(_value.contact!, (value) {
+      return _then(_value.copyWith(contact: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -142,17 +141,18 @@ abstract class _$$_TranslatorCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? email,
-      String? instagram,
-      String? twitter,
-      String? linkedin,
-      String? facebook,
-      String? messenger,
-      String? phone,
+      {String? uuid,
+      Capabilities? capabilities,
+      Contact? contact,
       bool isInterpreter,
       @GeoPointConverter() GeoPoint location,
       List<String> languages,
       String name});
+
+  @override
+  $CapabilitiesCopyWith<$Res>? get capabilities;
+  @override
+  $ContactCopyWith<$Res>? get contact;
 }
 
 /// @nodoc
@@ -166,47 +166,27 @@ class __$$_TranslatorCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = freezed,
-    Object? instagram = freezed,
-    Object? twitter = freezed,
-    Object? linkedin = freezed,
-    Object? facebook = freezed,
-    Object? messenger = freezed,
-    Object? phone = freezed,
+    Object? uuid = freezed,
+    Object? capabilities = freezed,
+    Object? contact = freezed,
     Object? isInterpreter = null,
     Object? location = null,
     Object? languages = null,
     Object? name = null,
   }) {
     return _then(_$_Translator(
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      uuid: freezed == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
               as String?,
-      instagram: freezed == instagram
-          ? _value.instagram
-          : instagram // ignore: cast_nullable_to_non_nullable
-              as String?,
-      twitter: freezed == twitter
-          ? _value.twitter
-          : twitter // ignore: cast_nullable_to_non_nullable
-              as String?,
-      linkedin: freezed == linkedin
-          ? _value.linkedin
-          : linkedin // ignore: cast_nullable_to_non_nullable
-              as String?,
-      facebook: freezed == facebook
-          ? _value.facebook
-          : facebook // ignore: cast_nullable_to_non_nullable
-              as String?,
-      messenger: freezed == messenger
-          ? _value.messenger
-          : messenger // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: freezed == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
+      capabilities: freezed == capabilities
+          ? _value.capabilities
+          : capabilities // ignore: cast_nullable_to_non_nullable
+              as Capabilities?,
+      contact: freezed == contact
+          ? _value.contact
+          : contact // ignore: cast_nullable_to_non_nullable
+              as Contact?,
       isInterpreter: null == isInterpreter
           ? _value.isInterpreter
           : isInterpreter // ignore: cast_nullable_to_non_nullable
@@ -228,16 +208,13 @@ class __$$_TranslatorCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(explicitToJson: true)
 class _$_Translator with DiagnosticableTreeMixin implements _Translator {
   const _$_Translator(
-      {this.email,
-      this.instagram,
-      this.twitter,
-      this.linkedin,
-      this.facebook,
-      this.messenger,
-      this.phone,
+      {this.uuid,
+      this.capabilities,
+      this.contact,
       required this.isInterpreter,
       @GeoPointConverter() required this.location,
       required final List<String> languages,
@@ -248,19 +225,11 @@ class _$_Translator with DiagnosticableTreeMixin implements _Translator {
       _$$_TranslatorFromJson(json);
 
   @override
-  final String? email;
+  final String? uuid;
   @override
-  final String? instagram;
+  final Capabilities? capabilities;
   @override
-  final String? twitter;
-  @override
-  final String? linkedin;
-  @override
-  final String? facebook;
-  @override
-  final String? messenger;
-  @override
-  final String? phone;
+  final Contact? contact;
   @override
   final bool isInterpreter;
   @override
@@ -279,7 +248,7 @@ class _$_Translator with DiagnosticableTreeMixin implements _Translator {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Translator(email: $email, instagram: $instagram, twitter: $twitter, linkedin: $linkedin, facebook: $facebook, messenger: $messenger, phone: $phone, isInterpreter: $isInterpreter, location: $location, languages: $languages, name: $name)';
+    return 'Translator(uuid: $uuid, capabilities: $capabilities, contact: $contact, isInterpreter: $isInterpreter, location: $location, languages: $languages, name: $name)';
   }
 
   @override
@@ -287,13 +256,9 @@ class _$_Translator with DiagnosticableTreeMixin implements _Translator {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Translator'))
-      ..add(DiagnosticsProperty('email', email))
-      ..add(DiagnosticsProperty('instagram', instagram))
-      ..add(DiagnosticsProperty('twitter', twitter))
-      ..add(DiagnosticsProperty('linkedin', linkedin))
-      ..add(DiagnosticsProperty('facebook', facebook))
-      ..add(DiagnosticsProperty('messenger', messenger))
-      ..add(DiagnosticsProperty('phone', phone))
+      ..add(DiagnosticsProperty('uuid', uuid))
+      ..add(DiagnosticsProperty('capabilities', capabilities))
+      ..add(DiagnosticsProperty('contact', contact))
       ..add(DiagnosticsProperty('isInterpreter', isInterpreter))
       ..add(DiagnosticsProperty('location', location))
       ..add(DiagnosticsProperty('languages', languages))
@@ -305,17 +270,10 @@ class _$_Translator with DiagnosticableTreeMixin implements _Translator {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Translator &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.instagram, instagram) ||
-                other.instagram == instagram) &&
-            (identical(other.twitter, twitter) || other.twitter == twitter) &&
-            (identical(other.linkedin, linkedin) ||
-                other.linkedin == linkedin) &&
-            (identical(other.facebook, facebook) ||
-                other.facebook == facebook) &&
-            (identical(other.messenger, messenger) ||
-                other.messenger == messenger) &&
-            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid) &&
+            (identical(other.capabilities, capabilities) ||
+                other.capabilities == capabilities) &&
+            (identical(other.contact, contact) || other.contact == contact) &&
             (identical(other.isInterpreter, isInterpreter) ||
                 other.isInterpreter == isInterpreter) &&
             (identical(other.location, location) ||
@@ -329,13 +287,9 @@ class _$_Translator with DiagnosticableTreeMixin implements _Translator {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      email,
-      instagram,
-      twitter,
-      linkedin,
-      facebook,
-      messenger,
-      phone,
+      uuid,
+      capabilities,
+      contact,
       isInterpreter,
       location,
       const DeepCollectionEquality().hash(_languages),
@@ -357,13 +311,9 @@ class _$_Translator with DiagnosticableTreeMixin implements _Translator {
 
 abstract class _Translator implements Translator {
   const factory _Translator(
-      {final String? email,
-      final String? instagram,
-      final String? twitter,
-      final String? linkedin,
-      final String? facebook,
-      final String? messenger,
-      final String? phone,
+      {final String? uuid,
+      final Capabilities? capabilities,
+      final Contact? contact,
       required final bool isInterpreter,
       @GeoPointConverter() required final GeoPoint location,
       required final List<String> languages,
@@ -373,19 +323,11 @@ abstract class _Translator implements Translator {
       _$_Translator.fromJson;
 
   @override
-  String? get email;
+  String? get uuid;
   @override
-  String? get instagram;
+  Capabilities? get capabilities;
   @override
-  String? get twitter;
-  @override
-  String? get linkedin;
-  @override
-  String? get facebook;
-  @override
-  String? get messenger;
-  @override
-  String? get phone;
+  Contact? get contact;
   @override
   bool get isInterpreter;
   @override
@@ -398,5 +340,391 @@ abstract class _Translator implements Translator {
   @override
   @JsonKey(ignore: true)
   _$$_TranslatorCopyWith<_$_Translator> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Capabilities _$CapabilitiesFromJson(Map<String, dynamic> json) {
+  return _Capabilities.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Capabilities {
+  bool? get translatorInPerson => throw _privateConstructorUsedError;
+  bool? get translatorVirtual => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CapabilitiesCopyWith<Capabilities> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CapabilitiesCopyWith<$Res> {
+  factory $CapabilitiesCopyWith(
+          Capabilities value, $Res Function(Capabilities) then) =
+      _$CapabilitiesCopyWithImpl<$Res, Capabilities>;
+  @useResult
+  $Res call({bool? translatorInPerson, bool? translatorVirtual});
+}
+
+/// @nodoc
+class _$CapabilitiesCopyWithImpl<$Res, $Val extends Capabilities>
+    implements $CapabilitiesCopyWith<$Res> {
+  _$CapabilitiesCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? translatorInPerson = freezed,
+    Object? translatorVirtual = freezed,
+  }) {
+    return _then(_value.copyWith(
+      translatorInPerson: freezed == translatorInPerson
+          ? _value.translatorInPerson
+          : translatorInPerson // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      translatorVirtual: freezed == translatorVirtual
+          ? _value.translatorVirtual
+          : translatorVirtual // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_CapabilitiesCopyWith<$Res>
+    implements $CapabilitiesCopyWith<$Res> {
+  factory _$$_CapabilitiesCopyWith(
+          _$_Capabilities value, $Res Function(_$_Capabilities) then) =
+      __$$_CapabilitiesCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({bool? translatorInPerson, bool? translatorVirtual});
+}
+
+/// @nodoc
+class __$$_CapabilitiesCopyWithImpl<$Res>
+    extends _$CapabilitiesCopyWithImpl<$Res, _$_Capabilities>
+    implements _$$_CapabilitiesCopyWith<$Res> {
+  __$$_CapabilitiesCopyWithImpl(
+      _$_Capabilities _value, $Res Function(_$_Capabilities) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? translatorInPerson = freezed,
+    Object? translatorVirtual = freezed,
+  }) {
+    return _then(_$_Capabilities(
+      translatorInPerson: freezed == translatorInPerson
+          ? _value.translatorInPerson
+          : translatorInPerson // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      translatorVirtual: freezed == translatorVirtual
+          ? _value.translatorVirtual
+          : translatorVirtual // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Capabilities implements _Capabilities {
+  const _$_Capabilities({this.translatorInPerson, this.translatorVirtual});
+
+  factory _$_Capabilities.fromJson(Map<String, dynamic> json) =>
+      _$$_CapabilitiesFromJson(json);
+
+  @override
+  final bool? translatorInPerson;
+  @override
+  final bool? translatorVirtual;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Capabilities &&
+            (identical(other.translatorInPerson, translatorInPerson) ||
+                other.translatorInPerson == translatorInPerson) &&
+            (identical(other.translatorVirtual, translatorVirtual) ||
+                other.translatorVirtual == translatorVirtual));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, translatorInPerson, translatorVirtual);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CapabilitiesCopyWith<_$_Capabilities> get copyWith =>
+      __$$_CapabilitiesCopyWithImpl<_$_Capabilities>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CapabilitiesToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Capabilities implements Capabilities {
+  const factory _Capabilities(
+      {final bool? translatorInPerson,
+      final bool? translatorVirtual}) = _$_Capabilities;
+
+  factory _Capabilities.fromJson(Map<String, dynamic> json) =
+      _$_Capabilities.fromJson;
+
+  @override
+  bool? get translatorInPerson;
+  @override
+  bool? get translatorVirtual;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CapabilitiesCopyWith<_$_Capabilities> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Contact _$ContactFromJson(Map<String, dynamic> json) {
+  return _Contact.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Contact {
+  String? get email => throw _privateConstructorUsedError;
+  String? get facebook => throw _privateConstructorUsedError;
+  String? get instagram => throw _privateConstructorUsedError;
+  String? get linkedin => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
+  String? get twitter => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ContactCopyWith<Contact> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ContactCopyWith<$Res> {
+  factory $ContactCopyWith(Contact value, $Res Function(Contact) then) =
+      _$ContactCopyWithImpl<$Res, Contact>;
+  @useResult
+  $Res call(
+      {String? email,
+      String? facebook,
+      String? instagram,
+      String? linkedin,
+      String? phone,
+      String? twitter});
+}
+
+/// @nodoc
+class _$ContactCopyWithImpl<$Res, $Val extends Contact>
+    implements $ContactCopyWith<$Res> {
+  _$ContactCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = freezed,
+    Object? facebook = freezed,
+    Object? instagram = freezed,
+    Object? linkedin = freezed,
+    Object? phone = freezed,
+    Object? twitter = freezed,
+  }) {
+    return _then(_value.copyWith(
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      facebook: freezed == facebook
+          ? _value.facebook
+          : facebook // ignore: cast_nullable_to_non_nullable
+              as String?,
+      instagram: freezed == instagram
+          ? _value.instagram
+          : instagram // ignore: cast_nullable_to_non_nullable
+              as String?,
+      linkedin: freezed == linkedin
+          ? _value.linkedin
+          : linkedin // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phone: freezed == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      twitter: freezed == twitter
+          ? _value.twitter
+          : twitter // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_ContactCopyWith<$Res> implements $ContactCopyWith<$Res> {
+  factory _$$_ContactCopyWith(
+          _$_Contact value, $Res Function(_$_Contact) then) =
+      __$$_ContactCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String? email,
+      String? facebook,
+      String? instagram,
+      String? linkedin,
+      String? phone,
+      String? twitter});
+}
+
+/// @nodoc
+class __$$_ContactCopyWithImpl<$Res>
+    extends _$ContactCopyWithImpl<$Res, _$_Contact>
+    implements _$$_ContactCopyWith<$Res> {
+  __$$_ContactCopyWithImpl(_$_Contact _value, $Res Function(_$_Contact) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = freezed,
+    Object? facebook = freezed,
+    Object? instagram = freezed,
+    Object? linkedin = freezed,
+    Object? phone = freezed,
+    Object? twitter = freezed,
+  }) {
+    return _then(_$_Contact(
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      facebook: freezed == facebook
+          ? _value.facebook
+          : facebook // ignore: cast_nullable_to_non_nullable
+              as String?,
+      instagram: freezed == instagram
+          ? _value.instagram
+          : instagram // ignore: cast_nullable_to_non_nullable
+              as String?,
+      linkedin: freezed == linkedin
+          ? _value.linkedin
+          : linkedin // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phone: freezed == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      twitter: freezed == twitter
+          ? _value.twitter
+          : twitter // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Contact implements _Contact {
+  const _$_Contact(
+      {this.email,
+      this.facebook,
+      this.instagram,
+      this.linkedin,
+      this.phone,
+      this.twitter});
+
+  factory _$_Contact.fromJson(Map<String, dynamic> json) =>
+      _$$_ContactFromJson(json);
+
+  @override
+  final String? email;
+  @override
+  final String? facebook;
+  @override
+  final String? instagram;
+  @override
+  final String? linkedin;
+  @override
+  final String? phone;
+  @override
+  final String? twitter;
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Contact &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.facebook, facebook) ||
+                other.facebook == facebook) &&
+            (identical(other.instagram, instagram) ||
+                other.instagram == instagram) &&
+            (identical(other.linkedin, linkedin) ||
+                other.linkedin == linkedin) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.twitter, twitter) || other.twitter == twitter));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, email, facebook, instagram, linkedin, phone, twitter);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ContactCopyWith<_$_Contact> get copyWith =>
+      __$$_ContactCopyWithImpl<_$_Contact>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ContactToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Contact implements Contact {
+  const factory _Contact(
+      {final String? email,
+      final String? facebook,
+      final String? instagram,
+      final String? linkedin,
+      final String? phone,
+      final String? twitter}) = _$_Contact;
+
+  factory _Contact.fromJson(Map<String, dynamic> json) = _$_Contact.fromJson;
+
+  @override
+  String? get email;
+  @override
+  String? get facebook;
+  @override
+  String? get instagram;
+  @override
+  String? get linkedin;
+  @override
+  String? get phone;
+  @override
+  String? get twitter;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ContactCopyWith<_$_Contact> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -21,16 +21,8 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
   void initState() {
     // TODO: implement initState
     translators = [
-      Translator(
-          isInterpreter: false,
-          location: GeoPoint(53, 52),
-          languages: ["Türkçe", "İngilizce"],
-          name: "Çağla Büyükakçay"),
-      Translator(
-          isInterpreter: true,
-          location: GeoPoint(53, 52),
-          languages: ["İngilizce", "Fransızca"],
-          name: "Ahmet Serin"),
+      Translator(isInterpreter: false, location: GeoPoint(53, 52), languages: ["Türkçe", "İngilizce"], name: "Çağla Büyükakçay"),
+      Translator(isInterpreter: true, location: GeoPoint(53, 52), languages: ["İngilizce", "Fransızca"], name: "Ahmet Serin"),
     ];
     super.initState();
   }
@@ -46,26 +38,15 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
           children: [
             Text(
               "Tercüman Listesi",
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineLarge
-                  ?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
+              style: Theme.of(context).textTheme.headlineLarge?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
               textAlign: TextAlign.center,
             ),
             getSpacer,
             Text.rich(
               TextSpan(
                 children: [
-                  TextSpan(
-                      text:
-                          "Tercüman listesine aşağıdaki tablodan erişebilirsiniz. Yeni tercüman başvurusunu ",
-                      style: TextStyle(fontSize: 14)),
-                  TextSpan(
-                      text: "buradan",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                          fontSize: 14)),
+                  TextSpan(text: "Tercüman listesine aşağıdaki tablodan erişebilirsiniz. Yeni tercüman başvurusunu ", style: TextStyle(fontSize: 14)),
+                  TextSpan(text: "buradan", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontSize: 14)),
                   TextSpan(
                       text: " yapabilirsiniz.",
                       style: TextStyle(
@@ -74,10 +55,7 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                 ],
               ),
               textAlign: TextAlign.center,
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineSmall
-                  ?.copyWith(fontWeight: FontWeight.w300),
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w300),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -111,8 +89,7 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                   }
                 });
               },
-              children:
-                  translators.map<ExpansionPanel>((Translator translator) {
+              children: translators.map<ExpansionPanel>((Translator translator) {
                 return ExpansionPanel(
                   headerBuilder: (BuildContext context, bool isExpanded) {
                     print((translator.languages.length / 2));
@@ -132,11 +109,7 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                         getSpacer,
                         GridView.builder(
                           itemCount: translator.languages.length,
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  mainAxisExtent: context.lowHeight,
-                                  crossAxisSpacing: context.veryLowWidth),
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisExtent: context.lowHeight, crossAxisSpacing: context.veryLowWidth),
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             return FilledButton.icon(
@@ -147,14 +120,9 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                               ),
                               label: Text(
                                 translator.languages[index],
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineSmall
-                                    ?.copyWith(fontWeight: FontWeight.bold),
+                                style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
                               ),
-                              style: FilledButton.styleFrom(
-                                  shape: BeveledRectangleBorder(),
-                                  backgroundColor: Colors.transparent),
+                              style: FilledButton.styleFrom(shape: BeveledRectangleBorder(), backgroundColor: Colors.transparent),
                             );
 
                             // return Container(
@@ -192,12 +160,8 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                         getSpacer,
                         GridView.builder(
                           itemCount: 4,
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  mainAxisSpacing: 15,
-                                  crossAxisCount: 2,
-                                  mainAxisExtent: context.lowHeight,
-                                  crossAxisSpacing: context.lowWidth),
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              mainAxisSpacing: 15, crossAxisCount: 2, mainAxisExtent: context.lowHeight, crossAxisSpacing: context.lowWidth),
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             return ElevatedButton.icon(
@@ -205,8 +169,7 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                               label: Text("Instagram"),
                               icon: Icon(MdiIcons.instagram),
                               style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      Color.fromRGBO(34, 58, 82, 1),
+                                  backgroundColor: Color.fromRGBO(34, 58, 82, 1),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(40),
                                   )),
@@ -216,8 +179,7 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                       ],
                     ),
                   ),
-                  isExpanded: expandedTranslatorIndex ==
-                      translators.indexOf(translator),
+                  isExpanded: expandedTranslatorIndex == translators.indexOf(translator),
                 );
               }).toList(),
               elevation: 1,

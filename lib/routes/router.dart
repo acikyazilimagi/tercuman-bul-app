@@ -27,12 +27,8 @@ appRouter() => nyRoutes((router) {
       router.route(AuthPage.path, (context) => AuthPage());
       router.route(ComponentsDemoPage.path, (context) => ComponentsDemoPage());
       router.route(SignInPage.path, (context) => SignInPage());
-      router.route(EnterVerificationCodePage.path,
-          (context) => EnterVerificationCodePage());
-      router.route(
-          RefreshPasswordPage.path, (context) => RefreshPasswordPage());
-      router.route(
-          BecomeTranslatorPage.path, (context) => BecomeTranslatorPage());
-      router.route(
-          TranslatorListPage.path, (context) => TranslatorListPage());
+      router.route(EnterVerificationCodePage.path, (context) => EnterVerificationCodePage());
+      router.route(RefreshPasswordPage.path, (context) => RefreshPasswordPage());
+      router.route(BecomeTranslatorPage.path, (context) => BecomeTranslatorPage());
+      router.route(TranslatorListPage.path, (context) => TranslatorListPage());
     });
