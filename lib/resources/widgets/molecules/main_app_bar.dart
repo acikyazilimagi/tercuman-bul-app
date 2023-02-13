@@ -22,7 +22,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Image.asset(
-                getPublicAsset('/images/logo_lq.png'),
+                getPublicAsset('/public/images/logo_lq.png'),
               ),
             ),
           ),

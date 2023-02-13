@@ -71,7 +71,6 @@ flutter:
     - public/assets/images/
     - public/assets/app_icon/
     - public/assets/images/logo_lq.png
-    - assets/public/assets/images/logo_lq.png
     - lang/
     - .env
     - public/assets/data/
