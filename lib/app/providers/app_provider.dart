@@ -1,9 +1,6 @@
 import 'package:flutter_app/app/services/auth_service.dart';
 import 'package:flutter_app/config/design.dart';
 import 'package:flutter_app/config/theme.dart';
-import 'package:flutter_app/resources/pages/auth_page.dart';
-import 'package:flutter_app/resources/pages/become_translator_page.dart';
-import 'package:flutter_app/resources/pages/components_demo_page.dart';
 import 'package:flutter_app/resources/pages/home_page.dart';
 import 'package:flutter_app/resources/pages/sign_in_page.dart';
 import 'package:nylo_framework/nylo_framework.dart';

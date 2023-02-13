@@ -1,8 +1,10 @@
+import 'package:dash_flags/dash_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
 import '../../../app/models/languages.dart';
 import '../../themes/styles/light_theme_colors.dart';
+import '../atoms/country_flag_name.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MainAppBar({super.key});
@@ -23,17 +25,15 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
-                child: Image.asset(
-                  getImageAsset(
-                      "flags/${NyLocalization.instance.languageCode}.png"),
+                child: LanguageFlag(
+                  language:
+                      Language.fromCode(NyLocalization.instance.languageCode),
                   height: 24.0,
                 ),
               ),
               Text(
-                Languages.appLanguages
-                    .firstWhere(
-                        (e) => e.key == NyLocalization.instance.languageCode)
-                    .value,
+                Languages.nativeLocaleName(
+                    NyLocalization.instance.languageCode),
                 style: Theme.of(context).textTheme.titleSmall,
               ),
               Icon(
@@ -45,20 +45,10 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
           itemBuilder: (context) => Languages.appLanguages
               .map(
                 (e) => PopupMenuItem(
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Image.asset(
-                          getImageAsset("flags/${e.key}.png"),
-                          height: 24.0,
-                        ),
-                      ),
-                      Text(
-                        e.value,
-                        style: Theme.of(context).textTheme.titleSmall,
-                      ),
-                    ],
+                  child: CountryFlagName(
+                    code: e.key,
+                    name: Languages.nativeLocaleName(e.key),
+                    type: 'lang',
                   ),
                   value: e.key,
                 ),

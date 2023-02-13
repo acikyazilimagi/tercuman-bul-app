@@ -15,6 +15,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:nylo_framework/nylo_framework.dart';
 
 import '../widgets/atoms/country_flag_name.dart';
+import '../widgets/atoms/main_scaffold.dart';
 import '../widgets/molecules/contact_link_field.dart';
 import '../widgets/molecules/country_dialing_code_picker.dart';
 import '../widgets/molecules/main_app_bar.dart';
@@ -45,8 +46,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MainAppBar(),
+    return MainScaffold(
       body: SafeAreaWidget(
         child: SingleChildScrollView(
           child: Column(
@@ -62,8 +62,8 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
               flags(),
               SizedBox(height: 16),
               ContactLinkField(
-                  hint: "addFacebook".tr(),
-                  companyLogo: MdiIcons.facebook,
+                hint: "addFacebook".tr(),
+                companyLogo: MdiIcons.facebook,
               ),
               ContactLinkField(
                 hint: "addInstagram".tr(),

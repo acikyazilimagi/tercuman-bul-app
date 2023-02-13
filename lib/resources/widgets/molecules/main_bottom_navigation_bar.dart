@@ -5,7 +5,9 @@ import '../../themes/styles/light_theme_colors.dart';
 
 class MainBottomNavigationBar extends StatelessWidget
     implements PreferredSizeWidget {
-  const MainBottomNavigationBar({super.key});
+  final int currentIndex;
+
+  const MainBottomNavigationBar({super.key, this.currentIndex = 0});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class MainBottomNavigationBar extends StatelessWidget
           label: "searchInterpreter".tr(),
         ),
       ],
-      currentIndex: 0,
+      currentIndex: currentIndex,
       backgroundColor: LightThemeColors().context,
       selectedItemColor: LightThemeColors().white,
       selectedIconTheme: IconThemeData(
@@ -34,6 +36,15 @@ class MainBottomNavigationBar extends StatelessWidget
       unselectedIconTheme: IconThemeData(
         color: LightThemeColors().grey.shade400,
       ),
+      onTap: (index) {
+        var _routes = const {
+          0: "/home-page",
+          1: "/become-translator",
+          2: "/translator-list",
+        };
+
+        routeTo(_routes[index] ?? "/home-page");
+      },
     );
   }
 

@@ -1,8 +1,8 @@
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/resources/pages/home_page.dart';
-import 'package:flutter_app/resources/widgets/molecules/main_app_bar.dart';
 import 'package:nylo_framework/nylo_framework.dart';
+import '../widgets/atoms/main_scaffold.dart';
 import '/app/controllers/controller.dart';
 
 class AuthPage extends NyStatefulWidget {
@@ -28,8 +28,8 @@ class _AuthPageState extends NyState<AuthPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MainAppBar(),
+    return MainScaffold(
+      showBottomNavigationBar: false,
       body: SignInScreen(
         actions: [
           AuthStateChangeAction<SignedIn>(
