@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
-import 'package:flutter_app/resources/extensions/form_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
-import 'package:flutter_app/resources/pages/enter_verification_code_page.dart';
-import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import '../themes/styles/light_theme_colors.dart';
@@ -42,7 +39,7 @@ class _RegisterPageState extends NyState<RegisterPage> {
             ),
             getSpacerMedium,
             CustomButton(
-              text: "Google ile kayıt ol",
+              text: "registerWithGoogle".tr(),
               icon: MdiIcons.google,
               style: CustomButtonStyles.lightFilled,
               onPressed: () {},
@@ -52,12 +49,12 @@ class _RegisterPageState extends NyState<RegisterPage> {
             Text.rich(
               TextSpan(
                 children: [
-                  TextSpan(text: "Hesabın var mı? "),
+                  TextSpan(text: "alreadyHaveAnAccount".tr()),
                   WidgetSpan(
                     child: GestureDetector(
                       onTap: () => Navigator.pop(context),
                       child: Text(
-                        "Giriş Yap",
+                        "login".tr(),
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),

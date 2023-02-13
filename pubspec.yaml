@@ -40,7 +40,6 @@ dependencies:
   json_annotation: ^4.8.0
   cloud_firestore: ^4.3.2
   syncfusion_flutter_datagrid: ^20.4.49
-  flutter_launcher_icons: ^0.11.0
   expandable: ^5.0.1
   material_design_icons_flutter: ^6.0.7096
   flutter_localized_locales: ^2.0.4
@@ -58,23 +57,6 @@ dev_dependencies:
 
 # APP ICON - public/assets/app_icon/icon.png
 # Build icons: "flutter pub run flutter_launcher_icons:main"
-flutter_icons:
-  image_path_android: "assets/images/ic_launcher_google-play-store.png"
-  image_path_ios: "assets/images/App_store_1024_1x.png"
-  android: true
-  ios: true
-  min_sdk_android: 16 # android min sdk min:16, default 21
-  remove_alpha_ios: true
-  web:
-    generate: true
-    image_path: "assets/images/App_store_1024_1x.png"
-  windows:
-    generate: true
-    image_path: "assets/images/App_store_1024_1x.png"
-    icon_size: 48 # min:48, max:256, default: 48
-  macos:
-    generate: true
-    image_path: "assets/images/App_store_1024_1x.png"
 
 flutter:
 
@@ -87,6 +69,7 @@ flutter:
   assets:
     - public/assets/fonts/
     - public/assets/images/
+    - public/assets/images/flags/
     - public/assets/app_icon/
     - lang/
     - .env

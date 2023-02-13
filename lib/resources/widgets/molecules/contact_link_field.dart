@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
 
 class ContactLinkField extends StatelessWidget {

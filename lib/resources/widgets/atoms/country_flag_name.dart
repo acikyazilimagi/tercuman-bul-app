@@ -6,21 +6,21 @@ class CountryFlagName extends StatelessWidget {
   final String name;
   final String type;
 
-  CountryFlagName({
-    Key? key,
-    required this.code,
-    required this.name,
-    this.type = "country"
-  }) : super(key: key);
+  CountryFlagName(
+      {Key? key, required this.code, required this.name, this.type = "country"})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        this.type == 'country' ?
-        CountryFlag(country: Country.fromCode(code), height: 16) :
-        LanguageFlag(language: Language.fromCode(code == "is" || code == "as" ? "l_" + code : code), height: 16),
+        this.type == 'country'
+            ? CountryFlag(country: Country.fromCode(code), height: 16)
+            : LanguageFlag(
+                language: Language.fromCode(
+                    code == "is" || code == "as" ? "l_" + code : code),
+                height: 16),
         SizedBox(width: 8),
         Text(name),
       ],
