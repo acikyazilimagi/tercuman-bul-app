@@ -46,9 +46,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Components Demo"),
-      ),
+      appBar: MainAppBar(),
       body: SafeAreaWidget(
         child: SingleChildScrollView(
           child: Column(
