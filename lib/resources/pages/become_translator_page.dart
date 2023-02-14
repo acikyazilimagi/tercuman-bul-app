@@ -9,6 +9,7 @@ import 'package:flutter_app/resources/extensions/padding_extension.dart';
 import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
 import 'package:flutter_app/resources/widgets/loader_widget.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
@@ -76,25 +77,21 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
             Text(
               "beInterpreter".tr(),
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                    color: LightThemeColors().title,
-                  ),
-            ),
-            getSpacer,
-            Text(
-              "beInterpreterDescription".tr(),
-              textAlign: TextAlign.center,
               style: Theme.of(context)
                   .textTheme
-                  .titleLarge
-                  ?.copyWith(fontWeight: FontWeight.w300),
+                  .displayMedium!
+                  .copyWith(color: LightThemeColors().title),
             ),
-            TextButton(
-              child: Text(
-                "translatorListLinkText".tr(),
-                style: TextStyle(decoration: TextDecoration.underline),
+            getSpacer,
+            Linkify(
+              onOpen: (link) => routeTo("/translator-list"),
+              textAlign: TextAlign.center,
+              text: "beInterpreterDescription".tr(),
+              linkStyle: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                decoration: TextDecoration.none,
               ),
-              onPressed: () => routeTo("/translator-list"),
             ),
             getSpacer,
             CustomTextField(

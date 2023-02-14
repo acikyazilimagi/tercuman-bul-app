@@ -63,14 +63,12 @@
     "login": "Têketin",
     "wellcome": "Xoşbûn",
     "interpreterList": "Lîsteya Wergêran",
-    "interpreterListDescription": "Hûn dikarin ji tabloya jêrînê têketinê bi nav têketinê.",
     "nameSurname": "Navê Binivîse",
     "chooseLanguage": "Zimanê hilbijêre",
     "translationLanguage": "Zimanê wergerê",
     "contantInformation": "Agahdariya girêdayî",
-    "beInterpreterDescription": "Forma jêrînê binivîse ku pêşwazî bikin.",
     "instagram": "Instagram",
-    "newTranslatorLinkText": "Tu dikarî ji bo nûvekîşekê li vir têkildarî bikî.",
-    "translatorListLinkText": "Tu dikarin navnîşek têrkemîn ji vir hatine.",
+    "beInterpreterDescription": "Hûn dikarin forma jêrîn dagirin da ku bibin wergêr. Hûn dikarin ji https://vir xwe bigihînin navnîşa wergêran.",
+    "interpreterListDescription": "Hûn dikarin ji tabloya jêrîn xwe bigihînin navnîşa wergêran. Hûn dikarin ji bo wergerek nû serî li https://vir bidin.",
     "truthAck": "Ez qebûl dikim û radigihînim ku agahiyên ku min dane rast û piştrast in, ku min hemî tedbîr û tedbîrên pêwîst girtine ji bo pêşîgirtina li qirêjbûna agahdarî û kiryarên xelet, û her guhertin û nûvekirina agahdariya ku min daye ez ê ragihînim."
 }
