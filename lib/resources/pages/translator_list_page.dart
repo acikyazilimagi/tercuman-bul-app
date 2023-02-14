@@ -183,7 +183,7 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                       .languages
                       .map((e) => CountryFlagName(
                             code: e,
-                            name: Languages.appLanguages
+                            name: Languages.usableLanguages
                                 .firstWhere((w) => w.key == e)
                                 .value,
                             textStyle: TextStyle(
