@@ -47,25 +47,17 @@ class _RegisterPageState extends NyState<RegisterPage> {
                   ),
             ),
             getSpacerMedium,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Checkbox(
-                    fillColor: MaterialStateColor.resolveWith(
-                        (states) => Color.fromRGBO(
-                              34,
-                              58,
-                              82,
-                              1,
-                            )),
-                    checkColor: Colors.white,
-                    value: tcCheckbox,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        tcCheckbox = value!;
-                      });
-                    }),
-                Text.rich(
+            CheckboxListTile(
+                controlAffinity: ListTileControlAffinity.leading,
+                activeColor:
+                    MaterialStateColor.resolveWith((states) => Color.fromRGBO(
+                          34,
+                          58,
+                          82,
+                          1,
+                        )),
+                checkColor: Colors.white,
+                title: Text.rich(
                   TextSpan(
                     children: [
                       WidgetSpan(
@@ -93,41 +85,46 @@ class _RegisterPageState extends NyState<RegisterPage> {
                   style: TextStyle(fontSize: 11),
                   textAlign: TextAlign.start,
                 ),
-              ],
-            ),
-            Wrap(
-              children: [
-                Checkbox(
-                    fillColor: MaterialStateColor.resolveWith(
-                        (states) => Color.fromRGBO(
-                              34,
-                              58,
-                              82,
-                              1,
-                            )),
-                    checkColor: Colors.white,
-                    value: truthAckCheckbox,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        truthAckCheckbox = value!;
-                      });
-                    }),
-                SizedBox(
-                  width: 300 * MediaQuery.of(context).textScaleFactor,
-                  child: Text("truthAck".tr(),
-                      maxLines: 5,
-                      style: TextStyle(
-                        fontSize: 10,
-                        color: Color.fromRGBO(
+                value: tcCheckbox,
+                onChanged: (bool? value) {
+                  setState(() {
+                    tcCheckbox = value!;
+                  });
+                }),
+            CheckboxListTile(
+                controlAffinity: ListTileControlAffinity.leading,
+                activeColor:
+                    MaterialStateColor.resolveWith((states) => Color.fromRGBO(
                           34,
                           58,
                           82,
                           1,
-                        ),
-                      )),
+                        )),
+                checkColor: Colors.white,
+                title: Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                          text: "truthAck".tr(),
+                          style: TextStyle(
+                            color: Color.fromRGBO(
+                              34,
+                              58,
+                              82,
+                              1,
+                            ),
+                          )),
+                    ],
+                  ),
+                  style: TextStyle(fontSize: 11),
+                  textAlign: TextAlign.start,
                 ),
-              ],
-            ),
+                value: truthAckCheckbox,
+                onChanged: (bool? value) {
+                  setState(() {
+                    truthAckCheckbox = value!;
+                  });
+                }),
             getSpacer,
             CustomButton(
               text: "registerWithGoogle".tr(),
