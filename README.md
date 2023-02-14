@@ -34,6 +34,8 @@ Uygulama ile tercümanlar ve kullanıcıların veritabanına kaydolması, verita
 
 # Teknik
 
+ÖNEMLI NOT! PROJEYİ ÇALIŞTIRIR KEN PORT 3000 KULLANINIZ!
+
 ## App Flow
 ```mermaid
 graph TD
