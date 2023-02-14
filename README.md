@@ -1,5 +1,10 @@
 # Tercüman Bul Projesi
 
+## Proje Yönetimi
+
+Trello: https://trello.com/b/oYNRO4zf/tercuman-bul
+Discord: https://discord.gg/itdepremyardim
+
 ## Amaç
 
 Türkiye'deki büyük depremde farklı dillerde konuşan depremzedeler ve yardım sağlayan ekipler arasındaki iletişimi kolaylaştırmak.
