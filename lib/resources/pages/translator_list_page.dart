@@ -178,8 +178,7 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                   crossAxisSpacing: 15,
                   mainAxisSpacing: 15,
                   crossAxisCount: 2,
-                  childAspectRatio:
-                      filteredTranslators[index].languages.length / 0.5,
+                  childAspectRatio: MediaQuery.of(context).size.width / 100,
                   children: filteredTranslators[index]
                       .languages
                       .map((e) => CountryFlagName(
@@ -207,7 +206,7 @@ class _TranslatorListPageState extends State<TranslatorListPage> {
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                   crossAxisCount: 2,
-                  childAspectRatio: 4,
+                  childAspectRatio: MediaQuery.of(context).size.width / 100,
                   children: [
                     _contactButton("facebook", () {}),
                     _contactButton("twitter", () {}),
