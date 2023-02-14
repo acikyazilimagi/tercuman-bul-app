@@ -25,7 +25,7 @@ class ContactUsCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(32.0),
               child: Image.asset(
-                getImageAsset("avatar_group.png"),
+                '/public/assets/images/avatar_group.png',
                 width: 120,
                 height: 56,
               ),
