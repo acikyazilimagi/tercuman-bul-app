@@ -101,7 +101,10 @@ class _HomePageState extends NyState<HomePage> {
               SizedBox(height: 16),
               CustomExpandableCard(
                 initialExpanded: true,
-                topic: "becomeVolunteerHeader".tr(),
+                topic: Text(
+                  "becomeVolunteerHeader".tr(),
+                  style: Theme.of(context).textTheme.titleLarge!,
+                ),
                 content: Text(
                   "becomeVolunteerBody".tr(),
                   style: Theme.of(context).textTheme.bodyLarge!,
@@ -110,7 +113,10 @@ class _HomePageState extends NyState<HomePage> {
               ),
               Divider(),
               CustomExpandableCard(
-                topic: "interpreterResponsibilities".tr(),
+                topic: Text(
+                  "interpreterResponsibilities".tr(),
+                  style: Theme.of(context).textTheme.titleLarge!,
+                ),
                 content: Text(
                   "interpreterResponsibilities".tr(),
                   style: Theme.of(context).textTheme.bodyLarge!,
@@ -119,7 +125,10 @@ class _HomePageState extends NyState<HomePage> {
               ),
               Divider(),
               CustomExpandableCard(
-                topic: "communicateOtherTranslator".tr(),
+                topic: Text(
+                  "communicateOtherTranslator".tr(),
+                  style: Theme.of(context).textTheme.titleLarge!,
+                ),
                 content: Text(
                   "communicateOtherTranslator".tr(),
                   textAlign: TextAlign.start,

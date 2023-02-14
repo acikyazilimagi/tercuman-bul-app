@@ -5,10 +5,15 @@ class CountryFlagName extends StatelessWidget {
   final String code;
   final String name;
   final String type;
+  final TextStyle? textStyle;
 
-  CountryFlagName(
-      {Key? key, required this.code, required this.name, this.type = "country"})
-      : super(key: key);
+  CountryFlagName({
+    Key? key,
+    required this.code,
+    required this.name,
+    this.textStyle,
+    this.type = "country",
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,7 @@ class CountryFlagName extends StatelessWidget {
                     code == "is" || code == "as" ? "l_" + code : code),
                 height: 16),
         SizedBox(width: 8),
-        Text(name),
+        Text(name, style: textStyle),
       ],
     );
   }

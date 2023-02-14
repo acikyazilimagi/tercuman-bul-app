@@ -122,7 +122,10 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
           initialExpanded: true,
           centerIcon: false,
           backgrounColor: LightThemeColors().background,
-          topic: "becomeVolunteerHeader".tr(),
+          topic: Text(
+            "becomeVolunteerHeader".tr(),
+            style: Theme.of(context).textTheme.titleLarge!,
+          ),
           content: Text(
             "becomeVolunteerBody".tr(),
             style: Theme.of(context).textTheme.bodyLarge!,
