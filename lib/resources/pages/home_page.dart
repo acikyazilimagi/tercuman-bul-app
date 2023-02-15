@@ -5,6 +5,7 @@ import 'package:flutter_app/resources/widgets/atoms/custom_expandable_card.dart'
 import 'package:flutter_app/resources/widgets/molecules/contact_us_card.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
+import '../../app/services/auth_service.dart';
 import '../widgets/atoms/custom_button.dart';
 import '../widgets/molecules/main_scaffold.dart';
 
@@ -32,6 +33,8 @@ class _HomePageState extends NyState<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    bool hasSession = AuthService().hasSession;
+
     return MainScaffold(
       body: Container(
         padding: EdgeInsets.only(left: 20, right: 20, top: 20),
@@ -72,14 +75,14 @@ class _HomePageState extends NyState<HomePage> {
                 text: "beInterpreter".tr(),
                 icon: Icons.add_circle_outline_outlined,
                 style: CustomButtonStyles.lightFilled,
-                onPressed: () => routeTo("/become-translator"),
+                onPressed: () => hasSession ? routeTo("/become-translator") : routeTo("/auth", data: { "redirectTo": "/become-translator"}),
               ),
               SizedBox(height: 12),
               CustomButton(
                 text: "searchInterpreter".tr(),
                 icon: Icons.search_sharp,
                 style: CustomButtonStyles.darkFilled,
-                onPressed: () => routeTo("/translator-list"),
+                onPressed: () => hasSession ? routeTo("/translator-list") : routeTo("/auth", data: { "redirectTo": "/translator-list"}),
               ),
               SizedBox(height: 32),
               Text(

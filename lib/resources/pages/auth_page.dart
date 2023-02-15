@@ -29,20 +29,21 @@ class _AuthPageState extends NyState<AuthPage> {
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
-      showBottomNavigationBar: false,
       body: SignInScreen(
         actions: [
           AuthStateChangeAction<SignedIn>(
             (context, state) {
+              String route = widget.data(key: "redirectTo");
               routeTo(
-                HomePage.path,
+                !route.isEmpty ? route : HomePage.path,
                 removeUntilPredicate: (route) => false,
               );
             },
           ),
           AuthStateChangeAction<UserCreated>((context, state) {
+            String route = widget.data(key: "redirectTo");
             routeTo(
-              HomePage.path,
+              !route.isEmpty ? route : HomePage.path,
               removeUntilPredicate: (route) => false,
             );
           }),

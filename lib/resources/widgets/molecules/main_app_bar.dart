@@ -20,44 +20,47 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Image.asset('public/assets/images/logo_lq.png'),
       ),
       actions: [
-        PopupMenuButton(
-          child: Row(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
-                child: LanguageFlag(
-                  language:
-                      Language.fromCode(NyLocalization.instance.languageCode),
-                  height: 24.0,
-                ),
-              ),
-              Text(
-                Languages.nativeLocaleName(
-                    NyLocalization.instance.languageCode),
-                style: Theme.of(context).textTheme.titleSmall,
-              ),
-              Icon(
-                Icons.keyboard_arrow_down,
-                color: LightThemeColors().context,
-              ),
-            ],
-          ),
-          itemBuilder: (context) => Languages.appLanguages
-              .map(
-                (e) => PopupMenuItem(
-                  child: CountryFlagName(
-                    code: e.key,
-                    name: Languages.nativeLocaleName(e.key),
-                    type: 'lang',
+        Padding(
+          padding: EdgeInsets.fromLTRB(0, 0, 16, 0),
+          child: PopupMenuButton(
+            child: Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
+                  child: LanguageFlag(
+                    language:
+                        Language.fromCode(NyLocalization.instance.languageCode),
+                    height: 24.0,
                   ),
-                  value: e.key,
                 ),
-              )
-              .toList(),
-          onSelected: (value) async {
-            await NyLocalization.instance.setLanguage(context, language: value);
-          },
-        )
+                Text(
+                  Languages.nativeLocaleName(
+                      NyLocalization.instance.languageCode),
+                  style: Theme.of(context).textTheme.titleSmall,
+                ),
+                Icon(
+                  Icons.keyboard_arrow_down,
+                  color: LightThemeColors().context,
+                ),
+              ],
+            ),
+            itemBuilder: (context) => Languages.appLanguages
+                .map(
+                  (e) => PopupMenuItem(
+                    child: CountryFlagName(
+                      code: e.key,
+                      name: Languages.nativeLocaleName(e.key),
+                      type: 'lang',
+                    ),
+                    value: e.key,
+                  ),
+                )
+                .toList(),
+            onSelected: (value) async {
+              await NyLocalization.instance.setLanguage(context, language: value);
+            },
+          )
+        ),
       ],
     );
   }
