@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/controllers/home_controller.dart';
+import 'package:flutter_app/app/services/location_service.dart';
 import 'package:flutter_app/resources/themes/styles/light_theme_colors.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_expandable_card.dart';
 import 'package:flutter_app/resources/widgets/molecules/contact_us_card.dart';
@@ -23,11 +24,13 @@ class _HomePageState extends NyState<HomePage> {
 
   @override
   init() async {
+    await LocationService().init();
     super.init();
   }
 
   @override
-  void dispose() {
+  dispose() async {
+    await LocationService().dispose();
     super.dispose();
   }
 
