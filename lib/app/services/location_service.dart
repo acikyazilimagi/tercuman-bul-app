@@ -30,7 +30,7 @@ class LocationService {
 
       _location.changeSettings(
         accuracy: LocationAccuracy.high,
-        interval: 20 * 1000, //20 seconds
+        interval: Duration(minutes: 30).inMilliseconds,
         distanceFilter: 10,
       );
 
