@@ -20,9 +20,17 @@ class Translator with _$Translator {
     required String name,
   }) = _Translator;
 
-  factory Translator.fromJson(Map<String, Object?> json) => _$TranslatorFromJson(json);
+  factory Translator.fromJson(Map<String, Object?> json) =>
+      _$TranslatorFromJson(json);
 
-  factory Translator.empty({String? uuid, Capabilities? capabilities, Contact? contact, bool? isInterpreter, GeoPoint? location, List<String>? languages, String? name}) =>
+  factory Translator.empty(
+          {String? uuid,
+          Capabilities? capabilities,
+          Contact? contact,
+          bool? isInterpreter,
+          GeoPoint? location,
+          List<String>? languages,
+          String? name}) =>
       Translator(
           uuid: uuid,
           capabilities: capabilities ?? Capabilities(),
@@ -40,11 +48,13 @@ class Capabilities with _$Capabilities {
     bool? translatorVirtual,
   }) = _Capabilities;
 
-  factory Capabilities.fromJson(Map<String, Object?> json) => _$CapabilitiesFromJson(json);
+  factory Capabilities.fromJson(Map<String, Object?> json) =>
+      _$CapabilitiesFromJson(json);
 
   @override
   String toString() {
-    return "translatorInPerson: $translatorInPerson" + " translatorVirtual: $translatorVirtual";
+    return "translatorInPerson: $translatorInPerson" +
+        " translatorVirtual: $translatorVirtual";
   }
 }
 
@@ -58,11 +68,24 @@ class Contact with _$Contact {
     String? phone,
     String? twitter,
   }) = _Contact;
+  const Contact._();
 
-  factory Contact.fromJson(Map<String, Object?> json) => _$ContactFromJson(json);
+  factory Contact.fromJson(Map<String, Object?> json) =>
+      _$ContactFromJson(json);
 
   @override
   String toString() {
-    return "email: $email" + " facebook: $facebook" + " instagram: $instagram" + " linkedin: $linkedin" + " phone: $phone" + " twitter: $twitter ";
+    return "email: $email" +
+        " facebook: $facebook" +
+        " instagram: $instagram" +
+        " linkedin: $linkedin" +
+        " phone: $phone" +
+        " twitter: $twitter ";
   }
+
+  bool get haveAnyContactInformation =>
+      (facebook?.isNotEmpty == true) ||
+      (twitter?.isNotEmpty == true) ||
+      (instagram?.isNotEmpty == true) ||
+      (linkedin?.isNotEmpty == true);
 }

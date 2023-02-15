@@ -208,6 +208,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                       await lockRelease("register",
                           perform: () async =>
                               await FirestoreService().writeUser());
+                      routeTo('/translator-list');
                     },
                   ),
             ContactUsCard(

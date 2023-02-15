@@ -640,14 +640,15 @@ class __$$_ContactCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Contact implements _Contact {
+class _$_Contact extends _Contact {
   const _$_Contact(
       {this.email,
       this.facebook,
       this.instagram,
       this.linkedin,
       this.phone,
-      this.twitter});
+      this.twitter})
+      : super._();
 
   factory _$_Contact.fromJson(Map<String, dynamic> json) =>
       _$$_ContactFromJson(json);
@@ -700,7 +701,7 @@ class _$_Contact implements _Contact {
   }
 }
 
-abstract class _Contact implements Contact {
+abstract class _Contact extends Contact {
   const factory _Contact(
       {final String? email,
       final String? facebook,
@@ -708,6 +709,7 @@ abstract class _Contact implements Contact {
       final String? linkedin,
       final String? phone,
       final String? twitter}) = _$_Contact;
+  const _Contact._() : super._();
 
   factory _Contact.fromJson(Map<String, dynamic> json) = _$_Contact.fromJson;
 
