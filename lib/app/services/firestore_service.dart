@@ -22,7 +22,10 @@ class FirestoreService implements IDatabaseService {
         if (isExist) {
           return;
         }
-        await firestore.collection(FirestoreCollectionPath.dev.name).doc(translator.uuid).set(translator.toJson());
+        await firestore
+            .collection(FirestoreCollectionPath.dev.name)
+            .doc(translator.uuid)
+            .set(translator.toJson());
       } catch (e) {
         print(e);
         log("Write user exception:", error: e);
@@ -31,8 +34,21 @@ class FirestoreService implements IDatabaseService {
   }
 
   Future<bool> isUserExist({required Translator translator}) async {
-    final snapshot = await firestore.collection(FirestoreCollectionPath.dev.name).doc(translator.uuid).get();
+    final snapshot = await firestore
+        .collection(FirestoreCollectionPath.dev.name)
+        .doc(translator.uuid)
+        .get();
     return snapshot.exists;
+  }
+
+  Future<void> updateUserLocation(GeoPoint location) async {
+    var userId = AuthService().currentUser?.uid;
+    if (userId != null) {
+      await firestore
+          .collection(FirestoreCollectionPath.dev.name)
+          .doc(userId)
+          .update({"location": location});
+    }
   }
 }
 
