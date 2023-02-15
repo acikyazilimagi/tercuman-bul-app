@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/app/models/languages.dart';
 import 'package:flutter_app/app/models/translator.dart';
 import 'package:flutter_app/app/networking/translator_api_service.dart';
+import 'package:flutter_app/app/services/auth_service.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
 import 'package:flutter_app/resources/widgets/loader_widget.dart';
@@ -63,16 +64,27 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                         .copyWith(color: LightThemeColors().title),
                   ),
                   getSpacer,
-                  Linkify(
-                    onOpen: (link) => routeTo("/become-translator"),
-                    textAlign: TextAlign.center,
-                    text: "interpreterListDescription".tr(),
-                    linkStyle: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.none,
-                    ),
-                  ),
+                  AuthService().currentTranslator.uuid == null
+                      ? Linkify(
+                          onOpen: (e) => routeTo("/become-translator"),
+                          textAlign: TextAlign.center,
+                          text: "interpreterListDescription".tr(),
+                          linkStyle: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.none,
+                          ),
+                        )
+                      : Linkify(
+                          onOpen: (e) => routeTo("/translator-profile"),
+                          textAlign: TextAlign.center,
+                          text: "interpreterListDescription2".tr(),
+                          linkStyle: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            decoration: TextDecoration.none,
+                          ),
+                        ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20.0),
                     child: Row(

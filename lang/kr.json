@@ -14,6 +14,7 @@
     "welomeBody": "Zû û bi hêsanî wergêrên bi her zimanî bibîne û rasterast li ser platforma me bi wan re têkilî dane!",
     "homePage": "Rûpelê Sereke",
     "beInterpreter": "Bibe Wergêr",
+    "translatorProfile": "Profilê Wergêrê",
     "searchInterpreter": "Wergêrekî bibîne",
     "fAskedQuestions": "Pirsên pir caran tên pirsîn",
     "thingsToKnow": "Tiştê ku divê hûn di derbarê platforma Wergêr Peydaker de zanîbin.",
@@ -68,8 +69,14 @@
     "chooseLanguage": "Zimanê hilbijêre",
     "translationLanguage": "Zimanê wergerê",
     "contantInformation": "Agahdariya girêdayî",
+    "facebook": "Facebook",
     "instagram": "Instagram",
+    "twitter": "Twitter",
+    "linkedin": "Linkedin",
     "beInterpreterDescription": "Hûn dikarin forma jêrîn dagirin da ku bibin wergêr. Hûn dikarin ji https://vir xwe bigihînin navnîşa wergêran.",
     "interpreterListDescription": "Hûn dikarin ji tabloya jêrîn xwe bigihînin navnîşa wergêran. Hûn dikarin ji bo wergerek nû serî li https://vir bidin.",
-    "truthAck": "Ez qebûl dikim û radigihînim ku agahiyên ku min dane rast û piştrast in, ku min hemî tedbîr û tedbîrên pêwîst girtine ji bo pêşîgirtina li qirêjbûna agahdarî û kiryarên xelet, û her guhertin û nûvekirina agahdariya ku min daye ez ê ragihînim."
+    "interpreterListDescription2": "Tu dikarin lişta têrkemên ji tabloya jêrê bikî. Tu dikarin profîla xwe ji https://vir bibî.",
+    "truthAck": "Ez qebûl dikim û radigihînim ku agahiyên ku min dane rast û piştrast in, ku min hemî tedbîr û tedbîrên pêwîst girtine ji bo pêşîgirtina li qirêjbûna agahdarî û kiryarên xelet, û her guhertin û nûvekirina agahdariya ku min daye ez ê ragihînim.",
+    "yourProfile": "Profîla xwe",
+    "yourProfileDescription": "Hûn dikarin ji https://vir xwe bigihînin navnîşa wergêran."
 }

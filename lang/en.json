@@ -14,6 +14,7 @@
   "welomeBody": "Find an interpreter speaking any language quick, easy, and communicate directly with them through our platform!",
   "homePage": "Home",
   "beInterpreter": "Become an interpreter.",
+  "translatorProfile": "Translator Profile",
   "searchInterpreter": "Find an interpreter",
   "fAskedQuestions": "Frequently Asked Questions",
   "thingsToKnow": "Things you need to know about the Tercümanbul platform.",
@@ -68,8 +69,14 @@
   "chooseLanguage": "Choose language",
   "translationLanguage": "Translation Language",
   "contantInformation": "Contact Information",
+  "facebook": "Facebook",
   "instagram": "Instagram",
+  "twitter": "Twitter",
+  "linkedin": "Linkedin",
   "beInterpreterDescription": "You can fill out the form below to become a translator. You can access the list of translators from https://here.",
   "interpreterListDescription": "You can access the list of translators from the table below. You can apply for a new translator at https://here.",
-  "truthAck": "I accept and declare that the information I have given is correct and confirmed, that I have taken all necessary precautions and measures to prevent information pollution and wrong practices, and that I will notify any changes and updates in the information I have given."
+  "interpreterListDescription2": "You can access the translator list from the table below. You can see your profile from https://here.",
+  "truthAck": "I accept and declare that the information I have given is correct and confirmed, that I have taken all necessary precautions and measures to prevent information pollution and wrong practices, and that I will notify any changes and updates in the information I have given.",
+  "yourProfile": "Your Profile",
+  "yourProfileDescription": "You can access the list of translators from https://here."
 }
