@@ -17,7 +17,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: LightThemeColors().white,
       title: SizedBox(
         height: 40.0,
-        child: Image.asset('/public/assets/images/logo_lq.png'),
+        child: Image.asset('public/assets/images/logo_lq.png'),
       ),
       actions: [
         PopupMenuButton(
