@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
+import '../../../app/services/auth_service.dart';
 import '../../themes/styles/light_theme_colors.dart';
 
 class MainBottomNavigationBar extends StatelessWidget
@@ -43,7 +44,15 @@ class MainBottomNavigationBar extends StatelessWidget
           2: "/translator-list",
         };
 
-        routeTo(_routes[index] ?? "/home-page");
+        String route = _routes[index] ?? "/home-page";
+
+        if(route == "/home-page") {
+          routeTo(route);
+        } else if(AuthService().hasSession) {
+          routeTo(_routes[index] ?? "/home-page");
+        } else {
+          routeTo(_routes[index] ?? "/home-page", data: { "redirectTo": _routes[index] ?? "/home-page"});
+        }
       },
     );
   }
