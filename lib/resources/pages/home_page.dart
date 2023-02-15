@@ -75,14 +75,20 @@ class _HomePageState extends NyState<HomePage> {
                 text: "beInterpreter".tr(),
                 icon: Icons.add_circle_outline_outlined,
                 style: CustomButtonStyles.lightFilled,
-                onPressed: () => hasSession ? routeTo("/become-translator") : routeTo("/auth", data: { "redirectTo": "/become-translator"}),
+                onPressed: () => hasSession
+                    ? routeTo("/become-translator")
+                    : routeTo("/auth",
+                        data: {"redirectTo": "/become-translator"}),
               ),
               SizedBox(height: 12),
               CustomButton(
                 text: "searchInterpreter".tr(),
                 icon: Icons.search_sharp,
                 style: CustomButtonStyles.darkFilled,
-                onPressed: () => hasSession ? routeTo("/translator-list") : routeTo("/auth", data: { "redirectTo": "/translator-list"}),
+                onPressed: () => hasSession
+                    ? routeTo("/translator-list")
+                    : routeTo("/auth",
+                        data: {"redirectTo": "/translator-list"}),
               ),
               SizedBox(height: 32),
               Text(
@@ -117,11 +123,11 @@ class _HomePageState extends NyState<HomePage> {
               Divider(),
               CustomExpandableCard(
                 topic: Text(
-                  "interpreterResponsibilities".tr(),
+                  "interpreterResponsibilitiesHeader".tr(),
                   style: Theme.of(context).textTheme.titleLarge!,
                 ),
                 content: Text(
-                  "interpreterResponsibilities".tr(),
+                  "interpreterResponsibilitiesBody".tr(),
                   style: Theme.of(context).textTheme.bodyLarge!,
                 ),
                 backgrounColor: LightThemeColors().background,
