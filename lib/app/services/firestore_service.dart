@@ -4,14 +4,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_app/app/models/translator.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
 
-class FirestoreService implements IDatabaseService {
+class FirestoreService {
   static final FirestoreService _instance = FirestoreService._internal();
   factory FirestoreService() => _instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   FirestoreService._internal();
 
-  @override
   Future<void> writeUser() async {
     final translator = AuthService().currentTranslator;
 
@@ -41,7 +40,7 @@ class FirestoreService implements IDatabaseService {
     return snapshot.exists;
   }
 
-  Future<void> updateUserLocation(GeoPoint location) async {
+  Future<void> updateLocation(GeoPoint location) async {
     var userId = AuthService().currentUser?.uid;
     if (userId != null) {
       await firestore
@@ -50,10 +49,6 @@ class FirestoreService implements IDatabaseService {
           .update({"location": location});
     }
   }
-}
-
-abstract class IDatabaseService {
-  Future<void> writeUser();
 }
 
 enum FirestoreCollectionPath {

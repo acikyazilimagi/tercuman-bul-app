@@ -23,15 +23,9 @@ class _HomePageState extends NyState<HomePage> {
   List<String> selectedLanguages = [];
 
   @override
-  init() async {
-    await LocationService().init();
+  init() {
+    LocationService();
     super.init();
-  }
-
-  @override
-  dispose() async {
-    await LocationService().dispose();
-    super.dispose();
   }
 
   @override
@@ -74,15 +68,25 @@ class _HomePageState extends NyState<HomePage> {
                     ),
               ),
               SizedBox(height: 16),
-              CustomButton(
-                text: "beInterpreter".tr(),
-                icon: Icons.add_circle_outline_outlined,
-                style: CustomButtonStyles.lightFilled,
-                onPressed: () => hasSession
-                    ? routeTo("/become-translator")
-                    : routeTo("/auth",
-                        data: {"redirectTo": "/become-translator"}),
-              ),
+              AuthService().currentTranslator.uuid == null
+                  ? CustomButton(
+                      text: "beInterpreter".tr(),
+                      icon: Icons.add_circle_outline_outlined,
+                      style: CustomButtonStyles.lightFilled,
+                      onPressed: () => hasSession
+                          ? routeTo("/become-translator")
+                          : routeTo("/auth",
+                              data: {"redirectTo": "/become-translator"}),
+                    )
+                  : CustomButton(
+                      text: "translatorProfile".tr(),
+                      icon: Icons.edit,
+                      style: CustomButtonStyles.lightFilled,
+                      onPressed: () => hasSession
+                          ? routeTo("/translator-profile")
+                          : routeTo("/auth",
+                              data: {"redirectTo": "/translator-profile"}),
+                    ),
               SizedBox(height: 12),
               CustomButton(
                 text: "searchInterpreter".tr(),

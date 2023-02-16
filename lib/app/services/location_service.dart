@@ -6,11 +6,16 @@ import 'package:flutter_app/app/services/firestore_service.dart';
 import 'package:location/location.dart';
 
 class LocationService {
-  final Location _location = Location();
+  static final LocationService _instance = LocationService._internal();
+  factory LocationService() => _instance;
+  LocationService._internal() {
+    _init();
+  }
 
+  final Location _location = Location();
   StreamSubscription<LocationData>? _locationSub;
 
-  Future<void> init() async {
+  Future<void> _init() async {
     try {
       final isServiceEnabled = await _location.serviceEnabled();
       if (!isServiceEnabled) {
@@ -36,19 +41,22 @@ class LocationService {
 
       if (!kIsWeb) {
         _location.enableBackgroundMode(enable: true);
-      }
 
-      _locationSub = _location.onLocationChanged.listen((currentLocation) {
-        FirestoreService().updateUserLocation(
-            GeoPoint(currentLocation.latitude!, currentLocation.longitude!));
-      });
+        _locationSub = _location.onLocationChanged.listen((l) {
+          FirestoreService()
+              .updateLocation(GeoPoint(l.latitude!, l.longitude!));
+        });
+      } else {
+        await updateLocation();
+      }
     } catch (e) {
       print(e);
     }
   }
 
-  Future<LocationData> getLocation() async {
-    return await _location.getLocation();
+  Future<void> updateLocation() async {
+    var l = await Location().getLocation();
+    FirestoreService().updateLocation(GeoPoint(l.latitude!, l.longitude!));
   }
 
   Future<void> dispose() async {

@@ -15,6 +15,7 @@
   "homePage": "Ana Sayfa",
   "beInterpreter": "Tercüman Ol",
   "searchInterpreter": "Tercüman Bul",
+  "translatorProfile": "Tercüman Profili",
   "fAskedQuestions": "Sıkça Sorulan Sorular",
   "thingsToKnow": "Tercümanbul platformu hakkında bilmeniz gerekenler.",
   "becomeVolunteerHeader": "Nasıl gönüllü tercüman olabilirim?",
@@ -68,8 +69,14 @@
   "chooseLanguage": "Dil seç",
   "translationLanguage": "Tercüme Dili",
   "contantInformation": "İletişim Bilgileri",
+  "facebook": "Facebook",
   "instagram": "Instagram",
+  "twitter": "Twitter",
+  "linkedin": "Linkedin",
   "beInterpreterDescription": "Tercüman olmak için aşağıdaki formu doldurabilirsiniz. Tercüman listesine https://buradan erişebilirsiniz.",
   "interpreterListDescription": "Tercüman listesine aşağıdaki tablodan erişebilirsiniz. Yeni tercüman başvurusunu https://buradan yapabilirsiniz.",
-  "truthAck": "Verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, bilgi kirliliği ve yanlış uygulamalara yol açmamak için gerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum bilgilerde meydana gelen değişiklik ve güncellemeleri bildireceğimi kabul ve beyan ederim."
+  "interpreterListDescription2": "Tercüman listesine aşağıdaki tablodan erişebilirsiniz. Profilinizi https://buradan görebilirsiniz.",
+  "truthAck": "Verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, bilgi kirliliği ve yanlış uygulamalara yol açmamak için gerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum bilgilerde meydana gelen değişiklik ve güncellemeleri bildireceğimi kabul ve beyan ederim.",
+  "yourProfile": "Profilin",
+  "yourProfileDescription": "Tercüman listesine https://buradan erişebilirsiniz."
 }

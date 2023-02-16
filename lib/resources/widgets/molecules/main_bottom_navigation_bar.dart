@@ -20,7 +20,9 @@ class MainBottomNavigationBar extends StatelessWidget
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.search),
-          label: "beInterpreter".tr(),
+          label: AuthService().currentTranslator.uuid == null
+              ? "beInterpreter".tr()
+              : "translatorProfile".tr(),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.add_circle_outline),
@@ -38,20 +40,23 @@ class MainBottomNavigationBar extends StatelessWidget
         color: LightThemeColors().grey.shade400,
       ),
       onTap: (index) {
-        var _routes = const {
+        var _routes = {
           0: "/home-page",
-          1: "/become-translator",
+          1: AuthService().currentTranslator.uuid == null
+              ? "/become-translator"
+              : "/translator-profile",
           2: "/translator-list",
         };
 
         String route = _routes[index] ?? "/home-page";
 
-        if(route == "/home-page") {
+        if (route == "/home-page") {
           routeTo(route);
-        } else if(AuthService().hasSession) {
+        } else if (AuthService().hasSession) {
           routeTo(_routes[index] ?? "/home-page");
         } else {
-          routeTo(_routes[index] ?? "/home-page", data: { "redirectTo": _routes[index] ?? "/home-page"});
+          routeTo(_routes[index] ?? "/home-page",
+              data: {"redirectTo": _routes[index] ?? "/home-page"});
         }
       },
     );
