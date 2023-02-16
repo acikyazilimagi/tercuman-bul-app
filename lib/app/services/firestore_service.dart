@@ -49,6 +49,17 @@ class FirestoreService {
           .update({"location": location});
     }
   }
+
+  Future<void> getTranslator() async {
+    var userId = AuthService().currentUser?.uid;
+    if (userId != null) {
+      var translator = await firestore
+          .collection(FirestoreCollectionPath.dev.name)
+          .doc(userId)
+          .get();
+      AuthService().currentTranslator = Translator.fromJson(translator.data()!);
+    }
+  }
 }
 
 enum FirestoreCollectionPath {

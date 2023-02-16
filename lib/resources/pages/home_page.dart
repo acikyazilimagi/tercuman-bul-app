@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/controllers/home_controller.dart';
+import 'package:flutter_app/app/services/firestore_service.dart';
 import 'package:flutter_app/app/services/location_service.dart';
 import 'package:flutter_app/resources/themes/styles/light_theme_colors.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_expandable_card.dart';
@@ -23,9 +24,10 @@ class _HomePageState extends NyState<HomePage> {
   List<String> selectedLanguages = [];
 
   @override
-  init() {
+  init() async {
     LocationService();
     super.init();
+    await FirestoreService().getTranslator();
   }
 
   @override

@@ -20,7 +20,7 @@ class Translator with _$Translator {
     required String name,
   }) = _Translator;
 
-  factory Translator.fromJson(Map<String, Object?> json) =>
+  factory Translator.fromJson(Map<String, dynamic?> json) =>
       _$TranslatorFromJson(json);
 
   factory Translator.empty(
