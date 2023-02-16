@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/resources/pages/become_translator_page.dart';
+import 'package:flutter_app/resources/pages/home_page.dart';
+import 'package:flutter_app/resources/pages/translator_list_page.dart';
+import 'package:flutter_app/resources/pages/translator_profile_page.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
 import '../../../app/services/auth_service.dart';
@@ -41,22 +45,22 @@ class MainBottomNavigationBar extends StatelessWidget
       ),
       onTap: (index) {
         var _routes = {
-          0: "/home-page",
+          0: HomePage.path,
           1: AuthService().currentTranslator.uuid == null
-              ? "/become-translator"
-              : "/translator-profile",
-          2: "/translator-list",
+              ? BecomeTranslatorPage.path
+              : TranslatorProfilePage.path,
+          2: TranslatorListPage.path,
         };
 
-        String route = _routes[index] ?? "/home-page";
+        String route = _routes[index] ?? HomePage.path;
 
-        if (route == "/home-page") {
+        if (route == HomePage.path) {
           routeTo(route);
         } else if (AuthService().hasSession) {
-          routeTo(_routes[index] ?? "/home-page");
+          routeTo(_routes[index] ?? HomePage.path);
         } else {
-          routeTo(_routes[index] ?? "/home-page",
-              data: {"redirectTo": _routes[index] ?? "/home-page"});
+          routeTo(_routes[index] ?? HomePage.path,
+              data: {"redirectTo": _routes[index] ?? HomePage.path});
         }
       },
     );

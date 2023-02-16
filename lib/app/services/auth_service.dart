@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_ui_auth/firebase_ui_auth.dart' as uiAuth;
 import 'package:firebase_ui_oauth_google/firebase_ui_oauth_google.dart' as oAuthGoogle;
 import 'package:firebase_auth/firebase_auth.dart';
@@ -26,6 +28,8 @@ class AuthService {
   }
 
   Future<void> logout() async {
+    log('signing out ${currentUser.toString()}');
     await FirebaseAuth.instance.signOut();
+    log('signed out ${currentUser.toString()}');
   }
 }
