@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/resources/pages/become_translator_page.dart';
+import 'package:flutter_app/resources/pages/home_page.dart';
+import 'package:flutter_app/resources/pages/translator_list_page.dart';
+import 'package:flutter_app/resources/pages/translator_profile_page.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
+import '../../../app/services/auth_service.dart';
 import '../../themes/styles/light_theme_colors.dart';
 
 class MainBottomNavigationBar extends StatelessWidget
@@ -19,7 +24,9 @@ class MainBottomNavigationBar extends StatelessWidget
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.search),
-          label: "beInterpreter".tr(),
+          label: AuthService().currentTranslator.uuid == null
+              ? "beInterpreter".tr()
+              : "translatorProfile".tr(),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.add_circle_outline),
@@ -37,13 +44,24 @@ class MainBottomNavigationBar extends StatelessWidget
         color: LightThemeColors().grey.shade400,
       ),
       onTap: (index) {
-        var _routes = const {
-          0: "/home-page",
-          1: "/become-translator",
-          2: "/translator-list",
+        var _routes = {
+          0: HomePage.path,
+          1: AuthService().currentTranslator.uuid == null
+              ? BecomeTranslatorPage.path
+              : TranslatorProfilePage.path,
+          2: TranslatorListPage.path,
         };
 
-        routeTo(_routes[index] ?? "/home-page");
+        String route = _routes[index] ?? HomePage.path;
+
+        if (route == HomePage.path) {
+          routeTo(route);
+        } else if (AuthService().hasSession) {
+          routeTo(_routes[index] ?? HomePage.path);
+        } else {
+          routeTo(_routes[index] ?? HomePage.path,
+              data: {"redirectTo": _routes[index] ?? HomePage.path});
+        }
       },
     );
   }

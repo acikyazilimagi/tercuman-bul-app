@@ -4,11 +4,9 @@ import 'package:firebase_ui_auth/firebase_ui_auth.dart' as uiAuth;
 import 'package:firebase_ui_oauth_google/firebase_ui_oauth_google.dart' as oAuthGoogle;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_app/app/models/translator.dart';
-import 'package:flutter_app/resources/extensions/translator_extension.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
-class AuthService implements ISocialAuth {
+class AuthService {
   static final AuthService instance = AuthService._internal();
   Translator currentTranslator = Translator.empty();
 
@@ -30,25 +28,8 @@ class AuthService implements ISocialAuth {
   }
 
   Future<void> logout() async {
+    log('signing out ${currentUser.toString()}');
     await FirebaseAuth.instance.signOut();
+    log('signed out ${currentUser.toString()}');
   }
-
-  @override
-  Future<void> signInWithGoogle() async {
-    try {
-      final GoogleSignIn _googleSignIn = GoogleSignIn();
-      final googleUser = await _googleSignIn.signIn();
-      final googleAuth = await googleUser?.authentication;
-
-      final credential = GoogleAuthProvider.credential(idToken: googleAuth?.idToken, accessToken: googleAuth?.accessToken);
-      final firebaseCredential = await FirebaseAuth.instance.signInWithCredential(credential);
-      currentTranslator = currentTranslator.toTranslator(user: firebaseCredential.user);
-    } catch (e) {
-      log("Auth error: ", error: e);
-    }
-  }
-}
-
-abstract class ISocialAuth {
-  Future<void> signInWithGoogle();
 }

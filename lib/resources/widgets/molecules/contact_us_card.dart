@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_button.dart';
-import 'package:nylo_framework/nylo_framework.dart';
 
 class ContactUsCard extends StatelessWidget {
   final String title;
@@ -24,8 +23,7 @@ class ContactUsCard extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(32.0),
-              child: Image.asset(
-                getImageAsset("avatar_group.png"),
+              child: Image.asset('public/assets/images/avatar_group.png',
                 width: 120,
                 height: 56,
               ),

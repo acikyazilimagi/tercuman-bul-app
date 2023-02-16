@@ -12,12 +12,7 @@
           "package_name": "it.deprem.tercumanbul"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "904450609059-snbia0s7536il55g02vfk1qod3plet67.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyASz_H2BcYBcll5NO7zDnMIKDqLrsX5mrk"

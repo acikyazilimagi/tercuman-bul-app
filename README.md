@@ -1,5 +1,10 @@
 # Tercüman Bul Projesi
 
+## Proje Yönetimi
+
+Trello: https://trello.com/b/oYNRO4zf/tercuman-bul
+Discord: https://discord.gg/itdepremyardim
+
 ## Amaç
 
 Türkiye'deki büyük depremde farklı dillerde konuşan depremzedeler ve yardım sağlayan ekipler arasındaki iletişimi kolaylaştırmak.
@@ -29,13 +34,20 @@ Uygulama ile tercümanlar ve kullanıcıların veritabanına kaydolması, verita
 
 # Teknik
 
+> ÖNEMLI NOT! PROJEYİ ÇALIŞTIRIR KEN PORT 3000 KULLANINIZ!
+
 ## App Flow
 ```mermaid
-graph TD
-    A[Tercuman Bul] -->|User Enters| C{Auth session?}
-    C -->|Yes| D[Home Page]
-    C -->|No| E[Registration Page]
-    E --> |Sign in with Google Button|D
+flowchart TD
+    A[Tercuman Bul Home Page] --> |User Action| C{Auth session?}
+    C --> |Yes| I[Get Location]
+    I --> D{Do Action}
+    I --> |No Location|A
+    C --> |No| E{Has Account?}
+    E --> |No| H[Register Page]
+    H --> |Error|H
+    H --> |Registred|A
+    E --> |Sign In|A
     D --> |Become Interpreter Button| F[Become Interpreter Page]
     D --> |Find Interpreter Button| G[Find Interpreter Page]
 ```
@@ -46,7 +58,7 @@ Kuruluma başlarken Flutter SDK'in yüklü olduğu ve reponun klonlandığı var
 
 ### Mac
 
-Mac için doğrudan bir installer hazırlandı. [installer.sh](./installer.sh) kullanarak doğrudan çalıştırılabilir.
+Mac için doğrudan bir installer hazırlandı. [install.sh](./install.sh) kullanarak doğrudan çalıştırılabilir.
 
 ### Diğer işletim sistemleri:
 

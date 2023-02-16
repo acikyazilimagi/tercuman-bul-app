@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/resources/themes/styles/light_theme_colors.dart';
 
 class CustomExpandableCard extends StatelessWidget {
-  final String topic;
-
+  final Widget topic;
   final Color backgrounColor;
   final bool centerIcon;
   final bool initialExpanded;
   final Widget content;
+
   const CustomExpandableCard({
     super.key,
     required this.topic,
@@ -34,16 +34,16 @@ class CustomExpandableCard extends StatelessWidget {
           header: Container(
             color: backgrounColor,
             child: Row(
-              crossAxisAlignment: centerIcon ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+              crossAxisAlignment: centerIcon
+                  ? CrossAxisAlignment.center
+                  : CrossAxisAlignment.start,
               children: [
                 Expanded(
                   flex: 3,
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 16, left: 16, top: 16, bottom: 16),
-                    child: Text(
-                      topic,
-                      style: Theme.of(context).textTheme.titleLarge!,
-                    ),
+                    padding: const EdgeInsets.only(
+                        right: 16, left: 16, top: 16, bottom: 16),
+                    child: topic,
                   ),
                 ),
                 Spacer(),
