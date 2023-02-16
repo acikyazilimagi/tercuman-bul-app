@@ -95,6 +95,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
                   buttonText: "contactUsButton".tr(),
                   onPressed: () {},
                 ),
+                kvkk(),
               ],
             )
           ],
@@ -246,6 +247,91 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
     );
   }
 
+  Column kvkk() {
+    return Column(
+      children: [
+        CheckboxListTile(
+            controlAffinity: ListTileControlAffinity.leading,
+            activeColor:
+                MaterialStateColor.resolveWith((states) => Color.fromRGBO(
+                      34,
+                      58,
+                      82,
+                      1,
+                    )),
+            checkColor: Colors.white,
+            title: Text.rich(
+              TextSpan(
+                children: [
+                  WidgetSpan(
+                    child: GestureDetector(
+                      onTap: () => openDialog(),
+                      child: Text(
+                        "Aydınlatma Metni",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 12),
+                      ),
+                    ),
+                  ),
+                  TextSpan(
+                      text: "'ni okudum ve kabul ediyorum.",
+                      style: TextStyle(
+                        color: Color.fromRGBO(
+                          34,
+                          58,
+                          82,
+                          1,
+                        ),
+                      )),
+                ],
+              ),
+              style: TextStyle(fontSize: 11),
+              textAlign: TextAlign.start,
+            ),
+            value: tcCheckbox,
+            onChanged: (bool? value) {
+              setState(() {
+                tcCheckbox = value!;
+              });
+            }),
+        CheckboxListTile(
+            controlAffinity: ListTileControlAffinity.leading,
+            activeColor:
+                MaterialStateColor.resolveWith((states) => Color.fromRGBO(
+                      34,
+                      58,
+                      82,
+                      1,
+                    )),
+            checkColor: Colors.white,
+            title: Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                      text: "truthAck".tr(),
+                      style: TextStyle(
+                        color: Color.fromRGBO(
+                          34,
+                          58,
+                          82,
+                          1,
+                        ),
+                      )),
+                ],
+              ),
+              style: TextStyle(fontSize: 11),
+              textAlign: TextAlign.start,
+            ),
+            value: truthAckCheckbox,
+            onChanged: (bool? value) {
+              setState(() {
+                truthAckCheckbox = value!;
+              });
+            }),
+      ],
+    );
+  }
+
   Column flags() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -277,4 +363,44 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
       ],
     );
   }
+
+  bool tcCheckbox = false;
+  bool truthAckCheckbox = false;
+  Future openDialog() => showDialog(
+        context: context,
+        builder: ((context) => AlertDialog(
+              icon: IconButton(
+                alignment: Alignment.topRight,
+                icon: Icon(MdiIcons.close),
+                onPressed: () => Navigator.pop(context),
+              ),
+              content: SingleChildScrollView(
+                child: Text("tcpp".tr()),
+              ),
+              actions: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text("I Accept!"),
+                    Checkbox(
+                        fillColor: MaterialStateColor.resolveWith(
+                            (states) => Color.fromRGBO(
+                                  34,
+                                  58,
+                                  82,
+                                  1,
+                                )),
+                        checkColor: Colors.white,
+                        value: tcCheckbox,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            tcCheckbox = value!;
+                          });
+                          Navigator.pop(context);
+                        }),
+                  ],
+                )
+              ],
+            )),
+      );
 }
