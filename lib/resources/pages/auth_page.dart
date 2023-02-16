@@ -28,22 +28,22 @@ class _AuthPageState extends NyState<AuthPage> {
 
   @override
   Widget build(BuildContext context) {
+    String route = widget.data(key: "redirectTo") ?? "";
+    String nextPage = !route.isEmpty ? route : HomePage.path;
     return MainScaffold(
       body: SignInScreen(
         actions: [
           AuthStateChangeAction<SignedIn>(
             (context, state) {
-              String route = widget.data(key: "redirectTo");
               routeTo(
-                !route.isEmpty ? route : HomePage.path,
+                nextPage,
                 removeUntilPredicate: (route) => false,
               );
             },
           ),
           AuthStateChangeAction<UserCreated>((context, state) {
-            String route = widget.data(key: "redirectTo");
             routeTo(
-              !route.isEmpty ? route : HomePage.path,
+              nextPage,
               removeUntilPredicate: (route) => false,
             );
           }),
