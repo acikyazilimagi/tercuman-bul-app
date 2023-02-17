@@ -23,13 +23,13 @@ class MainBottomNavigationBar extends StatelessWidget
           label: "homePage".tr(),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search),
+          icon: Icon(Icons.add_circle_outline),
           label: AuthService().currentTranslator.uuid == null
               ? "beInterpreter".tr()
               : "translatorProfile".tr(),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.add_circle_outline),
+          icon: Icon(Icons.search),
           label: "searchInterpreter".tr(),
         ),
       ],
