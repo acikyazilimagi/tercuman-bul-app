@@ -78,5 +78,9 @@
     "interpreterListDescription2": "Tu dikarin lişta têrkemên ji tabloya jêrê bikî. Tu dikarin profîla xwe ji https://vir bibî.",
     "truthAck": "Ez qebûl dikim û radigihînim ku agahiyên ku min dane rast û piştrast in, ku min hemî tedbîr û tedbîrên pêwîst girtine ji bo pêşîgirtina li qirêjbûna agahdarî û kiryarên xelet, û her guhertin û nûvekirina agahdariya ku min daye ez ê ragihînim.",
     "yourProfile": "Profîla xwe",
-    "yourProfileDescription": "Hûn dikarin ji https://vir xwe bigihînin navnîşa wergêran."
+    "yourProfileDescription": "Hûn dikarin ji https://vir xwe bigihînin navnîşa wergêran.",
+    "editProfileDescription": "Hûn dikarin profîla xwe ji https://here nûve bikin.",
+    "logout": "Derkeve",
+    "updateProfile": "Profîla Nûve Bike",
+    "save": "Tomar Bike"
 }

@@ -78,5 +78,9 @@
   "interpreterListDescription2": "Tercüman listesine aşağıdaki tablodan erişebilirsiniz. Profilinizi https://buradan görebilirsiniz.",
   "truthAck": "Verdiğim bilgilerin doğru ve teyit edilmiş olduğunu, bilgi kirliliği ve yanlış uygulamalara yol açmamak için gerekli tüm önlem ve tedbirleri aldığımı, vermiş olduğum bilgilerde meydana gelen değişiklik ve güncellemeleri bildireceğimi kabul ve beyan ederim.",
   "yourProfile": "Profilin",
-  "yourProfileDescription": "Tercüman listesine https://buradan erişebilirsiniz."
+  "yourProfileDescription": "Tercüman listesine https://buradan erişebilirsiniz.",
+  "editProfileDescription": "Profilinizi https://buradan güncelleyebilirsiniz.",
+  "logout": "Çıkış yap",
+  "updateProfile": "Profilimi güncelle",
+  "save": "Kaydet"
 }

@@ -78,5 +78,9 @@
   "interpreterListDescription2": "You can access the translator list from the table below. You can see your profile from https://here.",
   "truthAck": "I accept and declare that the information I have given is correct and confirmed, that I have taken all necessary precautions and measures to prevent information pollution and wrong practices, and that I will notify any changes and updates in the information I have given.",
   "yourProfile": "Your Profile",
-  "yourProfileDescription": "You can access the list of translators from https://here."
+  "yourProfileDescription": "You can access the list of translators from https://here.",
+  "editProfileDescription": "You can update your profile from https://here.",
+  "logout": "Logout",
+  "updateProfile": "Update Profile",
+  "save": "Save"
 }

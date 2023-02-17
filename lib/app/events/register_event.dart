@@ -11,19 +11,22 @@ class RegisterEvent implements NyEvent {
 class RegisterTranslatorListener extends NyListener {
   @override
   Future handle(Map? event) async {
-    AuthService().currentTranslator = AuthService().currentTranslator.copyWith(
-          contact: AuthService().currentTranslator.contact?.copyWith(
-                facebook: event?["facebook"],
-                twitter: event?["twitter"],
-                instagram: event?["instagram"],
-                linkedin: event?["linkedin"],
-              ),
-          name: event?["first_name"] + " " + event?["last_name"],
-          languages: event?["languages"],
-          capabilities: AuthService().currentTranslator.capabilities?.copyWith(
-                translatorInPerson: event?["on_site_support"],
-                translatorVirtual: event?["digital_online_support"],
-              ),
-        );
+    var translator = AuthService().currentTranslator;
+    if (translator == null) return;
+
+    AuthService().currentTranslator = translator.copyWith(
+      contact: translator.contact?.copyWith(
+        facebook: event?["facebook"],
+        twitter: event?["twitter"],
+        instagram: event?["instagram"],
+        linkedin: event?["linkedin"],
+      ),
+      name: event?["first_name"] + " " + event?["last_name"],
+      languages: event?["languages"],
+      capabilities: translator.capabilities?.copyWith(
+        translatorInPerson: event?["on_site_support"],
+        translatorVirtual: event?["digital_online_support"],
+      ),
+    );
   }
 }

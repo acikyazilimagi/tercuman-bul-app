@@ -5,12 +5,15 @@ import 'package:flutter_app/app/networking/translator_api_service.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
+import 'package:flutter_app/resources/pages/become_translator_page.dart';
+import 'package:flutter_app/resources/pages/translator_profile_page.dart';
 import 'package:flutter_app/resources/widgets/loader_widget.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../app/controllers/auth_controller.dart';
 import '../themes/styles/light_theme_colors.dart';
 import '../widgets/atoms/country_flag_name.dart';
 import '../widgets/atoms/custom_dropdown.dart';
@@ -19,7 +22,7 @@ import '../widgets/molecules/main_scaffold.dart';
 
 class TranslatorListPage extends NyStatefulWidget {
   static final String path = "/translator-list";
-
+  final controller = AuthController();
   TranslatorListPage({super.key});
 
   @override
@@ -64,9 +67,9 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                         .copyWith(color: LightThemeColors().title),
                   ),
                   getSpacer,
-                  AuthService().currentTranslator.uuid == null
+                  AuthService().currentTranslator == null
                       ? Linkify(
-                          onOpen: (e) => routeTo("/become-translator"),
+                          onOpen: (e) => routeTo(BecomeTranslatorPage.path),
                           textAlign: TextAlign.center,
                           text: "interpreterListDescription".tr(),
                           linkStyle: TextStyle(
@@ -76,7 +79,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                           ),
                         )
                       : Linkify(
-                          onOpen: (e) => routeTo("/translator-profile"),
+                          onOpen: (e) => routeTo(TranslatorProfilePage.path),
                           textAlign: TextAlign.center,
                           text: "interpreterListDescription2".tr(),
                           linkStyle: TextStyle(
