@@ -107,43 +107,23 @@ class _HomePageState extends NyState<HomePage> {
                     ),
               ),
               SizedBox(height: 16),
-              CustomExpandableCard(
-                initialExpanded: true,
-                topic: Text(
-                  "becomeVolunteerHeader".tr(),
-                  style: Theme.of(context).textTheme.titleLarge!,
+              for (var i = 1; i <= 4; i++)
+                Column(
+                  children: [
+                    CustomExpandableCard(
+                      topic: Text(
+                        "faq${i}Header".tr(),
+                        style: Theme.of(context).textTheme.titleLarge!,
+                      ),
+                      content: Text(
+                        "faq${i}Body".tr(),
+                        style: Theme.of(context).textTheme.bodyLarge!,
+                      ),
+                      backgrounColor: LightThemeColors().background,
+                    ),
+                    Divider(),
+                  ],
                 ),
-                content: Text(
-                  "becomeVolunteerBody".tr(),
-                  style: Theme.of(context).textTheme.bodyLarge!,
-                ),
-                backgrounColor: LightThemeColors().background,
-              ),
-              Divider(),
-              CustomExpandableCard(
-                topic: Text(
-                  "interpreterResponsibilitiesHeader".tr(),
-                  style: Theme.of(context).textTheme.titleLarge!,
-                ),
-                content: Text(
-                  "interpreterResponsibilitiesBody".tr(),
-                  style: Theme.of(context).textTheme.bodyLarge!,
-                ),
-                backgrounColor: LightThemeColors().background,
-              ),
-              Divider(),
-              CustomExpandableCard(
-                topic: Text(
-                  "communicateOtherTranslator".tr(),
-                  style: Theme.of(context).textTheme.titleLarge!,
-                ),
-                content: Text(
-                  "communicateOtherTranslator".tr(),
-                  textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.bodyLarge!,
-                ),
-                backgrounColor: LightThemeColors().background,
-              ),
               SizedBox(height: 32),
               ContactUsCard(
                 title: "cantFind".tr(),
