@@ -46,10 +46,13 @@ flowchart TD
     C --> |No| E{Has Account?}
     E --> |No| H[Register Page]
     H --> |Error|H
-    H --> |Registred|A
-    E --> |Sign In|A
+    H --> |Registered|A
+    E --> |Sign In|D
     D --> |Become Interpreter Button| F[Become Interpreter Page]
     D --> |Find Interpreter Button| G[Find Interpreter Page]
+    G --> |Select Interpreter| J[Notify Interpreter]
+    J --> |Interpreter Denies| G
+    J --> |Interpreter Accepts| K[Send Interpreter # to user]
 ```
 
 ## Kurulum

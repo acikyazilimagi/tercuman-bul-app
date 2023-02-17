@@ -18,8 +18,8 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: false,
       backgroundColor: LightThemeColors().white,
       title: SizedBox(
-        height: 40.0,
-        child: Image.asset('public/assets/images/logo_lq.png'),
+        height: 32.0,
+        child: Image.asset('public/assets/images/logo_horiz.png'),
       ),
       actions: [
         Padding(

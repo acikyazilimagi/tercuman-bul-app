@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:firebase_ui_auth/firebase_ui_auth.dart' as uiAuth;
 import 'package:firebase_ui_oauth_google/firebase_ui_oauth_google.dart' as oAuthGoogle;
 import 'package:firebase_auth/firebase_auth.dart';
@@ -23,13 +21,9 @@ class AuthService {
       uiAuth.EmailAuthProvider(),
       oAuthGoogle.GoogleProvider(clientId: getEnv('GOOGLE_CLIENT_ID') ?? ''),
     ]);
-
-    currentTranslator = currentTranslator.copyWith(uuid: currentUser?.uid);
   }
 
   Future<void> logout() async {
-    log('signing out ${currentUser.toString()}');
     await FirebaseAuth.instance.signOut();
-    log('signed out ${currentUser.toString()}');
   }
 }

@@ -60,7 +60,10 @@ class FirestoreService {
           .collection(FirestoreCollectionPath.dev.name)
           .doc(userId)
           .get();
-      AuthService().currentTranslator = Translator.fromJson(translator.data()!);
+      if(translator.exists) {
+        AuthService().currentTranslator =
+            Translator.fromJson(translator.data()!);
+      }
     }
   }
 }
