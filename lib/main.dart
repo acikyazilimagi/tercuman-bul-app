@@ -17,14 +17,30 @@ void main() async {
 
   runApp(
     AppBuild(
-      navigatorKey: NyNavigator.instance.router.navigatorKey,
-      onGenerateRoute: nylo.router!.generator(),
-      debugShowCheckedModeBanner: false,
-      initialRoute: nylo.initialRoute,
-      builder: (context, widget) {
-        Languages(context);
-        return widget ?? SizedBox.shrink();
-      },
+        navigatorKey: NyNavigator.instance.router.navigatorKey,
+        onGenerateRoute: nylo.router!.generator(),
+        debugShowCheckedModeBanner: false,
+        initialRoute: nylo.initialRoute,
+        builder: (context, widget) {
+          Languages(context);
+          return widget ?? SizedBox.shrink();
+        },
+        themeData: ThemeData(
+          inputDecorationTheme: InputDecorationTheme(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+          outlinedButtonTheme: OutlinedButtonThemeData(
+            style: ButtonStyle(
+              padding: MaterialStateProperty.all<EdgeInsets>(
+                const EdgeInsets.all(32),
+              ),
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+            ),
+          ),
+        ),
     ),
   );
 }

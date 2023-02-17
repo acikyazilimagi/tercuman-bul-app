@@ -19,6 +19,7 @@ import '../widgets/molecules/main_scaffold.dart';
 
 class TranslatorListPage extends NyStatefulWidget {
   static final String path = "/translator-list";
+
   TranslatorListPage({super.key});
 
   @override
@@ -29,7 +30,6 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
   late List<Translator> translators;
   late TranslatorApiService service;
 
-  bool sortNameAsc = true;
   bool isDataLoading = true;
   String? selectedLanguageKey;
 
@@ -91,20 +91,8 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Icon(Icons.location_on_outlined, size: 20.0),
-                        TextButton(
-                          onPressed: () =>
-                              setState(() => sortNameAsc = !sortNameAsc),
-                          child: Text("nameSurname".tr()),
-                        ),
-                        IconButton(
-                          onPressed: () =>
-                              setState(() => sortNameAsc = !sortNameAsc),
-                          icon: Icon(
-                            sortNameAsc
-                                ? Icons.arrow_downward
-                                : Icons.arrow_upward,
-                            size: 20.0,
-                          ),
+                        Text(
+                          "nameSurname".tr(),
                         ),
                         Spacer(flex: 1),
                         Expanded(
@@ -141,13 +129,11 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
   }
 
   Widget _translatorList() {
-    var filteredTranslators = translators
+    List<Translator> filteredTranslators = translators
         .where((e) =>
             selectedLanguageKey == null ||
             e.languages.contains(selectedLanguageKey))
         .toList();
-    filteredTranslators.sort((a, b) =>
-        sortNameAsc ? a.name.compareTo(b.name) : b.name.compareTo(a.name));
 
     return SingleChildScrollView(
       child: ListView.separated(
@@ -159,10 +145,10 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
           topic: Row(
             children: [
               Text(
-                "0.5\r\nkm",
-                style: Theme.of(context).textTheme.labelSmall,
+                "0.5\nkm",
+                style: TextStyle(fontSize: 11),
               ),
-              getSpacer,
+              getWidthSpacer,
               Text(
                 filteredTranslators[index].name,
                 style: TextStyle(
@@ -289,4 +275,5 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
       );
 
   Widget get getSpacer => SizedBox(height: context.veryLowHeight);
+  Widget get getWidthSpacer => SizedBox(width: 8);
 }
