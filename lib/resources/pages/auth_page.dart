@@ -19,16 +19,6 @@ class AuthPage extends NyStatefulWidget {
 
 class _AuthPageState extends NyState<AuthPage> {
   @override
-  init() async {
-    super.init();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     String route = widget.data(key: "redirectTo") ?? "";
     String nextPage = !route.isEmpty ? route : HomePage.path;

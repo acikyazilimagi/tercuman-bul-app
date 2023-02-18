@@ -24,7 +24,7 @@ class MainBottomNavigationBar extends StatelessWidget
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.add_circle_outline),
-          label: AuthService().currentTranslator.uuid == null
+          label: AuthService().currentTranslator == null
               ? "beInterpreter".tr()
               : "translatorProfile".tr(),
         ),
@@ -44,24 +44,14 @@ class MainBottomNavigationBar extends StatelessWidget
         color: LightThemeColors().grey.shade400,
       ),
       onTap: (index) {
-        var _routes = {
-          0: HomePage.path,
-          1: AuthService().currentTranslator.uuid == null
-              ? BecomeTranslatorPage.path
-              : TranslatorProfilePage.path,
-          2: TranslatorListPage.path,
-        };
-
-        String route = _routes[index] ?? HomePage.path;
-
-        if (route == HomePage.path) {
-          routeTo(route);
-        } else if (AuthService().hasSession) {
-          routeTo(_routes[index] ?? HomePage.path);
-        } else {
-          routeTo(_routes[index] ?? HomePage.path,
-              data: {"redirectTo": _routes[index] ?? HomePage.path});
-        }
+        routeTo({
+              0: HomePage.path,
+              1: AuthService().currentTranslator == null
+                  ? BecomeTranslatorPage.path
+                  : TranslatorProfilePage.path,
+              2: TranslatorListPage.path,
+            }[index] ??
+            HomePage.path);
       },
     );
   }

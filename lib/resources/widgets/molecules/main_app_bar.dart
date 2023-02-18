@@ -1,6 +1,7 @@
 import 'package:dash_flags/dash_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
+import 'package:flutter_app/resources/pages/auth_page.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
@@ -66,15 +67,28 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                       .setLanguage(context, language: value);
                 },
               ),
-              IconButton(
-                onPressed: () {
-                  AuthService().logout();
-                },
-                icon: Icon(
-                  MdiIcons.logout,
-                  color: LightThemeColors().context,
-                ),
-              )
+              AuthService().hasSession
+                  ? IconButton(
+                      tooltip: "logout".tr(),
+                      onPressed: () async {
+                        await AuthService().logout();
+                        routeTo(AuthPage.path);
+                      },
+                      icon: Icon(
+                        MdiIcons.logout,
+                        color: LightThemeColors().context,
+                      ),
+                    )
+                  : IconButton(
+                      tooltip: "login".tr(),
+                      onPressed: () {
+                        routeTo(AuthPage.path);
+                      },
+                      icon: Icon(
+                        MdiIcons.login,
+                        color: LightThemeColors().context,
+                      ),
+                    )
             ],
           ),
         ),

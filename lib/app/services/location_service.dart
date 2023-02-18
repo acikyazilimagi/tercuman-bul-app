@@ -55,8 +55,12 @@ class LocationService {
   }
 
   Future<void> updateLocation() async {
+    await FirestoreService().updateLocation(await getLocation());
+  }
+
+  Future<GeoPoint> getLocation() async {
     var l = await Location().getLocation();
-    FirestoreService().updateLocation(GeoPoint(l.latitude!, l.longitude!));
+    return GeoPoint(l.latitude!, l.longitude!);
   }
 
   Future<void> dispose() async {

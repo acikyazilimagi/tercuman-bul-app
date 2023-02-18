@@ -4,6 +4,7 @@ import 'package:flutter_app/config/theme.dart';
 import 'package:flutter_app/resources/pages/home_page.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import '../../config/localization.dart';
+import '../services/firestore_service.dart';
 
 class AppProvider implements NyProvider {
   boot(Nylo nylo) async {
@@ -20,6 +21,7 @@ class AppProvider implements NyProvider {
     nylo.appThemes = appThemes;
 
     AuthService().configureProviders();
+    await FirestoreService().getTranslator();
 
     return nylo;
   }

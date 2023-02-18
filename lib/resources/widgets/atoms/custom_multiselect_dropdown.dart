@@ -18,6 +18,7 @@ class CustomMultiselectDropdown<T> extends StatefulWidget {
   final Color? fillColor;
   final String? Function(List<T>?)? validator;
   final void Function(List<T>)? onChanged;
+  final List<T>? selectedItems;
 
   const CustomMultiselectDropdown({
     Key? key,
@@ -34,6 +35,7 @@ class CustomMultiselectDropdown<T> extends StatefulWidget {
     this.fillColor,
     this.validator,
     this.onChanged,
+    this.selectedItems,
   }) : super(key: key);
 
   @override
@@ -43,10 +45,14 @@ class CustomMultiselectDropdown<T> extends StatefulWidget {
 
 class _CustomMultiselectDropdownState<T>
     extends State<CustomMultiselectDropdown<T>> {
-  List<T> selectedItems = [];
+  List<T> items = [];
 
   @override
   Widget build(BuildContext context) {
+    if (items.isEmpty && widget.selectedItems?.isNotEmpty == true) {
+      items = widget.selectedItems ?? [];
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -64,9 +70,9 @@ class _CustomMultiselectDropdownState<T>
             showSearchBox: widget.showSearchBox,
             itemBuilder: widget.itemBuilder,
             onItemAdded: (selectedItems, addedItem) =>
-                setState(() => this.selectedItems = selectedItems),
+                setState(() => this.items = selectedItems),
             onItemRemoved: (selectedItems, removedItem) =>
-                setState(() => this.selectedItems = selectedItems),
+                setState(() => this.items = selectedItems),
           ),
           dropdownDecoratorProps: DropDownDecoratorProps(
             dropdownSearchDecoration: InputDecoration(
@@ -91,7 +97,7 @@ class _CustomMultiselectDropdownState<T>
           ),
           validator: widget.validator,
           onChanged: widget.onChanged,
-          selectedItems: selectedItems,
+          selectedItems: this.items,
         ),
       ],
     );

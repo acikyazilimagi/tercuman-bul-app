@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/controllers/home_controller.dart';
-import 'package:flutter_app/app/services/firestore_service.dart';
 import 'package:flutter_app/app/services/location_service.dart';
+import 'package:flutter_app/resources/pages/become_translator_page.dart';
+import 'package:flutter_app/resources/pages/translator_list_page.dart';
+import 'package:flutter_app/resources/pages/translator_profile_page.dart';
 import 'package:flutter_app/resources/themes/styles/light_theme_colors.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_expandable_card.dart';
 import 'package:flutter_app/resources/widgets/molecules/contact_us_card.dart';
@@ -27,13 +29,10 @@ class _HomePageState extends NyState<HomePage> {
   init() async {
     LocationService();
     super.init();
-    await FirestoreService().getTranslator();
   }
 
   @override
   Widget build(BuildContext context) {
-    bool hasSession = AuthService().hasSession;
-
     return MainScaffold(
       body: Container(
         padding: EdgeInsets.only(left: 20, right: 20, top: 20),
@@ -70,34 +69,25 @@ class _HomePageState extends NyState<HomePage> {
                     ),
               ),
               SizedBox(height: 16),
-              AuthService().currentTranslator.uuid == null
+              AuthService().currentTranslator == null
                   ? CustomButton(
                       text: "beInterpreter".tr(),
                       icon: Icons.add_circle_outline_outlined,
                       style: CustomButtonStyles.lightFilled,
-                      onPressed: () => hasSession
-                          ? routeTo("/become-translator")
-                          : routeTo("/auth",
-                              data: {"redirectTo": "/become-translator"}),
+                      onPressed: () => routeTo(BecomeTranslatorPage.path),
                     )
                   : CustomButton(
                       text: "translatorProfile".tr(),
                       icon: Icons.edit,
                       style: CustomButtonStyles.lightFilled,
-                      onPressed: () => hasSession
-                          ? routeTo("/translator-profile")
-                          : routeTo("/auth",
-                              data: {"redirectTo": "/translator-profile"}),
+                      onPressed: () => routeTo(TranslatorProfilePage.path),
                     ),
               SizedBox(height: 12),
               CustomButton(
                 text: "searchInterpreter".tr(),
                 icon: Icons.search_sharp,
                 style: CustomButtonStyles.darkFilled,
-                onPressed: () => hasSession
-                    ? routeTo("/translator-list")
-                    : routeTo("/auth",
-                        data: {"redirectTo": "/translator-list"}),
+                onPressed: () => routeTo(TranslatorListPage.path),
               ),
               SizedBox(height: 32),
               Text(
@@ -117,43 +107,23 @@ class _HomePageState extends NyState<HomePage> {
                     ),
               ),
               SizedBox(height: 16),
-              CustomExpandableCard(
-                initialExpanded: true,
-                topic: Text(
-                  "becomeVolunteerHeader".tr(),
-                  style: Theme.of(context).textTheme.titleLarge!,
+              for (var i = 1; i <= 4; i++)
+                Column(
+                  children: [
+                    CustomExpandableCard(
+                      topic: Text(
+                        "faq${i}Header".tr(),
+                        style: Theme.of(context).textTheme.titleLarge!,
+                      ),
+                      content: Text(
+                        "faq${i}Body".tr(),
+                        style: Theme.of(context).textTheme.bodyLarge!,
+                      ),
+                      backgrounColor: LightThemeColors().background,
+                    ),
+                    Divider(),
+                  ],
                 ),
-                content: Text(
-                  "becomeVolunteerBody".tr(),
-                  style: Theme.of(context).textTheme.bodyLarge!,
-                ),
-                backgrounColor: LightThemeColors().background,
-              ),
-              Divider(),
-              CustomExpandableCard(
-                topic: Text(
-                  "interpreterResponsibilitiesHeader".tr(),
-                  style: Theme.of(context).textTheme.titleLarge!,
-                ),
-                content: Text(
-                  "interpreterResponsibilitiesBody".tr(),
-                  style: Theme.of(context).textTheme.bodyLarge!,
-                ),
-                backgrounColor: LightThemeColors().background,
-              ),
-              Divider(),
-              CustomExpandableCard(
-                topic: Text(
-                  "communicateOtherTranslator".tr(),
-                  style: Theme.of(context).textTheme.titleLarge!,
-                ),
-                content: Text(
-                  "communicateOtherTranslator".tr(),
-                  textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.bodyLarge!,
-                ),
-                backgrounColor: LightThemeColors().background,
-              ),
               SizedBox(height: 32),
               ContactUsCard(
                 title: "cantFind".tr(),

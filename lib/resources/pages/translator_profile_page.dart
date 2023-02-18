@@ -4,20 +4,24 @@ import 'package:flutter_app/app/services/auth_service.dart';
 import 'package:flutter_app/app/services/location_service.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
+import 'package:flutter_app/resources/pages/translator_list_page.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../app/controllers/auth_controller.dart';
 import '../../app/models/languages.dart';
 import '../themes/styles/light_theme_colors.dart';
 import '../widgets/atoms/custom_selectable_tile.dart';
 import '../widgets/molecules/main_scaffold.dart';
 import '../widgets/molecules/contact_us_card.dart';
+import 'edit_translator_profile.dart';
 
 class TranslatorProfilePage extends NyStatefulWidget {
   static final String path = "/translator-profile";
+  final controller = AuthController();
   TranslatorProfilePage({super.key});
 
   @override
@@ -34,12 +38,13 @@ class _TranslatorProfilePageState extends NyState<TranslatorProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    final translator = AuthService().currentTranslator;
+    final translator = AuthService().currentTranslator!;
 
     return MainScaffold(
       selectedTabIndex: 1,
       body: SafeAreaWidget(
         child: ListView(
+          shrinkWrap: true,
           physics: BouncingScrollPhysics(),
           padding: context.veryLowSymPadding,
           children: [
@@ -52,15 +57,30 @@ class _TranslatorProfilePageState extends NyState<TranslatorProfilePage> {
                   .copyWith(color: LightThemeColors().title),
             ),
             getSpacer,
-            Linkify(
-              onOpen: (link) => routeTo("/translator-list"),
-              textAlign: TextAlign.center,
-              text: "yourProfileDescription".tr(),
-              linkStyle: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                decoration: TextDecoration.none,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Linkify(
+                  onOpen: (link) => routeTo(TranslatorListPage.path),
+                  textAlign: TextAlign.center,
+                  text: "yourProfileDescription".tr(),
+                  linkStyle: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
+                  ),
+                ),
+                Linkify(
+                  onOpen: (link) => routeTo(EditTranslatorProfilePage.path),
+                  textAlign: TextAlign.center,
+                  text: "editProfileDescription".tr(),
+                  linkStyle: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
+                  ),
+                ),
+              ],
             ),
             getSpacer,
             Column(

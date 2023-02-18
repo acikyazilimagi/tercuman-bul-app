@@ -5,6 +5,7 @@ import 'package:flutter_app/bootstrap/helpers.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
 import 'package:flutter_app/resources/pages/translator_list_page.dart';
+import 'package:flutter_app/resources/pages/translator_profile_page.dart';
 import 'package:flutter_app/resources/widgets/atoms/atoms.dart';
 import 'package:flutter_app/resources/widgets/loader_widget.dart';
 import 'package:flutter_app/resources/widgets/safearea_widget.dart';
@@ -12,8 +13,8 @@ import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
-import '../../app/controllers/auth_controller.dart';
 import '../../app/models/languages.dart';
+import '../../app/services/auth_service.dart';
 import '../themes/styles/light_theme_colors.dart';
 import '../widgets/atoms/country_flag_name.dart';
 import '../widgets/atoms/custom_button.dart';
@@ -23,16 +24,17 @@ import '../widgets/molecules/main_scaffold.dart';
 import '../widgets/molecules/contact_link_field.dart';
 import '../widgets/molecules/contact_us_card.dart';
 
-class BecomeTranslatorPage extends NyStatefulWidget {
-  static final String path = "/become-translator";
-  final controller = AuthController();
-  BecomeTranslatorPage({super.key});
+class EditTranslatorProfilePage extends NyStatefulWidget {
+  static final String path = "/edit-translator-profile";
+  EditTranslatorProfilePage({super.key});
 
   @override
-  State<BecomeTranslatorPage> createState() => _BecomeTranslatorPageState();
+  State<EditTranslatorProfilePage> createState() =>
+      _EditTranslatorProfilePageState();
 }
 
-class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
+class _EditTranslatorProfilePageState
+    extends NyState<EditTranslatorProfilePage> {
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
   final _instagramController = TextEditingController();
@@ -58,6 +60,18 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
 
   @override
   Widget build(BuildContext context) {
+    final translator = AuthService().currentTranslator!;
+    final name = translator.name.split(" ");
+    _firstNameController.text = name.take(name.length - 1).join(" ");
+    _lastNameController.text = name.last;
+    _instagramController.text = translator.contact?.instagram ?? "";
+    _linkedinController.text = translator.contact?.linkedin ?? "";
+    _facebookController.text = translator.contact?.facebook ?? "";
+    _twitterController.text = translator.contact?.twitter ?? "";
+    _isOnSiteSupport = translator.capabilities?.translatorInPerson ?? false;
+    _isDigitalOnlineSupport =
+        translator.capabilities?.translatorVirtual ?? false;
+
     return MainScaffold(
       selectedTabIndex: 1,
       body: SafeAreaWidget(
@@ -66,7 +80,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
           padding: context.veryLowSymPadding,
           children: [
             Text(
-              "beInterpreter".tr(),
+              "updateProfile".tr(),
               textAlign: TextAlign.center,
               style: Theme.of(context)
                   .textTheme
@@ -77,7 +91,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
             Linkify(
               onOpen: (link) => routeTo(TranslatorListPage.path),
               textAlign: TextAlign.center,
-              text: "beInterpreterDescription".tr(),
+              text: "yourProfileDescription".tr(),
               linkStyle: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
@@ -142,6 +156,10 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                   _selectedLanguages = values.map((e) => e.key).toList();
                 });
               },
+              selectedItems: translator.languages
+                  .map((l) =>
+                      Languages.usableLanguages.firstWhere((e) => e.key == l))
+                  .toList(),
             ),
             getSpacer,
             Text(
@@ -176,8 +194,8 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
             isLocked("register")
                 ? Loader()
                 : CustomButton(
-                    text: "register".tr(),
-                    icon: Icons.add,
+                    text: "save".tr(),
+                    icon: Icons.save,
                     style: CustomButtonStyles.darkFilled,
                     onPressed: () async {
                       event<RegisterEvent>(data: {
@@ -198,16 +216,18 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
 
                       await lockRelease("register",
                           perform: FirestoreService().createTranslator);
-
-                      routeTo(TranslatorListPage.path);
+                      routeTo(TranslatorProfilePage.path);
                     },
                   ),
             ContactUsCard(
               title: "cantFind".tr(),
               description: "reachSupport".tr(),
               buttonText: "contactUsButton".tr(),
-              onPressed: () {},
-            ),
+              onPressed: () async {
+                await NyLocalization.instance
+                    .setLanguage(context, language: "tr");
+              },
+            )
           ],
         ),
       ),
