@@ -215,10 +215,6 @@ class _EditTranslatorProfilePageState
                         "digital_online_support": _isDigitalOnlineSupport,
                       });
 
-                      if (_selectedLanguages.isEmpty) {
-                        _selectedLanguages.add("en");
-                      }
-
                       await lockRelease("register",
                           perform: FirestoreService().createTranslator);
                       routeTo(TranslatorProfilePage.path);

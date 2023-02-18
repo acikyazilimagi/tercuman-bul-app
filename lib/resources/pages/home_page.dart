@@ -63,7 +63,7 @@ class _HomePageState extends NyState<HomePage> {
               ),
               const SizedBox(height: 32),
               Text(
-                "welomeBody".tr(),
+                "welcomeBody".tr(),
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       color: LightThemeColors().contextAlternative,
