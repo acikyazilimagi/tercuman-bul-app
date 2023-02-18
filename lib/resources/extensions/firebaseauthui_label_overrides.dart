@@ -67,9 +67,6 @@ class FirebaseAuthUiLabelOverrides extends DefaultLocalizations {
   String get accessDisabledErrorText => "accessDisabledErrorText".tr();
 
   @override
-  String get provideEmail => "Provide your email and password";
-
-  @override
   String get registerActionText => "registerText".tr();
 
   @override
@@ -79,7 +76,7 @@ class FirebaseAuthUiLabelOverrides extends DefaultLocalizations {
   String get signInHintText => "signInHintText".tr();
 
   @override
-  String get signInWithGoogleButtonText => "Sign in with Google";
+  String get signInWithGoogleButtonText => "signInWithGoogleButtonText".tr();
 
   @override
   String get unknownError => "unknownError".tr();
