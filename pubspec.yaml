@@ -28,7 +28,7 @@ dependencies:
   cupertino_icons: 1.0.5
   flutter_chip_tags: 2.0.2
   firebase_core: 2.6.1
-  firebase_ui_auth: 1.1.11
+  firebase_ui_auth: 1.1.13
   responsive_framework: 0.2.0
   firebase_ui_oauth_google: 1.0.18
   json_annotation: 4.8.0
