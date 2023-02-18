@@ -34,7 +34,10 @@ void main() async {
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: ButtonStyle(
             padding: MaterialStateProperty.all<EdgeInsets>(
-              const EdgeInsets.all(32),
+              const EdgeInsets.all(20),
+            ),
+            textStyle: MaterialStateProperty.all<TextStyle>(
+              const TextStyle(fontSize: 19),
             ),
             backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
             foregroundColor: MaterialStateProperty.all<Color>(Colors.white),

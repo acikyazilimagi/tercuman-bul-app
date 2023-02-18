@@ -1,6 +1,9 @@
+import 'package:firebase_ui_localizations/firebase_ui_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:nylo_framework/nylo_framework.dart';
+
+import '../resources/extensions/firebaseauthui_label_overrides.dart';
 
 // ignore: must_be_immutable
 class AppBuild extends StatelessWidget {
@@ -102,7 +105,10 @@ class AppBuild extends StatelessWidget {
               },
               localizationsDelegates: [
                 ...NyLocalization.instance.delegates,
-                LocaleNamesLocalizationsDelegate(),
+                const LocaleNamesLocalizationsDelegate(),
+                FirebaseUILocalizations.withDefaultOverrides(
+                  const FirebaseAuthUiLabelOverrides(),
+                ),
               ],
               locale: locale,
               supportedLocales:

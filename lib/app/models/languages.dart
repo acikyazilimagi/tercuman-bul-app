@@ -11,14 +11,14 @@ class Languages {
         .sortedByName
         .where(_filterTwoLetterCodes)
         .toList();
-    _languageData!.add(MapEntry("kr", "Kurdish"));
+    _languageData!.add(MapEntry("ku", "Kurdish"));
     _languageData!.sort(_sortDiacritics);
     return _singleton;
   }
 
   Languages._();
 
-  static final Set<String> _appLanguages = {"en", "tr", "ar", "kr", "ru"};
+  static final Set<String> _appLanguages = {"en", "tr", "ar", "ku", "ru"};
 
   static final _sortDiacritics =
       (a, b) => removeDiacritics(a.value).compareTo(removeDiacritics(b.value));
@@ -31,7 +31,7 @@ class Languages {
     return _languageData!.where(_filterAppLanguages).toList();
   }
 
-  static String nativeLocaleName(String languageCode) => languageCode == "kr"
+  static String nativeLocaleName(String languageCode) => languageCode == "ku"
       ? "Kurdî"
       : LocaleNamesLocalizationsDelegate.nativeLocaleNames.entries
           .firstWhere((e) => e.key == languageCode)

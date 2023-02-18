@@ -176,7 +176,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
             isLocked("register")
                 ? const Loader()
                 : CustomButton(
-                    text: "register".tr(),
+                    text: "registerText".tr(),
                     icon: Icons.add,
                     style: CustomButtonStyles.darkFilled,
                     onPressed: () async {

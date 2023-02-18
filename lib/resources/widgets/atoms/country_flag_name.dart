@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../themes/styles/light_theme_colors.dart';
+
 class CountryFlagName extends StatelessWidget {
   final String code;
   final String name;
@@ -19,7 +21,21 @@ class CountryFlagName extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        SizedBox(width: 8),
+        Card(
+          color: LightThemeColors().grey.shade300,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
+            child: Text(
+              code.toUpperCase(),
+              style: const TextStyle(
+                color: Colors.grey,
+                fontWeight: FontWeight.bold,
+                decoration: TextDecoration.none,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(width: 8),
         Text(name, style: textStyle),
       ],
     );
