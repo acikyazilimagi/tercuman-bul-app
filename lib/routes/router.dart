@@ -30,7 +30,6 @@ class AuthRouteGuard extends RouteGuard {
 
   @override
   Future<bool> canOpen(BuildContext? context, BaseArguments? args) {
-    routeTo(AuthPage.path, data: {"redirectTo": route});
     return Future.value(AuthService().hasSession);
   }
 }
