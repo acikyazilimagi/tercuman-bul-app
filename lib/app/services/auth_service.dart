@@ -8,7 +8,6 @@ import 'package:nylo_framework/nylo_framework.dart';
 class AuthService {
   static final AuthService instance = AuthService._internal();
   Translator? currentTranslator;
-
   factory AuthService() => instance;
 
   AuthService._internal();

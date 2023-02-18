@@ -9,7 +9,6 @@ part 'translator.g.dart';
 @freezed
 @JsonSerializable(explicitToJson: true)
 class Translator with _$Translator {
-  @JsonSerializable(explicitToJson: true)
   const factory Translator({
     String? uuid,
     Capabilities? capabilities,
