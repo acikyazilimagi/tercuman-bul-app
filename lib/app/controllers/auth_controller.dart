@@ -10,9 +10,11 @@ class AuthController extends Controller {
   @override
   construct(BuildContext context) async {
     if (kIsWeb && !AuthService().hasSession) {
-      var href = window.location.href;
-      if (href.endsWith('/')) href = href.substring(0, href.length - 1);
-      var path = href.substring(0, href.lastIndexOf('/')) + AuthPage.path;
+      String href = window.location.href;
+      if (href.endsWith('/')) {
+        href = href.substring(0, href.length - 1);
+      }
+      String path = href.substring(0, href.lastIndexOf('/')) + AuthPage.path;
       window.location.href = path;
     }
 
