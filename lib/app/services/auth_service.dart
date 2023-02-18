@@ -25,6 +25,7 @@ class AuthService {
   }
 
   Future<void> logout() async {
+    this.currentTranslator = null;
     await FirebaseAuth.instance.signOut();
   }
 }
