@@ -27,7 +27,7 @@ final String languageCode = getEnv('DEFAULT_LOCALE', defaultValue: "tr");
 | device settings or as you've defined in the [languageCode].
 |--------------------------------------------------------------------------
 */
-final LocaleType localeType = LocaleType.asDefined; // device, asDefined
+const LocaleType localeType = LocaleType.asDefined; // device, asDefined
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +36,7 @@ final LocaleType localeType = LocaleType.asDefined; // device, asDefined
 | Add a list of supported languages.
 |--------------------------------------------------------------------------
 */
-final List<String> languagesList = const ['en', 'tr'];
+const List<String> languagesList = ['en', 'tr'];
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ final List<String> languagesList = const ['en', 'tr'];
 | Asset directory for your languages.
 |--------------------------------------------------------------------------
 */
-final String assetsDirectory = 'lang/';
+const String assetsDirectory = 'lang/';
 
 /*
 |--------------------------------------------------------------------------

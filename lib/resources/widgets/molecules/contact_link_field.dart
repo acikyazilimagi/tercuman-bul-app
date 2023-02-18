@@ -7,7 +7,12 @@ class ContactLinkField extends StatelessWidget {
   final IconData companyLogo;
   final TextEditingController? controller;
 
-  const ContactLinkField({Key? key, required this.hint, required this.companyLogo, this.controller}) : super(key: key);
+  const ContactLinkField(
+      {Key? key,
+      required this.hint,
+      required this.companyLogo,
+      this.controller})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +23,7 @@ class ContactLinkField extends StatelessWidget {
       keyboardType: TextInputType.url,
       icon: Icon(companyLogo, size: 24),
       isDense: true,
-      secondIcon: Icon(Icons.help_outline, size: 16),
+      secondIcon: const Icon(Icons.help_outline, size: 16),
     );
   }
 }

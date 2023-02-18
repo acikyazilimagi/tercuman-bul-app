@@ -19,11 +19,13 @@ import '../widgets/molecules/contact_link_field.dart';
 import '../widgets/molecules/country_dialing_code_picker.dart';
 
 class ComponentsDemoPage extends NyStatefulWidget {
-  static final String path = "/demo";
-  final Controller controller = Controller();
+  static const String path = "/demo";
+  @override
+  get controller => Controller();
+  ComponentsDemoPage({super.key});
 
   @override
-  _ComponentsDemoPageState createState() => _ComponentsDemoPageState();
+  State<ComponentsDemoPage> createState() => _ComponentsDemoPageState();
 }
 
 class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
@@ -32,14 +34,9 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
   @override
   init() async {
     super.init();
-    String json = await DefaultAssetBundle.of(this.context)
+    String json = await DefaultAssetBundle.of(context)
         .loadString("public/assets/data/countries.json");
     countryData = jsonDecode(json);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 
   @override
@@ -51,11 +48,11 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             iconButtons(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             textField(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             flags(),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ContactLinkField(
               hint: "addFacebook".tr(),
               companyLogo: MdiIcons.facebook,
@@ -77,24 +74,19 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
               isSelected: true,
               onSelectStateChanged: (isSele) {},
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             expandableCards(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(
                   "Contact Us Card",
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
-                SizedBox(height: 16),
-                ContactUsCard(
-                  title: "cantFind".tr(),
-                  description: "reachSupport".tr(),
-                  buttonText: "contactUsButton".tr(),
-                  onPressed: () {},
-                ),
+                const SizedBox(height: 16),
+                const ContactUsCard(),
               ],
             )
           ],
@@ -107,17 +99,17 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Text(
           "Expandable Card",
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Text(
           "Initially Expanded Card",
           style: Theme.of(context).textTheme.titleMedium,
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         CustomExpandableCard(
           initialExpanded: true,
           centerIcon: false,
@@ -148,29 +140,29 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Text(
           "Icon Buttons - Block",
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Text(
           "Dark Button",
           style: Theme.of(context).textTheme.titleMedium,
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         CustomButton(
           text: "searchInterpreter".tr(),
           icon: Icons.search_sharp,
           style: CustomButtonStyles.darkFilled,
           onPressed: () {},
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Text(
           "Dark Button Disabled",
           style: Theme.of(context).textTheme.titleMedium,
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         CustomButton(
           disabled: true,
           text: "searchInterpreter".tr(),
@@ -178,24 +170,24 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
           style: CustomButtonStyles.darkFilled,
           onPressed: () {},
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Text(
           "Light Button",
           style: Theme.of(context).textTheme.titleMedium,
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         CustomButton(
           text: "searchInterpreter".tr(),
           icon: Icons.add_circle_outline_outlined,
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Text(
           "Light Button Disabled",
           style: Theme.of(context).textTheme.titleMedium,
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         CustomButton(
           disabled: true,
           text: "searchInterpreter".tr(),
@@ -203,41 +195,41 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Text(
           "Icon Buttons - Normal",
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Text(
           "Light Normal Button",
           style: Theme.of(context).textTheme.titleMedium,
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         CustomButton(
           text: "searchInterpreter".tr(),
           size: CustomButtonSize.normal,
           style: CustomButtonStyles.lightFilled,
           onPressed: () {},
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Text(
           "Dark Normal Button",
           style: Theme.of(context).textTheme.titleMedium,
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         CustomButton(
           text: "searchInterpreter".tr(),
           size: CustomButtonSize.normal,
           style: CustomButtonStyles.darkFilled,
           onPressed: () {},
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Text(
           "Disabled Normal Button",
           style: Theme.of(context).textTheme.titleMedium,
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         CustomButton(
           disabled: true,
           text: "searchInterpreter".tr(),
@@ -257,26 +249,26 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
           "Country Flag (tr)",
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         CountryFlag(
           country: Country.tr, // You can also use Country.fromCode('eg')
           height: 50,
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Text(
           "Language Flag (az)",
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         LanguageFlag(
           language: Language.az, // You can also use Country.fromCode('eg')
           height: 50,
         ),
-        SizedBox(height: 8),
-        CountryFlagName(code: 'tr', name: 'Turkey'),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
+        const CountryFlagName(code: 'tr', name: 'Turkey'),
+        const SizedBox(height: 8),
         CountryDialingCodePicker(countryData: countryData),
-        LanguagePicker(),
+        const LanguagePicker(),
       ],
     );
   }

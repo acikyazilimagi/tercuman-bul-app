@@ -3,9 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart' show User;
 
 extension FirebaseUserToTranslator on Translator {
   Translator toTranslator({User? user}) {
-    return this.copyWith(
+    return copyWith(
       uuid: user?.uid,
-      contact: this.contact?.copyWith(email: user?.email),
+      contact: contact?.copyWith(email: user?.email),
       name: user?.displayName ?? "",
     );
   }

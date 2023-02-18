@@ -12,7 +12,8 @@ class CustomButton extends StatefulWidget {
   final IconData? icon;
   final CustomButtonSize size;
   final bool disabled;
-  CustomButton({
+
+  const CustomButton({
     Key? key,
     required this.text,
     required this.style,
@@ -92,7 +93,7 @@ class _State extends State<CustomButton> {
   }
 
   Widget getIcon() {
-    if (null == widget.icon) return SizedBox.shrink();
+    if (null == widget.icon) return const SizedBox.shrink();
     switch (widget.style) {
       case CustomButtonStyles.lightFilled:
         Color color = LightThemeColors().context;

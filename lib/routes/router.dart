@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
 import 'package:flutter_app/resources/pages/components_demo_page.dart';
 import 'package:flutter_app/resources/pages/edit_translator_profile.dart';
@@ -52,7 +51,10 @@ appRouter() => nyRoutes((router) {
       router.route(ComponentsDemoPage.path, (context) => ComponentsDemoPage());
       router.route(
           BecomeTranslatorPage.path, (context) => BecomeTranslatorPage(),
-          routeGuards: [AuthRouteGuard(BecomeTranslatorPage.path), BecomeTranslatorGuard(BecomeTranslatorPage.path)]);
+          routeGuards: [
+            AuthRouteGuard(BecomeTranslatorPage.path),
+            BecomeTranslatorGuard(BecomeTranslatorPage.path)
+          ]);
       router.route(
           TranslatorProfilePage.path, (context) => TranslatorProfilePage(),
           routeGuards: [AuthRouteGuard(TranslatorProfilePage.path)]);

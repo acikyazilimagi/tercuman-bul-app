@@ -46,7 +46,7 @@ class CustomExpandableCard extends StatelessWidget {
                     child: topic,
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 ExpandableIcon(
                   theme: ExpandableThemeData(
                     collapseIcon: Icons.remove_circle_outline,
@@ -54,13 +54,13 @@ class CustomExpandableCard extends StatelessWidget {
                     iconColor: LightThemeColors().grey.shade400,
                     iconSize: 28.0,
                     iconRotationAngle: math.pi / 2,
-                    iconPadding: EdgeInsets.all(16),
+                    iconPadding: const EdgeInsets.all(16),
                   ),
                 ),
               ],
             ),
           ),
-          collapsed: SizedBox(),
+          collapsed: const SizedBox(),
           expanded: Row(
             children: [
               Expanded(
@@ -80,7 +80,7 @@ class CustomExpandableCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Spacer()
+              const Spacer()
             ],
           ),
         ),

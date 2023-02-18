@@ -23,15 +23,15 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         Padding(
-          padding: EdgeInsets.fromLTRB(0, 0, 16, 0),
+          padding: const EdgeInsets.fromLTRB(0, 0, 16, 0),
           child: Row(
             children: [
               PopupMenuButton(
                 child: Row(
                   children: [
                     Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8.0, vertical: 16.0),
                       child: Icon(
                         MdiIcons.web,
                         color: LightThemeColors().context,
@@ -49,16 +49,14 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ],
                 ),
                 itemBuilder: (context) => Languages.appLanguages
-                    .map(
-                      (e) => PopupMenuItem(
-                        child: CountryFlagName(
-                          code: e.key,
-                          name: Languages.nativeLocaleName(e.key),
-                          type: 'lang',
-                        ),
-                        value: e.key,
-                      ),
-                    )
+                    .map((e) => PopupMenuItem(
+                          value: e.key,
+                          child: CountryFlagName(
+                            code: e.key,
+                            name: Languages.nativeLocaleName(e.key),
+                            type: 'lang',
+                          ),
+                        ))
                     .toList(),
                 onSelected: (value) async {
                   await NyLocalization.instance
@@ -95,5 +93,5 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size(double.infinity, kToolbarHeight);
+  Size get preferredSize => const Size(double.infinity, kToolbarHeight);
 }

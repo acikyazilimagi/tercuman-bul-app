@@ -7,6 +7,7 @@ import '../../config/localization.dart';
 import '../services/firestore_service.dart';
 
 class AppProvider implements NyProvider {
+  @override
   boot(Nylo nylo) async {
     await NyLocalization.instance.init(
         localeType: localeType,

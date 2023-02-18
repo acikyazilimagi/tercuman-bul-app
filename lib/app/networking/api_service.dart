@@ -20,14 +20,12 @@ class ApiService extends BaseApiService {
   String get baseUrl => getEnv('API_BASE_URL');
 
   @override
-  final interceptors = {
-    if (getEnv('APP_DEBUG') == true)
-    PrettyDioLogger: PrettyDioLogger()
-  };
+  get interceptors =>
+      {if (getEnv('APP_DEBUG') == true) PrettyDioLogger: PrettyDioLogger()};
 
   Future fetchTestData() async {
     return await network(
-        request: (request) => request.get("/endpoint-path"),
+      request: (request) => request.get("/endpoint-path"),
     );
   }
 }

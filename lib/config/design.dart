@@ -11,8 +11,8 @@ import 'package:flutter_app/resources/widgets/logo_widget.dart';
 |--------------------------------------------------------------------------
 */
 
-Widget logo = Logo();
+Widget logo = const Logo();
 // resources/widgets/logo_widget.dart
 
-Widget loader = Loader();
+Widget loader = const Loader();
 // resources/widgets/loader_widget.dart

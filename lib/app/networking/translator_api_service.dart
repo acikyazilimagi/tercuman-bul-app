@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class TranslatorApiService extends BaseApiService {
     List<Translator> list = [];
 
     try {
-      var collection = await FirebaseFirestore.instance
+      var collection = FirebaseFirestore.instance
           .collection(getEnv('TRANSLATOR_DB'))
           .limit(10);
 
@@ -32,9 +33,12 @@ class TranslatorApiService extends BaseApiService {
 
       var results = getDocs.docs;
       docPagination = results.last;
-      results
-          .forEach((element) => list.add(Translator.fromJson(element.data())));
-    } catch (e) {}
+      for (var element in results) {
+        list.add(Translator.fromJson(element.data()));
+      }
+    } catch (e) {
+      log("Translator exception:", error: e);
+    }
 
     return list;
   }
@@ -42,7 +46,7 @@ class TranslatorApiService extends BaseApiService {
   Future<String?> insert(Translator model) async {
     try {
       var collection =
-          await FirebaseFirestore.instance.collection(getEnv('TRANSLATOR_DB'));
+          FirebaseFirestore.instance.collection(getEnv('TRANSLATOR_DB'));
 
       DocumentReference data = await collection.add(model.toJson());
 
@@ -54,7 +58,7 @@ class TranslatorApiService extends BaseApiService {
 
   Future<bool> update(String docId, Translator model) async {
     var collection =
-        await FirebaseFirestore.instance.collection(getEnv('TRANSLATOR_DB'));
+        FirebaseFirestore.instance.collection(getEnv('TRANSLATOR_DB'));
 
     try {
       await collection.doc(docId).update(model.toJson());
@@ -66,7 +70,7 @@ class TranslatorApiService extends BaseApiService {
 
   Future<bool> delete(String docId) async {
     var collection =
-        await FirebaseFirestore.instance.collection(getEnv('TRANSLATOR_DB'));
+        FirebaseFirestore.instance.collection(getEnv('TRANSLATOR_DB'));
 
     try {
       await collection.doc(docId).delete();
@@ -86,7 +90,7 @@ class TranslatorApiService extends BaseApiService {
     String? language,
   }) async {
     var collection =
-        await FirebaseFirestore.instance.collection(getEnv('TRANSLATOR_DB'));
+        FirebaseFirestore.instance.collection(getEnv('TRANSLATOR_DB'));
 
     var findOne = collection;
 
@@ -139,7 +143,7 @@ class TranslatorApiService extends BaseApiService {
     int? limits,
   }) async {
     var collection =
-        await FirebaseFirestore.instance.collection(getEnv('TRANSLATOR_DB'));
+        FirebaseFirestore.instance.collection(getEnv('TRANSLATOR_DB'));
 
     var findOne = collection;
 

@@ -24,8 +24,9 @@ import '../widgets/molecules/contact_link_field.dart';
 import '../widgets/molecules/contact_us_card.dart';
 
 class BecomeTranslatorPage extends NyStatefulWidget {
-  static final String path = "/become-translator";
-  final controller = AuthController();
+  static const String path = "/become-translator";
+  @override
+  get controller => AuthController();
   BecomeTranslatorPage({super.key});
 
   @override
@@ -62,7 +63,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
       selectedTabIndex: 1,
       body: SafeAreaWidget(
         child: ListView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           padding: context.veryLowSymPadding,
           children: [
             Text(
@@ -78,7 +79,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
               onOpen: (link) => routeTo(TranslatorListPage.path),
               textAlign: TextAlign.center,
               text: "beInterpreterDescription".tr(),
-              linkStyle: TextStyle(
+              linkStyle: const TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
                 decoration: TextDecoration.none,
@@ -99,7 +100,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
             getSpacer,
             Text(
               "supportChannels".tr(),
-              style: TextStyle(fontWeight: FontWeight.w800),
+              style: const TextStyle(fontWeight: FontWeight.w800),
             ),
             getSpacer,
             CustomSelectableTile(
@@ -119,7 +120,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
             getSpacer,
             Text(
               "availableSupport".tr(),
-              style: TextStyle(fontWeight: FontWeight.w800),
+              style: const TextStyle(fontWeight: FontWeight.w800),
             ),
             getSpacer,
             CustomMultiselectDropdown<MapEntry<String, String>>(
@@ -134,7 +135,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                   type: 'lang',
                 ),
                 trailing: isSelected
-                    ? Icon(MdiIcons.check, color: Colors.green)
+                    ? const Icon(MdiIcons.check, color: Colors.green)
                     : null,
               ),
               onChanged: (values) {
@@ -146,7 +147,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
             getSpacer,
             Text(
               "addContactAddress".tr(),
-              style: TextStyle(fontWeight: FontWeight.w800),
+              style: const TextStyle(fontWeight: FontWeight.w800),
             ),
             getSpacer,
             ContactLinkField(
@@ -199,12 +200,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                       routeTo(TranslatorListPage.path);
                     },
                   ),
-            ContactUsCard(
-              title: "cantFind".tr(),
-              description: "reachSupport".tr(),
-              buttonText: "contactUsButton".tr(),
-              onPressed: () {},
-            ),
+            const ContactUsCard(),
           ],
         ),
       ),

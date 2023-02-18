@@ -16,13 +16,8 @@ class _KvkkState extends State<Kvkk> {
       children: [
         CheckboxListTile(
             controlAffinity: ListTileControlAffinity.leading,
-            activeColor:
-                MaterialStateColor.resolveWith((states) => Color.fromRGBO(
-                      34,
-                      58,
-                      82,
-                      1,
-                    )),
+            activeColor: MaterialStateColor.resolveWith(
+                (states) => const Color.fromRGBO(34, 58, 82, 1)),
             checkColor: Colors.white,
             title: Text.rich(
               TextSpan(
@@ -30,26 +25,21 @@ class _KvkkState extends State<Kvkk> {
                   WidgetSpan(
                     child: GestureDetector(
                       onTap: () => openDialog(),
-                      child: Text(
+                      child: const Text(
                         "Aydınlatma Metni",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 12),
                       ),
                     ),
                   ),
-                  TextSpan(
+                  const TextSpan(
                       text: "'ni okudum ve kabul ediyorum.",
                       style: TextStyle(
-                        color: Color.fromRGBO(
-                          34,
-                          58,
-                          82,
-                          1,
-                        ),
+                        color: Color.fromRGBO(34, 58, 82, 1),
                       )),
                 ],
               ),
-              style: TextStyle(fontSize: 11),
+              style: const TextStyle(fontSize: 11),
               textAlign: TextAlign.start,
             ),
             value: tcCheckbox,
@@ -60,30 +50,20 @@ class _KvkkState extends State<Kvkk> {
             }),
         CheckboxListTile(
             controlAffinity: ListTileControlAffinity.leading,
-            activeColor:
-                MaterialStateColor.resolveWith((states) => Color.fromRGBO(
-                      34,
-                      58,
-                      82,
-                      1,
-                    )),
+            activeColor: MaterialStateColor.resolveWith(
+                (states) => const Color.fromRGBO(34, 58, 82, 1)),
             checkColor: Colors.white,
             title: Text.rich(
               TextSpan(
                 children: [
                   TextSpan(
                       text: "truthAck".tr(),
-                      style: TextStyle(
-                        color: Color.fromRGBO(
-                          34,
-                          58,
-                          82,
-                          1,
-                        ),
+                      style: const TextStyle(
+                        color: Color.fromRGBO(34, 58, 82, 1),
                       )),
                 ],
               ),
-              style: TextStyle(fontSize: 11),
+              style: const TextStyle(fontSize: 11),
               textAlign: TextAlign.start,
             ),
             value: truthAckCheckbox,
@@ -103,7 +83,7 @@ class _KvkkState extends State<Kvkk> {
         builder: ((context) => AlertDialog(
               icon: IconButton(
                 alignment: Alignment.topRight,
-                icon: Icon(MdiIcons.close),
+                icon: const Icon(MdiIcons.close),
                 onPressed: () => Navigator.pop(context),
               ),
               content: SingleChildScrollView(
@@ -113,15 +93,10 @@ class _KvkkState extends State<Kvkk> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text("I Accept!"),
+                    const Text("I Accept!"),
                     Checkbox(
                         fillColor: MaterialStateColor.resolveWith(
-                            (states) => Color.fromRGBO(
-                                  34,
-                                  58,
-                                  82,
-                                  1,
-                                )),
+                            (states) => const Color.fromRGBO(34, 58, 82, 1)),
                         checkColor: Colors.white,
                         value: tcCheckbox,
                         onChanged: (bool? value) {

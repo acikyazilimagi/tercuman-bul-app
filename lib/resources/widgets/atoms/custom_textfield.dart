@@ -55,7 +55,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         children: [
           if (widget.title?.isNotEmpty == true) ...{
             Text(widget.title!),
-            SizedBox(height: 10)
+            const SizedBox(height: 10)
           },
           TextFormField(
             controller: widget.controller,
@@ -65,9 +65,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             decoration: InputDecoration(
               isDense: widget.isDense,
               filled: true,
-              fillColor: widget.fillColor != null
-                  ? widget.fillColor
-                  : LightThemeColors().grey.shade300,
+              fillColor: widget.fillColor ?? LightThemeColors().grey.shade300,
               border:
                   OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
               // label: Text(widget.hint,

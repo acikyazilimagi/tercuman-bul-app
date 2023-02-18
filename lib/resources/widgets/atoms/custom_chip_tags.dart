@@ -17,19 +17,17 @@ class CustomChipTags extends StatefulWidget {
 class _CustomChipTagsState extends State<CustomChipTags> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ChipTags(
-        list: widget.list,
-        chipColor: Colors.blue,
-        iconColor: Colors.white,
-        textColor: Colors.white,
-        decoration: InputDecoration(
-          hintText: "yourLanguage".tr(),
-          border: OutlineInputBorder(),
-        ),
-        keyboardType: TextInputType.text,
-        createTagOnSubmit: true,
+    return ChipTags(
+      list: widget.list,
+      chipColor: Colors.blue,
+      iconColor: Colors.white,
+      textColor: Colors.white,
+      decoration: InputDecoration(
+        hintText: "yourLanguage".tr(),
+        border: const OutlineInputBorder(),
       ),
+      keyboardType: TextInputType.text,
+      createTagOnSubmit: true,
     );
   }
 }

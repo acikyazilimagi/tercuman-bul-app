@@ -32,10 +32,10 @@ class Translator with _$Translator {
           String? name}) =>
       Translator(
           uuid: uuid,
-          capabilities: capabilities ?? Capabilities(),
-          contact: contact ?? Contact(),
+          capabilities: capabilities ?? const Capabilities(),
+          contact: contact ?? const Contact(),
           isInterpreter: isInterpreter ?? false,
-          location: location ?? GeoPoint(0, 0),
+          location: location ?? const GeoPoint(0, 0),
           languages: languages ?? const [],
           name: name ?? "-");
 }
@@ -52,8 +52,7 @@ class Capabilities with _$Capabilities {
 
   @override
   String toString() {
-    return "translatorInPerson: $translatorInPerson" +
-        " translatorVirtual: $translatorVirtual";
+    return "translatorInPerson: $translatorInPerson translatorVirtual: $translatorVirtual";
   }
 }
 
@@ -74,12 +73,7 @@ class Contact with _$Contact {
 
   @override
   String toString() {
-    return "email: $email" +
-        " facebook: $facebook" +
-        " instagram: $instagram" +
-        " linkedin: $linkedin" +
-        " phone: $phone" +
-        " twitter: $twitter ";
+    return "email: $email facebook: $facebook instagram: $instagram linkedin: $linkedin phone: $phone twitter: $twitter";
   }
 
   bool get haveAnyContactInformation =>

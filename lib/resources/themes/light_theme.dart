@@ -14,8 +14,8 @@ import 'package:nylo_framework/nylo_framework.dart';
 */
 
 ThemeData lightTheme(ColorStyles color) {
-  TextTheme lightTheme = getAppTextTheme(
-      appFont, defaultTextTheme.merge(_textTheme(color)));
+  TextTheme lightTheme =
+      getAppTextTheme(appFont, defaultTextTheme.merge(_textTheme(color)));
 
   return ThemeData(
     primaryColor: color.primaryContent,
@@ -25,8 +25,8 @@ ThemeData lightTheme(ColorStyles color) {
     hintColor: color.primaryAccent,
     appBarTheme: AppBarTheme(
       backgroundColor: color.appBarBackground,
-      titleTextStyle: lightTheme.titleLarge!
-          .copyWith(color: color.appBarPrimaryContent),
+      titleTextStyle:
+          lightTheme.titleLarge!.copyWith(color: color.appBarPrimaryContent),
       iconTheme: IconThemeData(color: color.appBarPrimaryContent),
       elevation: 1.0,
       systemOverlayStyle: SystemUiOverlayStyle.dark,
@@ -47,18 +47,13 @@ ThemeData lightTheme(ColorStyles color) {
       backgroundColor: color.bottomTabBarBackground,
       unselectedIconTheme:
           IconThemeData(color: color.bottomTabBarIconUnselected),
-      selectedIconTheme:
-          IconThemeData(color: color.bottomTabBarIconSelected),
-      unselectedLabelStyle:
-          TextStyle(color: color.bottomTabBarLabelUnselected),
-      selectedLabelStyle:
-          TextStyle(color: color.bottomTabBarLabelSelected),
+      selectedIconTheme: IconThemeData(color: color.bottomTabBarIconSelected),
+      unselectedLabelStyle: TextStyle(color: color.bottomTabBarLabelUnselected),
+      selectedLabelStyle: TextStyle(color: color.bottomTabBarLabelSelected),
       selectedItemColor: color.bottomTabBarLabelSelected,
     ),
     textTheme: lightTheme,
-    colorScheme: ColorScheme.light(
-      background: color.background
-    ),
+    colorScheme: ColorScheme.light(background: color.background),
   );
 }
 
@@ -70,8 +65,7 @@ ThemeData lightTheme(ColorStyles color) {
 
 TextTheme _textTheme(ColorStyles colors) {
   Color primaryContent = colors.primaryContent;
-  TextTheme textTheme = TextTheme().apply(displayColor: primaryContent);
+  TextTheme textTheme = const TextTheme().apply(displayColor: primaryContent);
   return textTheme.copyWith(
-      labelLarge: TextStyle(color: primaryContent.withOpacity(0.8))
-  );
+      labelLarge: TextStyle(color: primaryContent.withOpacity(0.8)));
 }

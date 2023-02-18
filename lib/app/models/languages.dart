@@ -11,7 +11,7 @@ class Languages {
         .sortedByName
         .where(_filterTwoLetterCodes)
         .toList();
-    _languageData!.add(MapEntry("ku", "Kurdish"));
+    _languageData!.add(const MapEntry("ku", "Kurdish"));
     _languageData!.sort(_sortDiacritics);
     return _singleton;
   }
@@ -20,12 +20,12 @@ class Languages {
 
   static final Set<String> _appLanguages = {"en", "tr", "ar", "ku", "ru"};
 
-  static final _sortDiacritics =
+  static get _sortDiacritics =>
       (a, b) => removeDiacritics(a.value).compareTo(removeDiacritics(b.value));
 
-  static final _filterTwoLetterCodes = (e) => e.key.length == 2;
+  static get _filterTwoLetterCodes => (e) => e.key.length == 2;
 
-  static final _filterAppLanguages = (e) => _appLanguages.contains(e.key);
+  static get _filterAppLanguages => (e) => _appLanguages.contains(e.key);
 
   static List<MapEntry<String, String>> get appLanguages {
     return _languageData!.where(_filterAppLanguages).toList();
