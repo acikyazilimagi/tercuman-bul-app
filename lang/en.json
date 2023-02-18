@@ -106,5 +106,5 @@
   "accessDisabledErrorText": "Access to this account has been temporarily disabled",
   "signInHintText": "Already have an account?",
   "emailTakenErrorText": "An account with this email already exists",
-  "tos": "Terms and Conditions"
+  "termsAndConditionsLabel": "Terms and Conditions"
 }

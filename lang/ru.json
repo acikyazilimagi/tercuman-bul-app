@@ -106,5 +106,5 @@
   "accessDisabledErrorText": "Доступ к этому аккаунту временно заблокирован",
   "signInHintText": "Уже есть аккаунт?",
   "emailTakenErrorText": "Аккаунт с этой электронной почтой уже существует",
-  "tos": "Условия использования"
+  "termsAndConditionsLabel": "Условия использования"
 }

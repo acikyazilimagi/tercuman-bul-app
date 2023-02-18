@@ -82,7 +82,7 @@ class _AuthPageState extends NyState<AuthPage> {
       barrierDismissible: false,
       builder: (context) {
         return AlertDialog(
-          title: Text("tos".tr()),
+          title: Text("termsAndConditionsLabel".tr()),
           content: SingleChildScrollView(
             child: Column(
               children: [
