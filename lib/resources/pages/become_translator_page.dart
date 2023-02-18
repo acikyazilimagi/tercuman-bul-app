@@ -174,7 +174,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
             ),
             getSpacer,
             isLocked("register")
-                ? Loader()
+                ? const Loader()
                 : CustomButton(
                     text: "register".tr(),
                     icon: Icons.add,
@@ -192,10 +192,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                         "digital_online_support": _isDigitalOnlineSupport,
                       });
 
-                      if (_selectedLanguages.isEmpty) {
-                        _selectedLanguages.add("en");
-                      }
-
+                      // Register event is fired and populates AuthService.currentTranslator, which is used to push to firebase.
                       await lockRelease("register",
                           perform: FirestoreService().createTranslator);
 

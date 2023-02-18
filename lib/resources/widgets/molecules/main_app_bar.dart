@@ -1,4 +1,3 @@
-import 'package:dash_flags/dash_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
 import 'package:flutter_app/resources/pages/auth_page.dart';
@@ -33,10 +32,9 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                     Padding(
                       padding:
                           EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
-                      child: LanguageFlag(
-                        language: Language.fromCode(
-                            NyLocalization.instance.languageCode),
-                        height: 24.0,
+                      child: Icon(
+                        MdiIcons.web,
+                        color: LightThemeColors().context,
                       ),
                     ),
                     Text(

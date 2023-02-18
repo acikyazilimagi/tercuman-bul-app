@@ -8,6 +8,7 @@ import 'location_service.dart';
 
 class FirestoreService {
   static final FirestoreService _instance = FirestoreService._internal();
+
   factory FirestoreService() => _instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
@@ -16,7 +17,9 @@ class FirestoreService {
   Future<void> getTranslator() async {
     try {
       var userId = AuthService().currentUser?.uid;
-      if (userId == null) return;
+      if (userId == null) {
+        return;
+      };
 
       var translator = await firestore
           .collection(FirestoreCollectionPath.dev.name)
@@ -34,10 +37,14 @@ class FirestoreService {
   Future<void> createTranslator() async {
     try {
       var translator = AuthService().currentTranslator;
-      if (translator == null) return;
+      if (translator == null) {
+        return;
+      };
 
       var userId = AuthService().currentUser?.uid;
-      if (userId == null) return;
+      if (userId == null) {
+        return;
+      };
 
       await firestore
           .collection(FirestoreCollectionPath.dev.name)
