@@ -30,7 +30,19 @@ class AuthRouteGuard extends RouteGuard {
 
   @override
   Future<bool> canOpen(BuildContext? context, BaseArguments? args) {
+    routeTo(AuthPage.path, data: {"redirectTo": route});
     return Future.value(AuthService().hasSession);
+  }
+}
+
+class BecomeTranslatorGuard extends RouteGuard {
+  final String route;
+  BecomeTranslatorGuard(this.route);
+
+  @override
+  Future<bool> canOpen(BuildContext? context, BaseArguments? args) {
+    routeTo(TranslatorListPage.path);
+    return Future.value(AuthService().currentTranslator == null);
   }
 }
 
@@ -40,7 +52,7 @@ appRouter() => nyRoutes((router) {
       router.route(ComponentsDemoPage.path, (context) => ComponentsDemoPage());
       router.route(
           BecomeTranslatorPage.path, (context) => BecomeTranslatorPage(),
-          routeGuards: [AuthRouteGuard(BecomeTranslatorPage.path)]);
+          routeGuards: [AuthRouteGuard(BecomeTranslatorPage.path), BecomeTranslatorGuard(BecomeTranslatorPage.path)]);
       router.route(
           TranslatorProfilePage.path, (context) => TranslatorProfilePage(),
           routeGuards: [AuthRouteGuard(TranslatorProfilePage.path)]);

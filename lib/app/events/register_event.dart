@@ -1,6 +1,8 @@
 import 'package:flutter_app/app/services/auth_service.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 
+import '../models/translator.dart';
+
 class RegisterEvent implements NyEvent {
   @override
   final listeners = {
@@ -8,25 +10,29 @@ class RegisterEvent implements NyEvent {
   };
 }
 
+/// Once this is called, the "currentTranslator" in AuthService is populated
 class RegisterTranslatorListener extends NyListener {
   @override
-  Future handle(Map? event) async {
-    var translator = AuthService().currentTranslator;
-    if (translator == null) return;
+  Future<void> handle(Map? event) async {
+    AuthService authService = AuthService();
+    var translator = authService.currentTranslator ?? Translator.empty();
 
-    AuthService().currentTranslator = translator.copyWith(
+    authService.currentTranslator = translator.copyWith(
       contact: translator.contact?.copyWith(
+        email: authService.currentUser!.email,
         facebook: event?["facebook"],
         twitter: event?["twitter"],
         instagram: event?["instagram"],
         linkedin: event?["linkedin"],
       ),
+      isInterpreter: true,
       name: event?["first_name"] + " " + event?["last_name"],
       languages: event?["languages"],
       capabilities: translator.capabilities?.copyWith(
         translatorInPerson: event?["on_site_support"],
         translatorVirtual: event?["digital_online_support"],
       ),
+      uuid: authService.currentUser!.uid,
     );
   }
 }
