@@ -8,7 +8,7 @@ class CountryFlagName extends StatelessWidget {
   final String type;
   final TextStyle? textStyle;
 
-  CountryFlagName({
+  const CountryFlagName({
     Key? key,
     required this.code,
     required this.name,

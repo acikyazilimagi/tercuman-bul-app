@@ -7,7 +7,7 @@ import '../atoms/country_flag_name.dart';
 class LanguagePicker extends StatefulWidget {
   final void Function(String?)? onLangSelected;
 
-  LanguagePicker({
+  const LanguagePicker({
     Key? key,
     this.onLangSelected,
   }) : super(key: key);
@@ -26,11 +26,13 @@ class _State extends State<LanguagePicker> {
       // isDense: true,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: LightThemeColors().grey.shade300, width: 2),
+          borderSide:
+              BorderSide(color: LightThemeColors().grey.shade300, width: 2),
           borderRadius: BorderRadius.circular(8),
         ),
         border: OutlineInputBorder(
-          borderSide: BorderSide(color: LightThemeColors().grey.shade300, width: 2),
+          borderSide:
+              BorderSide(color: LightThemeColors().grey.shade300, width: 2),
           borderRadius: BorderRadius.circular(8),
         ),
         filled: true,

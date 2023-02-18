@@ -20,8 +20,9 @@ import '../widgets/molecules/contact_us_card.dart';
 import 'edit_translator_profile.dart';
 
 class TranslatorProfilePage extends NyStatefulWidget {
-  static final String path = "/translator-profile";
-  final controller = AuthController();
+  static const path = "/translator-profile";
+  @override
+  get controller => AuthController();
   TranslatorProfilePage({super.key});
 
   @override
@@ -45,7 +46,7 @@ class _TranslatorProfilePageState extends NyState<TranslatorProfilePage> {
       body: SafeAreaWidget(
         child: ListView(
           shrinkWrap: true,
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           padding: context.veryLowSymPadding,
           children: [
             Text(
@@ -64,7 +65,7 @@ class _TranslatorProfilePageState extends NyState<TranslatorProfilePage> {
                   onOpen: (link) => routeTo(TranslatorListPage.path),
                   textAlign: TextAlign.center,
                   text: "yourProfileDescription".tr(),
-                  linkStyle: TextStyle(
+                  linkStyle: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
@@ -74,7 +75,7 @@ class _TranslatorProfilePageState extends NyState<TranslatorProfilePage> {
                   onOpen: (link) => routeTo(EditTranslatorProfilePage.path),
                   textAlign: TextAlign.center,
                   text: "editProfileDescription".tr(),
-                  linkStyle: TextStyle(
+                  linkStyle: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
@@ -88,19 +89,19 @@ class _TranslatorProfilePageState extends NyState<TranslatorProfilePage> {
               children: [
                 Text(
                   "nameSurname".tr(),
-                  style: TextStyle(fontWeight: FontWeight.w800),
+                  style: const TextStyle(fontWeight: FontWeight.w800),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(
                   translator.name,
-                  style: TextStyle(color: Colors.grey),
+                  style: const TextStyle(color: Colors.grey),
                 ),
               ],
             ),
             getSpacer,
             Text(
               "supportChannels".tr(),
-              style: TextStyle(fontWeight: FontWeight.w800),
+              style: const TextStyle(fontWeight: FontWeight.w800),
             ),
             CustomSelectableTile(
               isSelected: translator.capabilities?.translatorInPerson ?? false,
@@ -118,16 +119,16 @@ class _TranslatorProfilePageState extends NyState<TranslatorProfilePage> {
               children: [
                 Text(
                   "availableSupport".tr(),
-                  style: TextStyle(fontWeight: FontWeight.w800),
+                  style: const TextStyle(fontWeight: FontWeight.w800),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(
                   translator.languages
                       .map((l) => Languages.usableLanguages
                           .firstWhere((e) => e.key == l)
                           .value)
                       .join(", "),
-                  style: TextStyle(color: Colors.grey),
+                  style: const TextStyle(color: Colors.grey),
                 ),
               ],
             ),
@@ -156,12 +157,7 @@ class _TranslatorProfilePageState extends NyState<TranslatorProfilePage> {
               link: translator.contact?.linkedin,
             ),
             getSpacer,
-            ContactUsCard(
-              title: "cantFind".tr(),
-              description: "reachSupport".tr(),
-              buttonText: "contactUsButton".tr(),
-              onPressed: () => {},
-            )
+            const ContactUsCard(),
           ],
         ),
       ),
@@ -177,16 +173,16 @@ class _TranslatorProfilePageState extends NyState<TranslatorProfilePage> {
           children: [
             Icon(icon, size: 24),
             getSpacer,
-            Text(title, style: TextStyle(fontWeight: FontWeight.w800)),
+            Text(title, style: const TextStyle(fontWeight: FontWeight.w800)),
           ],
         ),
-        SizedBox(height: 4),
+        const SizedBox(height: 4),
         link == null
-            ? Text("-")
+            ? const Text("-")
             : Linkify(
                 text: link,
-                linkStyle: TextStyle(color: Colors.grey),
-                options: LinkifyOptions(humanize: false),
+                linkStyle: const TextStyle(color: Colors.grey),
+                options: const LinkifyOptions(humanize: false),
                 onOpen: (link) async {
                   var uri = Uri.parse(link.url);
                   if (await canLaunchUrl(uri)) {

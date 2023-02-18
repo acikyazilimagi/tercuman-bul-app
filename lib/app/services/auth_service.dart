@@ -1,6 +1,6 @@
-import 'package:firebase_ui_auth/firebase_ui_auth.dart' as uiAuth;
+import 'package:firebase_ui_auth/firebase_ui_auth.dart' as ui_auth;
 import 'package:firebase_ui_oauth_google/firebase_ui_oauth_google.dart'
-    as oAuthGoogle;
+    as oauth_google;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_app/app/models/translator.dart';
 import 'package:nylo_framework/nylo_framework.dart';
@@ -17,9 +17,9 @@ class AuthService {
   bool get hasSession => currentUser != null;
 
   void configureProviders() {
-    uiAuth.FirebaseUIAuth.configureProviders([
-      uiAuth.EmailAuthProvider(),
-      oAuthGoogle.GoogleProvider(clientId: getEnv('GOOGLE_CLIENT_ID') ?? ''),
+    ui_auth.FirebaseUIAuth.configureProviders([
+      ui_auth.EmailAuthProvider(),
+      oauth_google.GoogleProvider(clientId: getEnv('GOOGLE_CLIENT_ID') ?? ''),
     ]);
   }
 

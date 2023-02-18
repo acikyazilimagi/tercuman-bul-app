@@ -8,20 +8,19 @@ import '/app/controllers/controller.dart';
 
 class AuthPage extends NyStatefulWidget {
   static const path = '/auth';
-
-  final Controller controller = Controller();
-
+  @override
+  get controller => Controller();
   AuthPage({Key? key}) : super(key: key);
 
   @override
-  _AuthPageState createState() => _AuthPageState();
+  State<AuthPage> createState() => _AuthPageState();
 }
 
 class _AuthPageState extends NyState<AuthPage> {
   @override
   Widget build(BuildContext context) {
     String route = widget.data(key: "redirectTo") ?? "";
-    String nextPage = !route.isEmpty ? route : HomePage.path;
+    String nextPage = route.isNotEmpty ? route : HomePage.path;
     return MainScaffold(
       body: SignInScreen(
         actions: [

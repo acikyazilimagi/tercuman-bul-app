@@ -25,7 +25,7 @@ import '../widgets/molecules/contact_link_field.dart';
 import '../widgets/molecules/contact_us_card.dart';
 
 class EditTranslatorProfilePage extends NyStatefulWidget {
-  static final String path = "/edit-translator-profile";
+  static const String path = "/edit-translator-profile";
   EditTranslatorProfilePage({super.key});
 
   @override
@@ -35,6 +35,8 @@ class EditTranslatorProfilePage extends NyStatefulWidget {
 
 class _EditTranslatorProfilePageState
     extends NyState<EditTranslatorProfilePage> {
+  final translator = AuthService().currentTranslator!;
+
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
   final _instagramController = TextEditingController();
@@ -45,6 +47,21 @@ class _EditTranslatorProfilePageState
   bool _isDigitalOnlineSupport = false;
 
   List<String> _selectedLanguages = [];
+
+  @override
+  init() {
+    final name = translator.name.split(" ");
+    _firstNameController.text = name.take(name.length - 1).join(" ");
+    _lastNameController.text = name.last;
+    _instagramController.text = translator.contact?.instagram ?? "";
+    _linkedinController.text = translator.contact?.linkedin ?? "";
+    _facebookController.text = translator.contact?.facebook ?? "";
+    _twitterController.text = translator.contact?.twitter ?? "";
+    _isOnSiteSupport = translator.capabilities?.translatorInPerson ?? false;
+    _isDigitalOnlineSupport =
+        translator.capabilities?.translatorVirtual ?? false;
+    return super.init();
+  }
 
   @override
   void dispose() {
@@ -60,23 +77,11 @@ class _EditTranslatorProfilePageState
 
   @override
   Widget build(BuildContext context) {
-    final translator = AuthService().currentTranslator!;
-    final name = translator.name.split(" ");
-    _firstNameController.text = name.take(name.length - 1).join(" ");
-    _lastNameController.text = name.last;
-    _instagramController.text = translator.contact?.instagram ?? "";
-    _linkedinController.text = translator.contact?.linkedin ?? "";
-    _facebookController.text = translator.contact?.facebook ?? "";
-    _twitterController.text = translator.contact?.twitter ?? "";
-    _isOnSiteSupport = translator.capabilities?.translatorInPerson ?? false;
-    _isDigitalOnlineSupport =
-        translator.capabilities?.translatorVirtual ?? false;
-
     return MainScaffold(
       selectedTabIndex: 1,
       body: SafeAreaWidget(
         child: ListView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           padding: context.veryLowSymPadding,
           children: [
             Text(
@@ -92,7 +97,7 @@ class _EditTranslatorProfilePageState
               onOpen: (link) => routeTo(TranslatorListPage.path),
               textAlign: TextAlign.center,
               text: "yourProfileDescription".tr(),
-              linkStyle: TextStyle(
+              linkStyle: const TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
                 decoration: TextDecoration.none,
@@ -113,7 +118,7 @@ class _EditTranslatorProfilePageState
             getSpacer,
             Text(
               "supportChannels".tr(),
-              style: TextStyle(fontWeight: FontWeight.w800),
+              style: const TextStyle(fontWeight: FontWeight.w800),
             ),
             getSpacer,
             CustomSelectableTile(
@@ -133,7 +138,7 @@ class _EditTranslatorProfilePageState
             getSpacer,
             Text(
               "availableSupport".tr(),
-              style: TextStyle(fontWeight: FontWeight.w800),
+              style: const TextStyle(fontWeight: FontWeight.w800),
             ),
             getSpacer,
             CustomMultiselectDropdown<MapEntry<String, String>>(
@@ -148,7 +153,7 @@ class _EditTranslatorProfilePageState
                   type: 'lang',
                 ),
                 trailing: isSelected
-                    ? Icon(MdiIcons.check, color: Colors.green)
+                    ? const Icon(MdiIcons.check, color: Colors.green)
                     : null,
               ),
               onChanged: (values) {
@@ -164,7 +169,7 @@ class _EditTranslatorProfilePageState
             getSpacer,
             Text(
               "addContactAddress".tr(),
-              style: TextStyle(fontWeight: FontWeight.w800),
+              style: const TextStyle(fontWeight: FontWeight.w800),
             ),
             getSpacer,
             ContactLinkField(
@@ -192,7 +197,7 @@ class _EditTranslatorProfilePageState
             ),
             getSpacer,
             isLocked("register")
-                ? Loader()
+                ? const Loader()
                 : CustomButton(
                     text: "save".tr(),
                     icon: Icons.save,
@@ -219,15 +224,7 @@ class _EditTranslatorProfilePageState
                       routeTo(TranslatorProfilePage.path);
                     },
                   ),
-            ContactUsCard(
-              title: "cantFind".tr(),
-              description: "reachSupport".tr(),
-              buttonText: "contactUsButton".tr(),
-              onPressed: () async {
-                await NyLocalization.instance
-                    .setLanguage(context, language: "tr");
-              },
-            )
+            const ContactUsCard(),
           ],
         ),
       ),

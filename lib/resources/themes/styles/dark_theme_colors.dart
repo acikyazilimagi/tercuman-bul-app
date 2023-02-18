@@ -9,13 +9,14 @@ import '/resources/themes/styles/color_styles.dart';
 
 class DarkThemeColors implements ColorStyles {
   //*  Guideline Color Scheme (Light) Colors
-  Color get white => Color(0xFFFFFFFF);
-  Color get background => Color(0xFFF9FAFB);
-  Color get tableContext => Color(0xFF101828);
-  Color get title => Color(0xFF101828);
-  Color get context => Color(0xFF223A52);
-  Color get contextAlternative => Color(0xFF475467);
-  MaterialColor get grey => MaterialColor(0xFFDBDBDB, <int, Color>{
+  Color get white => const Color(0xFFFFFFFF);
+  @override
+  Color get background => const Color(0xFFF9FAFB);
+  Color get tableContext => const Color(0xFF101828);
+  Color get title => const Color(0xFF101828);
+  Color get context => const Color(0xFF223A52);
+  Color get contextAlternative => const Color(0xFF475467);
+  MaterialColor get grey => const MaterialColor(0xFFDBDBDB, <int, Color>{
         50: Color(0xFFFEFEFE),
         100: Color(0xFFFBFBFB),
         200: Color(0xFFF7F7F7),
@@ -28,28 +29,41 @@ class DarkThemeColors implements ColorStyles {
         900: Color(0xFFDEDEDE),
       });
 
+  @override
   Color get primaryContent => const Color(0xFF000000);
+  @override
   Color get primaryAccent => const Color(0xFF87c694);
 
+  @override
   Color get surfaceBackground => Colors.white;
+  @override
   Color get surfaceContent => Colors.black;
 
   // app bar
+  @override
   Color get appBarBackground => Colors.blue;
+  @override
   Color get appBarPrimaryContent => Colors.white;
 
   // buttons
+  @override
   Color get buttonBackground => Colors.blueAccent;
+  @override
   Color get buttonPrimaryContent => Colors.white;
 
   // bottom tab bar
+  @override
   Color get bottomTabBarBackground => Colors.white;
 
   // bottom tab bar - icons
+  @override
   Color get bottomTabBarIconSelected => Colors.blue;
+  @override
   Color get bottomTabBarIconUnselected => Colors.black54;
 
   // bottom tab bar - label
+  @override
   Color get bottomTabBarLabelUnselected => Colors.black45;
+  @override
   Color get bottomTabBarLabelSelected => Colors.black;
 }

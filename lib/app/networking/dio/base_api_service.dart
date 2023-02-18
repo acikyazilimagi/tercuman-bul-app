@@ -8,11 +8,9 @@ class BaseApiService extends NyBaseApiService {
 
   /// Map decoders to modelDecoders
   @override
-  final Map<Type, dynamic> decoders = modelDecoders;
+  Map<Type, dynamic> get decoders => modelDecoders;
 
   /// Default interceptors
   @override
-  final interceptors = {
-    PrettyDioLogger: PrettyDioLogger()
-  };
+  get interceptors => {PrettyDioLogger: PrettyDioLogger()};
 }

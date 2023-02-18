@@ -19,17 +19,20 @@ class MainBottomNavigationBar extends StatelessWidget
     return BottomNavigationBar(
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
+          icon: const Icon(Icons.home),
           label: "homePage".tr(),
         ),
+        AuthService().currentTranslator == null
+            ? BottomNavigationBarItem(
+                icon: const Icon(Icons.add_circle_outline),
+                label: "beInterpreter".tr(),
+              )
+            : BottomNavigationBarItem(
+                icon: const Icon(Icons.person),
+                label: "translatorProfile".tr(),
+              ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.add_circle_outline),
-          label: AuthService().currentTranslator == null
-              ? "beInterpreter".tr()
-              : "translatorProfile".tr(),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.search),
+          icon: const Icon(Icons.search),
           label: "searchInterpreter".tr(),
         ),
       ],
@@ -57,5 +60,5 @@ class MainBottomNavigationBar extends StatelessWidget
   }
 
   @override
-  Size get preferredSize => Size(double.infinity, kToolbarHeight);
+  Size get preferredSize => const Size(double.infinity, kToolbarHeight);
 }

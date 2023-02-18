@@ -14,12 +14,13 @@ import '../widgets/atoms/custom_button.dart';
 import '../widgets/molecules/main_scaffold.dart';
 
 class HomePage extends NyStatefulWidget {
-  static final String path = "/home-page";
-  final HomeController controller = HomeController();
+  static const String path = "/home-page";
+  @override
+  get controller => HomeController();
   HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends NyState<HomePage> {
@@ -35,13 +36,14 @@ class _HomePageState extends NyState<HomePage> {
   Widget build(BuildContext context) {
     return MainScaffold(
       body: Container(
-        padding: EdgeInsets.only(left: 20, right: 20, top: 20),
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: LightThemeColors().grey.shade300,
@@ -51,7 +53,7 @@ class _HomePageState extends NyState<HomePage> {
                 ),
                 child: Text("welcomeText".tr()),
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               Text(
                 "welcomeHeader".tr(),
                 textAlign: TextAlign.center,
@@ -59,7 +61,7 @@ class _HomePageState extends NyState<HomePage> {
                       color: LightThemeColors().title,
                     ),
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               Text(
                 "welomeBody".tr(),
                 textAlign: TextAlign.center,
@@ -68,7 +70,7 @@ class _HomePageState extends NyState<HomePage> {
                       fontWeight: FontWeight.w400,
                     ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               AuthService().currentTranslator == null
                   ? CustomButton(
                       text: "beInterpreter".tr(),
@@ -82,14 +84,14 @@ class _HomePageState extends NyState<HomePage> {
                       style: CustomButtonStyles.lightFilled,
                       onPressed: () => routeTo(TranslatorProfilePage.path),
                     ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               CustomButton(
                 text: "searchInterpreter".tr(),
                 icon: Icons.search_sharp,
                 style: CustomButtonStyles.darkFilled,
                 onPressed: () => routeTo(TranslatorListPage.path),
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               Text(
                 "fAskedQuestions".tr(),
                 textAlign: TextAlign.center,
@@ -97,7 +99,7 @@ class _HomePageState extends NyState<HomePage> {
                       color: LightThemeColors().title,
                     ),
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               Text(
                 "thingsToKnow".tr(),
                 textAlign: TextAlign.center,
@@ -106,7 +108,7 @@ class _HomePageState extends NyState<HomePage> {
                       fontWeight: FontWeight.w400,
                     ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               for (var i = 1; i <= 4; i++)
                 Column(
                   children: [
@@ -121,16 +123,11 @@ class _HomePageState extends NyState<HomePage> {
                       ),
                       backgrounColor: LightThemeColors().background,
                     ),
-                    Divider(),
+                    const Divider(),
                   ],
                 ),
-              SizedBox(height: 32),
-              ContactUsCard(
-                title: "cantFind".tr(),
-                description: "reachSupport".tr(),
-                buttonText: "contactUsButton".tr(),
-                onPressed: () {},
-              )
+              const SizedBox(height: 32),
+              const ContactUsCard(),
             ],
           ),
         ),

@@ -19,7 +19,7 @@ class FirestoreService {
       var userId = AuthService().currentUser?.uid;
       if (userId == null) {
         return;
-      };
+      }
 
       var translator = await firestore
           .collection(FirestoreCollectionPath.dev.name)
@@ -39,12 +39,12 @@ class FirestoreService {
       var translator = AuthService().currentTranslator;
       if (translator == null) {
         return;
-      };
+      }
 
       var userId = AuthService().currentUser?.uid;
       if (userId == null) {
         return;
-      };
+      }
 
       await firestore
           .collection(FirestoreCollectionPath.dev.name)
@@ -79,7 +79,7 @@ class FirestoreService {
       var userId = AuthService().currentUser?.uid;
       // TODO: Reports error due to cloud_firestore 4.4.0, fix is pending PR
       // See https://github.com/firebase/flutterfire/issues/10451
-      log("updateLocation userId ${userId}, geo ${location}");
+      log("updateLocation userId $userId, geo $location");
       if (userId != null) {
         await firestore
             .collection(FirestoreCollectionPath.dev.name)

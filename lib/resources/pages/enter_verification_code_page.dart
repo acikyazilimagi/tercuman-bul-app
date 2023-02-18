@@ -11,7 +11,7 @@ import '../widgets/molecules/main_scaffold.dart';
 import '../widgets/safearea_widget.dart';
 
 class EnterVerificationCodePage extends StatefulWidget {
-  static final String path = "/enter-verification-code";
+  static const String path = "/enter-verification-code";
   const EnterVerificationCodePage({super.key});
 
   @override
@@ -31,10 +31,10 @@ class _EnterVerificationCodePageState extends State<EnterVerificationCodePage> {
           children: [
             getSpacer,
             CircleAvatar(
-              child: Icon(MdiIcons.emailVariant,
-                  color: LightThemeColors().context),
               radius: 30,
               backgroundColor: LightThemeColors().context.withOpacity(0.5),
+              child: Icon(MdiIcons.emailVariant,
+                  color: LightThemeColors().context),
             ),
             getSpacer,
             Text(

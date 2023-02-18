@@ -23,7 +23,7 @@ void main() async {
       initialRoute: nylo.initialRoute,
       builder: (context, widget) {
         Languages(context);
-        return widget ?? SizedBox.shrink();
+        return widget ?? const SizedBox.shrink();
       },
       themeData: ThemeData(
         inputDecorationTheme: InputDecorationTheme(

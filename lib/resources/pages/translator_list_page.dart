@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/models/languages.dart';
 import 'package:flutter_app/app/models/translator.dart';
@@ -21,8 +23,9 @@ import '../widgets/atoms/custom_expandable_card.dart';
 import '../widgets/molecules/main_scaffold.dart';
 
 class TranslatorListPage extends NyStatefulWidget {
-  static final String path = "/translator-list";
-  final controller = AuthController();
+  static const path = "/translator-list";
+  @override
+  get controller => AuthController();
   TranslatorListPage({super.key});
 
   @override
@@ -54,7 +57,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: isDataLoading
-            ? Loader()
+            ? const Loader()
             : ListView(
                 padding: context.veryLowSymPadding,
                 children: [
@@ -72,7 +75,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                           onOpen: (e) => routeTo(BecomeTranslatorPage.path),
                           textAlign: TextAlign.center,
                           text: "interpreterListDescription".tr(),
-                          linkStyle: TextStyle(
+                          linkStyle: const TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                             decoration: TextDecoration.none,
@@ -82,7 +85,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                           onOpen: (e) => routeTo(TranslatorProfilePage.path),
                           textAlign: TextAlign.center,
                           text: "interpreterListDescription2".tr(),
-                          linkStyle: TextStyle(
+                          linkStyle: const TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                             decoration: TextDecoration.none,
@@ -93,11 +96,11 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(Icons.location_on_outlined, size: 20.0),
+                        const Icon(Icons.location_on_outlined, size: 20.0),
                         Text(
                           "nameSurname".tr(),
                         ),
-                        Spacer(flex: 1),
+                        const Spacer(flex: 1),
                         Expanded(
                           flex: 2,
                           child: CustomDropdown<MapEntry<String, String>>(
@@ -113,7 +116,8 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                                 type: 'lang',
                               ),
                               trailing: isSelected
-                                  ? Icon(MdiIcons.check, color: Colors.green)
+                                  ? const Icon(MdiIcons.check,
+                                      color: Colors.green)
                                   : null,
                             ),
                             onChanged: (value) {
@@ -141,13 +145,13 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
     return SingleChildScrollView(
       child: ListView.separated(
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: filteredTranslators.length,
-        separatorBuilder: (context, index) => Divider(),
+        separatorBuilder: (context, index) => const Divider(),
         itemBuilder: (context, index) => CustomExpandableCard(
           topic: Row(
             children: [
-              Text(
+              const Text(
                 "0.5\nkm",
                 style: TextStyle(fontSize: 11),
               ),
@@ -169,7 +173,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
               children: [
                 Text(
                   'translationLanguage'.tr(),
-                  style: TextStyle(fontSize: 12),
+                  style: const TextStyle(fontSize: 12),
                 ),
                 getSpacer,
                 GridView.count(
@@ -179,7 +183,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                     horizontal: 16,
                   ),
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   crossAxisSpacing: 15,
                   mainAxisSpacing: 15,
                   crossAxisCount: 2,
@@ -191,7 +195,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                             name: Languages.usableLanguages
                                 .firstWhere((w) => w.key == e)
                                 .value,
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
                             ),
@@ -206,14 +210,14 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                     true) ...{
                   Text(
                     'contantInformation'.tr(),
-                    style: TextStyle(fontSize: 12),
+                    style: const TextStyle(fontSize: 12),
                   ),
                   getSpacer,
                   GridView.count(
                     primary: false,
                     padding: const EdgeInsets.all(10),
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
                     crossAxisCount: 2,
@@ -264,7 +268,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
           if (await canLaunchUrl(Uri.parse(linkToOpen))) {
             await launchUrl(Uri.parse(linkToOpen));
           } else {
-            print("Error: Contact link didn't open");
+            log("Error: Contact link didn't open");
           }
         },
         label: Text(type.tr()),
@@ -278,5 +282,5 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
       );
 
   Widget get getSpacer => SizedBox(height: context.veryLowHeight);
-  Widget get getWidthSpacer => SizedBox(width: 8);
+  Widget get getWidthSpacer => const SizedBox(width: 8);
 }

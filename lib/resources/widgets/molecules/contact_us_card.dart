@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_app/resources/widgets/atoms/custom_button.dart';
+import 'package:nylo_framework/nylo_framework.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactUsCard extends StatelessWidget {
-  final String title;
-  final String description;
-  final String buttonText;
-  final Function() onPressed;
-  const ContactUsCard({
-    super.key,
-    required this.title,
-    required this.description,
-    required this.buttonText,
-    required this.onPressed,
-  });
+  const ContactUsCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,23 +16,24 @@ class ContactUsCard extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(32.0),
-              child: Image.asset('public/assets/images/avatar_group.png',
+              child: Image.asset(
+                'public/assets/images/avatar_group.png',
                 width: 120,
                 height: 56,
               ),
             ),
             Text(
-              title,
+              "cantFind".tr(),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                description,
+                "reachSupport".tr(),
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
                       fontWeight: FontWeight.normal,
@@ -49,10 +43,18 @@ class ContactUsCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(32.0),
               child: CustomButton(
-                text: buttonText,
+                text: "contactUsButton".tr(),
                 style: CustomButtonStyles.darkFilled,
                 size: CustomButtonSize.normal,
-                onPressed: onPressed,
+                onPressed: () async {
+                  const email = "tercumanimol@gmail.com";
+                  final mailUrl = Uri.parse("mailto:$email");
+                  try {
+                    await launchUrl(mailUrl);
+                  } catch (e) {
+                    await Clipboard.setData(const ClipboardData(text: email));
+                  }
+                },
               ),
             )
           ],

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
@@ -35,7 +36,7 @@ class LocationService {
 
       _location.changeSettings(
         accuracy: LocationAccuracy.high,
-        interval: Duration(minutes: 30).inMilliseconds,
+        interval: const Duration(minutes: 30).inMilliseconds,
         distanceFilter: 10,
       );
 
@@ -50,7 +51,7 @@ class LocationService {
         await updateLocation();
       }
     } catch (e) {
-      print(e);
+      log("Location service exception:", error: e);
     }
   }
 
