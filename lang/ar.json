@@ -104,5 +104,6 @@
   "unknownError": "حدث خطأ غير معروف",
   "accessDisabledErrorText": "تم تعطيل الوصول إلى هذا الحساب مؤقتًا",
   "signInHintText": "هل لديك حساب بالفعل؟",
-  "emailTakenErrorText": "هناك حساب مرتبط بهذا البريد الإلكتروني مسبقًا"
+  "emailTakenErrorText": "هناك حساب مرتبط بهذا البريد الإلكتروني مسبقًا",
+  "tos": "شروط الخدمة"
 }

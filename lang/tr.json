@@ -105,5 +105,6 @@
   "unknownError": "Bilinmeyen bir hata oluştu",
   "accessDisabledErrorText": "Bu hesaba erişim geçici olarak devre dışı bırakıldı",
   "signInHintText": "Zaten bir hesabınız var mı?",
-  "emailTakenErrorText": "Bu e-posta adresiyle bir hesap zaten var"
+  "emailTakenErrorText": "Bu e-posta adresiyle bir hesap zaten var",
+  "tos": "Kullanım Koşulları"
 }

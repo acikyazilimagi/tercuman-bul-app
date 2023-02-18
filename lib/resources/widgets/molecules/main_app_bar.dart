@@ -3,13 +3,16 @@ import 'package:flutter_app/app/services/auth_service.dart';
 import 'package:flutter_app/resources/pages/auth_page.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/models/languages.dart';
 import '../../themes/styles/light_theme_colors.dart';
 import '../atoms/country_flag_name.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MainAppBar({super.key});
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
+  MainAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +62,8 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                         ))
                     .toList(),
                 onSelected: (value) async {
+                  SharedPreferences prefs = await _prefs;
+                  prefs.setString("appLanguage", value);
                   await NyLocalization.instance
                       .setLanguage(context, language: value);
                 },

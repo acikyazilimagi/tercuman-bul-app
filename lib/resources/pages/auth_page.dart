@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/app/services/firestore_service.dart';
 import 'package:flutter_app/resources/pages/home_page.dart';
 import 'package:flutter_app/resources/widgets/atoms/terms_and_conditions.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../widgets/molecules/main_scaffold.dart';
@@ -80,17 +79,9 @@ class _AuthPageState extends NyState<AuthPage> {
   void showTos() {
     showDialog(
       context: context,
+      barrierDismissible: false,
       builder: (context) {
         return AlertDialog(
-          icon: IconButton(
-            alignment: Alignment.topRight,
-            icon: const Icon(MdiIcons.close),
-            onPressed: () async {
-              _tosAccepted = false;
-              await setTos(_tosAccepted);
-              routeTo(HomePage.path);
-            },
-          ),
           title: Text("tos".tr()),
           content: SingleChildScrollView(
             child: Column(
@@ -101,14 +92,6 @@ class _AuthPageState extends NyState<AuthPage> {
             ),
           ),
           actions: <Widget>[
-            TextButton(
-              child: Text("cancel".tr().toUpperCase()),
-              onPressed: () async {
-                _tosAccepted = false;
-                await setTos(_tosAccepted);
-                routeTo(HomePage.path);
-              },
-            ),
             TextButton(
               child: Text("iAgree".tr().toUpperCase()),
               onPressed: () async {
