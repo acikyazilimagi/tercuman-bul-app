@@ -1,4 +1,10 @@
+import 'dart:convert';
+import 'dart:developer';
+import 'dart:io';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app/models/translator_list_item.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../../app/networking/dio/base_api_service.dart';
 import 'package:nylo_framework/nylo_framework.dart';
@@ -23,9 +29,25 @@ class ApiService extends BaseApiService {
   get interceptors =>
       {if (getEnv('APP_DEBUG') == true) PrettyDioLogger: PrettyDioLogger()};
 
-  Future fetchTestData() async {
+  Future<List<TranslatorListItem>> fetchTestData() async {
+    String token = await FirebaseAuth.instance.currentUser!.getIdToken();
     return await network(
-      request: (request) => request.get("/endpoint-path"),
+      request: (request) {
+        request.options.headers = {
+          HttpHeaders.authorizationHeader: "Bearer $token",
+          HttpHeaders.contentTypeHeader: "application/json",
+        };
+        return request.post("/getUsersByLocation",
+            data: jsonEncode({
+              "latitude": 1,
+              "longitude": 1,
+              "page": 1,
+              "env": "dev"
+            }));
+      },
+      handleFailure: (e) {
+        log(e.toString());
+      },
     );
   }
 }
