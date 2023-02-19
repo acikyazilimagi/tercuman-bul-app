@@ -105,5 +105,5 @@
   "accessDisabledErrorText": "تم تعطيل الوصول إلى هذا الحساب مؤقتًا",
   "signInHintText": "هل لديك حساب بالفعل؟",
   "emailTakenErrorText": "هناك حساب مرتبط بهذا البريد الإلكتروني مسبقًا",
-  "tos": "شروط الخدمة"
+  "termsAndConditionsLabel": "شروط الخدمة"
 }

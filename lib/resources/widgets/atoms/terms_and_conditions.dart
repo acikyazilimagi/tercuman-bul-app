@@ -30,7 +30,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
                 padding: EdgeInsets.zero,
                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 alignment: Alignment.centerLeft),
-            child: Text("tos".tr()),
+            child: Text("termsAndConditionsLabel".tr()),
           ),
         ),
       ],
