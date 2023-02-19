@@ -3,15 +3,19 @@ import 'package:flutter_app/config/design.dart';
 import 'package:flutter_app/config/theme.dart';
 import 'package:flutter_app/resources/pages/home_page.dart';
 import 'package:nylo_framework/nylo_framework.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../config/localization.dart';
 import '../services/firestore_service.dart';
 
 class AppProvider implements NyProvider {
   @override
   boot(Nylo nylo) async {
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
     await NyLocalization.instance.init(
         localeType: localeType,
-        languageCode: languageCode,
+        languageCode: prefs.getString("appLanguage") ?? languageCode,
         languagesList: languagesList,
         assetsDirectory: assetsDirectory,
         valuesAsMap: valuesAsMap);
