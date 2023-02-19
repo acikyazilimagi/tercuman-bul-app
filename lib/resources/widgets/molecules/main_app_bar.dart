@@ -63,7 +63,9 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                     .toList(),
                 onSelected: (value) async {
                   SharedPreferences prefs = await _prefs;
-                  prefs.setString("appLanguage", value);
+                  if(value != "ku") {
+                    prefs.setString("appLanguage", value);
+                  }
                   await NyLocalization.instance
                       .setLanguage(context, language: value);
                 },

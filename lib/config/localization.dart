@@ -17,7 +17,7 @@ import 'package:nylo_framework/nylo_framework.dart';
 | The language code should match the name of the file i.e /lang/es.json
 |--------------------------------------------------------------------------
 */
-final String languageCode = getEnv('DEFAULT_LOCALE', defaultValue: "tr");
+final String languageCode = getEnv('DEFAULT_LOCALE', defaultValue: "en");
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +36,7 @@ const LocaleType localeType = LocaleType.asDefined; // device, asDefined
 | Add a list of supported languages.
 |--------------------------------------------------------------------------
 */
-const List<String> languagesList = ['en', 'tr'];
+const List<String> languagesList = ['en', 'tr', 'ku', 'ru', 'ar'];
 
 /*
 |--------------------------------------------------------------------------
