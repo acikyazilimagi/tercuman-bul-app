@@ -16,6 +16,8 @@ import 'package:nylo_framework/nylo_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../app/controllers/auth_controller.dart';
+import '../../app/models/translator_list_item.dart';
+import '../../app/networking/api_service.dart';
 import '../themes/styles/light_theme_colors.dart';
 import '../widgets/atoms/country_flag_name.dart';
 import '../widgets/atoms/custom_dropdown.dart';
@@ -33,6 +35,7 @@ class TranslatorListPage extends NyStatefulWidget {
 }
 
 class _TranslatorListPageState extends NyState<TranslatorListPage> {
+  final ApiService _apiService = ApiService();
   late List<Translator> translators;
   late TranslatorApiService service;
 
@@ -41,6 +44,9 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
 
   @override
   init() async {
+    // TODO: Properly parse this and populate list
+    List<TranslatorListItem>? users = await _apiService.fetchTestData();
+
     service = TranslatorApiService(buildContext: context);
     List<Translator> translatorsToSet = await service.all();
     setState(() {
