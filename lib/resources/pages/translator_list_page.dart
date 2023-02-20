@@ -1,10 +1,10 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/models/languages.dart';
-import 'package:flutter_app/app/models/translator.dart';
-import 'package:flutter_app/app/networking/translator_api_service.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
+import 'package:flutter_app/app/services/location_service.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
 import 'package:flutter_app/resources/pages/become_translator_page.dart';
@@ -16,6 +16,8 @@ import 'package:nylo_framework/nylo_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../app/controllers/auth_controller.dart';
+import '../../app/models/translator_list_item.dart';
+import '../../app/networking/api_service.dart';
 import '../themes/styles/light_theme_colors.dart';
 import '../widgets/atoms/country_flag_name.dart';
 import '../widgets/atoms/custom_dropdown.dart';
@@ -33,18 +35,19 @@ class TranslatorListPage extends NyStatefulWidget {
 }
 
 class _TranslatorListPageState extends NyState<TranslatorListPage> {
-  late List<Translator> translators;
-  late TranslatorApiService service;
+  final ApiService _apiService = ApiService();
+  late List<TranslatorListItem> translators;
 
   bool isDataLoading = true;
   String? selectedLanguageKey;
 
   @override
   init() async {
-    service = TranslatorApiService(buildContext: context);
-    List<Translator> translatorsToSet = await service.all();
+    GeoPoint location = await LocationService().getLocation();
+    List<TranslatorListItem>? listOfTranslators = await _apiService.fetchTranslatorList(location.latitude, location.longitude);
+
     setState(() {
-      translators = translatorsToSet;
+      translators = listOfTranslators!;
       isDataLoading = false;
     });
     return super.init();
@@ -136,7 +139,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
   }
 
   Widget _translatorList() {
-    List<Translator> filteredTranslators = translators
+    List<TranslatorListItem> filteredTranslators = translators
         .where((e) =>
             selectedLanguageKey == null ||
             e.languages.contains(selectedLanguageKey))
@@ -151,9 +154,10 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
         itemBuilder: (context, index) => CustomExpandableCard(
           topic: Row(
             children: [
-              const Text(
-                "0.5\nkm",
-                style: TextStyle(fontSize: 11),
+              Text(
+                "${(filteredTranslators[index].distance / 1000).toStringAsFixed(2)}\nkm",
+                style: const TextStyle(fontSize: 11),
+                textAlign: TextAlign.center,
               ),
               getWidthSpacer,
               Text(
@@ -205,9 +209,8 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                 ),
                 getSpacer,
                 if (filteredTranslators[index]
-                        .contact
-                        ?.haveAnyContactInformation ==
-                    true) ...{
+                        .contact.isNotEmpty)
+                  ...{
                   Text(
                     'contantInformation'.tr(),
                     style: const TextStyle(fontSize: 12),
@@ -224,33 +227,29 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                     childAspectRatio: MediaQuery.of(context).size.width / 100,
                     children: [
                       if (filteredTranslators[index]
-                              .contact
-                              ?.facebook
+                              .contact["facebook"]
                               ?.isNotEmpty ==
                           true)
                         _contactButton("facebook",
-                            "https://www.facebook.com/${filteredTranslators[index].contact!.facebook}"),
+                            "https://www.facebook.com/${filteredTranslators[index].contact["facebook"]}"),
                       if (filteredTranslators[index]
-                              .contact
-                              ?.twitter
+                              .contact["twitter"]
                               ?.isNotEmpty ==
                           true)
                         _contactButton("twitter",
-                            "https://twitter.com/${filteredTranslators[index].contact!.twitter}"),
+                            "https://twitter.com/${filteredTranslators[index].contact["twitter"]}"),
                       if (filteredTranslators[index]
-                              .contact
-                              ?.instagram
+                              .contact["instagram"]
                               ?.isNotEmpty ==
                           true)
                         _contactButton("instagram",
-                            "https://www.instagram.com/${filteredTranslators[index].contact!.instagram}"),
+                            "https://www.instagram.com/${filteredTranslators[index].contact["instagram"]}"),
                       if (filteredTranslators[index]
-                              .contact
-                              ?.linkedin
+                              .contact["linkedin"]
                               ?.isNotEmpty ==
                           true)
                         _contactButton("linkedin",
-                            "https://www.linkedin.com/in/${filteredTranslators[index].contact!.linkedin}"),
+                            "https://www.linkedin.com/in/${filteredTranslators[index].contact["linkedin"]}"),
                     ],
                   ),
                 }

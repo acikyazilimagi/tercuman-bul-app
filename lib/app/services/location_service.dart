@@ -51,7 +51,7 @@ class LocationService {
         await updateLocation();
       }
     } catch (e) {
-      log("Location service exception:", error: e);
+      log("Location service exception: ${e.toString()}");
     }
   }
 
