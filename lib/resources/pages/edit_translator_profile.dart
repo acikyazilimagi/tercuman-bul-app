@@ -39,6 +39,7 @@ class _EditTranslatorProfilePageState
 
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
+  final _phoneNameController = TextEditingController();
   final _instagramController = TextEditingController();
   final _linkedinController = TextEditingController();
   final _facebookController = TextEditingController();
@@ -47,12 +48,14 @@ class _EditTranslatorProfilePageState
   bool _isDigitalOnlineSupport = false;
 
   List<String> _selectedLanguages = [];
+  final _formKey = GlobalKey<FormState>();
 
   @override
   init() {
     final name = translator.name.split(" ");
     _firstNameController.text = name.take(name.length - 1).join(" ");
     _lastNameController.text = name.last;
+    _phoneNameController.text = translator.contact?.phone ?? "";
     _instagramController.text = translator.contact?.instagram ?? "";
     _linkedinController.text = translator.contact?.linkedin ?? "";
     _facebookController.text = translator.contact?.facebook ?? "";
@@ -67,6 +70,7 @@ class _EditTranslatorProfilePageState
   void dispose() {
     _firstNameController.dispose();
     _lastNameController.dispose();
+    _phoneNameController.dispose();
     _instagramController.dispose();
     _linkedinController.dispose();
     _facebookController.dispose();
@@ -80,148 +84,174 @@ class _EditTranslatorProfilePageState
     return MainScaffold(
       selectedTabIndex: 1,
       body: SafeAreaWidget(
-        child: ListView(
-          physics: const BouncingScrollPhysics(),
-          padding: context.veryLowSymPadding,
-          children: [
-            Text(
-              "updateProfile".tr(),
-              textAlign: TextAlign.center,
-              style: Theme.of(context)
-                  .textTheme
-                  .displayMedium!
-                  .copyWith(color: LightThemeColors().title),
-            ),
-            getSpacer,
-            Linkify(
-              onOpen: (link) => routeTo(TranslatorListPage.path),
-              textAlign: TextAlign.center,
-              text: "yourProfileDescription".tr(),
-              linkStyle: const TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                decoration: TextDecoration.none,
+        child: Form(
+          key: _formKey,
+          child: ListView(
+            physics: const BouncingScrollPhysics(),
+            padding: context.veryLowSymPadding,
+            children: [
+              Text(
+                "updateProfile".tr(),
+                textAlign: TextAlign.center,
+                style: Theme.of(context)
+                    .textTheme
+                    .displayMedium!
+                    .copyWith(color: LightThemeColors().title),
               ),
-            ),
-            getSpacer,
-            CustomTextField(
-              title: "firstNameInputTitle".tr(),
-              hint: "firstNameInputHint".tr(),
-              controller: _firstNameController,
-            ),
-            getSpacer,
-            CustomTextField(
-              title: "lastNameInputTitle".tr(),
-              hint: "lastNameInputHint".tr(),
-              controller: _lastNameController,
-            ),
-            getSpacer,
-            Text(
-              "supportChannels".tr(),
-              style: const TextStyle(fontWeight: FontWeight.w800),
-            ),
-            getSpacer,
-            CustomSelectableTile(
-              isSelected: _isOnSiteSupport,
-              onSelectStateChanged: (value) {
-                setState(() => _isOnSiteSupport = value);
-              },
-              titleText: "onsiteSupport".tr(),
-            ),
-            CustomSelectableTile(
-              isSelected: _isDigitalOnlineSupport,
-              onSelectStateChanged: (value) {
-                setState(() => _isDigitalOnlineSupport = value);
-              },
-              titleText: "onlineSupport".tr(),
-            ),
-            getSpacer,
-            Text(
-              "availableSupport".tr(),
-              style: const TextStyle(fontWeight: FontWeight.w800),
-            ),
-            getSpacer,
-            CustomMultiselectDropdown<MapEntry<String, String>>(
-              items: Languages.usableLanguages,
-              hint: "chooseLanguage".tr(),
-              showSearchBox: true,
-              itemAsString: (item) => item.value,
-              itemBuilder: (context, item, isSelected) => ListTile(
-                title: CountryFlagName(
-                  code: item.key,
-                  name: item.value,
-                  type: 'lang',
+              getSpacer,
+              Linkify(
+                onOpen: (link) => routeTo(TranslatorListPage.path),
+                textAlign: TextAlign.center,
+                text: "yourProfileDescription".tr(),
+                linkStyle: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
                 ),
-                trailing: isSelected
-                    ? const Icon(MdiIcons.check, color: Colors.green)
+              ),
+              getSpacer,
+              CustomTextField(
+                title: "firstNameInputTitle".tr(),
+                hint: "firstNameInputHint".tr(),
+                controller: _firstNameController,
+                validator: (value) => value == null || value.isEmpty
+                    ? "firstNameInputHint".tr()
                     : null,
               ),
-              onChanged: (values) {
-                setState(() {
-                  _selectedLanguages = values.map((e) => e.key).toList();
-                });
-              },
-              selectedItems: translator.languages
-                  .map((l) =>
-                      Languages.usableLanguages.firstWhere((e) => e.key == l))
-                  .toList(),
-            ),
-            getSpacer,
-            Text(
-              "addContactAddress".tr(),
-              style: const TextStyle(fontWeight: FontWeight.w800),
-            ),
-            getSpacer,
-            ContactLinkField(
-              hint: "addFacebook".tr(),
-              companyLogo: MdiIcons.facebook,
-              controller: _facebookController,
-            ),
-            getSpacer,
-            ContactLinkField(
-              hint: "addInstagram".tr(),
-              companyLogo: MdiIcons.instagram,
-              controller: _instagramController,
-            ),
-            getSpacer,
-            ContactLinkField(
-              hint: "addTwitter".tr(),
-              companyLogo: MdiIcons.twitter,
-              controller: _twitterController,
-            ),
-            getSpacer,
-            ContactLinkField(
-              hint: "addLinkedin".tr(),
-              companyLogo: MdiIcons.linkedin,
-              controller: _linkedinController,
-            ),
-            getSpacer,
-            isLocked("register")
-                ? const Loader()
-                : CustomButton(
-                    text: "save".tr(),
-                    icon: Icons.save,
-                    style: CustomButtonStyles.darkFilled,
-                    onPressed: () async {
-                      event<RegisterEvent>(data: {
-                        "first_name": _firstNameController.text,
-                        "last_name": _lastNameController.text,
-                        "languages": _selectedLanguages,
-                        "facebook": _facebookController.text,
-                        "instagram": _instagramController.text,
-                        "twitter": _twitterController.text,
-                        "linkedin": _linkedinController.text,
-                        "on_site_support": _isOnSiteSupport,
-                        "digital_online_support": _isDigitalOnlineSupport,
-                      });
-
-                      await lockRelease("register",
-                          perform: FirestoreService().createTranslator);
-                      routeTo(TranslatorProfilePage.path);
-                    },
+              getSpacer,
+              CustomTextField(
+                title: "lastNameInputTitle".tr(),
+                hint: "lastNameInputHint".tr(),
+                controller: _lastNameController,
+                validator: (value) => value == null || value.isEmpty
+                    ? "lastNameInputHint".tr()
+                    : null,
+              ),
+              getSpacer,
+              CustomTextField(
+                title: "phoneNumber".tr(),
+                hint: "phoneNumberHelper".tr(),
+                controller: _phoneNameController,
+                validator: (value) => value == null ||
+                        value.isEmpty ||
+                        !RegExp(r"^\+?[0-9]{10,13}$").hasMatch(value)
+                    ? "phoneNumberHelper".tr()
+                    : null,
+              ),
+              getSpacer,
+              Text(
+                "supportChannels".tr(),
+                style: const TextStyle(fontWeight: FontWeight.w800),
+              ),
+              getSpacer,
+              CustomSelectableTile(
+                isSelected: _isOnSiteSupport,
+                onSelectStateChanged: (value) {
+                  setState(() => _isOnSiteSupport = value);
+                },
+                titleText: "onsiteSupport".tr(),
+              ),
+              CustomSelectableTile(
+                isSelected: _isDigitalOnlineSupport,
+                onSelectStateChanged: (value) {
+                  setState(() => _isDigitalOnlineSupport = value);
+                },
+                titleText: "onlineSupport".tr(),
+              ),
+              getSpacer,
+              Text(
+                "availableSupport".tr(),
+                style: const TextStyle(fontWeight: FontWeight.w800),
+              ),
+              getSpacer,
+              CustomMultiselectDropdown<MapEntry<String, String>>(
+                items: Languages.usableLanguages,
+                hint: "chooseLanguage".tr(),
+                showSearchBox: true,
+                itemAsString: (item) => item.value,
+                itemBuilder: (context, item, isSelected) => ListTile(
+                  title: CountryFlagName(
+                    code: item.key,
+                    name: item.value,
+                    type: 'lang',
                   ),
-            const ContactUsCard(),
-          ],
+                  trailing: isSelected
+                      ? const Icon(MdiIcons.check, color: Colors.green)
+                      : null,
+                ),
+                onChanged: (values) {
+                  setState(() {
+                    _selectedLanguages = values.map((e) => e.key).toList();
+                  });
+                },
+                selectedItems: translator.languages
+                    .map((l) =>
+                        Languages.usableLanguages.firstWhere((e) => e.key == l))
+                    .toList(),
+                validator: (value) => value == null || value.isEmpty
+                    ? "chooseLanguage".tr()
+                    : null,
+              ),
+              getSpacer,
+              Text(
+                "addContactAddress".tr(),
+                style: const TextStyle(fontWeight: FontWeight.w800),
+              ),
+              getSpacer,
+              ContactLinkField(
+                hint: "addFacebook".tr(),
+                companyLogo: MdiIcons.facebook,
+                controller: _facebookController,
+              ),
+              getSpacer,
+              ContactLinkField(
+                hint: "addInstagram".tr(),
+                companyLogo: MdiIcons.instagram,
+                controller: _instagramController,
+              ),
+              getSpacer,
+              ContactLinkField(
+                hint: "addTwitter".tr(),
+                companyLogo: MdiIcons.twitter,
+                controller: _twitterController,
+              ),
+              getSpacer,
+              ContactLinkField(
+                hint: "addLinkedin".tr(),
+                companyLogo: MdiIcons.linkedin,
+                controller: _linkedinController,
+              ),
+              getSpacer,
+              isLocked("register")
+                  ? const Loader()
+                  : CustomButton(
+                      text: "save".tr(),
+                      icon: Icons.save,
+                      style: CustomButtonStyles.darkFilled,
+                      onPressed: () async {
+                        if (_formKey.currentState!.validate()) {
+                          event<RegisterEvent>(data: {
+                            "first_name": _firstNameController.text,
+                            "last_name": _lastNameController.text,
+                            "phone": _phoneNameController.text,
+                            "languages": _selectedLanguages,
+                            "facebook": _facebookController.text,
+                            "instagram": _instagramController.text,
+                            "twitter": _twitterController.text,
+                            "linkedin": _linkedinController.text,
+                            "on_site_support": _isOnSiteSupport,
+                            "digital_online_support": _isDigitalOnlineSupport,
+                          });
+
+                          await lockRelease("register",
+                              perform: FirestoreService().createTranslator);
+                          routeTo(TranslatorProfilePage.path);
+                        }
+                      },
+                    ),
+              const ContactUsCard(),
+            ],
+          ),
         ),
       ),
     );

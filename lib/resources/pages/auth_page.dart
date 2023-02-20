@@ -1,10 +1,10 @@
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/services/firestore_service.dart';
+import 'package:flutter_app/app/services/shared_preferences_service.dart';
 import 'package:flutter_app/resources/pages/home_page.dart';
 import 'package:flutter_app/resources/widgets/atoms/terms_and_conditions.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import '../widgets/molecules/main_scaffold.dart';
 import '/app/controllers/controller.dart';
 
@@ -21,25 +21,26 @@ class AuthPage extends NyStatefulWidget {
 }
 
 class _AuthPageState extends NyState<AuthPage> {
-  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   bool _tosAccepted = false;
 
   @override
   void initState() {
-    super.initState();
-    _prefs.then((value) {
-      _tosAccepted = value.getBool("tosAccepted") ?? false;
+    Future.delayed(Duration.zero, () async {
+      final prefs = await SharedPreferencesService.getInstance();
+      final isTosAccepted = await prefs.isTosAccepted();
       setState(() {
+        _tosAccepted = isTosAccepted;
         if (!_tosAccepted) {
           showTos();
         }
       });
     });
+    super.initState();
   }
 
-  Future<void> setTos(bool tosValue) async {
-    SharedPreferences prefs = await _prefs;
-    prefs.setBool("tosAccepted", tosValue);
+  Future<void> setTos(bool value) async {
+    final prefs = await SharedPreferencesService.getInstance();
+    await prefs.setTosAccepted(value);
   }
 
   @override
@@ -97,7 +98,9 @@ class _AuthPageState extends NyState<AuthPage> {
               onPressed: () async {
                 _tosAccepted = true;
                 await setTos(_tosAccepted);
-                Navigator.of(context).pop();
+                if (context.mounted) {
+                  Navigator.of(context).pop();
+                }
               },
             ),
           ],
