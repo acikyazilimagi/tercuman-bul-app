@@ -16,7 +16,7 @@ jobs:
           channel: "stable"
       - run: flutter config --enable-web
       - run: flutter pub get
-      - run: flutter build web --release
+      - run: flutter build web --dart-define ENV_FILE_PATH=.env --release
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"

@@ -42,7 +42,7 @@ class ApiService extends BaseApiService {
               "latitude": latitude,
               "longitude": longitude,
               "page": 1,
-              "env": "dev"
+              "env": getEnv('TRANSLATOR_DB')
             }));
       },
       handleFailure: (e) {
