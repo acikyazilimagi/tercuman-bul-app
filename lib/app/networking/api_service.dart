@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/app/models/translator_list_item.dart';
 import 'package:flutter_app/app/networking/dio/interceptors/bearer_auth_interceptor.dart';
 import '../../app/networking/dio/base_api_service.dart';
+import 'package:nylo_framework/nylo_framework.dart';
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +42,7 @@ class ApiService extends BaseApiService {
               "latitude": latitude,
               "longitude": longitude,
               "page": 1,
-              "env": "dev"
+              "env": getEnv('TRANSLATOR_DB')
             }));
       },
       handleFailure: (e) {
