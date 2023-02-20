@@ -24,7 +24,7 @@ class MainScaffold extends StatelessWidget implements PreferredSizeWidget {
           ? TextDirection.rtl
           : TextDirection.ltr,
       child: Scaffold(
-        appBar: MainAppBar(),
+        appBar: const MainAppBar(),
         bottomNavigationBar: showBottomNavigationBar
             ? MainBottomNavigationBar(
                 currentIndex: selectedTabIndex,
