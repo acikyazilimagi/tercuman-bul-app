@@ -31,7 +31,7 @@ class ApiService extends BaseApiService {
 
   Future<List<TranslatorListItem>?> fetchTranslatorList(double latitude, double longitude) async {
     String token = await FirebaseAuth.instance.currentUser!.getIdToken();
-    return await network<List<TranslatorListItem>?>(
+    return await network<List<TranslatorListItem>>(
       request: (request) {
         request.options.headers = {
           HttpHeaders.authorizationHeader: "Bearer $token",
