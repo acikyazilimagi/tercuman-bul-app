@@ -77,6 +77,7 @@ class FirestoreService {
   Future<void> updateLocation(GeoPoint location) async {
     try {
       var userId = AuthService().currentUser?.uid;
+      print("User Id $userId");
       if (userId != null) {
         await firestore
             .collection(FirestoreCollectionPath.dev.name)
@@ -84,7 +85,7 @@ class FirestoreService {
             .update({"location": location});
       }
     } catch (e) {
-      log("Update location exception: ${e.toString()}");
+      print("Update location exception: ${e.toString()}");
     }
   }
 }
