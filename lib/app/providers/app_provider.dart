@@ -6,6 +6,7 @@ import 'package:nylo_framework/nylo_framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../config/localization.dart';
 import '../services/firestore_service.dart';
+import '../services/location_service.dart';
 
 class AppProvider implements NyProvider {
   @override
@@ -27,7 +28,7 @@ class AppProvider implements NyProvider {
 
     AuthService().configureProviders();
     await FirestoreService().getTranslator();
-
+    LocationService();
     return nylo;
   }
 }

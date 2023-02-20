@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/controllers/home_controller.dart';
-import 'package:flutter_app/app/services/location_service.dart';
 import 'package:flutter_app/resources/pages/become_translator_page.dart';
 import 'package:flutter_app/resources/pages/translator_list_page.dart';
 import 'package:flutter_app/resources/pages/translator_profile_page.dart';
@@ -25,12 +24,6 @@ class HomePage extends NyStatefulWidget {
 
 class _HomePageState extends NyState<HomePage> {
   List<String> selectedLanguages = [];
-
-  @override
-  init() async {
-    LocationService();
-    super.init();
-  }
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
-import 'package:flutter_app/app/services/location_service.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
 import 'package:flutter_app/resources/pages/translator_list_page.dart';
@@ -30,12 +28,6 @@ class TranslatorProfilePage extends NyStatefulWidget {
 }
 
 class _TranslatorProfilePageState extends NyState<TranslatorProfilePage> {
-  @override
-  init() async {
-    if (kIsWeb) {
-      await LocationService().updateLocation();
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
