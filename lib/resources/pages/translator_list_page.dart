@@ -239,11 +239,11 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                         _contactButton("twitter",
                             "https://twitter.com/${filteredTranslators[index].contact["twitter"]}"),
                       if (filteredTranslators[index]
-                              .contact["instagram"]
+                              .contact["whatsapp"]
                               ?.isNotEmpty ==
                           true)
-                        _contactButton("instagram",
-                            "https://www.instagram.com/${filteredTranslators[index].contact["instagram"]}"),
+                        _contactButton("whatsapp",
+                            "https://www.whatsapp.com/${filteredTranslators[index].contact["whatsapp"]}"),
                       if (filteredTranslators[index]
                               .contact["linkedin"]
                               ?.isNotEmpty ==

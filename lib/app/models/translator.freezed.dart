@@ -503,7 +503,7 @@ Contact _$ContactFromJson(Map<String, dynamic> json) {
 mixin _$Contact {
   String? get email => throw _privateConstructorUsedError;
   String? get messenger => throw _privateConstructorUsedError;
-  String? get instagram => throw _privateConstructorUsedError;
+  String? get whatsapp => throw _privateConstructorUsedError;
   String? get linkedin => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get twitter => throw _privateConstructorUsedError;
@@ -521,7 +521,7 @@ abstract class $ContactCopyWith<$Res> {
   $Res call(
       {String? email,
       String? messenger,
-      String? instagram,
+      String? whatsapp,
       String? linkedin,
       String? phone,
       String? twitter});
@@ -542,7 +542,7 @@ class _$ContactCopyWithImpl<$Res, $Val extends Contact>
   $Res call({
     Object? email = freezed,
     Object? messenger = freezed,
-    Object? instagram = freezed,
+    Object? whatsapp = freezed,
     Object? linkedin = freezed,
     Object? phone = freezed,
     Object? twitter = freezed,
@@ -556,9 +556,9 @@ class _$ContactCopyWithImpl<$Res, $Val extends Contact>
           ? _value.messenger
           : messenger // ignore: cast_nullable_to_non_nullable
               as String?,
-      instagram: freezed == instagram
-          ? _value.instagram
-          : instagram // ignore: cast_nullable_to_non_nullable
+      whatsapp: freezed == whatsapp
+          ? _value.whatsapp
+          : whatsapp // ignore: cast_nullable_to_non_nullable
               as String?,
       linkedin: freezed == linkedin
           ? _value.linkedin
@@ -586,7 +586,7 @@ abstract class _$$_ContactCopyWith<$Res> implements $ContactCopyWith<$Res> {
   $Res call(
       {String? email,
       String? messenger,
-      String? instagram,
+      String? whatsapp,
       String? linkedin,
       String? phone,
       String? twitter});
@@ -604,7 +604,7 @@ class __$$_ContactCopyWithImpl<$Res>
   $Res call({
     Object? email = freezed,
     Object? messenger = freezed,
-    Object? instagram = freezed,
+    Object? whatsapp = freezed,
     Object? linkedin = freezed,
     Object? phone = freezed,
     Object? twitter = freezed,
@@ -618,9 +618,9 @@ class __$$_ContactCopyWithImpl<$Res>
           ? _value.messenger
           : messenger // ignore: cast_nullable_to_non_nullable
               as String?,
-      instagram: freezed == instagram
-          ? _value.instagram
-          : instagram // ignore: cast_nullable_to_non_nullable
+      whatsapp: freezed == whatsapp
+          ? _value.whatsapp
+          : whatsapp // ignore: cast_nullable_to_non_nullable
               as String?,
       linkedin: freezed == linkedin
           ? _value.linkedin
@@ -644,7 +644,7 @@ class _$_Contact extends _Contact {
   const _$_Contact(
       {this.email,
       this.messenger,
-      this.instagram,
+      this.whatsapp,
       this.linkedin,
       this.phone,
       this.twitter})
@@ -658,7 +658,7 @@ class _$_Contact extends _Contact {
   @override
   final String? messenger;
   @override
-  final String? instagram;
+  final String? whatsapp;
   @override
   final String? linkedin;
   @override
@@ -674,8 +674,8 @@ class _$_Contact extends _Contact {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.messenger, messenger) ||
                 other.messenger == messenger) &&
-            (identical(other.instagram, instagram) ||
-                other.instagram == instagram) &&
+            (identical(other.whatsapp, whatsapp) ||
+                other.whatsapp == whatsapp) &&
             (identical(other.linkedin, linkedin) ||
                 other.linkedin == linkedin) &&
             (identical(other.phone, phone) || other.phone == phone) &&
@@ -685,7 +685,7 @@ class _$_Contact extends _Contact {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, email, messenger, instagram, linkedin, phone, twitter);
+      runtimeType, email, messenger, whatsapp, linkedin, phone, twitter);
 
   @JsonKey(ignore: true)
   @override
@@ -705,7 +705,7 @@ abstract class _Contact extends Contact {
   const factory _Contact(
       {final String? email,
       final String? messenger,
-      final String? instagram,
+      final String? whatsapp,
       final String? linkedin,
       final String? phone,
       final String? twitter}) = _$_Contact;
@@ -718,7 +718,7 @@ abstract class _Contact extends Contact {
   @override
   String? get messenger;
   @override
-  String? get instagram;
+  String? get whatsapp;
   @override
   String? get linkedin;
   @override

@@ -39,7 +39,7 @@ class _EditTranslatorProfilePageState
 
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
-  final _instagramController = TextEditingController();
+  final _whatsappController = TextEditingController();
   final _linkedinController = TextEditingController();
   final _messengerController = TextEditingController();
   final _twitterController = TextEditingController();
@@ -53,7 +53,7 @@ class _EditTranslatorProfilePageState
     final name = translator.name.split(" ");
     _firstNameController.text = name.take(name.length - 1).join(" ");
     _lastNameController.text = name.last;
-    _instagramController.text = translator.contact?.instagram ?? "";
+    _whatsappController.text = translator.contact?.whatsapp ?? "";
     _linkedinController.text = translator.contact?.linkedin ?? "";
     _messengerController.text = translator.contact?.messenger ?? "";
     _twitterController.text = translator.contact?.twitter ?? "";
@@ -67,7 +67,7 @@ class _EditTranslatorProfilePageState
   void dispose() {
     _firstNameController.dispose();
     _lastNameController.dispose();
-    _instagramController.dispose();
+    _whatsappController.dispose();
     _linkedinController.dispose();
     _messengerController.dispose();
     _twitterController.dispose();
@@ -174,14 +174,14 @@ class _EditTranslatorProfilePageState
             getSpacer,
             ContactLinkField(
               hint: "addMessenger".tr(),
-              companyLogo: MdiIcons.messenger,
+              companyLogo: MdiIcons.facebookMessenger,
               controller: _messengerController,
             ),
             getSpacer,
             ContactLinkField(
-              hint: "addInstagram".tr(),
-              companyLogo: MdiIcons.instagram,
-              controller: _instagramController,
+              hint: "addWhatsApp".tr(),
+              companyLogo: MdiIcons.whatsapp,
+              controller: _whatsappController,
             ),
             getSpacer,
             ContactLinkField(
@@ -208,7 +208,7 @@ class _EditTranslatorProfilePageState
                         "last_name": _lastNameController.text,
                         "languages": _selectedLanguages,
                         "messenger": _messengerController.text,
-                        "instagram": _instagramController.text,
+                        "whatsapp": _whatsappController.text,
                         "twitter": _twitterController.text,
                         "linkedin": _linkedinController.text,
                         "on_site_support": _isOnSiteSupport,

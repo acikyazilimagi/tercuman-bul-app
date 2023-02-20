@@ -22,7 +22,7 @@ class RegisterTranslatorListener extends NyListener {
         email: authService.currentUser!.email,
         messenger: event?["messenger"],
         twitter: event?["twitter"],
-        instagram: event?["instagram"],
+        whatsapp: event?["whatsapp"],
         linkedin: event?["linkedin"],
       ),
       isInterpreter: true,
