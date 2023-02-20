@@ -1,3 +1,4 @@
+import 'package:flutter_app/app/models/translator_list_item.dart';
 import 'package:flutter_app/app/networking/dio/base_api_service.dart';
 import '/app/networking/api_service.dart';
 
@@ -13,11 +14,8 @@ import '/app/networking/api_service.dart';
 */
 
 final Map<Type, dynamic> modelDecoders = {
-  // List<User>: (data) => List.from(data).map((json) => User.fromJson(json)).toList(),
-  //
-  // User: (data) => User.fromJson(data),
-
-  // User: (data) => User.fromJson(data),
+  List<TranslatorListItem>: (data) => List.from(data).map((json) => TranslatorListItem.fromJson(json)).toList(),
+  TranslatorListItem: (data) => TranslatorListItem.fromJson(data),
 };
 
 /*
@@ -33,6 +31,4 @@ final Map<Type, dynamic> modelDecoders = {
 
 final Map<Type, BaseApiService> apiDecoders = {
   ApiService: ApiService(),
-
-  // ...
 };
