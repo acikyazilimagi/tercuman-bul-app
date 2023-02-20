@@ -23,7 +23,7 @@ class ApiService extends BaseApiService {
   ApiService({BuildContext? buildContext}) : super(buildContext);
 
   @override
-  String get baseUrl => getEnv('API_BASE_URL');
+  String get baseUrl => 'https://us-central1-tercuman-bulmaca.cloudfunctions.net';
 
   @override
   get interceptors =>
