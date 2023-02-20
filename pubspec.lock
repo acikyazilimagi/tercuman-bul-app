@@ -439,7 +439,7 @@ packages:
     source: hosted
     version: "2.0.2"
   flutter_dotenv:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_dotenv
       sha256: d9283d92059a22e9834bc0a31336658ffba77089fb6f3cc36751f1fc7c6661a3
