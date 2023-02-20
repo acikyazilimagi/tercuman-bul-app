@@ -41,7 +41,7 @@ class _EditTranslatorProfilePageState
   final _lastNameController = TextEditingController();
   final _instagramController = TextEditingController();
   final _linkedinController = TextEditingController();
-  final _facebookController = TextEditingController();
+  final _messengerController = TextEditingController();
   final _twitterController = TextEditingController();
   bool _isOnSiteSupport = false;
   bool _isDigitalOnlineSupport = false;
@@ -55,7 +55,7 @@ class _EditTranslatorProfilePageState
     _lastNameController.text = name.last;
     _instagramController.text = translator.contact?.instagram ?? "";
     _linkedinController.text = translator.contact?.linkedin ?? "";
-    _facebookController.text = translator.contact?.facebook ?? "";
+    _messengerController.text = translator.contact?.messenger ?? "";
     _twitterController.text = translator.contact?.twitter ?? "";
     _isOnSiteSupport = translator.capabilities?.translatorInPerson ?? false;
     _isDigitalOnlineSupport =
@@ -69,7 +69,7 @@ class _EditTranslatorProfilePageState
     _lastNameController.dispose();
     _instagramController.dispose();
     _linkedinController.dispose();
-    _facebookController.dispose();
+    _messengerController.dispose();
     _twitterController.dispose();
 
     super.dispose();
@@ -173,9 +173,9 @@ class _EditTranslatorProfilePageState
             ),
             getSpacer,
             ContactLinkField(
-              hint: "addFacebook".tr(),
-              companyLogo: MdiIcons.facebook,
-              controller: _facebookController,
+              hint: "addMessenger".tr(),
+              companyLogo: MdiIcons.messenger,
+              controller: _messengerController,
             ),
             getSpacer,
             ContactLinkField(
@@ -207,7 +207,7 @@ class _EditTranslatorProfilePageState
                         "first_name": _firstNameController.text,
                         "last_name": _lastNameController.text,
                         "languages": _selectedLanguages,
-                        "facebook": _facebookController.text,
+                        "messenger": _messengerController.text,
                         "instagram": _instagramController.text,
                         "twitter": _twitterController.text,
                         "linkedin": _linkedinController.text,

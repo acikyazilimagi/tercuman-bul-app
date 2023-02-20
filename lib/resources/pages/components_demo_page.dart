@@ -54,8 +54,8 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
             flags(),
             const SizedBox(height: 16),
             ContactLinkField(
-              hint: "addFacebook".tr(),
-              companyLogo: MdiIcons.facebook,
+              hint: "addMessenger".tr(),
+              companyLogo: MdiIcons.messenger,
             ),
             ContactLinkField(
               hint: "addInstagram".tr(),

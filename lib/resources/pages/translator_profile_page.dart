@@ -126,9 +126,9 @@ class _TranslatorProfilePageState extends NyState<TranslatorProfilePage> {
             ),
             getSpacer,
             _socialMediaItem(
-              icon: MdiIcons.facebook,
-              title: "facebook".tr(),
-              link: translator.contact?.facebook,
+              icon: MdiIcons.messenger,
+              title: "messenger".tr(),
+              link: translator.contact?.messenger,
             ),
             getSpacer,
             _socialMediaItem(

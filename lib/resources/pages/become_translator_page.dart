@@ -38,7 +38,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
   final _lastNameController = TextEditingController();
   final _instagramController = TextEditingController();
   final _linkedinController = TextEditingController();
-  final _facebookController = TextEditingController();
+  final _messengerController = TextEditingController();
   final _twitterController = TextEditingController();
   bool _isOnSiteSupport = false;
   bool _isDigitalOnlineSupport = false;
@@ -51,7 +51,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
     _lastNameController.dispose();
     _instagramController.dispose();
     _linkedinController.dispose();
-    _facebookController.dispose();
+    _messengerController.dispose();
     _twitterController.dispose();
 
     super.dispose();
@@ -151,9 +151,9 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
             ),
             getSpacer,
             ContactLinkField(
-              hint: "addFacebook".tr(),
-              companyLogo: MdiIcons.facebook,
-              controller: _facebookController,
+              hint: "addMessenger".tr(),
+              companyLogo: MdiIcons.messenger,
+              controller: _messengerController,
             ),
             getSpacer,
             ContactLinkField(
@@ -185,7 +185,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                         "first_name": _firstNameController.text,
                         "last_name": _lastNameController.text,
                         "languages": _selectedLanguages,
-                        "facebook": _facebookController.text,
+                        "messenger": _messengerController.text,
                         "instagram": _instagramController.text,
                         "twitter": _twitterController.text,
                         "linkedin": _linkedinController.text,

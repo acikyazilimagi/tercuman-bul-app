@@ -50,7 +50,7 @@ Map<String, dynamic> _$$_CapabilitiesToJson(_$_Capabilities instance) =>
 
 _$_Contact _$$_ContactFromJson(Map<String, dynamic> json) => _$_Contact(
       email: json['email'] as String?,
-      facebook: json['facebook'] as String?,
+      messenger: json['messenger'] as String?,
       instagram: json['instagram'] as String?,
       linkedin: json['linkedin'] as String?,
       phone: json['phone'] as String?,
@@ -60,7 +60,7 @@ _$_Contact _$$_ContactFromJson(Map<String, dynamic> json) => _$_Contact(
 Map<String, dynamic> _$$_ContactToJson(_$_Contact instance) =>
     <String, dynamic>{
       'email': instance.email,
-      'facebook': instance.facebook,
+      'messenger': instance.messenger,
       'instagram': instance.instagram,
       'linkedin': instance.linkedin,
       'phone': instance.phone,

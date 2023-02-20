@@ -60,7 +60,7 @@ class Capabilities with _$Capabilities {
 class Contact with _$Contact {
   const factory Contact({
     String? email,
-    String? facebook,
+    String? messenger,
     String? instagram,
     String? linkedin,
     String? phone,
@@ -73,11 +73,11 @@ class Contact with _$Contact {
 
   @override
   String toString() {
-    return "email: $email facebook: $facebook instagram: $instagram linkedin: $linkedin phone: $phone twitter: $twitter";
+    return "email: $email messenger: $messenger instagram: $instagram linkedin: $linkedin phone: $phone twitter: $twitter";
   }
 
   bool get haveAnyContactInformation =>
-      (facebook?.isNotEmpty == true) ||
+      (messenger?.isNotEmpty == true) ||
       (twitter?.isNotEmpty == true) ||
       (instagram?.isNotEmpty == true) ||
       (linkedin?.isNotEmpty == true);

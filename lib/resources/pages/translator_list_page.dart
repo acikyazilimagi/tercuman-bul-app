@@ -227,11 +227,11 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                     childAspectRatio: MediaQuery.of(context).size.width / 100,
                     children: [
                       if (filteredTranslators[index]
-                              .contact["facebook"]
+                              .contact["messenger"]
                               ?.isNotEmpty ==
                           true)
-                        _contactButton("facebook",
-                            "https://www.facebook.com/${filteredTranslators[index].contact["facebook"]}"),
+                        _contactButton("messenger",
+                            "https://www.messenger.com/${filteredTranslators[index].contact["messenger"]}"),
                       if (filteredTranslators[index]
                               .contact["twitter"]
                               ?.isNotEmpty ==
