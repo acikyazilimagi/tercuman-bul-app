@@ -61,6 +61,7 @@ class _EditTranslatorProfilePageState
     _isOnSiteSupport = translator.capabilities?.translatorInPerson ?? false;
     _isDigitalOnlineSupport =
         translator.capabilities?.translatorVirtual ?? false;
+    _selectedLanguages = translator.languages;
     return super.init();
   }
 
