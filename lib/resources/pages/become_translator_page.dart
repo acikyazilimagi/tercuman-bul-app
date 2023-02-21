@@ -37,9 +37,8 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
   final _phoneNameController = TextEditingController();
-  final _instagramController = TextEditingController();
-  final _linkedinController = TextEditingController();
-  final _facebookController = TextEditingController();
+  final _whatsappController = TextEditingController();
+  final _messengerController = TextEditingController();
   final _twitterController = TextEditingController();
   bool _isOnSiteSupport = false;
   bool _isDigitalOnlineSupport = false;
@@ -52,9 +51,8 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
     _firstNameController.dispose();
     _lastNameController.dispose();
     _phoneNameController.dispose();
-    _instagramController.dispose();
-    _linkedinController.dispose();
-    _facebookController.dispose();
+    _whatsappController.dispose();
+    _messengerController.dispose();
     _twitterController.dispose();
 
     super.dispose();
@@ -176,27 +174,21 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
               ),
               getSpacer,
               ContactLinkField(
-                hint: "addFacebook".tr(),
-                companyLogo: MdiIcons.facebook,
-                controller: _facebookController,
+                hint: "addMessenger".tr(),
+                companyLogo: MdiIcons.facebookMessenger,
+                controller: _messengerController,
               ),
               getSpacer,
               ContactLinkField(
-                hint: "addInstagram".tr(),
-                companyLogo: MdiIcons.instagram,
-                controller: _instagramController,
+                hint: "addWhatsApp".tr(),
+                companyLogo: MdiIcons.whatsapp,
+                controller: _whatsappController,
               ),
               getSpacer,
               ContactLinkField(
                 hint: "addTwitter".tr(),
                 companyLogo: MdiIcons.twitter,
                 controller: _twitterController,
-              ),
-              getSpacer,
-              ContactLinkField(
-                hint: "addLinkedin".tr(),
-                companyLogo: MdiIcons.linkedin,
-                controller: _linkedinController,
               ),
               getSpacer,
               isLocked("register")
@@ -211,10 +203,9 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                             "first_name": _firstNameController.text,
                             "last_name": _lastNameController.text,
                             "languages": _selectedLanguages,
-                            "facebook": _facebookController.text,
-                            "instagram": _instagramController.text,
+                            "messenger": _messengerController.text,
+                            "whatsapp": _whatsappController.text,
                             "twitter": _twitterController.text,
-                            "linkedin": _linkedinController.text,
                             "on_site_support": _isOnSiteSupport,
                             "digital_online_support": _isDigitalOnlineSupport,
                           });

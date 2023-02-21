@@ -25,7 +25,6 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   firebase_ui_localizations: 1.2.0
-  cupertino_icons: 1.0.5
   flutter_chip_tags: 2.0.2
   firebase_core: 2.6.1
   firebase_ui_auth: 1.1.13
@@ -33,13 +32,10 @@ dependencies:
   firebase_ui_oauth_google: 1.0.18
   json_annotation: 4.8.0
   cloud_firestore: 4.4.2
-  syncfusion_flutter_datagrid: 20.4.50
   expandable: 5.0.1
   material_design_icons_flutter: 6.0.7096
   flutter_localized_locales: 2.0.4
-  dash_flags: 0.0.3
   diacritic: 0.1.3
-  google_sign_in: 5.4.4
   dropdown_search: 5.0.5
   flutter_linkify: 5.0.2
   location: 4.4.0

@@ -21,10 +21,9 @@ class RegisterTranslatorListener extends NyListener {
       contact: translator.contact?.copyWith(
         phone: event?["phone"],
         email: authService.currentUser!.email,
-        facebook: event?["facebook"],
+        messenger: event?["messenger"],
         twitter: event?["twitter"],
-        instagram: event?["instagram"],
-        linkedin: event?["linkedin"],
+        whatsapp: event?["whatsapp"],
       ),
       isInterpreter: true,
       name: event?["first_name"] + " " + event?["last_name"],

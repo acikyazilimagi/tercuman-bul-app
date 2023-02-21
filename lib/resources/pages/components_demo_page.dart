@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:dash_flags/dash_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/controllers/controller.dart';
 import 'package:flutter_app/resources/themes/styles/light_theme_colors.dart';
@@ -54,20 +53,16 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
             flags(),
             const SizedBox(height: 16),
             ContactLinkField(
-              hint: "addFacebook".tr(),
-              companyLogo: MdiIcons.facebook,
+              hint: "addMessenger".tr(),
+              companyLogo: MdiIcons.facebookMessenger,
             ),
             ContactLinkField(
-              hint: "addInstagram".tr(),
-              companyLogo: MdiIcons.instagram,
+              hint: "addWhatsApp".tr(),
+              companyLogo: MdiIcons.whatsapp,
             ),
             ContactLinkField(
               hint: "addTwitter".tr(),
               companyLogo: MdiIcons.twitter,
-            ),
-            ContactLinkField(
-              hint: "addLinkedin".tr(),
-              companyLogo: MdiIcons.linkedin,
             ),
             CustomSelectableTile(
               titleText: "onsiteSupport".tr(),
@@ -250,19 +245,9 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
           style: Theme.of(context).textTheme.titleLarge,
         ),
         const SizedBox(height: 8),
-        CountryFlag(
-          country: Country.tr, // You can also use Country.fromCode('eg')
-          height: 50,
-        ),
-        const SizedBox(height: 8),
         Text(
           "Language Flag (az)",
           style: Theme.of(context).textTheme.titleLarge,
-        ),
-        const SizedBox(height: 8),
-        LanguageFlag(
-          language: Language.az, // You can also use Country.fromCode('eg')
-          height: 50,
         ),
         const SizedBox(height: 8),
         const CountryFlagName(code: 'tr', name: 'Turkey'),

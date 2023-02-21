@@ -7,8 +7,10 @@ part 'translator.freezed.dart';
 part 'translator.g.dart';
 
 @freezed
-@JsonSerializable(explicitToJson: true)
 class Translator with _$Translator {
+  // ignore: invalid_annotation_target
+  @JsonSerializable(explicitToJson: true)
+
   const factory Translator({
     String? uuid,
     Capabilities? capabilities,
@@ -60,9 +62,8 @@ class Capabilities with _$Capabilities {
 class Contact with _$Contact {
   const factory Contact({
     String? email,
-    String? facebook,
-    String? instagram,
-    String? linkedin,
+    String? messenger,
+    String? whatsapp,
     String? phone,
     String? twitter,
   }) = _Contact;
@@ -73,12 +74,11 @@ class Contact with _$Contact {
 
   @override
   String toString() {
-    return "email: $email facebook: $facebook instagram: $instagram linkedin: $linkedin phone: $phone twitter: $twitter";
+    return "email: $email messenger: $messenger whatsapp: $whatsapp phone: $phone twitter: $twitter";
   }
 
   bool get haveAnyContactInformation =>
-      (facebook?.isNotEmpty == true) ||
+      (messenger?.isNotEmpty == true) ||
       (twitter?.isNotEmpty == true) ||
-      (instagram?.isNotEmpty == true) ||
-      (linkedin?.isNotEmpty == true);
+      (whatsapp?.isNotEmpty == true);
 }

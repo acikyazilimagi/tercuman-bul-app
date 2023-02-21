@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/models/languages.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
@@ -231,11 +230,11 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                     childAspectRatio: MediaQuery.of(context).size.width / 100,
                     children: [
                       if (filteredTranslators[index]
-                              .contact["facebook"]
+                              .contact["messenger"]
                               ?.isNotEmpty ==
                           true)
-                        _contactButton("facebook",
-                            "https://www.facebook.com/${filteredTranslators[index].contact["facebook"]}"),
+                        _contactButton("messenger",
+                            "https://www.messenger.com/${filteredTranslators[index].contact["messenger"]}"),
                       if (filteredTranslators[index]
                               .contact["twitter"]
                               ?.isNotEmpty ==
@@ -243,17 +242,11 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                         _contactButton("twitter",
                             "https://twitter.com/${filteredTranslators[index].contact["twitter"]}"),
                       if (filteredTranslators[index]
-                              .contact["instagram"]
+                              .contact["whatsapp"]
                               ?.isNotEmpty ==
                           true)
-                        _contactButton("instagram",
-                            "https://www.instagram.com/${filteredTranslators[index].contact["instagram"]}"),
-                      if (filteredTranslators[index]
-                              .contact["linkedin"]
-                              ?.isNotEmpty ==
-                          true)
-                        _contactButton("linkedin",
-                            "https://www.linkedin.com/in/${filteredTranslators[index].contact["linkedin"]}"),
+                        _contactButton("whatsapp",
+                            "https://www.whatsapp.com/${filteredTranslators[index].contact["whatsapp"]}"),
                     ],
                   ),
                 }

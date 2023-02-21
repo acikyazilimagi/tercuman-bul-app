@@ -40,9 +40,8 @@ class _EditTranslatorProfilePageState
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
   final _phoneNameController = TextEditingController();
-  final _instagramController = TextEditingController();
-  final _linkedinController = TextEditingController();
-  final _facebookController = TextEditingController();
+  final _whatsappController = TextEditingController();
+  final _messengerController = TextEditingController();
   final _twitterController = TextEditingController();
   bool _isOnSiteSupport = false;
   bool _isDigitalOnlineSupport = false;
@@ -56,9 +55,8 @@ class _EditTranslatorProfilePageState
     _firstNameController.text = name.take(name.length - 1).join(" ");
     _lastNameController.text = name.last;
     _phoneNameController.text = translator.contact?.phone ?? "";
-    _instagramController.text = translator.contact?.instagram ?? "";
-    _linkedinController.text = translator.contact?.linkedin ?? "";
-    _facebookController.text = translator.contact?.facebook ?? "";
+    _whatsappController.text = translator.contact?.whatsapp ?? "";
+    _messengerController.text = translator.contact?.messenger ?? "";
     _twitterController.text = translator.contact?.twitter ?? "";
     _isOnSiteSupport = translator.capabilities?.translatorInPerson ?? false;
     _isDigitalOnlineSupport =
@@ -71,9 +69,8 @@ class _EditTranslatorProfilePageState
     _firstNameController.dispose();
     _lastNameController.dispose();
     _phoneNameController.dispose();
-    _instagramController.dispose();
-    _linkedinController.dispose();
-    _facebookController.dispose();
+    _whatsappController.dispose();
+    _messengerController.dispose();
     _twitterController.dispose();
 
     super.dispose();
@@ -199,27 +196,21 @@ class _EditTranslatorProfilePageState
               ),
               getSpacer,
               ContactLinkField(
-                hint: "addFacebook".tr(),
-                companyLogo: MdiIcons.facebook,
-                controller: _facebookController,
+                hint: "addMessenger".tr(),
+                companyLogo: MdiIcons.facebookMessenger,
+                controller: _messengerController,
               ),
               getSpacer,
               ContactLinkField(
-                hint: "addInstagram".tr(),
-                companyLogo: MdiIcons.instagram,
-                controller: _instagramController,
+                hint: "addWhatsApp".tr(),
+                companyLogo: MdiIcons.whatsapp,
+                controller: _whatsappController,
               ),
               getSpacer,
               ContactLinkField(
                 hint: "addTwitter".tr(),
                 companyLogo: MdiIcons.twitter,
                 controller: _twitterController,
-              ),
-              getSpacer,
-              ContactLinkField(
-                hint: "addLinkedin".tr(),
-                companyLogo: MdiIcons.linkedin,
-                controller: _linkedinController,
               ),
               getSpacer,
               isLocked("register")
@@ -235,10 +226,9 @@ class _EditTranslatorProfilePageState
                             "last_name": _lastNameController.text,
                             "phone": _phoneNameController.text,
                             "languages": _selectedLanguages,
-                            "facebook": _facebookController.text,
-                            "instagram": _instagramController.text,
+                            "messenger": _messengerController.text,
+                            "whatsapp": _whatsappController.text,
                             "twitter": _twitterController.text,
-                            "linkedin": _linkedinController.text,
                             "on_site_support": _isOnSiteSupport,
                             "digital_online_support": _isDigitalOnlineSupport,
                           });

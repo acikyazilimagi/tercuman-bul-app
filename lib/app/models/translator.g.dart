@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: non_constant_identifier_names
-
 part of 'translator.dart';
 
 // **************************************************************************
@@ -50,9 +48,8 @@ Map<String, dynamic> _$$_CapabilitiesToJson(_$_Capabilities instance) =>
 
 _$_Contact _$$_ContactFromJson(Map<String, dynamic> json) => _$_Contact(
       email: json['email'] as String?,
-      facebook: json['facebook'] as String?,
-      instagram: json['instagram'] as String?,
-      linkedin: json['linkedin'] as String?,
+      messenger: json['messenger'] as String?,
+      whatsapp: json['whatsapp'] as String?,
       phone: json['phone'] as String?,
       twitter: json['twitter'] as String?,
     );
@@ -60,9 +57,8 @@ _$_Contact _$$_ContactFromJson(Map<String, dynamic> json) => _$_Contact(
 Map<String, dynamic> _$$_ContactToJson(_$_Contact instance) =>
     <String, dynamic>{
       'email': instance.email,
-      'facebook': instance.facebook,
-      'instagram': instance.instagram,
-      'linkedin': instance.linkedin,
+      'messenger': instance.messenger,
+      'whatsapp': instance.whatsapp,
       'phone': instance.phone,
       'twitter': instance.twitter,
     };
