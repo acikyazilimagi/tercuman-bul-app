@@ -43,8 +43,14 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
 
   @override
   init() async {
-    GeoPoint location = await LocationService().getLocation();
-    List<TranslatorListItem>? listOfTranslators = await _apiService.fetchTranslatorList(location.latitude, location.longitude);
+    List<TranslatorListItem>? listOfTranslators;
+    try {
+      final location = await LocationService().getLocation();
+      listOfTranslators = await _apiService.fetchTranslatorList(
+          location.latitude, location.longitude);
+    } catch (e) {
+      log("Get translator list:", error: e);
+    }
 
     setState(() {
       translators = listOfTranslators!;
@@ -208,9 +214,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                       .toList(),
                 ),
                 getSpacer,
-                if (filteredTranslators[index]
-                        .contact.isNotEmpty)
-                  ...{
+                if (filteredTranslators[index].contact.isNotEmpty) ...{
                   Text(
                     'contantInformation'.tr(),
                     style: const TextStyle(fontSize: 12),

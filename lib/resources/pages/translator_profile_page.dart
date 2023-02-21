@@ -28,7 +28,6 @@ class TranslatorProfilePage extends NyStatefulWidget {
 }
 
 class _TranslatorProfilePageState extends NyState<TranslatorProfilePage> {
-
   @override
   Widget build(BuildContext context) {
     final translator = AuthService().currentTranslator!;

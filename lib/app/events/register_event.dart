@@ -19,6 +19,7 @@ class RegisterTranslatorListener extends NyListener {
 
     authService.currentTranslator = translator.copyWith(
       contact: translator.contact?.copyWith(
+        phone: event?["phone"],
         email: authService.currentUser!.email,
         messenger: event?["messenger"],
         twitter: event?["twitter"],

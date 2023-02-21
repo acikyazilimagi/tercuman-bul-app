@@ -3,16 +3,14 @@ import 'package:flutter_app/app/services/auth_service.dart';
 import 'package:flutter_app/resources/pages/auth_page.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/models/languages.dart';
+import '../../../app/services/shared_preferences_service.dart';
 import '../../themes/styles/light_theme_colors.dart';
 import '../atoms/country_flag_name.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-
-  MainAppBar({super.key});
+  const MainAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -62,12 +60,13 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                         ))
                     .toList(),
                 onSelected: (value) async {
-                  SharedPreferences prefs = await _prefs;
-                  if(value != "ku") {
-                    prefs.setString("appLanguage", value);
+                  final prefs = await SharedPreferencesService.getInstance();
+                  await prefs.setLanguage(value);
+
+                  if (context.mounted) {
+                    await NyLocalization.instance
+                        .setLanguage(context, language: value);
                   }
-                  await NyLocalization.instance
-                      .setLanguage(context, language: value);
                 },
               ),
               AuthService().hasSession
