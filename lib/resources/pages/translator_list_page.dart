@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/models/languages.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
@@ -248,12 +247,6 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                           true)
                         _contactButton("whatsapp",
                             "https://www.whatsapp.com/${filteredTranslators[index].contact["whatsapp"]}"),
-                      if (filteredTranslators[index]
-                              .contact["linkedin"]
-                              ?.isNotEmpty ==
-                          true)
-                        _contactButton("linkedin",
-                            "https://www.linkedin.com/in/${filteredTranslators[index].contact["linkedin"]}"),
                     ],
                   ),
                 }

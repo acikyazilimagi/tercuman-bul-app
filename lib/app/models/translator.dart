@@ -64,7 +64,6 @@ class Contact with _$Contact {
     String? email,
     String? messenger,
     String? whatsapp,
-    String? linkedin,
     String? phone,
     String? twitter,
   }) = _Contact;
@@ -75,12 +74,11 @@ class Contact with _$Contact {
 
   @override
   String toString() {
-    return "email: $email messenger: $messenger whatsapp: $whatsapp linkedin: $linkedin phone: $phone twitter: $twitter";
+    return "email: $email messenger: $messenger whatsapp: $whatsapp phone: $phone twitter: $twitter";
   }
 
   bool get haveAnyContactInformation =>
       (messenger?.isNotEmpty == true) ||
       (twitter?.isNotEmpty == true) ||
-      (whatsapp?.isNotEmpty == true) ||
-      (linkedin?.isNotEmpty == true);
+      (whatsapp?.isNotEmpty == true);
 }

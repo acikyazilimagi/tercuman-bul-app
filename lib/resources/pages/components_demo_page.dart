@@ -64,10 +64,6 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
               hint: "addTwitter".tr(),
               companyLogo: MdiIcons.twitter,
             ),
-            ContactLinkField(
-              hint: "addLinkedin".tr(),
-              companyLogo: MdiIcons.linkedin,
-            ),
             CustomSelectableTile(
               titleText: "onsiteSupport".tr(),
               isSelected: true,

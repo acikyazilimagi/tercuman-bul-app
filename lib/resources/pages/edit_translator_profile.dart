@@ -41,7 +41,6 @@ class _EditTranslatorProfilePageState
   final _lastNameController = TextEditingController();
   final _phoneNameController = TextEditingController();
   final _whatsappController = TextEditingController();
-  final _linkedinController = TextEditingController();
   final _messengerController = TextEditingController();
   final _twitterController = TextEditingController();
   bool _isOnSiteSupport = false;
@@ -57,7 +56,6 @@ class _EditTranslatorProfilePageState
     _lastNameController.text = name.last;
     _phoneNameController.text = translator.contact?.phone ?? "";
     _whatsappController.text = translator.contact?.whatsapp ?? "";
-    _linkedinController.text = translator.contact?.linkedin ?? "";
     _messengerController.text = translator.contact?.messenger ?? "";
     _twitterController.text = translator.contact?.twitter ?? "";
     _isOnSiteSupport = translator.capabilities?.translatorInPerson ?? false;
@@ -72,7 +70,6 @@ class _EditTranslatorProfilePageState
     _lastNameController.dispose();
     _phoneNameController.dispose();
     _whatsappController.dispose();
-    _linkedinController.dispose();
     _messengerController.dispose();
     _twitterController.dispose();
 
@@ -216,12 +213,6 @@ class _EditTranslatorProfilePageState
                 controller: _twitterController,
               ),
               getSpacer,
-              ContactLinkField(
-                hint: "addLinkedin".tr(),
-                companyLogo: MdiIcons.linkedin,
-                controller: _linkedinController,
-              ),
-              getSpacer,
               isLocked("register")
                   ? const Loader()
                   : CustomButton(
@@ -238,7 +229,6 @@ class _EditTranslatorProfilePageState
                             "messenger": _messengerController.text,
                             "whatsapp": _whatsappController.text,
                             "twitter": _twitterController.text,
-                            "linkedin": _linkedinController.text,
                             "on_site_support": _isOnSiteSupport,
                             "digital_online_support": _isDigitalOnlineSupport,
                           });

@@ -50,7 +50,6 @@ _$_Contact _$$_ContactFromJson(Map<String, dynamic> json) => _$_Contact(
       email: json['email'] as String?,
       messenger: json['messenger'] as String?,
       whatsapp: json['whatsapp'] as String?,
-      linkedin: json['linkedin'] as String?,
       phone: json['phone'] as String?,
       twitter: json['twitter'] as String?,
     );
@@ -60,7 +59,6 @@ Map<String, dynamic> _$$_ContactToJson(_$_Contact instance) =>
       'email': instance.email,
       'messenger': instance.messenger,
       'whatsapp': instance.whatsapp,
-      'linkedin': instance.linkedin,
       'phone': instance.phone,
       'twitter': instance.twitter,
     };

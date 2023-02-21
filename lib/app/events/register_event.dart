@@ -24,7 +24,6 @@ class RegisterTranslatorListener extends NyListener {
         messenger: event?["messenger"],
         twitter: event?["twitter"],
         whatsapp: event?["whatsapp"],
-        linkedin: event?["linkedin"],
       ),
       isInterpreter: true,
       name: event?["first_name"] + " " + event?["last_name"],

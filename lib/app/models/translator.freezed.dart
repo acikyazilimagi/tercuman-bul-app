@@ -504,7 +504,6 @@ mixin _$Contact {
   String? get email => throw _privateConstructorUsedError;
   String? get messenger => throw _privateConstructorUsedError;
   String? get whatsapp => throw _privateConstructorUsedError;
-  String? get linkedin => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get twitter => throw _privateConstructorUsedError;
 
@@ -522,7 +521,6 @@ abstract class $ContactCopyWith<$Res> {
       {String? email,
       String? messenger,
       String? whatsapp,
-      String? linkedin,
       String? phone,
       String? twitter});
 }
@@ -543,7 +541,6 @@ class _$ContactCopyWithImpl<$Res, $Val extends Contact>
     Object? email = freezed,
     Object? messenger = freezed,
     Object? whatsapp = freezed,
-    Object? linkedin = freezed,
     Object? phone = freezed,
     Object? twitter = freezed,
   }) {
@@ -559,10 +556,6 @@ class _$ContactCopyWithImpl<$Res, $Val extends Contact>
       whatsapp: freezed == whatsapp
           ? _value.whatsapp
           : whatsapp // ignore: cast_nullable_to_non_nullable
-              as String?,
-      linkedin: freezed == linkedin
-          ? _value.linkedin
-          : linkedin // ignore: cast_nullable_to_non_nullable
               as String?,
       phone: freezed == phone
           ? _value.phone
@@ -587,7 +580,6 @@ abstract class _$$_ContactCopyWith<$Res> implements $ContactCopyWith<$Res> {
       {String? email,
       String? messenger,
       String? whatsapp,
-      String? linkedin,
       String? phone,
       String? twitter});
 }
@@ -605,7 +597,6 @@ class __$$_ContactCopyWithImpl<$Res>
     Object? email = freezed,
     Object? messenger = freezed,
     Object? whatsapp = freezed,
-    Object? linkedin = freezed,
     Object? phone = freezed,
     Object? twitter = freezed,
   }) {
@@ -621,10 +612,6 @@ class __$$_ContactCopyWithImpl<$Res>
       whatsapp: freezed == whatsapp
           ? _value.whatsapp
           : whatsapp // ignore: cast_nullable_to_non_nullable
-              as String?,
-      linkedin: freezed == linkedin
-          ? _value.linkedin
-          : linkedin // ignore: cast_nullable_to_non_nullable
               as String?,
       phone: freezed == phone
           ? _value.phone
@@ -642,12 +629,7 @@ class __$$_ContactCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Contact extends _Contact {
   const _$_Contact(
-      {this.email,
-      this.messenger,
-      this.whatsapp,
-      this.linkedin,
-      this.phone,
-      this.twitter})
+      {this.email, this.messenger, this.whatsapp, this.phone, this.twitter})
       : super._();
 
   factory _$_Contact.fromJson(Map<String, dynamic> json) =>
@@ -659,8 +641,6 @@ class _$_Contact extends _Contact {
   final String? messenger;
   @override
   final String? whatsapp;
-  @override
-  final String? linkedin;
   @override
   final String? phone;
   @override
@@ -676,16 +656,14 @@ class _$_Contact extends _Contact {
                 other.messenger == messenger) &&
             (identical(other.whatsapp, whatsapp) ||
                 other.whatsapp == whatsapp) &&
-            (identical(other.linkedin, linkedin) ||
-                other.linkedin == linkedin) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.twitter, twitter) || other.twitter == twitter));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, email, messenger, whatsapp, linkedin, phone, twitter);
+  int get hashCode =>
+      Object.hash(runtimeType, email, messenger, whatsapp, phone, twitter);
 
   @JsonKey(ignore: true)
   @override
@@ -706,7 +684,6 @@ abstract class _Contact extends Contact {
       {final String? email,
       final String? messenger,
       final String? whatsapp,
-      final String? linkedin,
       final String? phone,
       final String? twitter}) = _$_Contact;
   const _Contact._() : super._();
@@ -719,8 +696,6 @@ abstract class _Contact extends Contact {
   String? get messenger;
   @override
   String? get whatsapp;
-  @override
-  String? get linkedin;
   @override
   String? get phone;
   @override

@@ -142,12 +142,6 @@ class _TranslatorProfilePageState extends NyState<TranslatorProfilePage> {
               link: translator.contact?.twitter,
             ),
             getSpacer,
-            _socialMediaItem(
-              icon: MdiIcons.linkedin,
-              title: "linkedin".tr(),
-              link: translator.contact?.linkedin,
-            ),
-            getSpacer,
             const ContactUsCard(),
           ],
         ),

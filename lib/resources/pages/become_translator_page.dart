@@ -38,7 +38,6 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
   final _lastNameController = TextEditingController();
   final _phoneNameController = TextEditingController();
   final _whatsappController = TextEditingController();
-  final _linkedinController = TextEditingController();
   final _messengerController = TextEditingController();
   final _twitterController = TextEditingController();
   bool _isOnSiteSupport = false;
@@ -53,7 +52,6 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
     _lastNameController.dispose();
     _phoneNameController.dispose();
     _whatsappController.dispose();
-    _linkedinController.dispose();
     _messengerController.dispose();
     _twitterController.dispose();
 
@@ -193,12 +191,6 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                 controller: _twitterController,
               ),
               getSpacer,
-              ContactLinkField(
-                hint: "addLinkedin".tr(),
-                companyLogo: MdiIcons.linkedin,
-                controller: _linkedinController,
-              ),
-              getSpacer,
               isLocked("register")
                   ? const Loader()
                   : CustomButton(
@@ -214,7 +206,6 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                             "messenger": _messengerController.text,
                             "whatsapp": _whatsappController.text,
                             "twitter": _twitterController.text,
-                            "linkedin": _linkedinController.text,
                             "on_site_support": _isOnSiteSupport,
                             "digital_online_support": _isDigitalOnlineSupport,
                           });
