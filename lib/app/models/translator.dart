@@ -7,8 +7,10 @@ part 'translator.freezed.dart';
 part 'translator.g.dart';
 
 @freezed
-@JsonSerializable(explicitToJson: true)
 class Translator with _$Translator {
+  // ignore: invalid_annotation_target
+  @JsonSerializable(explicitToJson: true)
+
   const factory Translator({
     String? uuid,
     Capabilities? capabilities,
