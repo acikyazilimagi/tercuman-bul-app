@@ -225,14 +225,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.17.2"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      sha256: e35129dc44c9118cee2a5603506d823bab99c68393879edb440e0090d07586be
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.5"
   dart_style:
     dependency: transitive
     description:
@@ -241,14 +233,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.4"
-  dash_flags:
-    dependency: "direct main"
-    description:
-      name: dash_flags
-      sha256: b287e98855eb0340fba4a13f6e9a68227136c1595119f7bf63fecc8cd7e68d64
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.3"
   desktop_webview_auth:
     dependency: transitive
     description:
@@ -598,7 +582,7 @@ packages:
     source: hosted
     version: "4.0.3"
   google_sign_in:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: google_sign_in
       sha256: "821f354c053d51a2d417b02d42532a19a6ea8057d2f9ebb8863c07d81c98aaf9"
@@ -1154,22 +1138,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
-  syncfusion_flutter_core:
-    dependency: transitive
-    description:
-      name: syncfusion_flutter_core
-      sha256: "33141f9073c607bd113898d241aa6a03ccc1856a314bd061015180c35d47012f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "20.4.50"
-  syncfusion_flutter_datagrid:
-    dependency: "direct main"
-    description:
-      name: syncfusion_flutter_datagrid
-      sha256: "5be9b82e66baecb6dd6b65e324fc738ae5a49c849592f8ac2d386a537a22b88d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "20.4.50"
   term_glyph:
     dependency: transitive
     description:
