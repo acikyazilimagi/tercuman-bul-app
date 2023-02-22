@@ -39,13 +39,14 @@ class _EditTranslatorProfilePageState
 
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
-  final _phoneNameController = TextEditingController();
+  final _phoneController = TextEditingController();
   final _whatsappController = TextEditingController();
   final _messengerController = TextEditingController();
   final _twitterController = TextEditingController();
   bool _isOnSiteSupport = false;
   bool _isDigitalOnlineSupport = false;
 
+  bool _sameWithPhone = false;
   List<String> _selectedLanguages = [];
   final _formKey = GlobalKey<FormState>();
 
@@ -54,7 +55,7 @@ class _EditTranslatorProfilePageState
     final name = translator.name.split(" ");
     _firstNameController.text = name.take(name.length - 1).join(" ");
     _lastNameController.text = name.last;
-    _phoneNameController.text = translator.contact?.phone ?? "";
+    _phoneController.text = translator.contact?.phone ?? "";
     _whatsappController.text = translator.contact?.whatsapp ?? "";
     _messengerController.text = translator.contact?.messenger ?? "";
     _twitterController.text = translator.contact?.twitter ?? "";
@@ -62,6 +63,7 @@ class _EditTranslatorProfilePageState
     _isDigitalOnlineSupport =
         translator.capabilities?.translatorVirtual ?? false;
     _selectedLanguages = translator.languages;
+    _sameWithPhone = _whatsappController.text == _phoneController.text;
     return super.init();
   }
 
@@ -69,7 +71,7 @@ class _EditTranslatorProfilePageState
   void dispose() {
     _firstNameController.dispose();
     _lastNameController.dispose();
-    _phoneNameController.dispose();
+    _phoneController.dispose();
     _whatsappController.dispose();
     _messengerController.dispose();
     _twitterController.dispose();
@@ -126,13 +128,14 @@ class _EditTranslatorProfilePageState
                     : null,
               ),
               getSpacer,
-              CustomTextField(
+              PhoneInput(
                 title: "phoneNumber".tr(),
                 hint: "phoneNumberHelper".tr(),
-                controller: _phoneNameController,
-                validator: (value) => value == null ||
-                        value.isEmpty ||
-                        !RegExp(r"^\+?[0-9]{10,13}$").hasMatch(value)
+                controller: _phoneController,
+                validator: (value) => value?.number == null ||
+                        value!.number.isEmpty ||
+                        !RegExp(r"^\+?[0-9]{10,13}$")
+                            .hasMatch(value.completeNumber)
                     ? "phoneNumberHelper".tr()
                     : null,
               ),
@@ -196,16 +199,43 @@ class _EditTranslatorProfilePageState
                 style: const TextStyle(fontWeight: FontWeight.w800),
               ),
               getSpacer,
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Row(
+                  children: [
+                    Checkbox(
+                      value: _sameWithPhone,
+                      onChanged: (value) => setState(() {
+                        _sameWithPhone = value ?? false;
+                      }),
+                    ),
+                    const SizedBox(width: 5),
+                    TextButton(
+                      onPressed: () => setState(() {
+                        _sameWithPhone = !_sameWithPhone;
+                      }),
+                      child: Text("sameWithPhone".tr()),
+                    ),
+                  ],
+                ),
+              ),
+              PhoneInput(
+                hint: "addWhatsApp".tr(),
+                enabled: !_sameWithPhone,
+                controller:
+                    _sameWithPhone ? _phoneController : _whatsappController,
+                validator: (value) => value?.number != null &&
+                        value!.number.isNotEmpty &&
+                        !RegExp(r"^\+?[0-9]{10,13}$")
+                            .hasMatch(value.completeNumber)
+                    ? "addWhatsApp".tr()
+                    : null,
+              ),
+              getSpacer,
               ContactLinkField(
                 hint: "addMessenger".tr(),
                 companyLogo: MdiIcons.facebookMessenger,
                 controller: _messengerController,
-              ),
-              getSpacer,
-              ContactLinkField(
-                hint: "addWhatsApp".tr(),
-                companyLogo: MdiIcons.whatsapp,
-                controller: _whatsappController,
               ),
               getSpacer,
               ContactLinkField(
@@ -225,10 +255,12 @@ class _EditTranslatorProfilePageState
                           event<RegisterEvent>(data: {
                             "first_name": _firstNameController.text,
                             "last_name": _lastNameController.text,
-                            "phone": _phoneNameController.text,
+                            "phone": _phoneController.text,
                             "languages": _selectedLanguages,
+                            "whatsapp": _sameWithPhone
+                                ? _phoneController.text
+                                : _whatsappController.text,
                             "messenger": _messengerController.text,
-                            "whatsapp": _whatsappController.text,
                             "twitter": _twitterController.text,
                             "on_site_support": _isOnSiteSupport,
                             "digital_online_support": _isDigitalOnlineSupport,
