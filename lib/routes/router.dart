@@ -57,8 +57,8 @@ appRouter() => nyRoutes((router) {
       router.route(
           BecomeTranslatorPage.path, (context) => BecomeTranslatorPage(),
           routeGuards: [
-            // AuthRouteGuard(BecomeTranslatorPage.path),
-            // TranslatorRouteGuard()
+            AuthRouteGuard(BecomeTranslatorPage.path),
+            TranslatorRouteGuard()
           ]);
       router.route(
           TranslatorProfilePage.path, (context) => TranslatorProfilePage(),
