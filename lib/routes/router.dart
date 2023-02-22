@@ -41,7 +41,7 @@ class AuthRouteGuard extends RouteGuard {
 class TranslatorRouteGuard extends RouteGuard {
   @override
   Future<bool> canOpen(BuildContext? context, BaseArguments? args) {
-    if (AuthService().currentTranslator != null) {
+    if (AuthService().currentTranslator == null) {
       return Future.value(true);
     }
 
@@ -58,7 +58,7 @@ appRouter() => nyRoutes((router) {
           BecomeTranslatorPage.path, (context) => BecomeTranslatorPage(),
           routeGuards: [
             AuthRouteGuard(BecomeTranslatorPage.path),
-            BecomeTranslatorGuard(BecomeTranslatorPage.path)
+            TranslatorRouteGuard()
           ]);
       router.route(
           TranslatorProfilePage.path, (context) => TranslatorProfilePage(),
