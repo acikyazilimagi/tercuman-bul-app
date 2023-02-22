@@ -54,7 +54,24 @@ class _CustomTextFieldState extends State<CustomTextField> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (widget.title?.isNotEmpty == true) ...{
-            Text(widget.title!),
+            widget.validator == null
+                ? Text(widget.title!)
+                : Row(
+                    children: [
+                      Text(
+                        widget.title!,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(width: 5),
+                      const Text(
+                        "*",
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
+                    ],
+                  ),
             const SizedBox(height: 10)
           },
           TextFormField(

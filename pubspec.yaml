@@ -46,6 +46,7 @@ dependencies:
   shared_preferences: 2.0.17
   flutter_geofire: 2.0.3
   flutter_dotenv: 5.0.2
+  intl_phone_field: 3.1.0
 
 dev_dependencies:
   build_runner: 2.3.3

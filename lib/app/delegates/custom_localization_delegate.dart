@@ -13,5 +13,5 @@ class CustomLocalizationDelegate
       const DefaultMaterialLocalizations();
 
   @override
-  bool shouldReload(_) => false;
+  bool shouldReload(old) => false;
 }
