@@ -57,7 +57,6 @@ class PhoneInput extends StatelessWidget {
             validator: validator,
             controller: controller,
             initialCountryCode: "TR",
-            disableLengthCheck: true,
             flagsButtonPadding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: InputDecoration(
               filled: true,
