@@ -3,7 +3,7 @@
   "fullName": "Tam İsminiz",
   "fullNameHelper": "Lütfen adınızı ve soyadınız yazınız",
   "phoneNumber": "Telefon Numaranız",
-  "phoneNumberHelper": "Lütfen telefon numaranızı bu şekilde yazın +90XXXXXXXXX",
+  "phoneNumberHelper": "Lütfen telefon numaranızı girin",
   "yourLanguage": "Akıcı Şekilde Konuşuyorum",
   "yourLanguageHelper": "Lütfen akıcı bir şekilde konuştuğunuz dilleri yazınız",
   "registerText": "Kayıt Ol",

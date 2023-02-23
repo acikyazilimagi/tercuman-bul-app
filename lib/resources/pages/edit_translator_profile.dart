@@ -43,6 +43,8 @@ class _EditTranslatorProfilePageState
   final _whatsappController = TextEditingController();
   final _messengerController = TextEditingController();
   final _twitterController = TextEditingController();
+  String _phoneNumber = "";
+  String _whatsappNumber = "";
   bool _isOnSiteSupport = false;
   bool _isDigitalOnlineSupport = false;
 
@@ -55,15 +57,22 @@ class _EditTranslatorProfilePageState
     final name = translator.name.split(" ");
     _firstNameController.text = name.take(name.length - 1).join(" ");
     _lastNameController.text = name.last;
-    _phoneController.text = translator.contact?.phone ?? "";
-    _whatsappController.text = translator.contact?.whatsapp ?? "";
     _messengerController.text = translator.contact?.messenger ?? "";
     _twitterController.text = translator.contact?.twitter ?? "";
     _isOnSiteSupport = translator.capabilities?.translatorInPerson ?? false;
     _isDigitalOnlineSupport =
         translator.capabilities?.translatorVirtual ?? false;
     _selectedLanguages = translator.languages;
-    _sameAsWhatsApp = _whatsappController.text == _phoneController.text;
+
+    _phoneNumber = translator.contact?.phone ?? "";
+    _phoneController.text =
+        _phoneNumber.contains("|") ? _phoneNumber.split("|").last : "";
+
+    _whatsappNumber = translator.contact?.whatsapp ?? "";
+    _whatsappController.text =
+        _whatsappNumber.contains("|") ? _whatsappNumber.split("|").last : "";
+
+    _sameAsWhatsApp = _whatsappNumber == _phoneNumber;
     return super.init();
   }
 
@@ -177,8 +186,8 @@ class _EditTranslatorProfilePageState
                         });
                       },
                       selectedItems: translator.languages
-                          .map((l) =>
-                            Languages.usableLanguages.firstWhere((e) => e.key == l))
+                          .map((l) => Languages.usableLanguages
+                              .firstWhere((e) => e.key == l))
                           .toList(),
                       validator: (value) => value == null || value.isEmpty
                           ? "chooseLanguage".tr()
@@ -194,6 +203,11 @@ class _EditTranslatorProfilePageState
                       title: "phoneNumber".tr(),
                       hint: "phoneNumberHelper".tr(),
                       controller: _phoneController,
+                      countryCode: _phoneNumber.contains("|")
+                          ? _phoneNumber.split("|").first
+                          : "TR",
+                      onChanged: (x) => _phoneNumber =
+                          "${x.countryISOCode}|${x.countryCode}|${x.number}",
                       validator: (value) =>
                           value?.number == null || value!.number.isEmpty
                               ? "phoneNumberHelper".tr()
@@ -230,10 +244,15 @@ class _EditTranslatorProfilePageState
                         controller: _sameAsWhatsApp
                             ? _phoneController
                             : _whatsappController,
-                        validator: (value) => value?.number != null &&
-                                value!.number.isNotEmpty
-                            ? "addWhatsApp".tr()
-                            : null,
+                        countryCode: _whatsappNumber.contains("|")
+                            ? _whatsappNumber.split("|").first
+                            : "TR",
+                        onChanged: (x) => _whatsappNumber =
+                            "${x.countryISOCode}|${x.countryCode}|${x.number}",
+                        validator: (value) =>
+                            value?.number != null && value!.number.isNotEmpty
+                                ? "addWhatsApp".tr()
+                                : null,
                       ),
                     ),
                     getSpacer,
@@ -262,11 +281,11 @@ class _EditTranslatorProfilePageState
                                 event<RegisterEvent>(data: {
                                   "first_name": _firstNameController.text,
                                   "last_name": _lastNameController.text,
-                                  "phone": _phoneController.text,
+                                  "phone": _phoneNumber,
                                   "languages": _selectedLanguages,
                                   "whatsapp": _sameAsWhatsApp
-                                      ? _phoneController.text
-                                      : _whatsappController.text,
+                                      ? _phoneNumber
+                                      : _whatsappNumber,
                                   "messenger": _messengerController.text,
                                   "twitter": _twitterController.text,
                                   "on_site_support": _isOnSiteSupport,
