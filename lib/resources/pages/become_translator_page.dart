@@ -201,6 +201,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                     Visibility(
                       visible: !_sameAsWhatsApp,
                       child: PhoneInput(
+                        title: "whatsapp".tr(),
                         hint: "addWhatsApp".tr(),
                         enabled: !_sameAsWhatsApp,
                         controller: _sameAsWhatsApp
@@ -214,12 +215,14 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                     ),
                     getSpacer,
                     ContactLinkField(
+                      title: "messenger".tr(),
                       hint: "addMessenger".tr(),
                       companyLogo: MdiIcons.facebookMessenger,
                       controller: _messengerController,
                     ),
                     getSpacer,
                     ContactLinkField(
+                      title: "twitter".tr(),
                       hint: "addTwitter".tr(),
                       companyLogo: MdiIcons.twitter,
                       controller: _twitterController,

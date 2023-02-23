@@ -53,14 +53,17 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
             flags(),
             const SizedBox(height: 16),
             ContactLinkField(
+              title: "messenger".tr(),
               hint: "addMessenger".tr(),
               companyLogo: MdiIcons.facebookMessenger,
             ),
             ContactLinkField(
+              title: "whatsapp".tr(),
               hint: "addWhatsApp".tr(),
               companyLogo: MdiIcons.whatsapp,
             ),
             ContactLinkField(
+              title: "twitter".tr(),
               hint: "addTwitter".tr(),
               companyLogo: MdiIcons.twitter,
             ),

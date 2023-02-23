@@ -224,6 +224,7 @@ class _EditTranslatorProfilePageState
                     Visibility(
                       visible: !_sameAsWhatsApp,
                       child: PhoneInput(
+                        title: "whatsapp".tr(),
                         hint: "addWhatsApp".tr(),
                         enabled: !_sameAsWhatsApp,
                         controller: _sameAsWhatsApp
@@ -237,12 +238,14 @@ class _EditTranslatorProfilePageState
                     ),
                     getSpacer,
                     ContactLinkField(
+                      title: "messenger".tr(),
                       hint: "addMessenger".tr(),
                       companyLogo: MdiIcons.facebookMessenger,
                       controller: _messengerController,
                     ),
                     getSpacer,
                     ContactLinkField(
+                      title: "twitter".tr(),
                       hint: "addTwitter".tr(),
                       companyLogo: MdiIcons.twitter,
                       controller: _twitterController,
