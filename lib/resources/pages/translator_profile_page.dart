@@ -127,7 +127,7 @@ class _TranslatorProfilePageState extends NyState<TranslatorProfilePage> {
             _socialMediaItem(
               icon: MdiIcons.whatsapp,
               title: "whatsapp".tr(),
-              link: translator.contact?.whatsapp,
+              link: translator.contact?.whatsapp?.split("|").skip(1).join(),
             ),
             getSpacer,
             _socialMediaItem(

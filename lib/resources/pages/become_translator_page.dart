@@ -41,6 +41,8 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
   final _whatsappController = TextEditingController();
   final _messengerController = TextEditingController();
   final _twitterController = TextEditingController();
+  String _phoneNumber = "";
+  String _whatsappNumber = "";
   bool _isOnSiteSupport = true;
   bool _isDigitalOnlineSupport = true;
 
@@ -171,6 +173,11 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                       title: "phoneNumber".tr(),
                       hint: "phoneNumberHelper".tr(),
                       controller: _phoneController,
+                      countryCode: _phoneNumber.contains("|")
+                          ? _phoneNumber.split("|").first
+                          : "TR",
+                      onChanged: (x) => _phoneNumber =
+                          "${x.countryISOCode}|${x.countryCode}|${x.number}",
                       validator: (value) =>
                           value?.number == null || value!.number.isEmpty
                               ? "phoneNumberHelper".tr()
@@ -207,10 +214,15 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                         controller: _sameAsWhatsApp
                             ? _phoneController
                             : _whatsappController,
-                        validator: (value) => value?.number != null &&
-                                value!.number.isNotEmpty
-                            ? "addWhatsApp".tr()
-                            : null,
+                        countryCode: _whatsappNumber.contains("|")
+                            ? _whatsappNumber.split("|").first
+                            : "TR",
+                        onChanged: (x) => _whatsappNumber =
+                            "${x.countryISOCode}|${x.countryCode}|${x.number}",
+                        validator: (value) =>
+                            value?.number != null && value!.number.isNotEmpty
+                                ? "addWhatsApp".tr()
+                                : null,
                       ),
                     ),
                     getSpacer,
@@ -239,11 +251,11 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                                 event<RegisterEvent>(data: {
                                   "first_name": _firstNameController.text,
                                   "last_name": _lastNameController.text,
-                                  "phone": _phoneController.text,
+                                  "phone": _phoneNumber,
                                   "languages": _selectedLanguages,
                                   "whatsapp": _sameAsWhatsApp
                                       ? _phoneController.text
-                                      : _whatsappController.text,
+                                      : _whatsappNumber,
                                   "messenger": _messengerController.text,
                                   "twitter": _twitterController.text,
                                   "on_site_support": _isOnSiteSupport,

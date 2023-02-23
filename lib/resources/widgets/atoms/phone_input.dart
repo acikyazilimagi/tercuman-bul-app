@@ -12,7 +12,9 @@ class PhoneInput extends StatelessWidget {
   final String hint;
   final String? title;
   final bool enabled;
+  final String? countryCode;
   final TextEditingController? controller;
+  final void Function(PhoneNumber)? onChanged;
   final FutureOr<String?> Function(PhoneNumber?)? validator;
 
   const PhoneInput({
@@ -20,7 +22,9 @@ class PhoneInput extends StatelessWidget {
     required this.hint,
     this.title,
     this.enabled = true,
+    this.countryCode = "TR",
     this.controller,
+    this.onChanged,
     this.validator,
   }) : super(key: key);
 
@@ -56,7 +60,8 @@ class PhoneInput extends StatelessWidget {
             enabled: enabled,
             validator: validator,
             controller: controller,
-            initialCountryCode: "TR",
+            initialCountryCode: countryCode,
+            onChanged: onChanged,
             flagsButtonPadding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: InputDecoration(
               filled: true,
