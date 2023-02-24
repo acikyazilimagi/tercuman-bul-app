@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "tercuman-bulmaca"
-  }
+  },
+  "targets": {
+    "tercuman-bulmaca": {
+      "hosting": {
+        "beta": [
+          "tercuman-bulmaca"
+        ],
+        "prod": [
+          "tercumanbul"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

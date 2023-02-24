@@ -5,7 +5,7 @@
   },
   "hosting": [
     {
-      "target": "tercuman-bulmaca",
+      "target": "beta",
       "public": "build/web",
       "ignore": [
         "firebase.json",
@@ -20,7 +20,7 @@
       ]
     },
     {
-      "target": "tercumanbul",
+      "target": "prod",
       "public": "build/web",
       "ignore": [
         "firebase.json",
