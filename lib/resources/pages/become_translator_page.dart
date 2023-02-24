@@ -255,7 +255,7 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                                   "phone": _phoneNumber,
                                   "languages": _selectedLanguages,
                                   "whatsapp": _sameAsWhatsApp
-                                      ? _phoneController.text
+                                      ? _phoneNumber
                                       : _whatsappNumber,
                                   "messenger": _messengerController.text,
                                   "twitter": _twitterController.text,

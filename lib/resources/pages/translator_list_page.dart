@@ -270,7 +270,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
           }
         },
         label: Text(type.tr()),
-        icon: Icon(MdiIcons.fromString(type)),
+        icon: Icon(MdiIcons.fromString(type == 'messenger' ? 'facebookMessenger': type)),
         style: ElevatedButton.styleFrom(
           backgroundColor: LightThemeColors().context,
           shape: RoundedRectangleBorder(
