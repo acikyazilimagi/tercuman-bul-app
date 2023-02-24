@@ -236,7 +236,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                               ?.isNotEmpty ==
                           true)
                         _contactButton("messenger",
-                            "https://www.messenger.com/${filteredTranslators[index].contact["messenger"]}"),
+                            "https://www.m.me/${filteredTranslators[index].contact["messenger"]}"),
                       if (filteredTranslators[index]
                               .contact["twitter"]
                               ?.isNotEmpty ==
@@ -248,7 +248,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                               ?.isNotEmpty ==
                           true)
                         _contactButton("whatsapp",
-                            "https://www.whatsapp.com/${filteredTranslators[index].contact["whatsapp"]}"),
+                            "https://www.wa.me/${filteredTranslators[index].contact["whatsapp"]}"),
                     ],
                   ),
                 }
@@ -280,5 +280,6 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
       );
 
   Widget get getSpacer => SizedBox(height: context.veryLowHeight);
+
   Widget get getWidthSpacer => const SizedBox(width: 8);
 }

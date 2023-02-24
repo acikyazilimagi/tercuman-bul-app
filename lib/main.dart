@@ -10,7 +10,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Firebase configuration
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions().currentPlatform);
 
   // Nylo Framework bootstrap
   Nylo nylo = await Nylo.init(setup: Boot.nylo, setupFinished: Boot.finished);

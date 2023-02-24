@@ -3,9 +3,10 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:nylo_framework/nylo_framework.dart';
 
 class DefaultFirebaseOptions {
-  static FirebaseOptions get currentPlatform {
+  FirebaseOptions get currentPlatform {
     if (kIsWeb) {
       return web;
     }
@@ -36,12 +37,12 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
+  FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyAcW89NhOcQtJYxukPnHkf2WrvscROttq0',
     appId: '1:904450609059:web:b4dba8b2d75c266ec35416',
     messagingSenderId: '904450609059',
     projectId: 'tercuman-bulmaca',
-    authDomain: 'tercuman-bulmaca.firebaseapp.com',
+    authDomain: getEnv("AUTH_DOMAIN"),
     storageBucket: 'tercuman-bulmaca.appspot.com',
     measurementId: 'G-LTR59VSD6J',
   );

@@ -1,8 +1,8 @@
 APP_NAME="Tercuman Bul"
-APP_ENV="local"
+APP_ENV="prod"
 APP_DEBUG=true
-APP_URL="https://tercuman-bulmaca.web.app"
-AUTH_DOMAIN="tercuman-bulmaca.firebaseapp.com"
+APP_URL="https://tercumanbul.web.app"
+AUTH_DOMAIN="tercumanbul.firebaseapp.com"
 
 API_BASE_URL="https://us-central1-tercuman-bulmaca.cloudfunctions.net/"
 
@@ -14,6 +14,7 @@ DEFAULT_LOCALE="en"
 LIGHT_THEME_ID="light_theme"
 DARK_THEME_ID="dark_theme"
 
-TRANSLATOR_DB=dev
+TRANSLATOR_DB=prod
 
 GOOGLE_CLIENT_ID="904450609059-s6l9n9i1mcpdampj9garhv32unq4rokr.apps.googleusercontent.com"
+
