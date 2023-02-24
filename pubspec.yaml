@@ -76,6 +76,7 @@ flutter:
     - public/assets/app_icon/
     - lang/
     - dotenv
+    - dotenv.prod
     - .env
     - public/assets/data/
 
