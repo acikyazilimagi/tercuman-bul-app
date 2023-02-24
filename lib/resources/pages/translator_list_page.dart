@@ -25,8 +25,10 @@ import '../widgets/molecules/main_scaffold.dart';
 
 class TranslatorListPage extends NyStatefulWidget {
   static const path = "/translator-list";
+
   @override
   get controller => AuthController();
+
   TranslatorListPage({super.key});
 
   @override
@@ -215,7 +217,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                 getSpacer,
                 if (filteredTranslators[index].contact.isNotEmpty) ...{
                   Text(
-                    'contantInformation'.tr(),
+                    'contactInformation'.tr(),
                     style: const TextStyle(fontSize: 12),
                   ),
                   getSpacer,
