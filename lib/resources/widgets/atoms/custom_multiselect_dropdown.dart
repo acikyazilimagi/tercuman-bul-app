@@ -69,10 +69,14 @@ class _CustomMultiselectDropdownState<T>
           popupProps: PopupPropsMultiSelection.menu(
             showSearchBox: widget.showSearchBox,
             itemBuilder: widget.itemBuilder,
-            onItemAdded: (selectedItems, addedItem) =>
-                setState(() => this.items = selectedItems),
-            onItemRemoved: (selectedItems, removedItem) =>
-                setState(() => this.items = selectedItems),
+            onItemAdded: (selectedItems, addedItem) => setState(() {
+              this.items = selectedItems;
+              widget.onChanged!(selectedItems);
+            }),
+            onItemRemoved: (selectedItems, removedItem) => setState(() {
+              this.items = selectedItems;
+              widget.onChanged!(selectedItems);
+            }),
           ),
           dropdownDecoratorProps: DropDownDecoratorProps(
             dropdownSearchDecoration: InputDecoration(
@@ -94,7 +98,6 @@ class _CustomMultiselectDropdownState<T>
             ),
           ),
           validator: widget.validator,
-          onChanged: widget.onChanged,
           selectedItems: this.items,
         ),
       ],
