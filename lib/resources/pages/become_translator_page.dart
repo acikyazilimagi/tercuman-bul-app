@@ -159,9 +159,10 @@ class _BecomeTranslatorPageState extends NyState<BecomeTranslatorPage> {
                               values.map((e) => e.key).toList();
                         });
                       },
-                      validator: (value) => value == null || value.isEmpty
-                          ? "chooseLanguage".tr()
-                          : null,
+                      validator: (value) =>
+                          value == null || value.isEmpty || value.length < 2
+                              ? "chooseLanguage".tr()
+                              : null,
                     ),
                     getSpacer,
                     Text(

@@ -189,9 +189,10 @@ class _EditTranslatorProfilePageState
                           .map((l) => Languages.usableLanguages
                               .firstWhere((e) => e.key == l))
                           .toList(),
-                      validator: (value) => value == null || value.isEmpty
-                          ? "chooseLanguage".tr()
-                          : null,
+                      validator: (value) =>
+                          value == null || value.isEmpty || value.length < 2
+                              ? "chooseLanguage".tr()
+                              : null,
                     ),
                     getSpacer,
                     Text(
