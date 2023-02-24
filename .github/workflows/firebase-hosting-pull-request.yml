@@ -5,6 +5,7 @@ name: Deploy to Firebase Hosting on PR
 "on": pull_request_target
 jobs:
   build_and_preview:
+    name: Build and preview
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
