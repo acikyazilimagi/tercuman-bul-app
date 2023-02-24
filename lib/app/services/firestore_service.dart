@@ -23,7 +23,7 @@ class FirestoreService {
       }
 
       var translator = await firestore
-          .collection(FirestoreCollectionPath.dev.name)
+          .collection(getEnv('TRANSLATOR_DB'))
           .doc(userId)
           .get();
       if (translator.exists) {
@@ -48,7 +48,7 @@ class FirestoreService {
       }
 
       await firestore
-          .collection(FirestoreCollectionPath.dev.name)
+          .collection(getEnv('TRANSLATOR_DB'))
           .doc(userId)
           .set(translator.toJson());
 
@@ -67,7 +67,7 @@ class FirestoreService {
       if (userId == null) return;
 
       await firestore
-          .collection(FirestoreCollectionPath.dev.name)
+          .collection(getEnv('TRANSLATOR_DB'))
           .doc(userId)
           .update(translator.toJson());
     } catch (e) {
@@ -88,8 +88,4 @@ class FirestoreService {
       log("Update location exception: ${e.toString()}");
     }
   }
-}
-
-enum FirestoreCollectionPath {
-  dev,
 }
