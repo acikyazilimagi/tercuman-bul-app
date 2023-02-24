@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_app/app/models/translator.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
+import 'package:nylo_framework/nylo_framework.dart';
 
 import 'location_service.dart';
 
@@ -79,7 +80,7 @@ class FirestoreService {
       var userId = AuthService().currentUser?.uid;
       if (userId != null) {
         await firestore
-            .collection(FirestoreCollectionPath.dev.name)
+            .collection(getEnv('TRANSLATOR_DB'))
             .doc(userId)
             .set({"location": location}, SetOptions(merge: true));
       }
