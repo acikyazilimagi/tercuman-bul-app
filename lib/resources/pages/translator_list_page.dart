@@ -231,24 +231,12 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                     crossAxisCount: 2,
                     childAspectRatio: MediaQuery.of(context).size.width / 100,
                     children: [
-                      if (filteredTranslators[index]
-                              .contact["messenger"]
-                              ?.isNotEmpty ==
-                          true)
-                        _contactButton("messenger",
-                            "https://www.m.me/${filteredTranslators[index].contact["messenger"]}"),
-                      if (filteredTranslators[index]
-                              .contact["twitter"]
-                              ?.isNotEmpty ==
-                          true)
-                        _contactButton("twitter",
-                            "https://twitter.com/${filteredTranslators[index].contact["twitter"]}"),
-                      if (filteredTranslators[index]
-                              .contact["whatsapp"]
-                              ?.isNotEmpty ==
-                          true)
-                        _contactButton("whatsapp",
-                            "https://www.wa.me/${filteredTranslators[index].contact["whatsapp"]}"),
+                      _contactButton("messenger",
+                          filteredTranslators[index].contact["messenger"]),
+                      _contactButton("twitter",
+                          filteredTranslators[index].contact["twitter"]),
+                      _contactButton("whatsapp",
+                          filteredTranslators[index].contact["whatsapp"]),
                     ],
                   ),
                 }
@@ -261,23 +249,40 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
     );
   }
 
-  Widget _contactButton(String type, String linkToOpen) => ElevatedButton.icon(
-        onPressed: () async {
-          if (await canLaunchUrl(Uri.parse(linkToOpen))) {
-            await launchUrl(Uri.parse(linkToOpen));
-          } else {
-            log("Error: Contact link didn't open");
-          }
-        },
-        label: Text(type.tr()),
-        icon: Icon(MdiIcons.fromString(type == 'messenger' ? 'facebookMessenger': type)),
-        style: ElevatedButton.styleFrom(
-          backgroundColor: LightThemeColors().context,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
+  Widget _contactButton(String type, String? link) {
+    if (link == null || link.trim().isEmpty) return Container();
+
+    if (type == "messenger") {
+      link = "https://www.m.me/$link";
+    } else if (type == "twitter") {
+      link = "https://twitter.com/$link";
+    } else if (type == "whatsapp") {
+      if (link.contains("|")) {
+        link = "https://www.wa.me/${link.split("|").skip(1).join("")}";
+      } else {
+        return Container();
+      }
+    }
+
+    return ElevatedButton.icon(
+      onPressed: () async {
+        if (await canLaunchUrl(Uri.parse(link!))) {
+          await launchUrl(Uri.parse(link));
+        } else {
+          log("Error: Contact link didn't open");
+        }
+      },
+      label: Text(type.tr()),
+      icon: Icon(MdiIcons.fromString(
+          type == 'messenger' ? 'facebookMessenger' : type)),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: LightThemeColors().context,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
         ),
-      );
+      ),
+    );
+  }
 
   Widget get getSpacer => SizedBox(height: context.veryLowHeight);
 
