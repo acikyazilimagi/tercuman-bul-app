@@ -253,12 +253,12 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
     if (link == null || link.trim().isEmpty) return Container();
 
     if (type == "messenger") {
-      link = "https://www.m.me/$link";
+      link = "https://m.me/$link";
     } else if (type == "twitter") {
       link = "https://twitter.com/$link";
     } else if (type == "whatsapp") {
       if (link.contains("|")) {
-        link = "https://www.wa.me/${link.split("|").skip(1).join("")}";
+        link = "https://wa.me/${link.split("|").skip(1).join("")}";
       } else {
         return Container();
       }
