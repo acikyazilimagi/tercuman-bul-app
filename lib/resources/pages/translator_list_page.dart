@@ -12,7 +12,6 @@ import 'package:flutter_app/resources/widgets/loader_widget.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:nylo_framework/nylo_framework.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../app/controllers/auth_controller.dart';
 import '../../app/models/translator_list_item.dart';
@@ -215,31 +214,45 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                       .toList(),
                 ),
                 getSpacer,
-                if (filteredTranslators[index].contact.isNotEmpty) ...{
-                  Text(
-                    "contactInformation".tr(),
-                    style: const TextStyle(fontSize: 12),
-                  ),
-                  getSpacer,
-                  GridView.count(
-                    primary: false,
+                Text(
+                  "contactInformation".tr(),
+                  style: const TextStyle(fontSize: 12),
+                ),
+                getSpacer,
+                ElevatedButton.icon(
+                  onPressed: () async {
+                    print("test");
+                  },
+                  label: const Text("Request Help"),
+                  icon: const Icon(MdiIcons.chat),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: LightThemeColors().context,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     padding: const EdgeInsets.all(10),
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    crossAxisCount: 2,
-                    childAspectRatio: MediaQuery.of(context).size.width / 100,
-                    children: [
-                      _contactButton("messenger",
-                          filteredTranslators[index].contact["messenger"]),
-                      _contactButton("twitter",
-                          filteredTranslators[index].contact["twitter"]),
-                      _contactButton("whatsapp",
-                          filteredTranslators[index].contact["whatsapp"]),
-                    ],
                   ),
-                }
+                ),
+                // if (filteredTranslators[index].contact.isNotEmpty) ...{
+                //   GridView.count(
+                //     primary: false,
+                //     padding: const EdgeInsets.all(10),
+                //     shrinkWrap: true,
+                //     physics: const NeverScrollableScrollPhysics(),
+                //     crossAxisSpacing: 10,
+                //     mainAxisSpacing: 10,
+                //     crossAxisCount: 2,
+                //     childAspectRatio: MediaQuery.of(context).size.width / 100,
+                //     children: [
+                //       _contactButton("messenger",
+                //           filteredTranslators[index].contact["messenger"]),
+                //       _contactButton("twitter",
+                //           filteredTranslators[index].contact["twitter"]),
+                //       _contactButton("whatsapp",
+                //           filteredTranslators[index].contact["whatsapp"]),
+                //     ],
+                //   ),
+                // }
               ],
             ),
           ),
@@ -249,40 +262,41 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
     );
   }
 
-  Widget _contactButton(String type, String? link) {
-    if (link == null || link.trim().isEmpty) return Container();
-
-    if (type == "messenger") {
-      link = "https://m.me/$link";
-    } else if (type == "twitter") {
-      link = "https://twitter.com/$link";
-    } else if (type == "whatsapp") {
-      if (link.contains("|")) {
-        link = "https://wa.me/${link.split("|").skip(1).join("").replaceAll("+","")}";
-      } else {
-        return Container();
-      }
-    }
-
-    return ElevatedButton.icon(
-      onPressed: () async {
-        if (await canLaunchUrl(Uri.parse(link!))) {
-          await launchUrl(Uri.parse(link));
-        } else {
-          log("Error: Contact link didn't open");
-        }
-      },
-      label: Text(type.tr()),
-      icon: Icon(MdiIcons.fromString(
-          type == 'messenger' ? 'facebookMessenger' : type)),
-      style: ElevatedButton.styleFrom(
-        backgroundColor: LightThemeColors().context,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-      ),
-    );
-  }
+  // Widget _contactButton(String type, String? link) {
+  //   if (link == null || link.trim().isEmpty) return Container();
+  //
+  //   if (type == "messenger") {
+  //     link = "https://m.me/$link";
+  //   } else if (type == "twitter") {
+  //     link = "https://twitter.com/$link";
+  //   } else if (type == "whatsapp") {
+  //     if (link.contains("|")) {
+  //       link =
+  //           "https://wa.me/${link.split("|").skip(1).join("").replaceAll("+", "")}";
+  //     } else {
+  //       return Container();
+  //     }
+  //   }
+  //
+  //   return ElevatedButton.icon(
+  //     onPressed: () async {
+  //       if (await canLaunchUrl(Uri.parse(link!))) {
+  //         await launchUrl(Uri.parse(link));
+  //       } else {
+  //         log("Error: Contact link didn't open");
+  //       }
+  //     },
+  //     label: Text(type.tr()),
+  //     icon: Icon(MdiIcons.fromString(
+  //         type == 'messenger' ? 'facebookMessenger' : type)),
+  //     style: ElevatedButton.styleFrom(
+  //       backgroundColor: LightThemeColors().context,
+  //       shape: RoundedRectangleBorder(
+  //         borderRadius: BorderRadius.circular(10),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Widget get getSpacer => SizedBox(height: context.veryLowHeight);
 
