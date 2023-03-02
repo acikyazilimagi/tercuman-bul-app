@@ -217,7 +217,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                 getSpacer,
                 if (filteredTranslators[index].contact.isNotEmpty) ...{
                   Text(
-                    'contactInformation'.tr(),
+                    "contactInformation".tr(),
                     style: const TextStyle(fontSize: 12),
                   ),
                   getSpacer,
@@ -258,7 +258,7 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
       link = "https://twitter.com/$link";
     } else if (type == "whatsapp") {
       if (link.contains("|")) {
-        link = "https://wa.me/${link.split("|").skip(1).join("")}";
+        link = "https://wa.me/${link.split("|").skip(1).join("").replaceAll("+","")}";
       } else {
         return Container();
       }
