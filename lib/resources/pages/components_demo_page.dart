@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/controllers/controller.dart';
 import 'package:flutter_app/resources/themes/styles/light_theme_colors.dart';
@@ -15,12 +13,13 @@ import 'package:nylo_framework/nylo_framework.dart';
 import '../widgets/atoms/country_flag_name.dart';
 import '../widgets/molecules/main_scaffold.dart';
 import '../widgets/molecules/contact_link_field.dart';
-import '../widgets/molecules/country_dialing_code_picker.dart';
 
 class ComponentsDemoPage extends NyStatefulWidget {
   static const String path = "/demo";
+
   @override
   get controller => Controller();
+
   ComponentsDemoPage({super.key});
 
   @override
@@ -28,16 +27,6 @@ class ComponentsDemoPage extends NyStatefulWidget {
 }
 
 class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
-  List<dynamic>? countryData;
-
-  @override
-  init() async {
-    super.init();
-    String json = await DefaultAssetBundle.of(context)
-        .loadString("public/assets/data/countries.json");
-    countryData = jsonDecode(json);
-  }
-
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
@@ -70,7 +59,7 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
             CustomSelectableTile(
               titleText: "onsiteSupport".tr(),
               isSelected: true,
-              onSelectStateChanged: (isSele) {},
+              onSelectStateChanged: (selected) {},
             ),
             const SizedBox(height: 16),
             expandableCards(),
@@ -255,7 +244,6 @@ class _ComponentsDemoPageState extends NyState<ComponentsDemoPage> {
         const SizedBox(height: 8),
         const CountryFlagName(code: 'tr', name: 'Turkey'),
         const SizedBox(height: 8),
-        CountryDialingCodePicker(countryData: countryData),
         const LanguagePicker(),
       ],
     );
