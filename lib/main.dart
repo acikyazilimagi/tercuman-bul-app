@@ -1,6 +1,5 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app/services/auth_service.dart';
 import '/bootstrap/app.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'app/models/languages.dart';
@@ -21,27 +20,6 @@ void main() async {
       print('Message also contained a notification: ${message.notification}');
     }
   });
-
-  if(AuthService().hasSession) {
-    FirebaseMessaging messaging = FirebaseMessaging.instance;
-    NotificationSettings settings = await messaging.requestPermission(
-      alert: true,
-      announcement: false,
-      badge: true,
-      carPlay: false,
-      criticalAlert: false,
-      provisional: false,
-      sound: true,
-    );
-
-    print('notification settings ${settings.toString()}');
-
-    if(settings.authorizationStatus != AuthorizationStatus.denied) {
-      final fcmToken = await FirebaseMessaging.instance.getToken(
-          vapidKey: "BM6l5fsHPKyO8XNC1nXlGtdUJ6gDz3hGSF_lrLwmOUQNcRCRFK2EDtjec3BMDh-cKzoAvNeZURaOSlpgWJ8u7iI");
-      print('fcm token $fcmToken');
-    }
-  }
 
   runApp(
     AppBuild(

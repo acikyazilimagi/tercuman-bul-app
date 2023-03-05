@@ -52,7 +52,10 @@ class _AuthPageState extends NyState<AuthPage> {
           actions: [
             AuthStateChangeAction<SignedIn>(
               (context, state) async {
-                await FirestoreService().getTranslator();
+                FirestoreService firestoreService = FirestoreService();
+                await firestoreService.updateFcmToken();
+                await firestoreService.getTranslator();
+
                 routeTo(
                   nextPage,
                   removeUntilPredicate: (route) => false,
