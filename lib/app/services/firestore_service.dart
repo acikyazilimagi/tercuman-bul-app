@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_app/app/models/translator.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
 import 'package:nylo_framework/nylo_framework.dart';
@@ -22,10 +23,8 @@ class FirestoreService {
         return;
       }
 
-      var translator = await firestore
-          .collection(getEnv('TRANSLATOR_DB'))
-          .doc(userId)
-          .get();
+      var translator =
+          await firestore.collection(getEnv('TRANSLATOR_DB')).doc(userId).get();
       if (translator.exists) {
         AuthService().currentTranslator =
             Translator.fromJson(translator.data()!);
@@ -86,6 +85,49 @@ class FirestoreService {
       }
     } catch (e) {
       log("Update location exception: ${e.toString()}");
+    }
+  }
+
+  Future<void> requestHelp(String uid) async {
+    try {
+      var userId = AuthService().currentUser?.uid;
+      if (userId != null) {
+        await firestore
+            .collection("${getEnv('TRANSLATOR_DB')}Notifications")
+            .doc(uid)
+            .set({"sender": userId, "fcm": "fcm-t"});
+      }
+    } catch (e) {
+      log("Failed to request help: ${e.toString()}");
+    }
+  }
+
+  updateFcmToken() async {
+    if (AuthService().hasSession) {
+      FirebaseMessaging messaging = FirebaseMessaging.instance;
+      NotificationSettings settings = await messaging.requestPermission(
+        alert: true,
+        announcement: false,
+        badge: true,
+        carPlay: false,
+        criticalAlert: false,
+        provisional: false,
+        sound: true,
+      );
+
+      if (settings.authorizationStatus != AuthorizationStatus.denied) {
+        final fcmToken = await FirebaseMessaging.instance.getToken(
+            vapidKey:
+                "BM6l5fsHPKyO8XNC1nXlGtdUJ6gDz3hGSF_lrLwmOUQNcRCRFK2EDtjec3BMDh-cKzoAvNeZURaOSlpgWJ8u7iI");
+        await firestore
+            .collection("${getEnv('TRANSLATOR_DB')}FcmTokens")
+            .doc(AuthService().currentUser?.uid)
+            .set({
+          "tokens": {
+            {fcmToken: FieldValue.serverTimestamp()},
+          }
+        }, SetOptions(merge: true));
+      }
     }
   }
 }
