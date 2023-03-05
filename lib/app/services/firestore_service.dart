@@ -124,7 +124,7 @@ class FirestoreService {
             .doc(AuthService().currentUser?.uid)
             .set({
           "tokens": {
-            {fcmToken: FieldValue.serverTimestamp()},
+            fcmToken: FieldValue.serverTimestamp(),
           }
         }, SetOptions(merge: true));
       }

@@ -4,13 +4,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
 part 'translator.freezed.dart';
+
 part 'translator.g.dart';
 
 @freezed
 class Translator with _$Translator {
   // ignore: invalid_annotation_target
   @JsonSerializable(explicitToJson: true)
-
   const factory Translator({
     String? uuid,
     Capabilities? capabilities,
@@ -67,6 +67,7 @@ class Contact with _$Contact {
     String? phone,
     String? twitter,
   }) = _Contact;
+
   const Contact._();
 
   factory Contact.fromJson(Map<String, Object?> json) =>
@@ -81,4 +82,19 @@ class Contact with _$Contact {
       (messenger?.isNotEmpty == true) ||
       (twitter?.isNotEmpty == true) ||
       (whatsapp?.isNotEmpty == true);
+}
+
+@freezed
+class FcmToken with _$FcmToken {
+  const factory FcmToken({required String token, int? timestamp}) = _FcmToken;
+
+  const FcmToken._();
+
+  factory FcmToken.fromJson(Map<String, Object?> json) =>
+      _$FcmTokenFromJson(json);
+
+  @override
+  String toString() {
+    return "fcmToken: $token timestamp: $timestamp";
+  }
 }
