@@ -3,11 +3,13 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/models/languages.dart';
 import 'package:flutter_app/app/services/auth_service.dart';
+import 'package:flutter_app/app/services/firestore_service.dart';
 import 'package:flutter_app/app/services/location_service.dart';
 import 'package:flutter_app/resources/extensions/dynamic_size_extension.dart';
 import 'package:flutter_app/resources/extensions/padding_extension.dart';
 import 'package:flutter_app/resources/pages/become_translator_page.dart';
 import 'package:flutter_app/resources/pages/translator_profile_page.dart';
+import 'package:flutter_app/resources/widgets/atoms/custom_button.dart';
 import 'package:flutter_app/resources/widgets/loader_widget.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -219,19 +221,13 @@ class _TranslatorListPageState extends NyState<TranslatorListPage> {
                   style: const TextStyle(fontSize: 12),
                 ),
                 getSpacer,
-                ElevatedButton.icon(
+                CustomButton(
+                  text: "requestHelp".tr(),
+                  icon: Icons.chat,
+                  style: CustomButtonStyles.lightFilled,
                   onPressed: () async {
-                    print("test");
+                    await FirestoreService().requestHelp(filteredTranslators[index].uid);
                   },
-                  label: const Text("Request Help"),
-                  icon: const Icon(MdiIcons.chat),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: LightThemeColors().context,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    padding: const EdgeInsets.all(10),
-                  ),
                 ),
                 // if (filteredTranslators[index].contact.isNotEmpty) ...{
                 //   GridView.count(
