@@ -1,11 +1,11 @@
 {
-    "name": "tercuman_bulmaca",
-    "short_name": "tercuman_bulmaca",
+    "name": "Tercuman Bul",
+    "short_name": "TB",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Find a translator, fast!",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
