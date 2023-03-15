@@ -95,7 +95,7 @@ class FirestoreService {
         await firestore
             .collection("${getEnv('TRANSLATOR_DB')}Notifications")
             .doc(uid)
-            .set({"sender": userId, "fcm": "fcm-t"});
+            .set({"sender": userId });
       }
     } catch (e) {
       log("Failed to request help: ${e.toString()}");
