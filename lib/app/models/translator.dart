@@ -83,18 +83,3 @@ class Contact with _$Contact {
       (twitter?.isNotEmpty == true) ||
       (whatsapp?.isNotEmpty == true);
 }
-
-@freezed
-class FcmToken with _$FcmToken {
-  const factory FcmToken({required String token, int? timestamp}) = _FcmToken;
-
-  const FcmToken._();
-
-  factory FcmToken.fromJson(Map<String, Object?> json) =>
-      _$FcmTokenFromJson(json);
-
-  @override
-  String toString() {
-    return "fcmToken: $token timestamp: $timestamp";
-  }
-}
