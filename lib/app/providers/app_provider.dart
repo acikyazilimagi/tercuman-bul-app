@@ -32,6 +32,7 @@ class AppProvider implements NyProvider {
     await Firebase.initializeApp(options: DefaultFirebaseOptions().currentPlatform);
 
     AuthService().configureProviders();
+    await FirestoreService().updateFcmToken();
     await FirestoreService().getTranslator();
     LocationService();
     return nylo;
